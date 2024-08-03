@@ -48,4 +48,4 @@ correctly.
 
 ## License
 
-Licensed under the [MIT license](https://github.com/nextui-org/vite-template/blob/main/LICENSE).
+Licensed under the [MIT license](https://github.com/nextui-org/vite-template/blob/main/LICENSE)
