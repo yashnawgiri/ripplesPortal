@@ -6,6 +6,7 @@ import App from "./App.tsx";
 import {Provider} from "./provider.tsx";
 import "@/styles/globals.css";
 
+// this is the entry point
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
         <BrowserRouter>
