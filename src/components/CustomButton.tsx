@@ -10,7 +10,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({ onClick, className, childre
     return (
         <button
             onClick={onClick}
-            className={`rounded-[36px] text-white px-4 ${className}`}
+            className={`rounded-[36px] text-white px-7 py-3 ${className}`}
         >
             {children}
         </button>
