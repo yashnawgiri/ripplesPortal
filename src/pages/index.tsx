@@ -2,9 +2,11 @@ import { title } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
 import { Image } from "@nextui-org/image";
 import flyer from "@/assets/images/flayer.png";
-import DashboardCard from "@/components/dashboardCard";
 import HowDoesItWork from "@/components/HowDoesItWork";
 import CustomButton from "@/components/CustomButton";
+import GradiantCards from "@/components/GradiantCards";
+import FAQ from "@/components/FAQ";
+import DashboardCard from "@/components/dashboardCard";
 
 export default function IndexPage() {
     return (
@@ -40,9 +42,13 @@ export default function IndexPage() {
                     <HowDoesItWork/>     
                 </div>
                 <div className="text-center">
-                    <h1 className={`${title({ size: 'lg', color: 'foreground', weight: 'extrabold'})}`}>Great Features</h1>
+                    <h1 className={`${title({ size: 'lg', color: 'foreground', weight: 'bold'})}`}>Great Features</h1>
                     <p className="text-base max-w-2xl mt-4 text-gray-500">Torem ipsum dolor sit amet consectetur. Nulla quisque scelerisque eget quis. Eu amet amet eu interdum.</p>
                 </div>
+                <GradiantCards/>
+                <CustomButton onClick={() => { }} className="bg-[#7214FF] my-14">Get a Started</CustomButton>
+                <FAQ />
+                <CustomButton onClick={() => { }} className="bg-[#7214FF] my-14">Get a Started</CustomButton>
             </section>
         </DefaultLayout>
     );

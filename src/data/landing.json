@@ -1,0 +1,83 @@
+{
+    "faqData": [
+        {
+            "question": "01 How does Ripple work?",
+            "answer": "Rorem ipsum dolor sit amet consectetur. Proin dignissim tortor mauris viverra sed volutpat mauris. Amet nisi amet commodo adipiscing ut imperdiet nunc."
+        },
+        {
+            "question": "02 How does Ripple work?",
+            "answer": "Rorem ipsum dolor sit amet consectetur. Proin dignissim tortor mauris viverra sed volutpat mauris. Amet nisi amet commodo adipiscing ut imperdiet nunc."
+        },
+        {
+            "question": "03 How does Ripple work?",
+            "answer": "Rorem ipsum dolor sit amet consectetur. Proin dignissim tortor mauris viverra sed volutpat mauris. Amet nisi amet commodo adipiscing ut imperdiet nunc."
+        },
+        {
+            "question": "04 How does Ripple work?",
+            "answer": "Rorem ipsum dolor sit amet consectetur. Proin dignissim tortor mauris viverra sed volutpat mauris. Amet nisi amet commodo adipiscing ut imperdiet nunc."
+        }
+    ],
+    "GradiantCardsData": [
+        {
+            "title": "Multiple Revenue Streams",
+            "description": "Rorem ipsum dolor sit amet consectetur. Proin dignissim tortor mauris viverra sed volutpat mauris. Amet nisi amet commodo adipiscing ut imperdiet nunc."
+        },
+        {
+            "title": "Get Virality",
+            "description": "Prem ipsum dolor sit amet consectetur. Viverra sed dignissim risus aliquet condimentum. Vulputate varius feugiat egestas congue."
+        },
+        {
+            "title": "Ad-worthy content from customers",
+            "description": "Tellus et adipiscing sit sit mauris pharetra bibendum. Ligula massa netus nulla ultricies purus."
+        }
+    ],
+    "HowDoesItWorkData": [
+        {
+            "number": 1,
+            "title": "Setup reward programs",
+            "description": "With lots of unique blocks, you can easily build a page easily without any coding."
+        },
+        {
+            "number": 2,
+            "title": "Shopper receives CTA at POS",
+            "description": "With lots of unique blocks, you can easily build a page easily without any coding."
+        },
+        {
+            "number": 3,
+            "title": "Shopper shares amongst followers",
+            "description": "With lots of unique blocks, you can easily build a page easily without any coding."
+        },
+        {
+            "number": 4,
+            "title": "Identify micro influencers amongst shoppers",
+            "description": "With lots of unique blocks, you can easily build a page easily without any coding."
+        },
+        {
+            "number": 5,
+            "title": "Brands give out influencer style rewards - cash in the ripple wallet",
+            "description": "With lots of unique blocks, you can easily build a page easily without any coding."
+        },
+        {
+            "number": 6,
+            "title": "Streamlined tracking sales & traffic",
+            "description": "With lots of unique blocks, you can easily build a page easily without any coding."
+        }
+    ],
+    "dashboardCardData": [
+        {
+            "title": "Lower CAC, Increase ROI",
+            "icon": 0,
+            "description": "Borem ipsum dolor sit amet consectetur. Turpis tristique nulla posuere et amet arcu dictum ultricies convallis."
+        },
+        {
+            "title": "Incentivize users",
+            "icon": 1,
+            "description": "Worem ipsum dolor sit amet consectetur. Turpis tristique nulla posuere et amet arcu dictum ultricies convallis."
+        },
+        {
+            "title": "Tap into new GTM channel",
+            "icon": 2,
+            "description": "Bem ipsum dolor sit amet consectetur. Turpis tristique nulla posuere et amet arcu dictum ultricies convallis."
+        }
+    ]
+}
