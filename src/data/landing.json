@@ -1,20 +1,20 @@
 {
     "faqData": [
         {
-            "question": "01 How does Ripple work?",
-            "answer": "Rorem ipsum dolor sit amet consectetur. Proin dignissim tortor mauris viverra sed volutpat mauris. Amet nisi amet commodo adipiscing ut imperdiet nunc."
+            "question": "1. Can I track the performance of my referral program?",
+            "answer": "Yes, Ripples offers dashboards that track sales, traffic generated, and conversions for each customer sharing referral links, allowing you to monitor the success of your referral program."
         },
         {
-            "question": "02 How does Ripple work?",
-            "answer": "Rorem ipsum dolor sit amet consectetur. Proin dignissim tortor mauris viverra sed volutpat mauris. Amet nisi amet commodo adipiscing ut imperdiet nunc."
+            "question": "2.  How do customers receive their rewards?",
+            "answer": "Once a customer makes a purchase, they receive a pop-up, email, and SMS prompting them to share their purchase. When their referrals result in sales, customers are rewarded with cash added to their Ripple wallet on an exclusive website for the referrers. The cash is awarded after the return period is over."
         },
         {
-            "question": "03 How does Ripple work?",
-            "answer": "Rorem ipsum dolor sit amet consectetur. Proin dignissim tortor mauris viverra sed volutpat mauris. Amet nisi amet commodo adipiscing ut imperdiet nunc."
+            "question": "3. Is it easy to set up Ripples on my ecommerce site?",
+            "answer": "Yes, Ripples is designed to be easy to set up and use. Witha simple app that you can integrate from yur Shopify Store, you can integrate and kick start Ripples in 3 easy steps."
         },
         {
-            "question": "04 How does Ripple work?",
-            "answer": "Rorem ipsum dolor sit amet consectetur. Proin dignissim tortor mauris viverra sed volutpat mauris. Amet nisi amet commodo adipiscing ut imperdiet nunc."
+            "question": "4. What is the pricing model for Ripples?",
+            "answer": "Ripples offers a pay-as-you-scale pricing model.Which is suitable for young startups & bigger companies."
         }
     ],
     "GradiantCardsData": [
