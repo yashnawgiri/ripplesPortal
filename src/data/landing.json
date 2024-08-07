@@ -20,64 +20,84 @@
     "GradiantCardsData": [
         {
             "title": "Multiple Revenue Streams",
-            "description": "Rorem ipsum dolor sit amet consectetur. Proin dignissim tortor mauris viverra sed volutpat mauris. Amet nisi amet commodo adipiscing ut imperdiet nunc."
+            "description": "Acquire new users you were currently not able to convert. Use Ripples to leverage the power of word-of-mouth marketing, significantly boosting sales.​"
         },
         {
             "title": "Get Virality",
-            "description": "Prem ipsum dolor sit amet consectetur. Viverra sed dignissim risus aliquet condimentum. Vulputate varius feugiat egestas congue."
+            "description": "Convert customers to high performing ad creators in a matter of minutes"
         },
         {
-            "title": "Ad-worthy content from customers",
-            "description": "Tellus et adipiscing sit sit mauris pharetra bibendum. Ligula massa netus nulla ultricies purus."
+            "title": "Get Ad-worthy content from customers",
+            "description": "UGC content created by customers can then be repurposed into advertisements, providing you authentic and cost-effective marketing material."
         }
     ],
     "HowDoesItWorkData": [
         {
             "number": 1,
             "title": "Setup reward programs",
-            "description": "With lots of unique blocks, you can easily build a page easily without any coding."
+            "description": "Use our Shopify app as a plugin to give gamified actionable steps post purchase to ensure your customers share about their purchase with their unique link"
         },
         {
             "number": 2,
             "title": "Shopper receives CTA at POS",
-            "description": "With lots of unique blocks, you can easily build a page easily without any coding."
+            "description": "As soon as a shopper makes purchase, they get a pop up, email and SMS to get cash for sharing their purchase"
         },
         {
             "number": 3,
             "title": "Shopper shares amongst followers",
-            "description": "With lots of unique blocks, you can easily build a page easily without any coding."
+            "description": "Shopper shares their purchase with their followers and social circle"
         },
         {
             "number": 4,
             "title": "Identify micro influencers amongst shoppers",
-            "description": "With lots of unique blocks, you can easily build a page easily without any coding."
+            "description": "Dashboards to track sales, traffic generated and conversions for each customer sharing referral links"
         },
         {
             "number": 5,
             "title": "Brands give out influencer style rewards - cash in the ripple wallet",
-            "description": "With lots of unique blocks, you can easily build a page easily without any coding."
+            "description": "In case anyone purchases through the customer’s unique link, brands give them affiliate style cash reward after the return period is over.Your shoppers access a portal to access gamified rewards."
         },
         {
             "number": 6,
             "title": "Streamlined tracking sales & traffic",
-            "description": "With lots of unique blocks, you can easily build a page easily without any coding."
+            "description": "Identify and incentivize customers with significant social media followings (over 5,000 followers) to become micro-influencers for your brand. Provide them with unique tasks and rewards to create user-generated content (UGC) at scale."
         }
     ],
     "dashboardCardData": [
         {
-            "title": "Lower CAC, Increase ROI",
             "icon": 0,
-            "description": "Borem ipsum dolor sit amet consectetur. Turpis tristique nulla posuere et amet arcu dictum ultricies convallis."
+            "title": "Reduce CAC & Increase ROI",
+            "description": "Our user referral GTM is executed at about 65% lower CAC than performance marketing campaigns."
         },
         {
-            "title": "Incentivize users",
             "icon": 1,
-            "description": "Worem ipsum dolor sit amet consectetur. Turpis tristique nulla posuere et amet arcu dictum ultricies convallis."
+            "title": "Incentivize users",
+            "description": "Incentivize users at POS and automate post purchase rewards payout. Ripples is a SAAS you can set and forget."
         },
         {
-            "title": "Tap into new GTM channel",
             "icon": 2,
-            "description": "Bem ipsum dolor sit amet consectetur. Turpis tristique nulla posuere et amet arcu dictum ultricies convallis."
+            "title": "Tap into new GTM channel",
+            "description": "Brands these days are leaving so much revenue on the table by not tapping effectively into customer referrals as an acquisition channel."
+        }
+    ],
+    "testimonialsData": [
+        {
+            "name": "Dr. Archi mamgain",
+            "title": "Founder, Women’s Health Co.",
+            "image": "v",
+            "testimonial": "Ripples significantly boosted our customer referrals, contributing to 20% of our new acquisitions for our online store. It's an essential tool for scaling word-of-mouth marketing!"
+        },
+        {
+            "name": "Rakesh Sharma",
+            "title": "Founder, Clothing brand",
+            "image": "v",
+            "testimonial": "Thanks to Ripples, we saw a 3X increase in customer-generated content and engagement. Our customers love the rewards, and we love the boost in brand visibility and sales!"
+        },
+        {
+            "name": "Samir Saxena",
+            "title": "Founder, Food Brand",
+            "image": "v",
+            "testimonial": "Implementing Ripples was a game-changer for us. Not only did it lower our Customer Acquisition Cost by 65%, but it also turned our satisfied customers into influential brand advocates."
         }
     ]
 }

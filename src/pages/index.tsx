@@ -1,4 +1,3 @@
-import { title } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
 import { Image } from "@nextui-org/image";
 import flyer from "@/assets/images/flayer.png";
@@ -7,48 +6,41 @@ import CustomButton from "@/components/CustomButton";
 import GradiantCards from "@/components/GradiantCards";
 import FAQ from "@/components/FAQ";
 import DashboardCard from "@/components/dashboardCard";
+import Testimonials from "@/components/Testimonials";
+import { title } from "@/components/primitives";
 
 export default function IndexPage() {
     return (
         <DefaultLayout>
-            <section className="flex flex-col items-center justify-center gap-4 md:py-10 bg-custom-radial w-screen">
-                <div className="flex justify-between pt-16">
-                    <div className="inline-block max-w-[52rem] text-left justify-center space-y-6 px-16">
-                        <h1 className="font-bold text-2xl leading-tight lg:text-6xl lg:leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 max-w-[44rem]">Turn customers into influencers, advocates, and UGC creators - your
-                            RIPPLERS!</h1>
-                        <p className="text-gray-500 text-xl">Rorem ipsum dolor sit amet consectetur. Gravida convallis orci ultrices non. Ultricies tempor at ut cursus mi. Aliquam sed amet vitae orci ac penatibus consectetur.</p>
+            <section className="flex flex-col items-center justify-center gap-4 md:py-10">
+                <div className="flex max-w-7xl w-full pt-4">
+                    <div className="w-4/6 text-left justify-center space-y-7">
+                        <h1 className="max-w-[44rem] font-bold text-2xl leading-tight lg:text-6xl lg:leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">
+                            Turn customers into influencers, advocates, and UGC creators - your RIPPLERS!
+                        </h1>
+                        <h2 className="max-w-[44rem] font-bold text-xl leading-tight lg:text-3xl lg:leading-tight bg-clip-text text-transparent bg-gradient-to-b from-gray-300 to-gray-400">
+                            Increase Your Customer Referrals by 3X. 
+                        </h2>
+                        <p className="text-gray-500 max-w-2xl text-xl">
+                            Ripples is an OS that helps you automate and scale rewarding of influencer style rewards to your customers to unlock virality.
+                        </p>
                         <div className="flex justify-start gap-4">
-                            <CustomButton onClick={() => {}} className="bg-[#7214FF] ">Get a Demo</CustomButton>
-                            <CustomButton onClick={() => {}} className="bg-[#070c25] border border-gray-700 mx-4">View Pricing</CustomButton>
+                            <CustomButton onClick={() => { }} className="bg-[#7214FF]"><a href="https://calendly.com/hello-ripples">Get a Demo</a></CustomButton>
+                            <CustomButton onClick={() => { }} className="bg-[#070c25] border border-gray-700 mx-4">View Pricing</CustomButton>
                         </div>
                     </div>
-                    <div>
-                        <Image
-                            className="my-4"
-                            isZoomed={true}
-                            width={504}
-                            height={438}
-                            alt="NextUI hero Image"
-                            src={flyer}
-                        />
-                    </div>
+                    <div className="w-3/6"><Image className="my-4" isZoomed={true} width={540} height={504} src={flyer}/></div>
                 </div>
-                <div className="grid grid-cols-9 pl-40 pr-28 pt-24 pb-12">
-                    <h1 className="col-span-6 font-bold max-w-[46rem] text-2xl lg:text-6xl bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-600">Powerful features to help you manage all your leads</h1>
-                    <p className="col-span-3 text-gray-500 py-12 pl-9">Apsum dolor sit amet consectetur. Aliquam elementum elementum in ultrices. Dui maecenas ut eros turpis ultrices metus morbi aliquet vel.</p>
+                <div className="flex justify-center text-center max-w-3xl w-full pt-16 mb-10">
+                    <h1 className={`${title({ size: 'lg', color: 'foreground', weight: 'bold' })} h-32`}>Your Customer is Your Next Ripple for Sale</h1>
                 </div>
-                <DashboardCard/>
-                <div className="my-28">
-                    <HowDoesItWork/>     
-                </div>
-                <div className="text-center">
-                    <h1 className={`${title({ size: 'lg', color: 'foreground', weight: 'bold'})}`}>Great Features</h1>
-                    <p className="text-base max-w-2xl mt-4 text-gray-500">Torem ipsum dolor sit amet consectetur. Nulla quisque scelerisque eget quis. Eu amet amet eu interdum.</p>
-                </div>
-                <GradiantCards/>
-                <CustomButton onClick={() => { }} className="bg-[#7214FF] my-14">Get a Started</CustomButton>
+                <DashboardCard />
+                <HowDoesItWork />
+                <GradiantCards />
+                <CustomButton onClick={() => { }} className="bg-[#7214FF] my-14"><a href="https://forms.gle/ERTfM3wyQ5agqtTb8">Sign Up</a></CustomButton>
                 <FAQ />
-                <CustomButton onClick={() => { }} className="bg-[#7214FF] my-14">Get a Started</CustomButton>
+                <CustomButton onClick={() => { }} className="bg-[#7214FF] my-14"><a href="https://forms.gle/ERTfM3wyQ5agqtTb8">Sign Up</a></CustomButton>
+                <Testimonials />
             </section>
         </DefaultLayout>
     );

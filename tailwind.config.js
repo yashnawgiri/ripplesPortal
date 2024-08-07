@@ -12,8 +12,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "custom-radial":
-          "radial-gradient(circle, #060b27, #170c49, #060b27)",
+        "custom-radial": "radial-gradient(circle, #060b27, #170c49, #060b27)",
+        "custom-radial2": "radial-gradient(circle, #170c49, #060b27, #060b27)",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],

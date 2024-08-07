@@ -287,3 +287,53 @@ export function MinusIcon() {
         </svg>
     );
 }
+
+export function DoubleQuotesIcon() {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="58" height="41" viewBox="0 0 58 41" fill="none">
+            <path d="M25.5283 15.6342C25.5283 6.06226 20.0382 0 12.449 0C5.34419 0 0.5 4.94553 0.5 11.965C0.5 18.9844 5.18272 22.9728 10.9958 22.9728C12.772 22.9728 14.2252 22.6537 15.517 22.1751C15.517 27.7588 10.5113 32.0661 3.56799 33.3424V41C16.4858 39.4047 25.5283 29.035 25.5283 15.6342ZM57.5 15.6342C57.5 6.06226 52.0099 0 44.4207 0C37.3159 0 32.4717 4.94553 32.4717 11.965C32.4717 18.9844 36.9929 22.9728 42.806 22.9728C44.5822 22.9728 46.0354 22.6537 47.3272 22.1751C47.3272 27.7588 42.483 32.0661 35.5397 33.3424V41C48.4575 39.4047 57.5 29.035 57.5 15.6342Z" fill="#060B27" />
+        </svg>
+    );
+}
+
+export function ForwardArrowIcon() {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+            <path d="M5.5 12H19.5" stroke="#8F9BB7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M12.5 5L19.5 12L12.5 19" stroke="#8F9BB7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    );
+}
+
+export function BackwardArrowIcon() {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+            <path d="M19.5 12L5.5 12" stroke="#282D45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M12.5 19L5.5 12L12.5 5" stroke="#282D45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    );
+}
+
+export function MetaIcon() {
+    return (
+        <svg className="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
+            <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd" />
+        </svg>
+    );
+}
+
+export function DribbbleIcon() {
+    return (
+        <svg className="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 0a10 10 0 1 0 10 10A10.009 10.009 0 0 0 10 0Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.094 20.094 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM8 1.707a8.821 8.821 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.758 45.758 0 0 0 8 1.707ZM1.642 8.262a8.57 8.57 0 0 1 4.73-5.981A53.998 53.998 0 0 1 9.54 7.222a32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.64 31.64 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM10 18.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 13.113 11a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z" clip-rule="evenodd" />
+        </svg>
+    );
+}
+
+export function DotIcon() {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="7" height="8" viewBox="0 0 6 7" fill="none">
+            <path d="M3.03473 6.19165C2.1513 6.19165 1.41848 5.91081 0.837301 5.35024C0.278927 4.76464 0 4.04502 0 3.19137C0 2.33773 0.278927 1.63034 0.837301 1.06977C1.41848 0.484172 2.1513 0.19165 3.03473 0.19165C3.89535 0.19165 4.60486 0.484172 5.1627 1.06977C5.72107 1.63034 6 2.33773 6 3.19137C6 4.04502 5.72107 4.76464 5.1627 5.35024C4.60486 5.91081 3.89535 6.19165 3.03473 6.19165Z" fill="#7214FF" />
+        </svg>
+    );
+}
