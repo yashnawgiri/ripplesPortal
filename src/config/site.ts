@@ -66,6 +66,9 @@ export const siteConfig = {
     docs: "",
     discord: "",
     sponsor: "",
+    linkedin: "https://www.linkedin.com/company/goripples/",
+    signupform: "https://forms.gle/ERTfM3wyQ5agqtTb8",
+    getdemo: "https://calendly.com/hello-ripples",
   },
   footerItems: [
     {
@@ -105,16 +108,17 @@ export const siteConfig = {
   ],
   footerContact: [
     {
-        label: "pranav.nahal@goripples.com",
-        href: "#",
+      label: "pranav.nahal@goripples.com",
+      href: "#",
     },
     {
-        label: "+91 7019932367",
-        href: "#",
+      label: "+91 7019932367",
+      href: "#",
     },
     {
-        label: "No. 4/21, Anikachalam street, Retherdon apartment, Bangalore - 560010",
-        href: "#",
-    }
-  ]
+      label:
+        "No. 4/21, Anikachalam street, Retherdon apartment, Bangalore - 560010",
+      href: "#",
+    },
+  ],
 };

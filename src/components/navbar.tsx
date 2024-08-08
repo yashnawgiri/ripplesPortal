@@ -21,7 +21,7 @@ export default function Navbar() {
                     ))}
                 </div>
                 <div className="hidden md:block">
-                    <CustomButton onClick={() => { }} className="bg-[#7214FF]"><a target="_blank" rel="noopener noreferrer" href="https://calendly.com/hello-ripples">Get a Demo</a></CustomButton>
+                    <CustomButton onClick={() => { }} className="bg-[#7214FF]"><a target="_blank" rel="noopener noreferrer" href={siteConfig.links.getdemo}>Get a Demo</a></CustomButton>
                 </div>
                 <div className="md:hidden">
                     <button onClick={() => { setIsOpen(!isOpen); }} className="text-white focus:outline-none">
@@ -39,7 +39,7 @@ export default function Navbar() {
                                 {item.label}
                             </NavLink>
                         ))}
-                        <CustomButton onClick={() => { }} className="bg-[#7214FF] mx-auto max-w-36"><a target="_blank" rel="noopener noreferrer" href="https://calendly.com/hello-ripples">Get a Demo</a></CustomButton>
+                        <CustomButton onClick={() => { }} className="bg-[#7214FF] mx-auto max-w-36"><a target="_blank" rel="noopener noreferrer" href={siteConfig.links.getdemo}>Get a Demo</a></CustomButton>
                     </div>
                 </div>
             )}

@@ -1,5 +1,5 @@
 import { siteConfig } from "@/config/site";
-import { InstagramIcon, LinkedInIcon, MetaIcon, TwitterIcon } from "./icons";
+import { InstagramIcon, LinkedInIcon } from "./icons";
 
 export default function Footer() {
     return (
@@ -42,19 +42,11 @@ export default function Footer() {
                 <div className="flex items-center justify-between">
                     <span className="px-2 md:px-0 text-sm md:text-lg text-gray-500">Copyright © 2024 <a href="#" className="hover:underline">Ripples</a></span>
                     <div className="flex px-2 md:px-0 space-x-2 md:space-x-4 mt-1 md:mt-4 ">
-                        {/* <a href="#" className="text-gray-500 border p-1 rounded-xl border-gray-800 bg-[#070c25] hover:text-gray-900">
-                            <MetaIcon/>
-                            <span className="sr-only">Facebook page</span>
-                        </a>
-                        <a href="#" className="text-gray-500 border p-1 rounded-xl border-gray-800 bg-[#070c25] hover:text-gray-900">
-                            <TwitterIcon />
-                            <span className="sr-only">Twitter page</span>
-                        </a> */}
                         <a target="_blank" rel="noopener noreferrer"  href="#" className="text-gray-500 border p-1 rounded-xl border-gray-800 bg-[#070c25] hover:text-gray-900">
                             <InstagramIcon/>
                             <span className="sr-only">GitHub account</span>
                         </a>
-                        <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/goripples/" className="text-gray-500 border p-1 rounded-xl border-gray-800 bg-[#070c25] hover:text-gray-900">
+                        <a target="_blank" rel="noopener noreferrer" href={siteConfig.links.linkedin} className="text-gray-500 border p-1 rounded-xl border-gray-800 bg-[#070c25] hover:text-gray-900">
                             <LinkedInIcon/>
                             <span className="sr-only">Dribbble account</span>
                         </a>

@@ -9,7 +9,7 @@ export default function DefaultLayout({
     return (
         <div className="relative flex flex-col items-center h-fit bg-custom-radial">
             <Navbar/>
-            <main className="container x-6 flex-grow items-center">
+            <main className="container flex-grow items-center">
                 {children}
             </main>
             <Footer/>

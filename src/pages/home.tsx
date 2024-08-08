@@ -7,8 +7,9 @@ import GradiantCards from "@/components/GradiantCards";
 import FAQ from "@/components/FAQ";
 import DashboardCard from "@/components/dashboardCard";
 import Testimonials from "@/components/Testimonials";
+import { siteConfig } from "@/config/site";
 
-export default function IndexPage() {
+export default function HomePage() {
     return (
         <DefaultLayout>
             <section className="flex flex-col items-center justify-center gap-4 md:py-10">
@@ -24,7 +25,7 @@ export default function IndexPage() {
                             Ripples is an OS that helps you automate and scale rewarding of influencer style rewards to your customers to unlock virality.
                         </p>
                         <div className="flex lg:justify-start justify-center gap-2 lg:gap-4">
-                            <CustomButton onClick={() => { }} className="bg-[#7214FF]"><a target="_blank" rel="noopener noreferrer" href="https://calendly.com/hello-ripples">Get a Demo</a></CustomButton>
+                            <CustomButton onClick={() => { }} className="bg-[#7214FF]"><a target="_blank" rel="noopener noreferrer" href={siteConfig.links.getdemo}>Get a Demo</a></CustomButton>
                             <CustomButton onClick={() => { }} className="bg-[#070c25] border border-gray-700 mx-4">View Pricing</CustomButton>
                         </div>
                     </div>
@@ -38,9 +39,9 @@ export default function IndexPage() {
                 <DashboardCard />
                 <HowDoesItWork />
                 <GradiantCards />
-                <CustomButton onClick={() => { }} className="bg-[#7214FF] my-14"><a target="_blank" rel="noopener noreferrer" href="https://forms.gle/ERTfM3wyQ5agqtTb8">Sign Up</a></CustomButton>
+                <CustomButton onClick={() => { }} className="bg-[#7214FF] my-14"><a target="_blank" rel="noopener noreferrer" href={siteConfig.links.signupform}>Sign Up</a></CustomButton>
                 <FAQ />
-                <CustomButton onClick={() => { }} className="bg-[#7214FF] my-14"><a target="_blank" rel="noopener noreferrer" href="https://forms.gle/ERTfM3wyQ5agqtTb8">Sign Up</a></CustomButton>
+                <CustomButton onClick={() => { }} className="bg-[#7214FF] my-14"><a target="_blank" rel="noopener noreferrer" href={siteConfig.links.signupform}>Sign Up</a></CustomButton>
                 {/* <Testimonials /> */}
             </section>
         </DefaultLayout>
