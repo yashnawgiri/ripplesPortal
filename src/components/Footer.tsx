@@ -43,7 +43,7 @@ export default function Footer() {
                 </div>
                 <hr className="mb-10 mt-20 border-spacing-0 border-gray-700 sm:mx-auto" />
                 <div className="flex items-center justify-between">
-                    <span className="text-lg text-gray-500">Copyright © 2024 <a href="#" className="hover:underline">Ripple</a></span>
+                    <span className="text-lg text-gray-500">Copyright © 2024 <a href="#" className="hover:underline">Ripples</a></span>
                     <div className="flex space-x-4 mt-4 ">
                         <a href="#" className="text-gray-500 border p-1 rounded-xl border-gray-800 bg-[#070c25] hover:text-gray-900">
                             <MetaIcon/>
