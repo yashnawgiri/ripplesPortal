@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Ripple ",
+  name: "Ripples ",
   description:
     "Turn customers into influencers, advocates, and UGC creators - your RIPPLERS!",
   navItems: [

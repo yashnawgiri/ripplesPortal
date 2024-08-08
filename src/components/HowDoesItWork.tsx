@@ -10,7 +10,7 @@ export default function HowDoesItWork() {
             <div className="relative">
                 {/* <hr className="absolute mt-10 mx-36 left-0 w-9/12 h-0.5 bg-gray-600 transform -translate-y-1/2"/>
                 <hr className="absolute mt-[19.5rem] mx-36 left-0 w-9/12 h-0.5 bg-gray-600 transform -translate-y-1/2"/> */}
-                <div className="flex flex-wrap justify-between gap-8 px-6 pb-2 relative">
+                <div className="flex flex-wrap md:justify-between justify-center gap-8 px-6 pb-2 relative">
                     {dashboardData.HowDoesItWorkData.map(step => (
                         <div key={step.number} className="flex flex-col items-center text-center w-80 relative">
                             <div className="flex items-center justify-center w-20 h-20 rounded-full bg-[#292D43] mb-4">

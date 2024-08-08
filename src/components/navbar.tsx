@@ -21,7 +21,7 @@ export default function Navbar() {
                     ))}
                 </div>
                 <div className="hidden md:block">
-                    <CustomButton onClick={() => { }} className="bg-[#7214FF]"><a href="https://calendly.com/hello-ripples">Get a Demo</a></CustomButton>
+                    <CustomButton onClick={() => { }} className="bg-[#7214FF]"><a target="_blank" rel="noopener noreferrer" href="https://calendly.com/hello-ripples">Get a Demo</a></CustomButton>
                 </div>
                 <div className="md:hidden">
                     <button onClick={() => { setIsOpen(!isOpen); }} className="text-white focus:outline-none">
@@ -32,14 +32,14 @@ export default function Navbar() {
                 </div>
             </div>
             {isOpen && (
-                <div className="md:hidden">
-                    <div className="flex flex-col space-y-2 mt-2">
+                <div className="md:hidden space-y-2">
+                    <div className="flex flex-col text-center space-y-2 mt-6">
                         {siteConfig.navItems.map((item) => (
                             <NavLink to={item.href} className={({ isActive }) => isActive ? "text-white" : "text-gray-400"} onClick={() => {setIsOpen(!isOpen);}}>
                                 {item.label}
                             </NavLink>
                         ))}
-                        <CustomButton onClick={() => { }} className="bg-[#7214FF]"><a href="https://calendly.com/hello-ripples">Get a Demo</a></CustomButton>
+                        <CustomButton onClick={() => { }} className="bg-[#7214FF] mx-auto max-w-36"><a target="_blank" rel="noopener noreferrer" href="https://calendly.com/hello-ripples">Get a Demo</a></CustomButton>
                     </div>
                 </div>
             )}
