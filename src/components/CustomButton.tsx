@@ -6,7 +6,7 @@ interface CustomButtonProps {
     children: React.ReactNode;
 }
 
-const CustomButton: React.FC<CustomButtonProps> = ({ onClick, className, children }) => {
+const CustomButton: React.FC<CustomButtonProps> = ({onClick, className, children}) => {
     return (
         <button
             onClick={onClick}
