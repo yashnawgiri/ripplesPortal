@@ -1,63 +1,61 @@
-import {Button} from "@nextui-org/button";
-import {Link} from "@nextui-org/link";
-import {Navbar as NextUINavbar, NavbarBrand, NavbarContent, NavbarItem,} from "@nextui-org/navbar";
-import {link as linkStyles} from "@nextui-org/theme";
-import clsx from "clsx";
-
+import {useState} from "react";
+import {NavLink} from "react-router-dom";
+import {DotIcon} from "./icons";
+import CustomButton from "./CustomButton";
 import {siteConfig} from "@/config/site";
 
-export const Navbar = () => {
+export default function Navbar() {
+    const [isOpen, setIsOpen] = useState<boolean>(false);
 
     return (
-        <NextUINavbar position="sticky">
-            <NavbarContent className="basis-1/5 basis-full" justify="start">
-                <NavbarBrand className="gap-3 max-w-fit">
-                    <Link
-                        className="flex justify-start items-center gap-1"
-                        color="foreground"
-                        href="/"
-                    >
-                        <p className="font-bold text-inherit">Ripple</p>
-                        <p>.</p>
-                    </Link>
-                </NavbarBrand>
-            </NavbarContent>
-            <NavbarContent>
-                <div className="flex gap-4 justify-start ml-2">
+        <nav className="bg-[#0e1330] w-full p-4 py-6">
+            <div className="container max-w-7xl mx-auto flex justify-between items-center">
+                <div className="text-white font-bold text-4xl flex items-center">
+                    Ripples<span className="mt-6 ml-1"><DotIcon/></span>
+                </div>
+                <div className="hidden md:flex space-x-10">
                     {siteConfig.navItems.map((item) => (
-                        <NavbarItem key={item.href}>
-                            <Link
-                                className={clsx(
-                                    linkStyles({color: "foreground"}),
-                                    "data-[active=true]:text-primary data-[active=true]:font-medium",
-                                )}
-                                color="foreground"
-                                href={item.href}
-                            >
-                                {item.label}
-                            </Link>
-                        </NavbarItem>
+                        <NavLink to={item.href} className={({isActive}) => isActive ? "text-white" : "text-gray-400"}>
+                            {item.label}
+                        </NavLink>
                     ))}
                 </div>
-            </NavbarContent>
-
-            <NavbarContent
-                className="flex basis-1/5"
-                justify="end"
-            >
-                {/* <ThemeSwitch /> */}
-                <NavbarItem className="flex">
-                    <Button
-                        isExternal
-                        as={Link}
-                        className="text-sm font-normal text-default-600 bg-default-100"
-                        href={siteConfig.links.sponsor}
-                        variant="flat"
-                    >
-                        Get a demo
-                    </Button>
-                </NavbarItem>
-            </NavbarContent>
-        </NextUINavbar>
+                <div className="hidden md:block">
+                    <CustomButton onClick={() => {
+                    }} className="bg-[#7214FF]"><a target="_blank" rel="noopener noreferrer"
+                                                   href={siteConfig.links.getdemo}>Get a Demo</a></CustomButton>
+                </div>
+                <div className="md:hidden">
+                    <button onClick={() => {
+                        setIsOpen(!isOpen);
+                    }} className="text-white focus:outline-none">
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                  d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            {isOpen && (
+                <div className="md:hidden space-y-2">
+                    <div className="flex flex-col text-center space-y-2 mt-6">
+                        {siteConfig.navItems.map((item) => (
+                            <NavLink to={item.href}
+                                     className={({isActive}) => isActive ? "text-white" : "text-gray-400"}
+                                     onClick={() => {
+                                         setIsOpen(!isOpen);
+                                     }}>
+                                {item.label}
+                            </NavLink>
+                        ))}
+                        <CustomButton onClick={() => {
+                        }} className="bg-[#7214FF] mx-auto max-w-36"><a target="_blank" rel="noopener noreferrer"
+                                                                        href={siteConfig.links.getdemo}>Get a
+                            Demo</a></CustomButton>
+                    </div>
+                </div>
+            )}
+        </nav>
     );
-};
+}

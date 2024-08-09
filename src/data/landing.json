@@ -1,0 +1,103 @@
+{
+  "faqData": [
+    {
+      "question": "1. Can I track the performance of my referral program?",
+      "answer": "Yes, Ripples offers dashboards that track sales, traffic generated, and conversions for each customer sharing referral links, allowing you to monitor the success of your referral program."
+    },
+    {
+      "question": "2.  How do customers receive their rewards?",
+      "answer": "Once a customer makes a purchase, they receive a pop-up, email, and SMS prompting them to share their purchase. When their referrals result in sales, customers are rewarded with cash added to their Ripple wallet on an exclusive website for the referrers. The cash is awarded after the return period is over."
+    },
+    {
+      "question": "3. Is it easy to set up Ripples on my ecommerce site?",
+      "answer": "Yes, Ripples is designed to be easy to set up and use. Witha simple app that you can integrate from yur Shopify Store, you can integrate and kick start Ripples in 3 easy steps."
+    },
+    {
+      "question": "4. What is the pricing model for Ripples?",
+      "answer": "Ripples offers a pay-as-you-scale pricing model.Which is suitable for young startups & bigger companies."
+    }
+  ],
+  "GradiantCardsData": [
+    {
+      "title": "Multiple Revenue Streams",
+      "description": "Acquire new users you were currently not able to convert. Use Ripples to leverage the power of word-of-mouth marketing, significantly boosting sales.​"
+    },
+    {
+      "title": "Get Virality",
+      "description": "Convert customers to high performing ad creators in a matter of minutes"
+    },
+    {
+      "title": "Get Ad-worthy content from customers",
+      "description": "UGC content created by customers can then be repurposed into advertisements, providing you authentic and cost-effective marketing material."
+    }
+  ],
+  "HowDoesItWorkData": [
+    {
+      "number": 1,
+      "title": "Setup reward programs",
+      "description": "Use our Shopify app as a plugin to give gamified actionable steps post purchase to ensure your customers share about their purchase with their unique link"
+    },
+    {
+      "number": 2,
+      "title": "Shopper receives CTA at POS",
+      "description": "As soon as a shopper makes purchase, they get a pop up, email and SMS to get cash for sharing their purchase"
+    },
+    {
+      "number": 3,
+      "title": "Shopper shares amongst followers",
+      "description": "Shopper shares their purchase with their followers and social circle"
+    },
+    {
+      "number": 4,
+      "title": "Identify micro influencers amongst shoppers",
+      "description": "Dashboards to track sales, traffic generated and conversions for each customer sharing referral links"
+    },
+    {
+      "number": 5,
+      "title": "Brands give out influencer style rewards - cash in the ripple wallet",
+      "description": "In case anyone purchases through the customer’s unique link, brands give them affiliate style cash reward after the return period is over.Your shoppers access a portal to access gamified rewards."
+    },
+    {
+      "number": 6,
+      "title": "Streamlined tracking sales & traffic",
+      "description": "Identify and incentivize customers with significant social media followings (over 5,000 followers) to become micro-influencers for your brand. Provide them with unique tasks and rewards to create user-generated content (UGC) at scale."
+    }
+  ],
+  "dashboardCardData": [
+    {
+      "icon": 0,
+      "title": "Reduce CAC & Increase ROI",
+      "description": "Our user referral GTM is executed at about 65% lower CAC than performance marketing campaigns."
+    },
+    {
+      "icon": 1,
+      "title": "Incentivize users",
+      "description": "Incentivize users at POS and automate post purchase rewards payout. Ripples is a SAAS you can set and forget."
+    },
+    {
+      "icon": 2,
+      "title": "Tap into new GTM channel",
+      "description": "Brands these days are leaving so much revenue on the table by not tapping effectively into customer referrals as an acquisition channel."
+    }
+  ],
+  "testimonialsData": [
+    {
+      "name": "Dr. Archi mamgain",
+      "title": "Founder, Women’s Health Co.",
+      "image": "v",
+      "testimonial": "Ripples significantly boosted our customer referrals, contributing to 20% of our new acquisitions for our online store. It's an essential tool for scaling word-of-mouth marketing!"
+    },
+    {
+      "name": "Rakesh Sharma",
+      "title": "Founder, Clothing brand",
+      "image": "v",
+      "testimonial": "Thanks to Ripples, we saw a 3X increase in customer-generated content and engagement. Our customers love the rewards, and we love the boost in brand visibility and sales!"
+    },
+    {
+      "name": "Samir Saxena",
+      "title": "Founder, Food Brand",
+      "image": "v",
+      "testimonial": "Implementing Ripples was a game-changer for us. Not only did it lower our Customer Acquisition Cost by 65%, but it also turned our satisfied customers into influential brand advocates."
+    }
+  ]
+}
