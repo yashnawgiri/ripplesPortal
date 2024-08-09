@@ -11,19 +11,19 @@ export const siteConfig = {
     },
     {
       label: "About",
-      href: "/about",
+      href: "/",
     },
     {
       label: "Features",
-      href: "/features",
+      href: "/",
     },
     {
       label: "Pricing",
-      href: "/pricing",
+      href: "/",
     },
     {
-      label: "Blog",
-      href: "/blog",
+      label: "Early Bird",
+      href: "/get-demo",
     },
   ],
   navMenuItems: [
@@ -67,8 +67,8 @@ export const siteConfig = {
     discord: "",
     sponsor: "",
     linkedin: "https://www.linkedin.com/company/goripples/",
-    signupform: "https://forms.gle/ERTfM3wyQ5agqtTb8",
-    getdemo: "https://calendly.com/hello-ripples",
+    signupForm:"https://script.google.com/macros/s/AKfycbxZ92NLEumTJMw8wkV5NEwBkFHDegtdtFy63kzlH2xJBOCLcN6XfFi-4J9wpfMDW8pX/exec",
+    calendly: "https://calendly.com/hello-ripples/30min",
   },
   footerItems: [
     {
@@ -106,6 +106,14 @@ export const siteConfig = {
       href: "#",
     },
   ],
+  formInput: {
+    "Name" :"",
+    "Email":"",
+    "Address":"",
+    "Phone number":"",
+    "Company Name":"",
+    "Company Website Link":"",
+  },
   footerContact: [
     {
       label: "pranav.nahal@goripples.com",
@@ -117,7 +125,7 @@ export const siteConfig = {
     },
     {
       label:
-        "No. 4/21, Anikachalam street, Retherdon apartment, Bangalore - 560010",
+        "176, Dollars Colony, JP Nagar Phase 4, Bengaluru - 560078",
       href: "#",
     },
   ],

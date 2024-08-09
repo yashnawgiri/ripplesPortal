@@ -18,7 +18,7 @@ export default function GradiantCards() {
             <h1 className="pb-4 text-xl xl:text-3xl font-bold text-white">
               {card.title}
             </h1>
-            <p className="pb-2 text-md xl:text-base text-gray-500">
+            <p className="pb-2 text-md xl:text-base text-gray-400">
               {card.description}
             </p>
           </div>

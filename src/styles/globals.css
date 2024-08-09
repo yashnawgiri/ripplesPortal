@@ -7,6 +7,29 @@
     max-width: 1280px;
 }
 
+.text-title{
+    @apply text-white w-2/4 text-start pb-4
+}
+
+.form-element{
+    @apply m-4 flex flex-col  justify-start
+}
+
+.loader-comp{
+    left : 48%;
+    top : 50%;
+    @apply z-10 fixed 
+   
+}
+
+.input-box{
+    @apply p-2 rounded-lg 
+}
+
+.form-wrapper{
+    @apply flex flex-col w-100p md:w-9/12 lg:w-6/12
+}
+
 .w-30p{
     width: 30%
 }

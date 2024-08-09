@@ -45,7 +45,7 @@ export default function Testimonials() {
         >
           What our clients say
         </h1>
-        <p className="text-base max-w-2xl py-4 text-gray-500 mx-auto">
+        <p className="text-base max-w-2xl py-4 text-gray-400 mx-auto">
           Ripples leverages the power of word-of-mouth marketing, helping you
           acquire new users you were previously unable to convert. By turning
           your customers into advocates, influencers, and UGC creators, Ripples

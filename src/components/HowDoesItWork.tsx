@@ -7,7 +7,7 @@ export default function HowDoesItWork() {
         <h2 className="font-bold w-full text-4xl lg:text-5xl bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">
           How does it work?
         </h2>
-        <p className="w-full mt-6 mb-6 md:mb-16 text-base text-gray-500">
+        <p className="w-full mt-6 mb-6 md:mb-16 text-base text-gray-400">
           Use our Shopify/Ecommerce Site plugin & Saas that gamifies user
           experience post purchase to ensure they become your brand advocates
         </p>

@@ -8,6 +8,7 @@ import GradiantCards from "@/components/GradiantCards";
 import FAQ from "@/components/FAQ";
 import DashboardCard from "@/components/dashboardCard";
 import { siteConfig } from "@/config/site";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   return (
@@ -22,19 +23,17 @@ export default function HomePage() {
             <h2 className="lg:max-w-[44rem] text-center lg:text-start lg:font-bold leading-tight lg:text-2xl xl:text-3xl xl:leading-tight bg-clip-text text-transparent bg-gradient-to-b from-gray-300 to-gray-400">
               Increase Your Customer Referrals by 3X.
             </h2>
-            <p className="text-gray-500 text-center lg:text-start max-w-2xl text-lg xl:text-xl hidden lg:block">
+            <p className="text-gray-400 text-center lg:text-start max-w-2xl text-lg xl:text-xl hidden lg:block">
               Ripples is an OS that helps you automate and scale rewarding of
               influencer style rewards to your customers to unlock virality.
             </p>
             <div className="flex lg:justify-start justify-center gap-2 lg:gap-4">
-              <CustomButton className="bg-[#7214FF]" onClick={() => {}}>
-                <a
-                  href={siteConfig.links.getdemo}
-                  rel="noopener noreferrer"
-                  target="_blank"
+              <CustomButton className="bg-[#7214FF]" onClick={() => { }}>
+                <Link
+                  to={"/get-demo"}
                 >
                   Get a Demo
-                </a>
+                </Link>
               </CustomButton>
               {/* <CustomButton onClick={() => { }} className="bg-[#070c25] border border-gray-700 mx-4">View Pricing</CustomButton> */}
             </div>
@@ -55,7 +54,7 @@ export default function HomePage() {
           <h1 className="text-3xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-[#FFFFFF] to-[#4B4B4B] h-24 md:h-36">
             Your Customer is Your Next Ripple for Sales
           </h1>
-          <p className="md:hidden text-sm md:text-base max-w-xl py-1 md:my-4 text-gray-500 mx-auto">
+          <p className="md:hidden text-sm md:text-base max-w-xl py-1 md:my-4 text-gray-400 mx-auto">
             {" "}
             Ripples is an OS that helps you automate and scale rewarding of
             influencer style rewards to your customers to unlock virality
@@ -64,24 +63,20 @@ export default function HomePage() {
         <DashboardCard />
         <HowDoesItWork />
         <GradiantCards />
-        <CustomButton className="bg-[#7214FF] my-14" onClick={() => {}}>
-          <a
-            href={siteConfig.links.signupform}
-            rel="noopener noreferrer"
-            target="_blank"
+        <CustomButton className="bg-[#7214FF] my-14" onClick={() => { }}>
+          <Link
+            to={"/get-demo"}
           >
-            Sign Up
-          </a>
+            Get a Demo
+          </Link>
         </CustomButton>
         <FAQ />
-        <CustomButton className="bg-[#7214FF] my-14" onClick={() => {}}>
-          <a
-            href={siteConfig.links.signupform}
-            rel="noopener noreferrer"
-            target="_blank"
+        <CustomButton className="bg-[#7214FF] my-14" onClick={() => { }}>
+          <Link
+            to={"/get-demo"}
           >
-            Sign Up
-          </a>
+            Get a Demo
+          </Link>
         </CustomButton>
         {/* <Testimonials /> */}
       </section>

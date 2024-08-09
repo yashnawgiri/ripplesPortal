@@ -16,7 +16,7 @@ export default function DashboardCard() {
               {item.title}
             </h1>
           </div>
-          <p className="text-gray-500 text-sm md:text-base mt-2 md:mt-0">
+          <p className="text-gray-400 text-sm md:text-base mt-2 md:mt-0">
             {item.description}
           </p>
         </div>

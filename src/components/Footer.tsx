@@ -20,7 +20,7 @@ export default function Footer() {
               <h2 className="mb-4 md:mb-8 text-xl text-gray-400 font-poppins">
                 Pages
               </h2>
-              <ul className="text-gray-500 font-medium space-y-2 md:space-y-4">
+              <ul className="text-gray-400 font-medium space-y-2 md:space-y-4">
                 {siteConfig.footerItems.map((item, _) => (
                   <li key={_}>
                     <a className="hover:underline " href={item.href}>
@@ -34,7 +34,7 @@ export default function Footer() {
               <h2 className="mb-4 md:mb-8 text-xl text-gray-400 font-poppins">
                 Legal
               </h2>
-              <ul className="text-gray-500 font-medium space-y-2 md:space-y-4">
+              <ul className="text-gray-400 font-medium space-y-2 md:space-y-4">
                 {siteConfig.footerLegal.map((item, _) => (
                   <li key={_}>
                     <a className="hover:underline " href={item.href}>
@@ -48,7 +48,7 @@ export default function Footer() {
               <h2 className="mb-4 md:mb-8 text-xl text-gray-400 font-poppins">
                 Contact
               </h2>
-              <ul className="text-gray-500 font-medium space-y-4">
+              <ul className="text-gray-400 font-medium space-y-4">
                 {siteConfig.footerContact.map((item, _) => (
                   <li key={_}>
                     <a className="hover:underline " href={item.href}>
@@ -62,7 +62,7 @@ export default function Footer() {
         </div>
         <hr className="mb-10 mt-20 border-spacing-0 border-gray-700 sm:mx-auto" />
         <div className="flex items-center justify-between">
-          <span className="px-2 md:px-0 text-sm md:text-lg text-gray-500">
+          <span className="px-2 md:px-0 text-sm md:text-lg text-gray-400">
             Copyright © 2024{" "}
             <a className="hover:underline" href="#">
               Ripples
@@ -70,7 +70,7 @@ export default function Footer() {
           </span>
           <div className="flex px-2 md:px-0 space-x-2 md:space-x-4 mt-1 md:mt-4 ">
             <a
-              className="text-gray-500 border p-1 rounded-xl border-gray-800 bg-[#070c25] hover:text-gray-900"
+              className="text-gray-400 border p-1 rounded-xl border-gray-800 bg-[#070c25] hover:text-gray-900"
               href="#"
               rel="noopener noreferrer"
               target="_blank"
@@ -79,7 +79,7 @@ export default function Footer() {
               <span className="sr-only">GitHub account</span>
             </a>
             <a
-              className="text-gray-500 border p-1 rounded-xl border-gray-800 bg-[#070c25] hover:text-gray-900"
+              className="text-gray-400 border p-1 rounded-xl border-gray-800 bg-[#070c25] hover:text-gray-900"
               href={siteConfig.links.linkedin}
               rel="noopener noreferrer"
               target="_blank"
