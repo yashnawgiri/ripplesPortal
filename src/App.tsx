@@ -1,12 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 
 import HomePage from "./pages/home";
-
-import DocsPage from "@/pages/docs";
-import PricingPage from "@/pages/pricing";
-import BlogPage from "@/pages/blog";
-import AboutPage from "@/pages/about";
-import FeaturesPage from "@/pages/features";
 import GetDemo from "@/pages/getDemo";
 
 function App() {

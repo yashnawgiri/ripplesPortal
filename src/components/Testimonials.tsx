@@ -18,7 +18,8 @@ function TestimonialCard({ id }: TestimonialCardProps) {
 
   return (
     <div className="relative flex justify-center w-[392px]">
-      <div className="absolute align-bottom mt-32 w-full h-32 border border-gray-800 bg-gradient-to-tr from-[#281e5b] to-[#074a45] rounded-xl" />
+      <div
+        className="absolute align-bottom mt-32 w-full h-32 border border-gray-800 bg-gradient-to-tr from-[#281e5b] to-[#074a45] rounded-xl" />
       <div className="relative mb-8 z-20 p-6 space-y-2 w-5/6 h-56 border border-gray-800 bg-[#0E1330] rounded-xl">
         <div className="flex justify-between">
           <div className="flex justify-around space-x-2">
@@ -59,10 +60,12 @@ export default function Testimonials() {
       </div>
       <div className=" content-center">
         <div className="flex justify-center space-x-2">
-          <button className="bg-[#0E1330] p-2 rounded-xl" onClick={() => {}}>
+          <button className="bg-[#0E1330] p-2 rounded-xl" onClick={() => {
+          }}>
             <BackwardArrowIcon />
           </button>
-          <button className="bg-[#0E1330] p-2 rounded-xl" onClick={() => {}}>
+          <button className="bg-[#0E1330] p-2 rounded-xl" onClick={() => {
+          }}>
             <ForwardArrowIcon />
           </button>
         </div>

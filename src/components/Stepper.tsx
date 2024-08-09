@@ -8,7 +8,7 @@ interface StepperProps {
   setCurrentStep: any;
 }
 
-const Stepper: React.FC<StepperProps> = ({currentStep ,setCurrentStep}) => {
+const Stepper: React.FC<StepperProps> = ({ currentStep, setCurrentStep }) => {
   const steps = ["Basic Info", "Schedule Demo"];
   const [complete, setComplete] = useState(false);
   return (
@@ -34,7 +34,7 @@ const Stepper: React.FC<StepperProps> = ({currentStep ,setCurrentStep}) => {
           onClick={() => {
             currentStep === steps.length
               ? setComplete(true)
-              : setCurrentStep((prev) => prev + 1);
+              : setCurrentStep((prev: number) => prev + 1);
           }}
         >
           {currentStep === steps.length ? "Finish" : "Next"}

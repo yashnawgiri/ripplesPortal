@@ -7,54 +7,54 @@ export const siteConfig = {
   navItems: [
     {
       label: "Home",
-      href: "/",
+      href: "/"
     },
     {
       label: "About",
-      href: "/#about",
+      href: "/#about"
     },
     {
       label: "Features",
-      href: "/#features",
+      href: "/#features"
     },
     {
       label: "Early Bird",
-      href: "/get-demo",
-    },
+      href: "/get-demo"
+    }
   ],
   navMenuItems: [
     {
       label: "Profile",
-      href: "/profile",
+      href: "/profile"
     },
     {
       label: "Dashboard",
-      href: "/dashboard",
+      href: "/dashboard"
     },
     {
       label: "Projects",
-      href: "/projects",
+      href: "/projects"
     },
     {
       label: "Team",
-      href: "/team",
+      href: "/team"
     },
     {
       label: "Calendar",
-      href: "/calendar",
+      href: "/calendar"
     },
     {
       label: "Settings",
-      href: "/settings",
+      href: "/settings"
     },
     {
       label: "Help & Feedback",
-      href: "/help-feedback",
+      href: "/help-feedback"
     },
     {
       label: "Logout",
-      href: "/logout",
-    },
+      href: "/logout"
+    }
   ],
   links: {
     github: "",
@@ -63,66 +63,66 @@ export const siteConfig = {
     discord: "",
     sponsor: "",
     linkedin: "https://www.linkedin.com/company/goripples/",
-    signupForm:"https://script.google.com/macros/s/AKfycbxZ92NLEumTJMw8wkV5NEwBkFHDegtdtFy63kzlH2xJBOCLcN6XfFi-4J9wpfMDW8pX/exec",
-    calendly: "https://calendly.com/hello-ripples/30min",
+    signupForm: "https://script.google.com/macros/s/AKfycbxZ92NLEumTJMw8wkV5NEwBkFHDegtdtFy63kzlH2xJBOCLcN6XfFi-4J9wpfMDW8pX/exec",
+    calendly: "https://calendly.com/hello-ripples/30min"
   },
   footerItems: [
     {
       label: "Home",
-      href: "#",
+      href: "#"
     },
     {
       label: "About",
-      href: "#",
+      href: "#"
     },
     {
       label: "How it works",
-      href: "#",
+      href: "#"
     },
     {
       label: "Contact",
-      href: "#",
+      href: "#"
     },
     {
       label: "Blog",
-      href: "#",
-    },
+      href: "#"
+    }
   ],
   footerLegal: [
     {
       label: "Privacy Policy",
-      href: "#",
+      href: "#"
     },
     {
       label: "Terms & Conditions",
-      href: "#",
+      href: "#"
     },
     {
       label: "Return Policy",
-      href: "#",
-    },
+      href: "#"
+    }
   ],
   formInput: {
-    "Name" :"",
-    "Email":"",
-    "Address":"",
-    "Phone number":"",
-    "Company Name":"",
-    "Company Website Link":"",
+    "Name": "",
+    "Email": "",
+    "Address": "",
+    "Phone number": "",
+    "Company Name": "",
+    "Company Website Link": ""
   },
   footerContact: [
     {
       label: "pranav.nahal@goripples.com",
-      href: "#",
+      href: "#"
     },
     {
       label: "+91 7019932367",
-      href: "#",
+      href: "#"
     },
     {
       label:
         "176, Dollars Colony, JP Nagar Phase 4, Bengaluru - 560078",
-      href: "#",
-    },
-  ],
+      href: "#"
+    }
+  ]
 };

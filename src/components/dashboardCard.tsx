@@ -4,7 +4,7 @@ import dashboardData from "@/data/landing.json";
 
 export default function DashboardCard() {
   return (
-    <div className="dashboard-card gap-4 max-w-7xl mt-4 md:w-full md:flex md:justify-between space-y-4 md:space-y-0" >
+    <div className="dashboard-card gap-4 max-w-7xl mt-4 md:w-full md:flex md:justify-between space-y-4 md:space-y-0">
       {dashboardData.dashboardCardData.map((item) => (
         <div
           key={item.icon}

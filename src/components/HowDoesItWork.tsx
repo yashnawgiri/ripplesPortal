@@ -1,15 +1,17 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 import dashboardData from "@/data/landing.json";
 
 export default function HowDoesItWork() {
   return (
     <>
-      <div id="features" className="hidden sm:flex  max-w-7xl flex-col border border-[#282D45] md:rounded-xl bg-gradient-to-br from-[#0e194e] to-[#0c3345] p-10 mt-14">
+      <div id="features"
+           className="hidden sm:flex  max-w-7xl flex-col border border-[#282D45] md:rounded-xl bg-gradient-to-br from-[#0e194e] to-[#0c3345] p-10 mt-14">
         <div className="p-4 text-center">
-          <h2 className="font-bold w-full text-4xl lg:text-5xl bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">
+          <h2
+            className="font-bold w-full text-4xl lg:text-5xl bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">
             How does it work?
           </h2>
           <p className="w-full mt-6 mb-6 md:mb-16 text-base text-gray-400">
@@ -42,9 +44,10 @@ export default function HowDoesItWork() {
           </div>
         </div>
       </div>
-      <div className='w-full mt-8'>
-      <div className="p-4 text-center w-full">
-          <h2 className="font-bold w-full text-4xl lg:text-5xl bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">
+      <div className="w-full mt-8">
+        <div className="p-4 text-center w-full">
+          <h2
+            className="font-bold w-full text-4xl lg:text-5xl bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">
             How does it work?
           </h2>
           <p className="w-full mt-6 mb-6 md:mb-16 text-base text-gray-400">
@@ -53,10 +56,10 @@ export default function HowDoesItWork() {
           </p>
         </div>
         <Swiper
-          slidesPerView={'auto'}
+          slidesPerView={"auto"}
           spaceBetween={0}
           pagination={{
-            clickable: true,
+            clickable: true
           }}
           modules={[Pagination]}
           className="how-does-it-work"
