@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="text-center md:text-start md:flex md:justify-between">
           <div className="mb-6">
             <a className="md:flex items-center" href="#">
-              <h1 className="self-center text-4xl font-bold whitespace-nowrap text-white">
+              <h1 className="self-center text-4xl font-bold whitespace-nowrap text-white ml-6">
                 Ripples<span className="text-lg"> </span>
                 <span className="text-4xl text-[#7214FF]">.</span>
               </h1>

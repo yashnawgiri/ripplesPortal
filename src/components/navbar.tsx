@@ -8,16 +8,18 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     return (
-        <nav className="bg-[#0e1330] w-full p-4 py-6">
+        <nav className="bg-[#0e1330] w-full p-4 py-6" id="home" >
             <div className="container max-w-7xl mx-auto flex justify-between items-center">
                 <div className="text-white font-bold text-4xl flex items-center">
                     Ripples<span className="mt-6 ml-1"><DotIcon /></span>
                 </div>
                 <div className="hidden md:flex space-x-10">
                     {siteConfig.navItems.map((item) => (
-                        <NavLink to={item.href} className={({ isActive }) => isActive ? "text-white" : "text-gray-400"}>
+                        <a href={item.href} 
+                        className={item.label=="Home" ?"text-white":"text-gray-300"}>
                             {item.label}
-                        </NavLink>
+                        </a>
+                        
                     ))}
                 </div>
                 <div className="hidden md:block">

@@ -7,7 +7,6 @@ import CustomButton from "@/components/CustomButton";
 import GradiantCards from "@/components/GradiantCards";
 import FAQ from "@/components/FAQ";
 import DashboardCard from "@/components/dashboardCard";
-import { siteConfig } from "@/config/site";
 import { Link } from "react-router-dom";
 
 export default function HomePage() {
@@ -50,7 +49,7 @@ export default function HomePage() {
             />
           </div>
         </div>
-        <div className="text-center max-w-3xl pt-8 md:pt-20 md:mb-10">
+        <div className="text-center max-w-3xl pt-8 md:pt-20 md:mb-10" id="about">
           <h1 className="text-3xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-[#FFFFFF] to-[#4B4B4B] h-24 md:h-36">
             Your Customer is Your Next Ripple for Sales
           </h1>

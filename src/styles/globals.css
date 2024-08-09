@@ -19,7 +19,11 @@
     left : 48%;
     top : 50%;
     @apply z-10 fixed 
-   
+}
+
+.how-does-it-work{
+    height: 80%;
+    @apply flex sm:hidden mt-10 h-96  
 }
 
 .input-box{
