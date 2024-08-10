@@ -24,15 +24,15 @@
 .swiper-pagination-bullet {
     background-color: #9f9f9f; /* Bullet color */
     opacity: 1;
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
 }
 
 .swiper-pagination-bullet-active {
     background-color: #007bff; /* Active bullet color */
     opacity: 1;
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     transform: scale(1.2);
 }
 
