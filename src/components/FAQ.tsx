@@ -46,7 +46,7 @@ export default function FAQ() {
         <h1
           className={`${title({ size: "lg", color: "foreground", weight: "bold" })} h-20`}
         >
-          Frequently Ask Questions
+          Frequently Asked Questions
         </h1>
         {/* <p className="text-base max-w-xl py-4 text-gray-400 mx-auto">Torem ipsum dolor sit amet consectetur. Nulla quisque scelerisque eget quis. Eu amet amet eu interdum.</p> */}
       </div>

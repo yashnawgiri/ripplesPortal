@@ -21,6 +21,21 @@
     @apply z-10 fixed
 }
 
+.swiper-pagination-bullet {
+    background-color: #9f9f9f; /* Bullet color */
+    opacity: 1;
+    width: 10px;
+    height: 10px;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #007bff; /* Active bullet color */
+    opacity: 1;
+    width: 10px;
+    height: 10px;
+    transform: scale(1.2);
+}
+
 .how-does-it-work {
     height: 80%;
     @apply flex sm:hidden mt-10 h-96

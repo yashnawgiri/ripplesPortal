@@ -44,7 +44,7 @@ export default function HowDoesItWork() {
           </div>
         </div>
       </div>
-      <div className="w-full mt-8">
+      <div className="sm:hidden w-full mt-8">
         <div className="p-4 text-center w-full">
           <h2
             className="font-bold w-full text-4xl lg:text-5xl bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">
