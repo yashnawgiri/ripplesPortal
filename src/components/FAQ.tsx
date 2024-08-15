@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { title } from "./primitives";
 import { FaMinus, FaPlus } from "react-icons/fa";
+import "./../styles/faq.css";
 
 import dashboardData from "@/data/landing.json";
 
@@ -14,24 +15,21 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div
-      className="h-fit mx-2 md:mx-0 md:p-4 px-1 border border-[#282D45] rounded-xl bg-gradient-to-br from-[#0e194e] to-[#0c3345]">
+    <div className="singleFAQ">
       <div className="flex justify-between items-baseline">
-        <h1 className="py-4 pl-10 text-xs md:text-3xl font-bold text-white">
+        <h1 className="faqTitle">
           {question}
         </h1>
-        {isOpen ? (
-          <div className="mt-5 md:mt-8 mr-6 " onClick={() => setIsOpen(!isOpen)}>
-            <FaMinus className="w-4 sm:w-6 h-4 sm:h-6 text-white" />
-          </div>
-        ) : (
-          <div className="mt-5 md:mt-8 mr-6 " onClick={() => setIsOpen(!isOpen)}>
-            <FaPlus className="w-4 sm:w-6  h-4 sm:h-6 text-white" />
-          </div>
-        )}
+        <div className="mt-5 md:mt-8 mr-6" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? (
+            <FaMinus className="icon" />
+          ):(
+            <FaPlus className="icon" />
+          )}
+        </div>
       </div>
       {isOpen && (
-        <p className="text-gray-400 text-xs md:text-base pb-4 pt- md:pb-6 pl-10 pr-16">
+        <p className="faqDescription">
           {answer}
         </p>
       )}
@@ -44,7 +42,7 @@ export default function FAQ() {
     <div className="max-w-7xl w-full space-y-8">
       <div className="text-center">
         <h1
-          className={`${title({ size: "lg", color: "foreground", weight: "bold" })} h-20`}
+        className={`${title({ size: "lg", color: "foreground", weight: "bold" })} h-20`}
         >
           Frequently Asked Questions
         </h1>

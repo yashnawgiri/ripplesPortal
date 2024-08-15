@@ -16,7 +16,7 @@ export default function Navbar() {
         <div className="hidden md:flex space-x-10">
           {siteConfig.navItems.map((item) => (
             <a href={item.href}
-               className={item.label == "Home" ? "text-white" : "text-gray-300"}>
+              className={item.label == "Home" ? "text-white" : "text-gray-300"}>
               {item.label}
             </a>
 
@@ -39,8 +39,9 @@ export default function Navbar() {
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                  xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                    d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}></path>
-            </svg>
+                    d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}>
+              </path>
+            </svg> 
           </button>
         </div>
       </div>
@@ -56,10 +57,12 @@ export default function Navbar() {
                 {item.label}
               </NavLink>
             ))}
-            <CustomButton onClick={() => {
-            }} className="bg-[#7214FF] mx-auto max-w-36"><a target="_blank" rel="noopener noreferrer"
-                                                            href={"/get-demo"}>Get a
-              Demo</a></CustomButton>
+            <CustomButton onClick={() => {}} 
+              className="bg-[#7214FF] mx-auto max-w-36">
+              <a target="_blank" rel="noopener noreferrer" href={"/get-demo"}>
+                Get a Demo
+              </a>
+            </CustomButton>
           </div>
         </div>
       )}

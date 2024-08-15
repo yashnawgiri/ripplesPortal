@@ -1,0 +1,20 @@
+{
+    "RipplesTeam": [
+        {
+            "title": "Pranav Nahal",
+            "subTitle": "Chief Executive Officer",
+            "description": "MBA, IIM Kozhikode & Serial Entrepreneur, former D2C Consumer/Health Tech Founder & Former Management Consultant, Accenture Strategy",
+            "image": ""
+        },
+        {
+            "title": "Tazril Ali",
+            "subTitle": "Chief Technology Officer",
+            "description": "B.Tech in ECE, IIT Dhanbad & Former Senior Backend Engineer, Cred & Former Full Stack Engineer, Udaan",
+            "image": ""
+        }
+    ],
+    "TopText": "Our founders bring extensive experience from top D2C consumer tech platforms, uniting to create something truly extraordinary.",
+    "MiddleText": "Our founders' innovation, expertise, and passion make Ripples the ultimate partner for your brand’s eCommerce success.",
+    "OurMission": "To empower businesses with innovative tools and automation for effortless and sustainable growth, reducing CAC, and boosting revenue.",
+    "OurVision": "To lead eCommerce innovation globally, inspiring success stories. We aim to provide every business, big or small, the resources and support to achieve their dreams."
+}

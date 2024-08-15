@@ -2,6 +2,7 @@ import { Image } from "@nextui-org/image";
 
 import { title } from "./primitives";
 import { BackwardArrowIcon, DoubleQuotesIcon, ForwardArrowIcon } from "./icons";
+import "./../styles/testimonial.css"
 
 import dashboardData from "@/data/landing.json";
 import avatar1 from "@/assets/images/avatar1.png";
@@ -19,8 +20,8 @@ function TestimonialCard({ id }: TestimonialCardProps) {
   return (
     <div className="relative flex justify-center w-[392px]">
       <div
-        className="absolute align-bottom mt-32 w-full h-32 border border-gray-800 bg-gradient-to-tr from-[#281e5b] to-[#074a45] rounded-xl" />
-      <div className="relative mb-8 z-20 p-6 space-y-2 w-5/6 h-56 border border-gray-800 bg-[#0E1330] rounded-xl">
+        className="singleTestimonialContainer" />
+      <div className="singleTestimonialInnerContainer">
         <div className="flex justify-between">
           <div className="flex justify-around space-x-2">
             <Image height={40} src={Avatars[id]} width={40} />
