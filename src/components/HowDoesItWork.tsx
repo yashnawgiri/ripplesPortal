@@ -16,8 +16,9 @@ export default function HowDoesItWork() {
             How does it work?
           </h2>
           <p className="description">
-            Use our Shopify/Ecommerce Site plugin & Saas that gamifies user
-            experience post purchase to ensure they become your brand advocates
+            Use our Shopify/Ecommerce Site plugin and SaaS to gamify the user 
+            experience post-purchase, ensuring your customers become brand 
+            advocates.
           </p>
         </div>
         <div className="relative">
@@ -83,7 +84,6 @@ export default function HowDoesItWork() {
                   </p>
                 </div>
               </SwiperSlide>
-
             ))}
           </div>
         </Swiper>

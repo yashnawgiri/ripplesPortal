@@ -1,0 +1,42 @@
+{
+  "title": "Privacy Policy",
+  "effectiveDate": "Effective Date: 30/08.24",
+  "sections": [
+    {
+      "heading": "Introduction",
+      "content": "Welcome to Ripple (\"we\", \"our\", \"us\"). This Privacy Policy explains how we collect, use, and share your personal information when you use our SaaS platform that integrates with your e-commerce website (\"Service\"). By using the Service, you agree to the terms outlined in this policy."
+    },
+    {
+      "heading": "General Approach",
+      "content": "One note at the top, we never sell your health data to a third party, nor will it ever be used to target you or your customers for advertising. Users deserve transparency regarding how that process works, particularly when it comes to their data. This Policy is one part of that transparency..."
+    },
+    {
+      "heading": "Information We Collect",
+      "content": "Personal Information: When you sign up or interact with our Service, we may collect store information such as your store name, store email address, customer name, customer email address. - Usage Data: We collect information about how you use our Service, including the pages visited, links clicked, and other actions taken. - Cookies and Tracking Technologies: We use cookies and similar technologies to track user activity and preferences."
+    },
+    {
+      "heading": "How We Use Your Information",
+      "content": "Service Delivery: To operate, maintain, and improve the Service. - Communication: To send you updates, newsletters, or promotional materials, and to respond to your inquiries. - Analytics: To analyze user behavior and trends to enhance the user experience. - Legal Compliance: To comply with legal obligations, resolve disputes, and enforce our agreements."
+    },
+    {
+      "heading": "Sharing Your Information",
+      "content": "With Partners: We may share your information with third-party partners who assist us in providing the Service, namely payment processors and analytics providers. - Legal Requirements: We may disclose your information if required by law or in response to valid legal processes. - Business Transfers: In the event of a merger, acquisition, or sale of all or part of our assets, your information may be transferred to the new owners. - We do not disclose or sell any data of our clients or the customers of our clients."
+    },
+    {
+      "heading": "Data Security",
+      "content": "We implement industry-standard security measures to protect your information from unauthorized access, disclosure, alteration, or destruction."
+    },
+    {
+      "heading": "Your Rights",
+      "content": "Access and Correction: You have the right to access, correct, or delete your personal information. - Opt-Out: You may opt out of receiving promotional communications from us at any time."
+    },
+    {
+      "heading": "Changes to This Policy",
+      "content": "We may update this Privacy Policy from time to time. You will be notified of any significant changes, and your continued use of the Service constitutes acceptance of the updated policy."
+    },
+    {
+      "heading": "Contact Us",
+      "content": "If you have any questions or concerns about this Privacy Policy, please contact us at ceo@goripples.com."
+    }
+  ]
+}

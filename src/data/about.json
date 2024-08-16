@@ -3,13 +3,15 @@
         {
             "title": "Pranav Nahal",
             "subTitle": "Chief Executive Officer",
-            "description": "MBA, IIM Kozhikode & Serial Entrepreneur, former D2C Consumer/Health Tech Founder & Former Management Consultant, Accenture Strategy",
+            "description1": "MBA, IIM Kozhikode",
+            "description2": "Serial Entrepreneur, former D2C Consumer/Health Tech Founder & Former Management Consultant, Accenture Strategy",
             "image": ""
         },
         {
             "title": "Tazril Ali",
             "subTitle": "Chief Technology Officer",
-            "description": "B.Tech in ECE, IIT Dhanbad & Former Senior Backend Engineer, Cred & Former Full Stack Engineer, Udaan",
+            "description1": "B.Tech in ECE, IIT Dhanbad",
+            "description2": "Former Senior Backend Engineer, Cred & Former Full Stack Engineer, Udaan",
             "image": ""
         }
     ],

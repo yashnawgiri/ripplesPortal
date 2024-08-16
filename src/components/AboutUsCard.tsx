@@ -6,7 +6,7 @@ interface AboutUsProps {
     id: number
 }
 
-const AboutUsCard: React.FC<AboutUsProps> = ({id}) => {
+const AboutUsCard: React.FC<AboutUsProps> = ({ id }) => {
     const AboutUsImage = [pravan, tazril];
     return (
         <div className="max-w-sm space-y-2 mx-auto">
@@ -20,9 +20,14 @@ const AboutUsCard: React.FC<AboutUsProps> = ({id}) => {
             <h4 className="text-gray-300 text-base font-semibold">
                 {aboutUsData.RipplesTeam[id].subTitle}
             </h4>
-            <p className="text-gray-400 text-sm">
-                {aboutUsData.RipplesTeam[id].description}
-            </p>
+            <div>
+                <p className="text-gray-400 text-sm">
+                    {aboutUsData.RipplesTeam[id].description1}
+                </p>
+                <p className="text-gray-400 text-sm">
+                    {aboutUsData.RipplesTeam[id].description2}
+                </p>
+            </div>
         </div>
     );
 }

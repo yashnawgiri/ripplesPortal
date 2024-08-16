@@ -26,8 +26,8 @@ export default function HomePage() {
               Increase Your Customer Referrals by 3X.
             </h2>
             <p className="home-p">
-              Ripples is an OS that helps you automate and scale rewarding of
-              influencer style rewards to your customers to unlock virality.
+              Ripples is an OS that helps you automate and scale 
+              influencer-style rewards for your customers, unlocking virality.
             </p>
             <div className="home-demo-div">
               <CustomButton className="bg-[#7214FF]" onClick={() => {
@@ -35,7 +35,7 @@ export default function HomePage() {
                 <Link
                   to={"/get-demo"}
                 >
-                  Get a Demo
+                  Book Demo
                 </Link>
               </CustomButton>
               {/* <CustomButton 
@@ -77,7 +77,7 @@ export default function HomePage() {
           <Link
             to={"/get-demo"}
           >
-            Get a Demo
+            Book Demo
           </Link>
         </CustomButton>
         <FAQ />
@@ -86,7 +86,7 @@ export default function HomePage() {
           <Link
             to={"/get-demo"}
           >
-            Get a Demo
+            Book Demo
           </Link>
         </CustomButton>
         {/* <Testimonials /> */}

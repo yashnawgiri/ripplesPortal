@@ -28,7 +28,7 @@ export default function Navbar() {
             <Link
               to={"/get-demo"}
             >
-              Get a Demo
+              Book Demo
             </Link>
           </CustomButton>
         </div>
@@ -60,7 +60,7 @@ export default function Navbar() {
             <CustomButton onClick={() => {}} 
               className="bg-[#7214FF] mx-auto max-w-36">
               <a target="_blank" rel="noopener noreferrer" href={"/get-demo"}>
-                Get a Demo
+                Book Demo
               </a>
             </CustomButton>
           </div>

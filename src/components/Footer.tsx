@@ -51,7 +51,12 @@ export default function Footer() {
               <ul className="text-gray-400 font-medium space-y-4">
                 {siteConfig.footerContact.map((item, _) => (
                   <li key={_}>
-                    <a className="hover:underline " href={item.href}>
+                    <a 
+                      className="hover:underline " 
+                      href={item.href}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      >
                       {item.label}
                     </a>
                   </li>
@@ -85,7 +90,7 @@ export default function Footer() {
               target="_blank"
             >
               <LinkedInIcon />
-              <span className="sr-only">Dribbble account</span>
+              <span className="sr-only">LinkedIn account</span>
             </a>
           </div>
         </div>

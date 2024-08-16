@@ -5,7 +5,7 @@ import { TiTick } from "react-icons/ti";
 
 interface StepperProps {
   currentStep: number;
-  setCurrentStep: any;
+  setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const Stepper: React.FC<StepperProps> = ({ currentStep, setCurrentStep }) => {
