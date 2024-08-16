@@ -1,5 +1,5 @@
 import { title } from "./primitives";
-import "./../styles/gradiantCards.css";
+import "./../styles/home/gradiantCards.css";
 
 import dashboardData from "@/data/landing.json";
 

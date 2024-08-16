@@ -60,3 +60,7 @@
 .w-100p {
     width: 100%
 }
+
+.section {
+    @apply flex flex-col items-center justify-center gap-4 md:py-10;
+}

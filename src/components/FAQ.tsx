@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { title } from "./primitives";
 import { FaMinus, FaPlus } from "react-icons/fa";
-import "./../styles/faq.css";
+import "./../styles/home/faq.css";
 
 import dashboardData from "@/data/landing.json";
 

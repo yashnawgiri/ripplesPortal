@@ -2,7 +2,7 @@ import { Image } from "@nextui-org/image";
 
 import { title } from "./primitives";
 import { BackwardArrowIcon, DoubleQuotesIcon, ForwardArrowIcon } from "./icons";
-import "./../styles/testimonial.css"
+import "./../styles/home/testimonial.css"
 
 import dashboardData from "@/data/landing.json";
 import avatar1 from "@/assets/images/avatar1.png";

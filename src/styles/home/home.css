@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.homeContainer {
+    @apply md:flex max-w-7xl lg:w-full pt-4 gap-3 lg:gap-4 gap-y-3;
+}
+
+.home-div {
+    @apply md:w-3/6 text-left justify-center space-y-7;
+}
+
+.home-h1 {
+    @apply lg:max-w-[44rem] text-center lg:text-start font-bold text-3xl leading-tight md:text-5xl xl:text-6xl lg:leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400;
+}
+
+.home-h2 {
+    @apply lg:max-w-[44rem] text-center lg:text-start lg:font-bold leading-tight lg:text-2xl xl:text-3xl xl:leading-tight bg-clip-text text-transparent bg-gradient-to-b from-gray-300 to-gray-400;
+}
+
+.home-p {
+    @apply text-gray-400 text-center lg:text-start max-w-2xl text-lg xl:text-xl hidden lg:block;
+}
+
+.home-demo-div {
+    @apply flex lg:justify-start justify-center gap-2 lg:gap-4;
+}
+
+.home-img {
+    @apply hidden lg:flex w-3/6 justify-end;
+}
+
+.home-img-mob {
+    @apply lg:hidden flex justify-center sm:mt-4 md:mt-0;
+}
+
+.home-div2 {
+    @apply text-center max-w-3xl pt-8 md:pt-20 md:mb-10;
+}
+
+.home-div2-h1 {
+    @apply text-3xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-[#FFFFFF] to-[#4B4B4B] h-24 md:h-36;
+}
+
+.home-div2-p {
+    @apply md:hidden text-sm md:text-base max-w-xl py-1 md:my-4 text-gray-400 mx-auto;
+}

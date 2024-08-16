@@ -1,5 +1,5 @@
 import { DashboardCardIcon } from "./icons";
-import "./../styles/dashboardCard.css";
+import "./../styles/home/dashboardCard.css";
 
 import dashboardData from "@/data/landing.json";
 
