@@ -1,4 +1,5 @@
-import flyer from "@/assets/images/flayer.png";
+import pravan from "@/assets/images/aboutUs/photo0.png";
+import tazril from "@/assets/images/aboutUs/photo1.jpeg";
 import aboutUsData from "@/data/about.json";
 
 interface AboutUsProps {
@@ -6,10 +7,11 @@ interface AboutUsProps {
 }
 
 const AboutUsCard: React.FC<AboutUsProps> = ({id}) => {
+    const AboutUsImage = [pravan, tazril];
     return (
         <div className="max-w-sm space-y-2 mx-auto">
             <img
-                src={flyer}
+                src={AboutUsImage[id]}
                 className="rounded-full w-72 mx-auto"
             />
             <h3 className="text-gray-300 text-lg font-bold">
