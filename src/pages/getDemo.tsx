@@ -19,7 +19,10 @@ export default function GetDemo() {
   };
   return (
     <DefaultLayout>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+      <section className="section">
+        <p className="text-gray-300 text-lg mb-2">
+          Sign Up Today to get the early bird offer of a 30 Day Free Trial
+        </p>
         <div className="inline-block max-w-lg text-center justify-center">
           <Stepper
             currentStep={currentStep}

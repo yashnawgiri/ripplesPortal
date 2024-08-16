@@ -30,11 +30,9 @@ export default function HomePage() {
               influencer-style rewards for your customers, unlocking virality.
             </p>
             <div className="home-demo-div">
-              <CustomButton className="bg-[#7214FF]" onClick={() => {
+              <CustomButton className="bg-[#7214FF] text-2xl" onClick={() => {
               }}>
-                <Link
-                  to={"/get-demo"}
-                >
+                <Link to={"/get-demo"}>
                   Book Demo
                 </Link>
               </CustomButton>
@@ -70,22 +68,30 @@ export default function HomePage() {
           </p>
         </div>
         <DashboardCard />
+        <CustomButton className="bg-[#7214FF] my-14" onClick={() => {
+        }}>
+          <Link to={"/get-demo"}>
+            Book Demo
+          </Link>
+        </CustomButton>
         <HowDoesItWork />
+        <CustomButton className="bg-[#7214FF] my-14" onClick={() => {
+        }}>
+          <Link to={"/get-demo"}>
+            Book Demo
+          </Link>
+        </CustomButton>
         <GradiantCards />
         <CustomButton className="bg-[#7214FF] my-14" onClick={() => {
         }}>
-          <Link
-            to={"/get-demo"}
-          >
+          <Link to={"/get-demo"}>
             Book Demo
           </Link>
         </CustomButton>
         <FAQ />
         <CustomButton className="bg-[#7214FF] my-14" onClick={() => {
         }}>
-          <Link
-            to={"/get-demo"}
-          >
+          <Link to={"/get-demo"}>
             Book Demo
           </Link>
         </CustomButton>
