@@ -1,4 +1,25 @@
 {
+  "home": {
+    "heading1" : "Turn customers into influencers, advocates, and UGC creators - your RIPPLERS!",
+    "subHeading" : "Increase Your Customer Referrals by 3X.",
+    "description" : "Ripples is an OS that helps you automate and scale influencer-style rewards for your customers, unlocking virality.",
+    "heading2" : "Your Customer is Your Next Ripple for Sales",
+    "demoButton": "Book Demo"
+  },
+  "ComponentsData": {
+    "Testimonials" : {
+      "title" : "What our clients say",
+      "description" : "Ripples leverages the power of word-of-mouth marketing, helping you acquire new users you were previously unable to convert. By turning your customers into advocates, influencers, and UGC creators, Ripples significantly boosts your marketing efforts and sales."
+    },
+    "HowDoesItWorks" : {
+      "title" : "How does it work?",
+      "description": "Use our Shopify/Ecommerce Site plugin and SaaS to gamify the user experience post-purchase, ensuring your customers become brand advocates."
+    },
+    "FAQ" : {
+      "title" : "Frequently Asked Questions",
+      "description" : "Torem ipsum dolor sit amet consectetur. Nulla quisque scelerisque eget quis. Eu amet amet eu interdum."
+    }
+  },
   "faqData": [
     {
       "question": "1. Can I track the performance of my referral program?",

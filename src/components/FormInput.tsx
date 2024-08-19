@@ -72,7 +72,7 @@ const FormInput: React.FC<FormInputProps> = ({ values, setValue, setCurrentStep 
             value={values[key]}
             onChange={(e) => {
               setError("");
-              let val = e.target.value;
+              const val = e.target.value;
               setValue(key, val);
             }} />
         </div>))}
@@ -81,7 +81,7 @@ const FormInput: React.FC<FormInputProps> = ({ values, setValue, setCurrentStep 
           {error}
         </div> : <></>}
       <CustomButton
-        className="bg-[#7214FF] w-50p mx-auto mt-4 justify-center"
+        className="bg-secondary w-50p mx-auto mt-4 justify-center"
         onClick={onFormSubmit}>
         Submit
       </CustomButton>

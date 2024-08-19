@@ -61,6 +61,14 @@
     width: 100%
 }
 
-.section {
+.main-section {
     @apply flex flex-col items-center justify-center gap-4 md:py-10;
+}
+
+.heading-color {
+    @apply text-gray-300;
+}
+
+.text-color {
+    @apply text-gray-400;
 }

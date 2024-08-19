@@ -10,12 +10,16 @@
     @apply md:w-3/6 text-left justify-center space-y-7;
 }
 
+.home-heading {
+    @apply lg:max-w-[44rem] text-center lg:text-start leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400;
+}
+
 .home-h1 {
-    @apply lg:max-w-[44rem] text-center lg:text-start font-bold text-3xl leading-tight md:text-5xl xl:text-6xl lg:leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400;
+    @apply font-bold text-3xl md:text-5xl xl:text-6xl lg:leading-tight;
 }
 
 .home-h2 {
-    @apply lg:max-w-[44rem] text-center lg:text-start lg:font-bold leading-tight lg:text-2xl xl:text-3xl xl:leading-tight bg-clip-text text-transparent bg-gradient-to-b from-gray-300 to-gray-400;
+    @apply lg:font-bold lg:text-2xl xl:text-3xl xl:leading-tight;
 }
 
 .home-p {

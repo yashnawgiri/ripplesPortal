@@ -4,6 +4,17 @@ export const siteConfig = {
   name: "Ripples ",
   description:
     "Turn customers into influencers, advocates, and UGC creators - your RIPPLERS!",
+  path: {
+    home: "/",
+    getDemo: "/get-demo",
+    about: "/about",
+    features: "/features",
+    privacyPolicy: "/privacy-policy",
+    terms: "/terms-and-conditions",
+    docs: "/docs",
+    pricing: "/pricing",
+    blog: "/blog"
+  },
   navItems: [
     {
       label: "Home",
@@ -15,7 +26,7 @@ export const siteConfig = {
     },
     {
       label: "Features",
-      href: "/#features",
+      href: "/features",
     },
     {
       label: "Early Bird",

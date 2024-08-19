@@ -1,5 +1,5 @@
-import pravan from "@/assets/images/aboutUs/photo0.png";
-import tazril from "@/assets/images/aboutUs/photo1.jpeg";
+import pranav from "@/assets/images/founders/pranav.png";
+import tazril from "@/assets/images/founders/tazril.jpeg";
 import aboutUsData from "@/data/about.json";
 
 interface AboutUsProps {
@@ -7,24 +7,24 @@ interface AboutUsProps {
 }
 
 const AboutUsCard: React.FC<AboutUsProps> = ({ id }) => {
-    const AboutUsImage = [pravan, tazril];
+    const AboutUsImage = [pranav, tazril];
     return (
         <div className="max-w-sm space-y-2 mx-auto">
             <img
                 src={AboutUsImage[id]}
                 className="rounded-full w-72 mx-auto"
             />
-            <h3 className="text-gray-300 text-lg font-bold">
+            <h3 className="heading-color text-lg font-bold">
                 {aboutUsData.RipplesTeam[id].title}
             </h3>
-            <h4 className="text-gray-300 text-base font-semibold">
+            <h4 className="heading-color text-base font-semibold">
                 {aboutUsData.RipplesTeam[id].subTitle}
             </h4>
             <div>
-                <p className="text-gray-400 text-sm">
+                <p className="text-color text-sm">
                     {aboutUsData.RipplesTeam[id].description1}
                 </p>
-                <p className="text-gray-400 text-sm">
+                <p className="text-color text-sm">
                     {aboutUsData.RipplesTeam[id].description2}
                 </p>
             </div>

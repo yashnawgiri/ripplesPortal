@@ -24,7 +24,7 @@ const Stepper: React.FC<StepperProps> = ({ currentStep, setCurrentStep }) => {
             <div className="step">
               {i + 1 < currentStep || complete ? <TiTick size={24} /> : i + 1}
             </div>
-            <p className="text-gray-400">{step}</p>
+            <p className="text-color">{step}</p>
           </div>
         ))}
       </div>

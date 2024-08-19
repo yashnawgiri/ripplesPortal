@@ -41,12 +41,10 @@ export default function FAQ() {
   return (
     <div className="max-w-7xl w-full space-y-8">
       <div className="text-center">
-        <h1
-        className={`${title({ size: "lg", color: "foreground", weight: "bold" })} h-20`}
-        >
-          Frequently Asked Questions
+        <h1 className={`${title({ size: "lg", color: "foreground", weight: "bold" })} h-20`}>
+          {dashboardData.ComponentsData.FAQ.title}
         </h1>
-        {/* <p className="text-base max-w-xl py-4 text-gray-400 mx-auto">Torem ipsum dolor sit amet consectetur. Nulla quisque scelerisque eget quis. Eu amet amet eu interdum.</p> */}
+        {/* <p className="text-base max-w-xl py-4 text-color mx-auto">{dashboardData.ComponentsData.FAQ.description}</p> */}
       </div>
       <div className="w-full space-y-3 md:space-y-10 content-center">
         {dashboardData.faqData.map((faq, index) => (

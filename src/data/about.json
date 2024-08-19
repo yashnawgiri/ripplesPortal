@@ -11,12 +11,19 @@
             "title": "Tazril Ali",
             "subTitle": "Chief Technology Officer",
             "description1": "B.Tech in ECE, IIT Dhanbad",
-            "description2": "Former Senior Backend Engineer, Cred & Former Full Stack Engineer, Udaan",
+            "description2": "Former Senior Backend Engineer, CRED & Former Full Stack Engineer, Udaan",
             "image": ""
         }
     ],
-    "TopText": "Our founders bring extensive experience from top D2C consumer tech platforms, uniting to create something truly extraordinary.",
-    "MiddleText": "Our founders' innovation, expertise, and passion make Ripples the ultimate partner for your brand’s eCommerce success.",
-    "OurMission": "To empower businesses with innovative tools and automation for effortless and sustainable growth, reducing CAC, and boosting revenue.",
-    "OurVision": "To lead eCommerce innovation globally, inspiring success stories. We aim to provide every business, big or small, the resources and support to achieve their dreams."
+    "title": "Meet the Team Behind Ripples",
+    "subHeading1": {
+        "title": "OurMission",
+        "description": "To empower businesses with innovative tools and automation for effortless and sustainable growth, reducing CAC, and boosting revenue."
+    },
+    "subHeading2": {
+        "title": "OurVision",
+        "description": "To lead eCommerce innovation globally, inspiring success stories. We aim to provide every business, big or small, the resources and support to achieve their dreams."
+    },
+    "description1": "Our founders bring extensive experience from top D2C consumer tech platforms, uniting to create something truly extraordinary.",
+    "description2": "Our founders' innovation, expertise, and passion make Ripples the ultimate partner for your brand’s eCommerce success."
 }

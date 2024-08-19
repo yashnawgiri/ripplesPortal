@@ -9,37 +9,44 @@ import FAQ from "@/components/FAQ";
 import DashboardCard from "@/components/dashboardCard";
 import { Link } from "react-router-dom";
 import "@/styles/home/home.css";
+import { siteConfig } from "@/config/site";
+import dashboardData  from '@/data/landing.json';
+
+function DemoButton() {
+  return (
+    <CustomButton className="bg-secondary my-14" onClick={() => {
+    }}>
+      <Link to={siteConfig.path.getDemo}>
+        {dashboardData.home.demoButton}
+      </Link>
+    </CustomButton>
+  );
+}
 
 export default function HomePage() {
   return (
     <DefaultLayout>
-      <section className="section">
+      <section className="main-section">
         <div className="homeContainer">
           <div className="home-div">
-            <h1
-              className="home-h1">
-              Turn customers into influencers, advocates, and UGC creators -
-              your RIPPLERS!
+            <h1 className="home-h1 home-heading">
+              {dashboardData.home.heading1}
             </h1>
-            <h2
-              className="home-h2">
-              Increase Your Customer Referrals by 3X.
+            <h2 className="home-h2 home-heading">
+              {dashboardData.home.subHeading}
             </h2>
             <p className="home-p">
-              Ripples is an OS that helps you automate and scale 
-              influencer-style rewards for your customers, unlocking virality.
+              {dashboardData.home.description}
             </p>
             <div className="home-demo-div">
-              <CustomButton className="bg-[#7214FF] text-2xl" onClick={() => {
+              <CustomButton className="bg-secondary text-2xl" onClick={() => {
               }}>
-                <Link to={"/get-demo"}>
-                  Book Demo
+                <Link to={siteConfig.path.getDemo}>
+                  {dashboardData.home.demoButton}
                 </Link>
               </CustomButton>
-              {/* <CustomButton 
-                onClick={() => { }} 
-                className="bg-[#070c25] border border-gray-700 mx-4"
-                >
+              {/* <CustomButton onClick={() => { }} 
+                className="bg-[#070c25] border border-gray-700 mx-4">
                   View Pricing
               </CustomButton> */}
             </div>
@@ -57,44 +64,21 @@ export default function HomePage() {
           </div>
         </div>
         <div className="home-div2" id="about">
-          <h1
-            className="home-div2-h1">
-            Your Customer is Your Next Ripple for Sales
+          <h1 className="home-div2-h1">
+            {dashboardData.home.heading2}
           </h1>
           <p className="home-div2-p">
             {" "}
-            Ripples is an OS that helps you automate and scale rewarding of
-            influencer style rewards to your customers to unlock virality
+            {dashboardData.home.description}
           </p>
         </div>
         <DashboardCard />
-        <CustomButton className="bg-[#7214FF] my-14" onClick={() => {
-        }}>
-          <Link to={"/get-demo"}>
-            Book Demo
-          </Link>
-        </CustomButton>
+        <DemoButton />
         <HowDoesItWork />
-        <CustomButton className="bg-[#7214FF] my-14" onClick={() => {
-        }}>
-          <Link to={"/get-demo"}>
-            Book Demo
-          </Link>
-        </CustomButton>
         <GradiantCards />
-        <CustomButton className="bg-[#7214FF] my-14" onClick={() => {
-        }}>
-          <Link to={"/get-demo"}>
-            Book Demo
-          </Link>
-        </CustomButton>
+        <DemoButton />
         <FAQ />
-        <CustomButton className="bg-[#7214FF] my-14" onClick={() => {
-        }}>
-          <Link to={"/get-demo"}>
-            Book Demo
-          </Link>
-        </CustomButton>
+        <DemoButton/>
         {/* <Testimonials /> */}
       </section>
     </DefaultLayout>

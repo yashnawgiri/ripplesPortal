@@ -7,7 +7,7 @@
 }
 
 .card {
-    @apply rounded-md bg-opacity-35 border border-gray-700 overflow-hidden shadow-lg p-8 bg-[#0e1330];
+    @apply rounded-md bg-opacity-35 border border-gray-700 overflow-hidden shadow-lg p-8 bg-primary;
 }
 
 .cardTitle {

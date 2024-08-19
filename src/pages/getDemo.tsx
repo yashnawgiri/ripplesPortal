@@ -4,6 +4,7 @@ import { siteConfig } from "@/config/site";
 import DefaultLayout from "@/layouts/default";
 import { useState } from "react";
 import { InlineWidget } from "react-calendly";
+import getDemoData from "@/data/getDemo.json";
 
 export default function GetDemo() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -19,9 +20,9 @@ export default function GetDemo() {
   };
   return (
     <DefaultLayout>
-      <section className="section">
-        <p className="text-gray-300 text-lg mb-2">
-          Sign Up Today to get the early bird offer of a 30 Day Free Trial
+      <section className="main-section">
+        <p className="heading-color text-lg mb-2">
+          {getDemoData.description}
         </p>
         <div className="inline-block max-w-lg text-center justify-center">
           <Stepper

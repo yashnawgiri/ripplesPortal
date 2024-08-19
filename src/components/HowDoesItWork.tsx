@@ -11,14 +11,11 @@ export default function HowDoesItWork() {
       <div id="features"
         className="outerContainer">
         <div className="p-4 text-center">
-          <h2
-            className="title">
-            How does it work?
+          <h2 className="title">
+            {dashboardData.ComponentsData.HowDoesItWorks.title}
           </h2>
           <p className="description">
-            Use our Shopify/Ecommerce Site plugin and SaaS to gamify the user 
-            experience post-purchase, ensuring your customers become brand 
-            advocates.
+            {dashboardData.ComponentsData.HowDoesItWorks.description}
           </p>
         </div>
         <div className="relative">
@@ -46,13 +43,11 @@ export default function HowDoesItWork() {
       </div>
       <div className="sm:hidden w-full mt-8">
         <div className="p-4 text-center w-full">
-          <h2
-            className="title">
-            How does it work?
+          <h2 className="title">
+            {dashboardData.ComponentsData.HowDoesItWorks.title}
           </h2>
           <p className="description">
-            Use our Shopify/Ecommerce Site plugin & Saas that gamifies user
-            experience post purchase to ensure they become your brand advocates
+            {dashboardData.ComponentsData.HowDoesItWorks.description}
           </p>
         </div>
         <Swiper
@@ -89,6 +84,5 @@ export default function HowDoesItWork() {
         </Swiper>
       </div>
     </>
-
   );
 }
