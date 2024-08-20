@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.about-div {
+    @apply inline-block max-w-4xl text-center justify-center;
+}
+
+.about-h1 {
+    @apply text-white max-w-2xl font-poppins text-4xl md:text-6xl font-bold mx-auto;
+}
+
+.about-p {
+    @apply text-gray-400 max-w-lg mx-auto;
+}
+
+.about-div2 {
+    @apply md:flex md:justify-center md:space-x-4 space-y-8 md:space-y-0 py-6;
+}

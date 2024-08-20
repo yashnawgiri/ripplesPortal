@@ -4,57 +4,68 @@ export const siteConfig = {
   name: "Ripples ",
   description:
     "Turn customers into influencers, advocates, and UGC creators - your RIPPLERS!",
+  path: {
+    home: "/",
+    getDemo: "/get-demo",
+    about: "/about",
+    features: "/features",
+    privacyPolicy: "/privacy-policy",
+    terms: "/terms-and-conditions",
+    docs: "/docs",
+    pricing: "/pricing",
+    blog: "/blog"
+  },
   navItems: [
     {
       label: "Home",
-      href: "/"
+      href: "/",
     },
     {
       label: "About",
-      href: "/#about"
+      href: "/about",
     },
     {
       label: "Features",
-      href: "/#features"
+      href: "/features",
     },
     {
       label: "Early Bird",
-      href: "/get-demo"
-    }
+      href: "/get-demo",
+    },
   ],
   navMenuItems: [
     {
       label: "Profile",
-      href: "/profile"
+      href: "/profile",
     },
     {
       label: "Dashboard",
-      href: "/dashboard"
+      href: "/dashboard",
     },
     {
       label: "Projects",
-      href: "/projects"
+      href: "/projects",
     },
     {
       label: "Team",
-      href: "/team"
+      href: "/team",
     },
     {
       label: "Calendar",
-      href: "/calendar"
+      href: "/calendar",
     },
     {
       label: "Settings",
-      href: "/settings"
+      href: "/settings",
     },
     {
       label: "Help & Feedback",
-      href: "/help-feedback"
+      href: "/help-feedback",
     },
     {
       label: "Logout",
-      href: "/logout"
-    }
+      href: "/logout",
+    },
   ],
   links: {
     github: "",
@@ -63,66 +74,66 @@ export const siteConfig = {
     discord: "",
     sponsor: "",
     linkedin: "https://www.linkedin.com/company/goripples/",
-    signupForm: "https://script.google.com/macros/s/AKfycbxZ92NLEumTJMw8wkV5NEwBkFHDegtdtFy63kzlH2xJBOCLcN6XfFi-4J9wpfMDW8pX/exec",
-    calendly: "https://calendly.com/hello-ripples/30min"
+    signupForm:
+      "https://script.google.com/macros/s/AKfycbxZ92NLEumTJMw8wkV5NEwBkFHDegtdtFy63kzlH2xJBOCLcN6XfFi-4J9wpfMDW8pX/exec",
+    calendly: "https://calendly.com/hello-ripples/30min",
   },
   footerItems: [
     {
       label: "Home",
-      href: "#"
+      href: "#",
     },
     {
       label: "About",
-      href: "#"
+      href: "#",
     },
     {
       label: "How it works",
-      href: "#"
+      href: "#",
     },
     {
       label: "Contact",
-      href: "#"
+      href: "#",
     },
     {
       label: "Blog",
-      href: "#"
-    }
+      href: "#",
+    },
   ],
   footerLegal: [
     {
       label: "Privacy Policy",
-      href: "#"
+      href: "/privacy-policy",
     },
     {
       label: "Terms & Conditions",
-      href: "#"
+      href: "/terms-and-conditions",
     },
     {
       label: "Return Policy",
-      href: "#"
-    }
+      href: "#",
+    },
   ],
   formInput: {
-    "Name": "",
-    "Email": "",
-    "Address": "",
+    Name: "",
+    Email: "",
+    Address: "",
     "Phone number": "",
     "Company Name": "",
-    "Company Website Link": ""
+    "Company Website Link": "",
   },
   footerContact: [
     {
       label: "pranav.nahal@goripples.com",
-      href: "#"
+      href: "mailto:pranav.nahal@goripples.com",
     },
     {
       label: "+91 7019932367",
-      href: "#"
+      href: "tel:+917019932367",
     },
     {
-      label:
-        "176, Dollars Colony, JP Nagar Phase 4, Bengaluru - 560078",
-      href: "#"
-    }
-  ]
+      label: "176, Dollars Colony, JP Nagar Phase 4, Bengaluru - 560078",
+      href: "https://www.google.com/maps/place/176,+Dollars+Colony,+JP+Nagar+Phase+4,+Bengaluru+-+560078",
+    },
+  ],
 };

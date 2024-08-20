@@ -1,11 +1,11 @@
 import { useState } from "react";
-import "../styles/stepper.css";
+import "../styles/home/stepper.css";
 import { TiTick } from "react-icons/ti";
 
 
 interface StepperProps {
   currentStep: number;
-  setCurrentStep: any;
+  setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const Stepper: React.FC<StepperProps> = ({ currentStep, setCurrentStep }) => {
@@ -24,7 +24,7 @@ const Stepper: React.FC<StepperProps> = ({ currentStep, setCurrentStep }) => {
             <div className="step">
               {i + 1 < currentStep || complete ? <TiTick size={24} /> : i + 1}
             </div>
-            <p className="text-gray-400">{step}</p>
+            <p className="text-color">{step}</p>
           </div>
         ))}
       </div>

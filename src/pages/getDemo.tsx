@@ -4,6 +4,7 @@ import { siteConfig } from "@/config/site";
 import DefaultLayout from "@/layouts/default";
 import { useState } from "react";
 import { InlineWidget } from "react-calendly";
+import getDemoData from "@/data/getDemo.json";
 
 export default function GetDemo() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -19,7 +20,10 @@ export default function GetDemo() {
   };
   return (
     <DefaultLayout>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+      <section className="main-section">
+        <p className="heading-color text-lg mb-2">
+          {getDemoData.description}
+        </p>
         <div className="inline-block max-w-lg text-center justify-center">
           <Stepper
             currentStep={currentStep}

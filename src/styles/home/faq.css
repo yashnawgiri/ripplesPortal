@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.singleFAQ {
+    @apply h-fit mx-2 md:mx-0 md:p-4 px-1 border border-[#282D45] rounded-xl bg-gradient-to-br from-[#0e194e] to-[#0c3345];
+}
+
+.faqTitle {
+    @apply py-4 pl-10 text-xs md:text-3xl font-bold text-white;
+}
+
+.icon {
+    @apply w-4 sm:w-6 h-4 sm:h-6 text-white;
+}
+
+.faqDescription {
+    @apply text-gray-400 text-xs md:text-base pb-4 md:pb-6 pl-10 pr-16;
+}
