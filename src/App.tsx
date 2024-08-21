@@ -6,6 +6,7 @@ import AboutPage from "@/pages/about";
 import PrivacyPolicy from "./pages/privacyPolicy";
 import TermsAndConditions from "./pages/termsAndConditions";
 import { siteConfig } from "./config/site";
+import UserPortal from "./pages/userPortal";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       {/* <Route element={<DocsPage />} path={siteConfig.path.docs} />
       <Route element={<PricingPage />} path={siteConfig.path.pricing} />
       <Route element={<BlogPage />} path={siteConfig.path.blog} /> */}
+      <Route element={<UserPortal/>} path={"/user-portal"}/>
     </Routes>
   );
 }

@@ -1,3 +1,5 @@
+import { CategoryIcon, ChatIcon, InfoCircleIcon, LogoutIcon, SettingsIcon, VideoIcon, WalletIcon } from "@/components/icons";
+
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
@@ -13,7 +15,7 @@ export const siteConfig = {
     terms: "/terms-and-conditions",
     docs: "/docs",
     pricing: "/pricing",
-    blog: "/blog"
+    blog: "/blog",
   },
   navItems: [
     {
@@ -65,6 +67,43 @@ export const siteConfig = {
     {
       label: "Logout",
       href: "/logout",
+    },
+  ],
+  userNavItems: [
+    {
+      label: "My Ripples",
+      href: "#",
+      icon: CategoryIcon,
+    },
+    {
+      label: "My Content",
+      href: "#",
+      icon: VideoIcon,
+    },
+    {
+      label: "Rewards Wallet",
+      href: "#",
+      icon: WalletIcon,
+    },
+    {
+      label: "FAQ",
+      href: "#",
+      icon: InfoCircleIcon,
+    },
+    {
+      label: "Contact Support",
+      href: "#",
+      icon: ChatIcon,
+    },
+    {
+      label: "My account",
+      href: "#",
+      icon: SettingsIcon,
+    },
+    {
+      label: "Logout",
+      href: "#",
+      icon: LogoutIcon,
     },
   ],
   links: {
