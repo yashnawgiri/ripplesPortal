@@ -1,9 +1,9 @@
 import UserDefaultLayout from "@/layouts/userDefault";
 
-export default function UserPortal() {
+export default function MyAccount() {
     return (
         <UserDefaultLayout>
-            <div className="bg-red-600 text-white">Y</div>
+            <div className="text-white">My Account</div>
         </UserDefaultLayout>
     );
 }

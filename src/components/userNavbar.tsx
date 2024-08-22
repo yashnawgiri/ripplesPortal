@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { siteConfig } from "@/config/site";
 import { DotIcon, WalletIcon, HamburgerButton, CrossIcon } from "./icons";
+import { NavLink } from "react-router-dom";
 
 export default function UserNavBar() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -11,7 +12,7 @@ export default function UserNavBar() {
 
     return (
         <>
-            <nav className="fixed top-0 left-0 right-0 bg-primary w-full px-8 py-3 flex justify-between items-center">
+            <nav className="fixed top-0 left-0 right-0 bg-primary w-full px-8 py-4 flex justify-between items-center">
                 <a href="#" className="flex items-center">
                     <div className="text-white font-bold text-3xl flex items-center">
                         {siteConfig.name}
@@ -28,12 +29,12 @@ export default function UserNavBar() {
                 </div>
                 <div className="hidden sm:flex sm:justify-between sm:items-center">
                     <div className="text-color text-lg font-poppins font-semibold mr-6">
-                        Welcome to Ripples, Syeda
+                        Welcome to Ripples, {"Syeda"}
                     </div>
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-center space-x-3">
                         <WalletIcon />
                         <div className="text-color text-lg font-poppins font-semibold">
-                            ₹0.00
+                            ₹{"0.00"}
                         </div>
                     </div>
                 </div>
@@ -45,13 +46,16 @@ export default function UserNavBar() {
                 id="logo-sidebar"
             >
                 <div className="h-full px-3 pb-4 overflow-y-auto bg-primary">
-                    <ul className="space-y-2 font-medium">
+                    <ul className="sm:font-medium text-lg">
                         {siteConfig.userNavItems.map((item, index) => (
-                            <li key={index} className="p-16 px-6 rounded-sm border border-transparent hover:bg-[#282D45] hover:border-gray-600 py-1">
-                                <a href={item.href} className="flex items-center p-2 text-color rounded-lg group">
+                            <li key={index} className="">
+                                <NavLink to={item.href}
+                                    className={({ isActive }) =>
+                                        `${isActive ? "text-white bg-[#282D45] border border-gray-600" : "text-color"} flex items-center p-2 py-4 rounded-lg group px-6 rounded-sm`
+                                    }>
                                     <item.icon />
                                     <span className="flex-1 ms-3 whitespace-nowrap font-poppins">{item.label}</span>
-                                </a>
+                                </NavLink>
                             </li>
                         ))}
                     </ul>

@@ -11,7 +11,7 @@ export default function DashboardCard() {
           key={item.icon}
           className="w-100p md:w-30p sm:w-50p card"
         >
-          <div className="flex md:block justify-start">
+          <div className="flex md:block justify-start items-center">
             <DashboardCardIcon icon={item.icon} />
             <h1 className="cardTitle text-md md:text-2xl ">
               {item.title}

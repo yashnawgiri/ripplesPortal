@@ -8,9 +8,9 @@ export default function UserDefaultLayout({
 }) {
     return (
         <div className="relative flex flex-col items-center h-fit bg-custom-radial">
-            <UserNavBar/>
-            <div className="center-parent-container">
-                <main className="flex-grow items-center min-h-screen pt-28">{children}</main>
+            <UserNavBar />
+            <div className="center-parent-container min-h-screen">
+                <main className="flex-grow items-center mt-24 sm:ml-72">{children}</main>
             </div>
         </div>
     );

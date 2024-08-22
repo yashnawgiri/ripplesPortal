@@ -28,7 +28,7 @@ export const siteConfig = {
     },
     {
       label: "Features",
-      href: "/features",
+      href: "/#features",
     },
     {
       label: "Early Bird",
@@ -72,37 +72,37 @@ export const siteConfig = {
   userNavItems: [
     {
       label: "My Ripples",
-      href: "#",
+      href: "/my-ripples",
       icon: CategoryIcon,
     },
     {
       label: "My Content",
-      href: "#",
+      href: "/my-content",
       icon: VideoIcon,
     },
     {
       label: "Rewards Wallet",
-      href: "#",
+      href: "/my-rewards",
       icon: WalletIcon,
     },
     {
       label: "FAQ",
-      href: "#",
+      href: "/faq",
       icon: InfoCircleIcon,
     },
     {
       label: "Contact Support",
-      href: "#",
+      href: "/support",
       icon: ChatIcon,
     },
     {
       label: "My account",
-      href: "#",
+      href: "/my-account",
       icon: SettingsIcon,
     },
     {
       label: "Logout",
-      href: "#",
+      href: "/logout",
       icon: LogoutIcon,
     },
   ],
@@ -123,11 +123,11 @@ export const siteConfig = {
       href: "#",
     },
     {
-      label: "About",
+      label: "About Us",
       href: "#",
     },
     {
-      label: "How it works",
+      label: "How Does It Work",
       href: "#",
     },
     {

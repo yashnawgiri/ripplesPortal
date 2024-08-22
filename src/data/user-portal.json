@@ -1,0 +1,35 @@
+{
+    "myRipples": {
+        "noRipples": {
+            "title1": "We don't see any Ripples links associated with your account",
+            "card1": {
+                "title": "Have you shared a link before?",
+                "description": "Contact us and we can help you track down the missing link",
+                "icon": "CartIcon"
+            },
+            "title2": "New to being a Rippler? Here's how to get started",
+            "cards": [
+                {
+                    "title": "Find a Ripples Merchant",
+                    "description": "You can find your favorite merchants here",
+                    "icon": "ShopIcon"
+                },
+                {
+                    "title": "Buy Something",
+                    "description": "You'll find your referral link after you've purchased.",
+                    "icon": "BagIcon"
+                },
+                {
+                    "title": "Share Your Link",
+                    "description": "Your friends get exclusive discounts when they use your link.",
+                    "icon": "MessageIcon"
+                },
+                {
+                    "title": "Get Paid",
+                    "description": "Every purchase with your link gets you cash back.",
+                    "icon": "MoneyRecieveIcon"
+                }
+            ]
+        } 
+    }
+}
