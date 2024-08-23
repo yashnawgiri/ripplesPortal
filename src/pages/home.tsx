@@ -3,14 +3,14 @@ import { Image } from "@nextui-org/image";
 import DefaultLayout from "@/layouts/default";
 import flyer from "@/assets/images/flayer.png";
 import HowDoesItWork from "@/components/HowDoesItWork";
-import CustomButton from "@/components/CustomButton";
+import CustomButton from "@/components/CustomElements/CustomButton";
 import GradiantCards from "@/components/GradiantCards";
 import FAQ from "@/components/FAQ";
 import DashboardCard from "@/components/dashboardCard";
 import { Link } from "react-router-dom";
 import "@/styles/home/home.css";
 import { siteConfig } from "@/config/site";
-import dashboardData  from '@/data/landing.json';
+import dashboardData from '@/data/landing.json';
 
 function DemoButton() {
   return (
@@ -78,7 +78,7 @@ export default function HomePage() {
         <GradiantCards />
         <DemoButton />
         <FAQ />
-        <DemoButton/>
+        <DemoButton />
         {/* <Testimonials /> */}
       </section>
     </DefaultLayout>

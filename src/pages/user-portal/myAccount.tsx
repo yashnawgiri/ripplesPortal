@@ -1,5 +1,5 @@
-import CustomButton from "@/components/CustomButton";
-import CustomInput from "@/components/CustomInput";
+import CustomButton from "@/components/CustomElements/CustomButton";
+import CustomInput from "@/components/CustomElements/CustomInput";
 import UserDefaultLayout from "@/layouts/userDefault";
 
 import React, { useState } from 'react';

@@ -12,6 +12,7 @@ import MyRewards from "./pages/user-portal/myRewards";
 import FAQUserPortal from "./pages/user-portal/faq";
 import Support from "./pages/user-portal/support";
 import MyAccount from "./pages/user-portal/myAccount";
+import Transactions from "./pages/user-portal/Transactions";
 
 function App() {
   return (
@@ -29,7 +30,9 @@ function App() {
       <Route element={<MyRewards/>} path={"/my-rewards"}/>
       <Route element={<FAQUserPortal/>} path={"/faq"}/>
       <Route element={<Support/>} path={"/support"}/>
+      <Route element={<Support/>} path={"/support"}/>
       <Route element={<MyAccount/>} path={"/my-account"}/>
+      <Route element={<Transactions/>} path={"/transactions"}/>
     </Routes>
   );
 }

@@ -1,7 +1,7 @@
 import { CartIcon, ShopIcon, BagIcon, MessageIcon, MoneyRecieveIcon } from "@/components/icons";
 import UserDefaultLayout from "@/layouts/userDefault";
 import myRipplesData from "@/data/user-portal.json";
-import CustomButton from "@/components/CustomButton";
+import CustomButton from "@/components/CustomElements/CustomButton";
 
 const iconMap = {
     CartIcon: <CartIcon />,

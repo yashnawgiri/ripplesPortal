@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { CrossIcon, DotIcon, HamburgerButton } from "./icons";
-import CustomButton from "./CustomButton";
+import CustomButton from "./CustomElements/CustomButton";
 import { siteConfig } from "@/config/site";
 
 export default function Navbar() {

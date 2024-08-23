@@ -728,3 +728,67 @@ export function SearchBarIcon() {
     </svg>
   );
 }
+
+export function MoneyRecievedIcon() {
+  return (
+    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g id="vuesax/linear/money-recive">
+        <g id="Group">
+          <path
+            id="Vector"
+            d="M9.5 14.6951C9.5 15.6651 10.25 16.4451 11.17 16.4451H13.05C13.85 16.4451 14.5 15.7651 14.5 14.9151C14.5 14.0051 14.1 13.6751 13.51 13.4651L10.5 12.4151C9.91 12.2051 9.51001 11.8851 9.51001 10.9651C9.51001 10.1251 10.16 9.43513 10.96 9.43513H12.84C13.76 9.43513 14.51 10.2151 14.51 11.1851"
+            stroke="#22c55e"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            id="Vector_2"
+            d="M12 8.44513V17.4451"
+            stroke="#22c55e"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </g>
+        <path
+          id="Vector_3"
+          d="M22 12.9451C22 18.4651 17.52 22.9451 12 22.9451C6.48 22.9451 2 18.4651 2 12.9451C2 7.42513 6.48 2.94513 12 2.94513"
+          stroke="#22c55e"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          id="Vector_4"
+          d="M17 3.94513V7.94513H21"
+          stroke="#22c55e"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          id="Vector_5"
+          d="M22 2.94513L17 7.94513"
+          stroke="#22c55e"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </g>
+    </svg>
+  );
+}
+
+
+export function MoneyDebetedIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+      <path d="M9.5 14.6951C9.5 15.6651 10.25 16.4451 11.17 16.4451H13.05C13.85 16.4451 14.5 15.7651 14.5 14.9151C14.5 14.0051 14.1 13.6751 13.51 13.4651L10.5 12.4151C9.91 12.2051 9.51001 11.8851 9.51001 10.9651C9.51001 10.1251 10.16 9.43513 10.96 9.43513H12.84C13.76 9.43513 14.51 10.2151 14.51 11.1851" stroke="#DA6464" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M12 8.44513V17.4451" stroke="#DA6464" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M22 12.9451C22 18.4651 17.52 22.9451 12 22.9451C6.48 22.9451 2 18.4651 2 12.9451C2 7.42513 6.48 2.94513 12 2.94513" stroke="#DA6464" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M22 6.94513V2.94513H18" stroke="#DA6464" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M17 7.94513L22 2.94513" stroke="#DA6464" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  );
+}

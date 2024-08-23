@@ -1,8 +1,8 @@
-import CustomButton from "@/components/CustomButton";
-import CustomFileInput from "@/components/CustomFileInput";
-import CustomInput from "@/components/CustomInput";
-import CustomSelect from "@/components/CustomSelect";
-import CustomTextArea from "@/components/CustomTextArea";
+import CustomButton from "@/components/CustomElements/CustomButton";
+import CustomFileInput from "@/components/CustomElements/CustomFileInput";
+import CustomInput from "@/components/CustomElements/CustomInput";
+import CustomSelect from "@/components/CustomElements/CustomSelect";
+import CustomTextArea from "@/components/CustomElements/CustomTextArea";
 import UserDefaultLayout from "@/layouts/userDefault";
 import { useState } from "react";
 

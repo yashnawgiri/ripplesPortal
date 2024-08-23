@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import UserDefaultLayout from "@/layouts/userDefault";
 import { SearchBarIcon } from '@/components/icons';
 
