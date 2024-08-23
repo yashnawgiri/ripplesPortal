@@ -1,6 +1,7 @@
 import { CartIcon, ShopIcon, BagIcon, MessageIcon, MoneyRecieveIcon } from "@/components/icons";
 import UserDefaultLayout from "@/layouts/userDefault";
 import myRipplesData from "@/data/user-portal.json";
+import CustomButton from "@/components/CustomButton";
 
 const iconMap = {
     CartIcon: <CartIcon />,
@@ -36,21 +37,83 @@ function Card({ item }: CardProps) {
 }
 
 export default function MyRipples() {
+    const haveRipples = true;
     return (
         <UserDefaultLayout>
-            <div className="flex flex-col items-center justify-center">
-                <div className="text-lg lg:text-2xl font-extrabold font-poppins text-center leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 mb-8">
-                    {myRipplesData.myRipples.noRipples.title1}
+            {haveRipples ? (
+                <div className="flex justify-center items-center">
+                    <div className="w-full sm:w-2/3">
+                        <div className="flex bg-primary w-full p-5 rounded-sm items-center border border-gray-800 space-y-1">
+                            <div className="rounded-full bg-gray-400 h-10 w-10">
+                                {/* <Image 
+                            /> */}
+                            </div>
+                            <h2 className="heading-color lg:text-lg text-md ml-4 py-2">
+                                {"Syeda"} (you)
+                            </h2>
+                        </div>
+                        <h3 className="text-lg lg:text-2xl font-extrabold font-poppins text-center mt-14 leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 mb-8">
+                            Give Rs.500 off,Get Rs.500 cash
+                        </h3>
+                        <p className="text-white text-md mb-2">
+                            {"Neck Massager Sell"}
+                        </p>
+                        <div className="bg-primary w-full p-5 rounded-sm items-center border border-gray-800 space-y-1">
+                            <p className="text-gray-400 text-sm">
+                                Rewards Earned
+                            </p>
+                            <p className="text-white text-3xl font-bold">
+                                ₹{"220.00"}
+                            </p>
+                        </div>
+                        <CustomButton
+                            onClick={() => { }}
+                            className="bg-secondary mx-auto w-full mt-4"
+                        >
+                            <a
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href={""}
+                                className="flex justify-center w-full space-x-2"
+                            >
+                                <p>Copy Ripples Link</p>
+                                <MessageIcon />
+                            </a>
+                        </CustomButton>
+                        <p className="text-color text-center mt-2">
+                            Your friends will get a
+                            Rs.{"500"} discount at {"Neck Massager"} Sell.
+                        </p>
+                        <button
+                            onClick={() => { }}
+                            className="bg-gray-800 flex py-1 mx-auto mt-4 heading-color px-6 py-2 font-poppins rounded-full"
+                        >
+                            <a
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href={""}
+                            >
+                                See Others
+                            </a>
+                        </button>
+                    </div>
                 </div>
-                <Card item={{
-                    ...myRipplesData.myRipples.noRipples.card1,
-                    icon: myRipplesData.myRipples.noRipples.card1.icon as keyof typeof iconMap
-                }} />
-            </div>
+            ) : (
+                <div className="flex flex-col items-center justify-center">
+                    <div className="text-lg lg:text-2xl font-extrabold font-poppins text-center leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 mb-8">
+                        {myRipplesData.myRipples.noRipples.title1}
+                    </div>
+                    <Card item={{
+                        ...myRipplesData.myRipples.noRipples.card1,
+                        icon: myRipplesData.myRipples.noRipples.card1.icon as keyof typeof iconMap
+                    }} />
+                </div>
+            )}
+
             <div className="text-lg lg:text-2xl font-extrabold font-poppins text-center mt-14 leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 mb-8">
                 {myRipplesData.myRipples.noRipples.title2}
             </div>
-            <div className="flex flex-col items-center space-y-3">
+            <div className="flex flex-col items-center space-y-3 pb-4">
                 {myRipplesData.myRipples.noRipples.cards.map((item, index) => (
                     <Card key={index} item={{
                         ...item,

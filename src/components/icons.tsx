@@ -3,10 +3,10 @@ import * as React from "react";
 import { IconSvgProps } from "@/types";
 
 export const Logo: React.FC<IconSvgProps> = ({
-                                               size = 36,
-                                               height,
-                                               ...props
-                                             }) => (
+  size = 36,
+  height,
+  ...props
+}) => (
   <svg
     fill="none"
     height={size || height}
@@ -24,11 +24,11 @@ export const Logo: React.FC<IconSvgProps> = ({
 );
 
 export const DiscordIcon: React.FC<IconSvgProps> = ({
-                                                      size = 24,
-                                                      width,
-                                                      height,
-                                                      ...props
-                                                    }) => {
+  size = 24,
+  width,
+  height,
+  ...props
+}) => {
   return (
     <svg
       height={size || height}
@@ -45,11 +45,11 @@ export const DiscordIcon: React.FC<IconSvgProps> = ({
 };
 
 export const TwitterIcon: React.FC<IconSvgProps> = ({
-                                                      size = 24,
-                                                      width,
-                                                      height,
-                                                      ...props
-                                                    }) => {
+  size = 24,
+  width,
+  height,
+  ...props
+}) => {
   return (
     <svg
       height={size || height}
@@ -66,11 +66,11 @@ export const TwitterIcon: React.FC<IconSvgProps> = ({
 };
 
 export const GithubIcon: React.FC<IconSvgProps> = ({
-                                                     size = 24,
-                                                     width,
-                                                     height,
-                                                     ...props
-                                                   }) => {
+  size = 24,
+  width,
+  height,
+  ...props
+}) => {
   return (
     <svg
       height={size || height}
@@ -89,11 +89,11 @@ export const GithubIcon: React.FC<IconSvgProps> = ({
 };
 
 export const MoonFilledIcon = ({
-                                 size = 24,
-                                 width,
-                                 height,
-                                 ...props
-                               }: IconSvgProps) => (
+  size = 24,
+  width,
+  height,
+  ...props
+}: IconSvgProps) => (
   <svg
     aria-hidden="true"
     focusable="false"
@@ -111,11 +111,11 @@ export const MoonFilledIcon = ({
 );
 
 export const SunFilledIcon = ({
-                                size = 24,
-                                width,
-                                height,
-                                ...props
-                              }: IconSvgProps) => (
+  size = 24,
+  width,
+  height,
+  ...props
+}: IconSvgProps) => (
   <svg
     aria-hidden="true"
     focusable="false"
@@ -134,11 +134,11 @@ export const SunFilledIcon = ({
 );
 
 export const HeartFilledIcon = ({
-                                  size = 24,
-                                  width,
-                                  height,
-                                  ...props
-                                }: IconSvgProps) => (
+  size = 24,
+  width,
+  height,
+  ...props
+}: IconSvgProps) => (
   <svg
     aria-hidden="true"
     focusable="false"
@@ -532,20 +532,49 @@ export function DotIcon() {
 
 export function HamburgerButton() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-      <path d="M5 16H27M5 9H27M5 23H27" stroke="#F6F6F7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      fill="none"
+    >
+      <path
+        d="M5 16H27M5 9H27M5 23H27"
+        stroke="#F6F6F7"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
 
 export function CrossIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="43" viewBox="0 0 28 43" fill="none">
-      <path d="M1 26.4558L26.4558 0.999967" stroke="white" stroke-width="1.5" stroke-linecap="round" />
-      <path d="M1 0.999756L26.4558 26.4556" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      fill="none"
+    >
+      <path
+        d="M6 6L26 26"
+        stroke="white"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M6 26L26 6"
+        stroke="white"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }
+
 
 export function WalletIcon() {
   return (
@@ -671,6 +700,31 @@ export function MoneyRecieveIcon() {
       <path d="M22 12.7602C22 18.2802 17.52 22.7602 12 22.7602C6.48 22.7602 2 18.2802 2 12.7602C2 7.24019 6.48 2.76019 12 2.76019" stroke="#F6F6F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
       <path d="M17 3.76019V7.76019H21" stroke="#F6F6F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
       <path d="M22 2.76019L17 7.76019" stroke="#F6F6F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  );
+}
+
+export function HalfArrowIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
+      <path d="M5.19751 12.12L9.00084 8.31667C9.45001 7.8675 9.45001 7.1325 9.00084 6.68334L5.19751 2.88" stroke="#F6F6F7" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  );
+}
+
+export function CopyIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="23" viewBox="0 0 22 23" fill="none">
+      <path d="M14.6667 12.6401V16.4901C14.6667 19.6984 13.3834 20.9817 10.175 20.9817H6.32504C3.11671 20.9817 1.83337 19.6984 1.83337 16.4901V12.6401C1.83337 9.43174 3.11671 8.14841 6.32504 8.14841H10.175C13.3834 8.14841 14.6667 9.43174 14.6667 12.6401Z" stroke="#8F9BB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M20.1667 7.14007V10.9901C20.1667 14.1984 18.8834 15.4817 15.675 15.4817H14.6667V12.6401C14.6667 9.43174 13.3834 8.14841 10.175 8.14841H7.33337V7.14007C7.33337 3.93174 8.61671 2.64841 11.825 2.64841H15.675C18.8834 2.64841 20.1667 3.93174 20.1667 7.14007Z" stroke="#8F9BB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  )
+}
+
+export function SearchBarIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M12.6266 11.5128L16 14.8855L14.8855 16L11.5128 12.6266C10.2579 13.6325 8.69706 14.1797 7.08871 14.1774C3.17574 14.1774 0 11.0017 0 7.08871C0 3.17574 3.17574 0 7.08871 0C11.0017 0 14.1774 3.17574 14.1774 7.08871C14.1797 8.69706 13.6325 10.2579 12.6266 11.5128ZM11.0466 10.9284C12.0462 9.90047 12.6044 8.52254 12.6021 7.08871C12.6021 4.04214 10.1345 1.57527 7.08871 1.57527C4.04214 1.57527 1.57527 4.04214 1.57527 7.08871C1.57527 10.1345 4.04214 12.6021 7.08871 12.6021C8.52254 12.6044 9.90047 12.0462 10.9284 11.0466L11.0466 10.9284Z" fill="#8893AE" />
     </svg>
   );
 }
