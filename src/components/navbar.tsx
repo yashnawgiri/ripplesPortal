@@ -58,44 +58,56 @@ export default function Navbar() {
           </button>
         </div>
       </div>
-      {isOpen && (
-        <div className="md:hidden fixed top-24 left-0 w-full pb-10 bg-primary px-4 z-50 border-b border-gray-700">
-          <div className="flex flex-col text-center space-y-6 mt-6">
-            {siteConfig.navItems.map((item) =>
-              item.label === "Features" ? (
-                <a
-                  key={item.href}
-                  href="#features2"
-                  className="cursor-pointer text-color text-lg"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </a>
-              ) : (
-                <NavLink
-                  key={item.href}
-                  to={item.href}
-                  className={({ isActive }) => isActive ? "text-white text-lg" : "text-color text-lg"}
-                >
-                  {item.label}
-                </NavLink>
-              )
-            )}
-            <CustomButton
-              onClick={() => { }}
-              className="bg-secondary mx-auto max-w-36"
-            >
+      <div
+        className={`fixed top-20 left-0 h-full w-3/4 bg-primary p-6 z-50 transform ${isOpen ? "translate-x-0" : "-translate-x-full"
+          } transition-transform duration-300 ease-in-out md:hidden`}
+      >
+        <button
+          onClick={() => {
+            setIsOpen(false);
+          }}
+          className="text-white mb-6"
+        >
+          {/* <CrossIcon /> */}
+        </button>
+        <div className="flex flex-col space-y-8 text-center">
+          {siteConfig.navItems.map((item) =>
+            item.label === "Features" ? (
               <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={siteConfig.path.getDemo}
+                key={item.href}
+                href="#features2"
+                className="cursor-pointer text-color text-lg"
+                onClick={() => setIsOpen(false)}
               >
-                Book Demo
+                {item.label}
               </a>
-            </CustomButton>
-          </div>
+            ) : (
+              <NavLink
+                key={item.href}
+                to={item.href}
+                className={({ isActive }) =>
+                  isActive ? "text-white text-lg" : "text-color text-lg"
+                }
+                onClick={() => setIsOpen(false)}
+              >
+                {item.label}
+              </NavLink>
+            )
+          )}
+          <CustomButton
+            onClick={() => { }}
+            className="bg-secondary mx-auto max-w-36"
+          >
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={siteConfig.path.getDemo}
+            >
+              Book Demo
+            </a>
+          </CustomButton>
         </div>
-      )}
+      </div>
     </nav>
   );
 }
