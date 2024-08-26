@@ -13,6 +13,9 @@ import FAQUserPortal from "./pages/user-portal/faq";
 import Support from "./pages/user-portal/support";
 import MyAccount from "./pages/user-portal/myAccount";
 import Transactions from "./pages/user-portal/Transactions";
+import SignUp from "./pages/signUp";
+import EmailSignUp from "./pages/emailSignUp";
+import OTP from "./pages/otp";
 
 function App() {
   return (
@@ -32,6 +35,9 @@ function App() {
       <Route element={<Support/>} path={"/support"}/>
       <Route element={<MyAccount/>} path={"/my-account"}/>
       <Route element={<Transactions/>} path={"/transactions"}/>
+      <Route element={<SignUp/>} path={"/signup"}/>
+      <Route element={<EmailSignUp/>} path={"/email-signup"}/>
+      <Route element={<OTP/>} path={"/otp"}/>
     </Routes>
   );
 }
