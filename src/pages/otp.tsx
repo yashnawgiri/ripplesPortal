@@ -1,10 +1,41 @@
 import backgroundImage from "@/assets/images/backgroundImage.png";
 import CustomButton from "@/components/CustomElements/CustomButton";
-import { GoogleIcon } from "@/components/icons";
 import { siteConfig } from "@/config/site";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function OTP() {
+    const [values, setValues] = useState(['', '', '', '']);
+
+    const handleChange = (index: number, event: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target;
+        if (/^[0-9]$/.test(value)) {  // Restrict input to numbers only
+            const newValues = [...values];
+            newValues[index] = value;
+            setValues(newValues);
+
+            // Automatically focus the next input if the current input is not empty
+            if (value && index < 3) {
+                const nextSibling = document.querySelector<HTMLInputElement>(`input[name=input-${index + 1}]`);
+                nextSibling?.focus();
+            }
+        }
+    };
+
+    const handleKeyDown = (index: number, event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === 'Backspace' || event.key === 'Delete') {
+            const newValues = [...values];
+            newValues[index] = '';
+            setValues(newValues);
+
+            // Automatically focus the previous input on backspace if the current input is empty
+            if (index > 0) {
+                const prevSibling = document.querySelector<HTMLInputElement>(`input[name=input-${index - 1}]`);
+                prevSibling?.focus();
+            }
+        }
+    };
+
     return (
         <div className="min-h-screen w-full bg-no-repeat bg-center bg-cover content-center"
             style={{ backgroundImage: `url(${backgroundImage})` }}
@@ -17,26 +48,31 @@ export default function OTP() {
                     </div>
                     <div>
                         <h2 className="text-xl lg:text-2xl font-extrabold font-poppins text-center leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">
-                            Share the Love: Get Cash Rewards for Referring Your Favorite Brands!
+                            OTP Verification
                         </h2>
-                        <p className="text-color font-poppins text-sm pt-2">Sign in to see more</p>
+                        <p className="text-color font-poppins text-sm pt-2">Enter the code sent to your email</p>
                     </div>
                     <div>
+                        <div className="flex space-x-4 justify-center my-6">
+                            {values.map((value, index) => (
+                                <input
+                                    key={index}
+                                    name={`input-${index}`}
+                                    type="text"
+                                    maxLength={1}
+                                    value={value}
+                                    onChange={(event) => handleChange(index, event)}
+                                    onKeyDown={(event) => handleKeyDown(index, event)}
+                                    className="w-14 h-14 border border-gray-500 rounded-full text-center text-white bg-gray-900 text-lg focus:outline-none"
+                                />
+                            ))}
+                        </div>
                         <CustomButton
                             onClick={() => { }}
                             className="bg-secondary mx-auto w-full mt-4 py-4"
                         >
                             <p className="flex justify-center font-poppins w-full text-md space-x-2">
-                                Continue with Email
-                            </p>
-                        </CustomButton>
-                        <CustomButton
-                            onClick={() => { }}
-                            className="flex justify-center bg-white mx-auto w-full mt-4 space-x-3 py-4"
-                        >
-                            <GoogleIcon />
-                            <p className="flex justify-center font-poppins text-black text-md space-x-2">
-                                Continue with Google
+                                Verify & login
                             </p>
                         </CustomButton>
                     </div>
