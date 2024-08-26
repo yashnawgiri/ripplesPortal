@@ -1,27 +1,84 @@
 import { useState } from "react";
 import { siteConfig } from "@/config/site";
-import { DotIcon, WalletIcon, HamburgerButton, CrossIcon } from "./icons";
-import { NavLink } from "react-router-dom";
+import { DotIcon, WalletIcon, HamburgerButton, CrossIcon, LeftArrowIcon } from "./icons";
+import { NavLink, useLocation } from "react-router-dom";
 
 export default function UserNavBar() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const location = useLocation();
 
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
 
+    type RouteMapping = {
+        [key: string]: {
+            href: string;
+            title: string;
+        };
+    };
+    //   <Route element={<MyRipples/>} path={"/my-ripples"}/>
+    //   <Route element={<MyContent/>} path={"/my-content"}/>
+    //   <Route element={<MyRewards/>} path={"/my-rewards"}/>
+    //   <Route element={<FAQUserPortal/>} path={"/faq"}/>
+    //   <Route element={<Support/>} path={"/support"}/>
+    //   <Route element={<MyAccount/>} path={"/my-account"}/>
+    //   <Route element={<Transactions/>} path={"/transactions"}/>
+
+    const routeMapping: RouteMapping = {
+        "/my-ripples": {
+            href: siteConfig.path.home + "my-ripples",
+            title: "Welcome to your Dashboard, Syeda",
+        },
+        "/my-content": {
+            href: siteConfig.path.home + "my-content",
+            title: "Welcome to your Dashboard, Syeda",
+        },
+        "/my-rewards": {
+            href: siteConfig.path.home + "my-rewards",
+            title: "Reward Wallet",
+        },
+        "/faq": {
+            href: siteConfig.path.home + "faq",
+            title: "FAQs",
+        },
+        "/support": {
+            href: siteConfig.path.home + "support",
+            title: "Contact Support",
+        },
+        "/my-account": {
+            href: siteConfig.path.home + "my-account",
+            title: "Account Settings",
+        },
+        "/transactions": {
+            href: siteConfig.path.home + "my-rewards",
+            title: "Transactions",
+        }
+    };
+
+    const getPageDetails = () => {
+        const currentPath = location.pathname;
+        return routeMapping[currentPath] || {
+            href: siteConfig.path.home,
+            title: `Welcome to Ripples, ${"Syeda"}`,
+        };
+    };
+
+    const { href, title } = getPageDetails();
+
     return (
         <>
             <nav className="fixed top-0 left-0 right-0 bg-primary w-full px-8 py-4 flex justify-between items-center">
                 <div className="flex items-center">
-                    <a href="#" className="text-white font-bold text-3xl flex items-center">
+                    <a href={siteConfig.path.home} className="text-white font-bold text-3xl flex items-center">
                         {siteConfig.name}
                         <span className="ml-1"><DotIcon /></span>
                     </a>
                     <div className="hidden sm:flex sm:items-center sm:ml-6 pl-36">
-                        <div className="text-color text-lg font-poppins font-semibold">
-                            Welcome to Ripples, {"Syeda"}
-                        </div>
+                        <a href={href} className="flex space-x-2 items-center text-color text-lg font-poppins font-semibold">
+                            {(title =="Transactions")&&<LeftArrowIcon/>}
+                            <h1>{title}</h1>
+                        </a>
                     </div>
                 </div>
                 <div className="flex sm:hidden">

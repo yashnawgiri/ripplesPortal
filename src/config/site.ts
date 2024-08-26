@@ -1,4 +1,12 @@
-import { CategoryIcon, ChatIcon, InfoCircleIcon, LogoutIcon, SettingsIcon, VideoIcon, WalletIcon } from "@/components/icons";
+import {
+  CategoryIcon,
+  ChatIcon,
+  InfoCircleIcon,
+  LogoutIcon,
+  SettingsIcon,
+  VideoIcon,
+  WalletIcon,
+} from "@/components/icons";
 
 export type SiteConfig = typeof siteConfig;
 

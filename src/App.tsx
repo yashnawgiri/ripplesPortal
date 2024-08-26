@@ -30,7 +30,6 @@ function App() {
       <Route element={<MyRewards/>} path={"/my-rewards"}/>
       <Route element={<FAQUserPortal/>} path={"/faq"}/>
       <Route element={<Support/>} path={"/support"}/>
-      <Route element={<Support/>} path={"/support"}/>
       <Route element={<MyAccount/>} path={"/my-account"}/>
       <Route element={<Transactions/>} path={"/transactions"}/>
     </Routes>
