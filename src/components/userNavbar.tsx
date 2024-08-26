@@ -13,29 +13,29 @@ export default function UserNavBar() {
     return (
         <>
             <nav className="fixed top-0 left-0 right-0 bg-primary w-full px-8 py-4 flex justify-between items-center">
-                <a href="#" className="flex items-center">
-                    <div className="text-white font-bold text-3xl flex items-center">
+                <div className="flex items-center">
+                    <a href="#" className="text-white font-bold text-3xl flex items-center">
                         {siteConfig.name}
                         <span className="ml-1"><DotIcon /></span>
+                    </a>
+                    <div className="hidden sm:flex sm:items-center sm:ml-6 pl-36">
+                        <div className="text-color text-lg font-poppins font-semibold">
+                            Welcome to Ripples, {"Syeda"}
+                        </div>
                     </div>
-                </a>
+                </div>
                 <div className="flex sm:hidden">
                     <button
                         onClick={toggleSidebar}
                         className="text-white focus:outline-none"
                     >
-                        {isSidebarOpen ? <CrossIcon/> :<HamburgerButton/>}
+                        {isSidebarOpen ? <CrossIcon /> : <HamburgerButton />}
                     </button>
                 </div>
-                <div className="hidden sm:flex sm:justify-between sm:items-center">
-                    <div className="text-color text-lg font-poppins font-semibold mr-6">
-                        Welcome to Ripples, {"Syeda"}
-                    </div>
-                    <div className="flex items-center space-x-3">
-                        <WalletIcon />
-                        <div className="text-color text-lg font-poppins font-semibold">
-                            ₹{"0.00"}
-                        </div>
+                <div className="hidden sm:flex sm:items-center">
+                    <WalletIcon />
+                    <div className="text-color text-lg font-poppins font-semibold ml-2">
+                        ₹{"0.00"}
                     </div>
                 </div>
             </nav>

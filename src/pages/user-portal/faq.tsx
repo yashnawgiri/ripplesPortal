@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import UserDefaultLayout from "@/layouts/userDefault";
 import { SearchBarIcon } from '@/components/icons';
+import { FaMinus, FaPlus } from 'react-icons/fa';
 
 const faqData = [
     {
@@ -12,7 +13,7 @@ const faqData = [
         "description": "This is a dummy description for How does the open ambassador program work?"
     },
     {
-        "title": "How It Works",
+        "title": "How It Works?",
         "description": "This is a dummy description for How It Works."
     },
     {
@@ -41,13 +42,40 @@ const faqData = [
     }
 ]
 
+
+type FAQItemProps = {
+    question: string;
+    answer: string;
+};
+
+const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <div className="h-fit mx-2 md:mx-0 md:p-4 py-3 px-1 border border-[#282D45] rounded-xl bg-gradient-to-br from-[#0e194e] to-[#0c3345]">
+            <div className="flex justify-between items-center">
+                <h1 className="py- pl-10 text-xs md:text-lg font-poppins font-bold text-white">
+                    {question}
+                </h1>
+                <div className="items-center mr-6" onClick={() => setIsOpen(!isOpen)}>
+                    {isOpen ? (
+                        <FaMinus className="w-4 sm:w-4 h-4 sm:h-4 text-white" />
+                    ) : (
+                        <FaPlus className="w-4 sm:w-4 h-4 sm:h-4 text-white" />
+                    )}
+                </div>
+            </div>
+            {isOpen && (
+                <p className="text-gray-400 font-poppins text-xs md:text-base pt-1 pl-10 pr-16">
+                    {answer}
+                </p>
+            )}
+        </div>
+    );
+};
+
+
 export default function FAQUserPortal() {
-    const [visibleIndex, setVisibleIndex] = useState<number | null>(null);
-
-    const toggleDescription = (index : number) => {
-        setVisibleIndex(visibleIndex === index ? null : index);
-    };
-
     return (
         <UserDefaultLayout>
             <div className="flex justify-end items-center p-4">
@@ -72,21 +100,25 @@ export default function FAQUserPortal() {
                             FAQs for Shoppers And Sharers
                         </h3>
                     </div>
-                    {faqData.map((item, index) => (
-                        <div key={index} className="my-6">
-                            <h4
-                                className="text-color font-poppins text-md md:text-lg cursor-pointer"
-                                onClick={() => toggleDescription(index)}
-                            >
-                                {item.title}
-                            </h4>
-                            {visibleIndex === index && (
-                                <p className="text-color text-xs font-poppins">
-                                    {item.description}
-                                </p>
-                            )}
-                        </div>
+                    <div className='space-y-3'>
+                        {faqData.map((item, index) => (
+                        <FAQItem key={index} answer={item.description} question={item.title} />
+                        // <div key={index} className="my-6">
+                        //     <h4
+                        //         className="text-color font-poppins text-md md:text-lg cursor-pointer"
+                        //         onClick={() => toggleDescription(index)}
+                        //     >
+                        //         {item.title}
+                        //     </h4>
+                        //     {visibleIndex === index && (
+                        //         <p className="text-color text-xs font-poppins">
+                        //             {item.description}
+                        //         </p>
+                        //     )}
+                        // </div>
                     ))}
+                    </div>
+                    
                 </div>
             </div>
         </UserDefaultLayout>

@@ -1,5 +1,6 @@
 import { CopyIcon, HalfArrowIcon } from "@/components/icons";
 import UserDefaultLayout from "@/layouts/userDefault";
+import { Link } from "react-router-dom";
 
 export default function MyRewards() {
     const rewards = ["", "", ""];
@@ -42,15 +43,12 @@ export default function MyRewards() {
                                 ₹{"320"}
                             </p>
                         </div>
-                        <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href={""}
+                        <Link to={"/transactions"}
                             className="flex items-center space-x-2 heading-color font-semibold bg-gray-800 rounded-full px-6 py-2"
                         >
-                            <p className="text-xs md:text-base">See Transactions</p>
+                        <p className="text-xs md:text-base">See Transactions</p>
                             <HalfArrowIcon />
-                        </a>
+                        </Link>
                     </div>
                     <h3 className="text-lg lg:text-2xl font-extrabold font-poppins text-center mt-14 leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 mb-8">
                         Referrel Links
