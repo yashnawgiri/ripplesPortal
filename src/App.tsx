@@ -16,6 +16,7 @@ import Transactions from "./pages/user-portal/Transactions";
 import SignUp from "./pages/signUp";
 import EmailSignUp from "./pages/emailSignUp";
 import OTP from "./pages/otp";
+import NotFound from "./pages/notFound";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
       <Route element={<SignUp/>} path={"/signup"}/>
       <Route element={<EmailSignUp/>} path={"/email-signup"}/>
       <Route element={<OTP/>} path={"/otp"}/>
+      <Route element={<NotFound/>} path={"*"} />
     </Routes>
   );
 }
