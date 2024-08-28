@@ -2,8 +2,9 @@
   "home": {
     "heading1" : "Turn customers into influencers, advocates, and UGC creators - your RIPPLERS!",
     "subHeading" : "Increase Your Customer Referrals by 3X.",
-    "description" : "Ripples is an OS that helps you automate and scale influencer-style rewards for your customers, unlocking virality.",
+    "description" : "Give cash rewards for referrals and UGC creation - transferred directly to shopper's bank account!",
     "heading2" : "Your Customer is Your Next Ripple for Sales",
+    "description2" : "Ripples is an OS that helps you automate and scale influencer-style rewards for your customers, unlocking virality.",
     "demoButton": "Book Demo"
   },
   "ComponentsData": {
@@ -86,14 +87,14 @@
   ],
   "dashboardCardData": [
     {
+      "icon": 1,
+      "title": "Incentivize users with Cash Rewards",
+      "description": "Incentivize users at POS and automate post purchase rewards payout. Ripples is a SaaS solution you can set and forget."
+    },
+    {
       "icon": 0,
       "title": "Reduce CAC & Increase ROI",
       "description": "Our user referral GTM strategy operates at approximately 65% lower CAC than performance marketing campaigns."
-    },
-    {
-      "icon": 1,
-      "title": "Incentivize users",
-      "description": "Incentivize users at POS and automate post purchase rewards payout. Ripples is a SaaS solution you can set and forget."
     },
     {
       "icon": 2,
