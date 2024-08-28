@@ -10,7 +10,7 @@ export default function Support() {
     const [email, setEmail] = useState<string>('');
     const [subject, setSubject] = useState<string>('');
     const [requestCategory, setRequestCategory] = useState<string>('Link Not Working');
-    const [brandName, setBrandName] = useState<string>('Brand Name xyz');
+    const [brandName, setBrandName] = useState<string>('');
     const [description, setDescription] = useState<string>('');
     const [file, setFile] = useState<File | null>(null);
     file;
@@ -26,6 +26,10 @@ export default function Support() {
     const handleDescriptionChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         setDescription(event.target.value);
     };
+
+    const handleBrandNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setBrandName(event.target.value);
+    }
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files && event.target.files.length > 0) {
@@ -46,6 +50,7 @@ export default function Support() {
                             type="email"
                             placeholder="example@gmail.com"
                             value={email}
+                            readonly={true}
                             onChange={handleEmailChange}
                         />
 
@@ -64,11 +69,12 @@ export default function Support() {
                             onChange={(e) => setRequestCategory(e.target.value)}
                         />
 
-                        <CustomSelect
+                        <CustomInput
                             title="Brand Name"
-                            options={["Brand Name xyz", "Brand Name abc", "Brand Name pqr", "Other"]}
+                            type="text"
+                            placeholder="Brand Name"
                             value={brandName}
-                            onChange={(e) => setBrandName(e.target.value)}
+                            onChange={handleBrandNameChange}
                         />
 
                         <CustomTextArea
@@ -85,16 +91,9 @@ export default function Support() {
 
                         <CustomButton
                             onClick={() => { }}
-                            className="bg-secondary mx-auto w-full mt-4"
+                            className="bg-secondary flex justify-center w-full font-bold text-lg space-x-2 mx-auto w-full mt-4"
                         >
-                            <a
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href={""}
-                                className="flex justify-center w-full font-bold text-lg space-x-2"
-                            >
-                                Submit
-                            </a>
+                            Submit
                         </CustomButton>
                     </div>
 

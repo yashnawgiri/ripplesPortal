@@ -4,6 +4,17 @@ import { Link } from "react-router-dom";
 
 export default function MyRewards() {
     const rewards = ["", "", ""];
+
+    const handleCopyClick = (textToCopy: string):void => {
+        navigator.clipboard.writeText(textToCopy)
+            .then(() => {
+                alert("Text copied to clipboard!");
+            })
+            .catch((err) => {
+                console.error("Failed to copy: ", err);
+            });
+    };
+
     return (
         <UserDefaultLayout>
             <div className="flex justify-center items-center">
@@ -17,15 +28,12 @@ export default function MyRewards() {
                                 ₹{"220.00"}
                             </p>
                         </div>
-                        <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href={""}
+                        <Link to={'/my-rewards'}
                             className="flex items-center space-x-2 heading-color font-semibold bg-gray-800 rounded-full px-6 py-2"
                         >
                             <p>{"Withdraw"}</p>
                             <HalfArrowIcon />
-                        </a>
+                        </Link>
                     </div>
                     <p className="text-color text-center mt-2">
                         Your friends will get a
@@ -54,11 +62,9 @@ export default function MyRewards() {
                         Referrel Links
                     </h3>
                     {
-                        rewards.map(r => (<a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href={""}>
-                            <div className="bg-primary flex justify-between w-full px-5 py-3 mb-3 rounded-md items-center border border-gray-800 space-y-1">
+                        rewards.map(r => (
+                            <div onClick={() => handleCopyClick("Referral Link")}
+                            className="bg-primary flex justify-between w-full px-5 py-3 mb-3 rounded-md items-center border border-gray-800 space-y-1">
 
                                 <div className="flex items-center space-x-3">
                                     <h4 className="text-white text-lg md:text-xl font-semibold">₹{"320"}</h4>
@@ -76,23 +82,15 @@ export default function MyRewards() {
                                     <CopyIcon />
                                     <p>Copy Link</p>
                                 </div>
-                                </div>
-                                
+                                </div>  
                             </div>
-                        </a>
                         ))
                     }
                     <button
                         onClick={() => { }}
                         className="bg-gray-800 flex py-1 mx-auto mt-4 heading-color px-6 py-2 font-poppins rounded-full"
                     >
-                        <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href={""}
-                        >
-                            See Others
-                        </a>
+                        See Others
                     </button>
                 </div>
             </div>

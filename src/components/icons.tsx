@@ -802,6 +802,22 @@ export function LeftArrowIcon() {
   );
 }
 
+export function LeftHalfArrowIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M7.71967 14.9755C7.42678 14.6826 7.42678 14.2077 7.71967 13.9148L11.1893 10.4451L7.71967 6.97546C7.42678 6.68257 7.42678 6.20769 7.71967 5.9148C8.01256 5.62191 8.48744 5.62191 8.78033 5.9148L12.7803 9.9148C13.0732 10.2077 13.0732 10.6826 12.7803 10.9755L8.78033 14.9755C8.48744 15.2684 8.01256 15.2684 7.71967 14.9755Z" fill="white" />
+    </svg>
+  );
+}
+
+export function RightHalfArrowIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7803 5.7425C12.0732 6.03539 12.0732 6.51026 11.7803 6.80316L8.31066 10.2728L11.7803 13.7425C12.0732 14.0354 12.0732 14.5103 11.7803 14.8032C11.4874 15.0961 11.0126 15.0961 10.7197 14.8032L6.71967 10.8032C6.42678 10.5103 6.42678 10.0354 6.71967 9.7425L10.7197 5.7425C11.0126 5.4496 11.4874 5.4496 11.7803 5.7425Z" fill="#CCCCCC" />
+    </svg>
+  );
+}
+
 export function GoogleIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">

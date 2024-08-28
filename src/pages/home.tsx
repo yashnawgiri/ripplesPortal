@@ -7,23 +7,22 @@ import CustomButton from "@/components/CustomElements/CustomButton";
 import GradiantCards from "@/components/GradiantCards";
 import FAQ from "@/components/FAQ";
 import DashboardCard from "@/components/dashboardCard";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "@/styles/home/home.css";
 import { siteConfig } from "@/config/site";
 import dashboardData from '@/data/landing.json';
 
 function DemoButton() {
+  const navigate = useNavigate();
   return (
-    <CustomButton className="bg-secondary my-14" onClick={() => {
-    }}>
-      <Link to={siteConfig.path.getDemo}>
-        {dashboardData.home.demoButton}
-      </Link>
+    <CustomButton className="bg-secondary my-14" onClick={() => navigate(siteConfig.path.getDemo)}>
+      {dashboardData.home.demoButton}
     </CustomButton>
   );
 }
 
 export default function HomePage() {
+  const navigate = useNavigate();
   return (
     <DefaultLayout>
       <section className="main-section">
@@ -39,11 +38,8 @@ export default function HomePage() {
               {dashboardData.home.description}
             </p>
             <div className="home-demo-div">
-              <CustomButton className="bg-secondary text-2xl" onClick={() => {
-              }}>
-                <Link to={siteConfig.path.getDemo}>
+              <CustomButton className="bg-secondary text-2xl" onClick={() => navigate(siteConfig.path.getDemo)}>
                   {dashboardData.home.demoButton}
-                </Link>
               </CustomButton>
               {/* <CustomButton onClick={() => { }} 
                 className="bg-[#070c25] border border-gray-700 mx-4">

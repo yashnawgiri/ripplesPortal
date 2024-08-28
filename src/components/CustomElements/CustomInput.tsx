@@ -3,10 +3,11 @@ type InputProps = {
     type: string;
     placeholder: string;
     value: string;
+    readonly?: boolean;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const CustomInput: React.FC<InputProps> = ({ title, type, placeholder, value, onChange }) => {
+const CustomInput: React.FC<InputProps> = ({ title, type, placeholder, value, readonly = false, onChange }) => {
     return (
         <div className="w-full">
             <p className="heading-color font-semibold text-md mb-1 font-poppins">{title}</p>
@@ -14,6 +15,7 @@ const CustomInput: React.FC<InputProps> = ({ title, type, placeholder, value, on
                 type={type}
                 placeholder={placeholder}
                 value={value}
+                readOnly={readonly}
                 onChange={onChange}
                 className="w-full h-12 px-4 bg-primary text-color text-md font-poppins rounded-md border border-gray-700 focus:outline-none"
             />

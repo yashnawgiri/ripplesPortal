@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { CrossIcon, DotIcon, HamburgerButton } from "./icons";
 import CustomButton from "./CustomElements/CustomButton";
 import { siteConfig } from "@/config/site";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   return (
     <nav
@@ -43,8 +44,8 @@ export default function Navbar() {
           )}
         </div>
         <div className="hidden md:block">
-          <CustomButton onClick={() => { }} className="bg-secondary">
-            <Link to={siteConfig.path.getDemo}>Book Demo</Link>
+          <CustomButton onClick={() => navigate(siteConfig.path.getDemo)} className="bg-secondary">
+            Book Demo
           </CustomButton>
         </div>
         <div className="md:hidden">
@@ -95,16 +96,10 @@ export default function Navbar() {
             )
           )}
           <CustomButton
-            onClick={() => { }}
+            onClick={() => navigate(siteConfig.path.getDemo)}
             className="bg-secondary mx-auto max-w-36"
           >
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href={siteConfig.path.getDemo}
-            >
-              Book Demo
-            </a>
+            Book Demo
           </CustomButton>
         </div>
       </div>

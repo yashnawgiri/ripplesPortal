@@ -53,6 +53,7 @@ export default function MyAccount() {
                         type="email"
                         placeholder="example@gmail.com"
                         value={email}
+                        readonly={true}
                         onChange={handleEmailChange}
                     />
                     <p className="text-color my-2 mb-8 text-md font-poppins">
@@ -60,16 +61,9 @@ export default function MyAccount() {
                     </p>
                     <CustomButton
                         onClick={() => { }}
-                        className="bg-secondary mx-auto w-full mt-4"
+                        className="bg-secondary mx-auto w-full mt-4 flex justify-center w-full font-bold text-lg space-x-2"
                     >
-                        <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href={""}
-                            className="flex justify-center w-full font-bold text-lg space-x-2"
-                        >
-                            Save
-                        </a>
+                        Save
                     </CustomButton>
                 </div>
             </div>

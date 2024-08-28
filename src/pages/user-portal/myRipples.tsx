@@ -68,17 +68,10 @@ export default function MyRipples() {
                         </div>
                         <CustomButton
                             onClick={() => { }}
-                            className="bg-secondary mx-auto w-full mt-4"
+                            className="bg-secondary mx-auto w-full mt-4 flex justify-center w-full space-x-2"
                         >
-                            <a
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href={""}
-                                className="flex justify-center w-full space-x-2"
-                            >
-                                <p>Copy Ripples Link</p>
-                                <MessageIcon />
-                            </a>
+                            <p>Copy Ripples Link</p>
+                            <MessageIcon />
                         </CustomButton>
                         <p className="text-color text-center mt-2">
                             Your friends will get a
@@ -88,13 +81,7 @@ export default function MyRipples() {
                             onClick={() => { }}
                             className="bg-gray-800 flex py-1 mx-auto mt-4 heading-color px-6 py-2 font-poppins rounded-full"
                         >
-                            <a
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href={""}
-                            >
-                                See Others
-                            </a>
+                            See Others
                         </button>
                     </div>
                 </div>
