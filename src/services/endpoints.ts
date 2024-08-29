@@ -1,7 +1,13 @@
-const BASE_API = "http://localhost:3000";
+const BASE_URL = "http://20.244.26.175";
 
-const ENDPOINTS = {
-  LOGIN: `${BASE_API}/auth/login`,
+const endpoints = {
+  EMAIL_AUTH: `${BASE_URL}/api/temp/auth/email`,
+  OTP_VERIFY: `${BASE_URL}/api/temp/auth/verify-otp`,
+  REFER_LINKS: `${BASE_URL}/api/temp/user/links`,
+  WALLET_BALANCE: `${BASE_URL}/api/temp/wallet/balance`,
+  TRANSACTIONS: `${BASE_URL}/api/temp/wallet/transactions`,
+  PROFILE: `${BASE_URL}/api/temp/profile`,
+  SUPPORT_REQUEST: `${BASE_URL}/api/temp/support-request`,
 } as const;
 
-export default ENDPOINTS;
+export default endpoints;

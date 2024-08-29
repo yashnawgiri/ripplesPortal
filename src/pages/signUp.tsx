@@ -2,9 +2,10 @@ import backgroundImage from "@/assets/images/backgroundImage.png";
 import CustomButton from "@/components/CustomElements/CustomButton";
 import { GoogleIcon } from "@/components/icons";
 import { siteConfig } from "@/config/site";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function SignUp() {
+    const navigate = useNavigate();
     return (
         <div className="min-h-screen w-full bg-no-repeat bg-center bg-cover content-center"
             style={{ backgroundImage: `url(${backgroundImage})` }}
@@ -23,7 +24,7 @@ export default function SignUp() {
                     </div>
                     <div>
                     <CustomButton
-                        onClick={() => { }}
+                        onClick={() => navigate("/email-signup")}
                         className="bg-secondary mx-auto w-full mt-4 py-4"
                     >
                         <p className="flex justify-center font-poppins w-full text-md space-x-2">
