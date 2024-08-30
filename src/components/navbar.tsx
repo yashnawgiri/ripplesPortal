@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { CrossIcon, DotIcon, HamburgerButton } from "./icons";
 import CustomButton from "./CustomElements/CustomButton";
 import { siteConfig } from "@/config/site";
@@ -9,17 +9,16 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   return (
-    <nav
-      className={`bg-primary w-full p-4 md:py-6 py-8 ${isOpen ? "fixed top-0 left-0 z-50" : "relative"}`}
+    <nav className={`bg-primary w-full p-4 md:py-6 py-8 ${isOpen ? "fixed top-0 left-0 z-50" : "relative"}`}
       id="home"
     >
       <div className="container max-w-7xl mx-auto flex justify-between items-center">
-        <div className="text-white font-bold text-4xl flex items-center">
+        <Link to={"/"} className="text-white font-bold text-4xl flex items-center">
           {siteConfig.name}
           <span className="mt-6 ml-1">
             <DotIcon />
           </span>
-        </div>
+        </Link>
         <div className="hidden md:flex space-x-10">
           {siteConfig.navItems.map((item) =>
             item.label === "Features" ? (

@@ -13,10 +13,8 @@ import FAQUserPortal from "./pages/user-portal/faq";
 import Support from "./pages/user-portal/support";
 import MyAccount from "./pages/user-portal/myAccount";
 import Transactions from "./pages/user-portal/Transactions";
-import SignUp from "./pages/signUp";
-import EmailSignUp from "./pages/emailSignUp";
-import OTP from "./pages/otp";
 import NotFound from "./pages/notFound";
+import AuthPage from "./pages/auth-page/AuthPage";
 
 function App() {
   return (
@@ -26,20 +24,15 @@ function App() {
       <Route element={<AboutPage />} path={siteConfig.path.about} /> 
       <Route element={<PrivacyPolicy />} path={siteConfig.path.privacyPolicy} />
       <Route element={<TermsAndConditions />} path={siteConfig.path.terms} />
-      {/* <Route element={<DocsPage />} path={siteConfig.path.docs} />
-      <Route element={<PricingPage />} path={siteConfig.path.pricing} />
-      <Route element={<BlogPage />} path={siteConfig.path.blog} /> */}
-      <Route element={<MyRipples/>} path={"/my-ripples"}/>
-      <Route element={<MyContent/>} path={"/my-content"}/>
-      <Route element={<MyRewards/>} path={"/my-rewards"}/>
-      <Route element={<FAQUserPortal/>} path={"/faq"}/>
-      <Route element={<Support/>} path={"/support"}/>
-      <Route element={<MyAccount/>} path={"/my-account"}/>
-      <Route element={<Transactions/>} path={"/transactions"}/>
-      <Route element={<SignUp/>} path={"/signup"}/>
-      <Route element={<EmailSignUp/>} path={"/email-signup"}/>
-      <Route element={<OTP/>} path={"/otp"}/>
-      <Route element={<NotFound/>} path={"*"} />
+      <Route element={<MyRipples/>} path={siteConfig.path.myRipples}/>
+      <Route element={<MyContent />} path={siteConfig.path.userContent}/>
+      <Route element={<MyRewards />} path={siteConfig.path.userRewards}/>
+      <Route element={<FAQUserPortal />} path={siteConfig.path.userFaq}/>
+      <Route element={<Support />} path={siteConfig.path.userSupport}/>
+      <Route element={<MyAccount />} path={siteConfig.path.userAccount}/>
+      <Route element={<Transactions />} path={siteConfig.path.userTransaction}/>
+      <Route element={<AuthPage/>} path={siteConfig.path.signIn}/>
+      <Route element={<NotFound/>} path={siteConfig.path.default} />
     </Routes>
   );
 }

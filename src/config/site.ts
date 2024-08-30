@@ -24,6 +24,15 @@ export const siteConfig = {
     docs: "/docs",
     pricing: "/pricing",
     blog: "/blog",
+    myRipples: "/my-ripples/home",
+    userContent: "/my-ripples/content",
+    userRewards: "/my-ripples/rewards",
+    userFaq: "/my-ripples/faq",
+    userSupport: "my-ripples/support",
+    userAccount: "my-ripples/account",
+    userTransaction: "my-ripples/transactions",
+    signIn: "/sign-in",
+    default: "*"
   },
   navItems: [
     {
@@ -80,32 +89,32 @@ export const siteConfig = {
   userNavItems: [
     {
       label: "My Ripples",
-      href: "/my-ripples",
+      href: "/my-ripples/home",
       icon: CategoryIcon,
     },
     {
       label: "My Content",
-      href: "/my-content",
+      href: "/my-ripples/content",
       icon: VideoIcon,
     },
     {
       label: "Rewards Wallet",
-      href: "/my-rewards",
+      href: "/my-ripples/rewards",
       icon: WalletIcon,
     },
     {
       label: "FAQ",
-      href: "/faq",
+      href: "/my-ripples/faq",
       icon: InfoCircleIcon,
     },
     {
       label: "Contact Support",
-      href: "/support",
+      href: "/my-ripples/support",
       icon: ChatIcon,
     },
     {
       label: "My account",
-      href: "/my-account",
+      href: "/my-ripples/account",
       icon: SettingsIcon,
     },
     {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { siteConfig } from "@/config/site";
 import { DotIcon, WalletIcon, HamburgerButton, CrossIcon, LeftArrowIcon } from "./icons";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 export default function UserNavBar() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -17,41 +17,34 @@ export default function UserNavBar() {
             title: string;
         };
     };
-    //   <Route element={<MyRipples/>} path={"/my-ripples"}/>
-    //   <Route element={<MyContent/>} path={"/my-content"}/>
-    //   <Route element={<MyRewards/>} path={"/my-rewards"}/>
-    //   <Route element={<FAQUserPortal/>} path={"/faq"}/>
-    //   <Route element={<Support/>} path={"/support"}/>
-    //   <Route element={<MyAccount/>} path={"/my-account"}/>
-    //   <Route element={<Transactions/>} path={"/transactions"}/>
 
     const routeMapping: RouteMapping = {
-        "/my-ripples": {
-            href: siteConfig.path.home + "my-ripples",
+        "/my-ripples/home": {
+            href: siteConfig.path.myRipples,
             title: "Welcome to your Dashboard, Syeda",
         },
-        "/my-content": {
-            href: siteConfig.path.home + "my-content",
+        "/my-ripples/content": {
+            href: siteConfig.path.userContent,
             title: "Welcome to your Dashboard, Syeda",
         },
-        "/my-rewards": {
-            href: siteConfig.path.home + "my-rewards",
+        "/my-ripples/rewards": {
+            href: siteConfig.path.userRewards,
             title: "Reward Wallet",
         },
-        "/faq": {
-            href: siteConfig.path.home + "faq",
+        "/my-ripples/faq": {
+            href: siteConfig.path.userFaq,
             title: "FAQs",
         },
-        "/support": {
-            href: siteConfig.path.home + "support",
+        "/my-ripples/support": {
+            href: siteConfig.path.userSupport,
             title: "Contact Support",
         },
-        "/my-account": {
-            href: siteConfig.path.home + "my-account",
+        "/my-ripples/account": {
+            href: siteConfig.path.userAccount,
             title: "Account Settings",
         },
-        "/transactions": {
-            href: siteConfig.path.home + "my-rewards",
+        "my-ripples/transactions": {
+            href: siteConfig.path.userRewards,
             title: "Transactions",
         }
     };
@@ -70,15 +63,15 @@ export default function UserNavBar() {
         <>
             <nav className="fixed top-0 left-0 right-0 bg-primary w-full px-8 py-4 flex justify-between items-center">
                 <div className="flex items-center">
-                    <a href={siteConfig.path.home} className="text-white font-bold text-3xl flex items-center">
+                    <Link to={siteConfig.path.home} className="text-white font-bold text-3xl flex items-center">
                         {siteConfig.name}
                         <span className="ml-1"><DotIcon /></span>
-                    </a>
+                    </Link>
                     <div className="hidden sm:flex sm:items-center sm:ml-6 pl-36">
-                        <a href={href} className="flex space-x-2 items-center text-color text-lg font-poppins font-semibold">
+                        <Link to={href} className="flex space-x-2 items-center text-color text-lg font-poppins font-semibold">
                             {(title =="Transactions")&&<LeftArrowIcon/>}
                             <h1>{title}</h1>
-                        </a>
+                        </Link>
                     </div>
                 </div>
                 <div className="flex sm:hidden">

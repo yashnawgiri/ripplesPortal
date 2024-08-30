@@ -103,19 +103,6 @@ export default function FAQUserPortal() {
                     <div className='space-y-3'>
                         {faqData.map((item, index) => (
                         <FAQItem key={index} answer={item.description} question={item.title} />
-                        // <div key={index} className="my-6">
-                        //     <h4
-                        //         className="text-color font-poppins text-md md:text-lg cursor-pointer"
-                        //         onClick={() => toggleDescription(index)}
-                        //     >
-                        //         {item.title}
-                        //     </h4>
-                        //     {visibleIndex === index && (
-                        //         <p className="text-color text-xs font-poppins">
-                        //             {item.description}
-                        //         </p>
-                        //     )}
-                        // </div>
                     ))}
                     </div>
                     
