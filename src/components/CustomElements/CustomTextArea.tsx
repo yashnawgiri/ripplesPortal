@@ -1,3 +1,5 @@
+import "@/styles/customComponents/input.css";
+
 type InputProps = {
     title: string;
     placeholder: string;
@@ -9,12 +11,12 @@ type InputProps = {
 const CustomTextArea: React.FC<InputProps> = ({ title, placeholder = "Text Field", value, className, onChange }) => {
     return (
         <div className="w-full">
-            <p className="heading-color font-semibold text-md mb-1 font-poppins">{title}</p>
+            <p className="inputTitle heading-color text-md">{title}</p>
             <textarea
                 placeholder={placeholder}
                 value={value}
                 onChange={onChange}
-                className={`${className} w-full h-32 p-4 bg-primary text-color text-md font-poppins rounded-md border border-gray-700 focus:outline-none`}
+                className={`${className} h-32 p-4 inputClass text-color text-md`}
             />
         </div>
     );

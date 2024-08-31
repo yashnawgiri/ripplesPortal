@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState } from "react"; 
+import "@/styles/customComponents/input.css";
 
 type FileInputProps = {
     title: string;
@@ -17,8 +18,8 @@ const CustomFileInput: React.FC<FileInputProps> = ({ title, onChange }) => {
 
     return (
         <div className="w-full">
-            <p className="heading-color font-semibold text-md mb-1 font-poppins">{title}</p>
-            <label className="flex justify-center underline items-center w-full h-12 px-4 py-2 bg-primary text-color text-center text-md font-poppins rounded-md border border-gray-700 focus:outline-none cursor-pointer hover:bg-gray-800">
+            <p className="inputTitle heading-color text-md">{title}</p>
+            <label className="inputFileLabel text-md text-color">
                 {fileName ? fileName : "Add file or drop files here."}
                 <input
                     type="file"

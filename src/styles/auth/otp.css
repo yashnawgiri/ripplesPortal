@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.otpHeader {
+    @apply text-xl lg:text-2xl font-extrabold font-poppins text-center leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400;
+}
+
+.otpSubtext {
+    @apply font-poppins text-sm pt-2;
+}
+
+.otpInput {
+    @apply w-14 h-14 border border-gray-500 rounded-full text-center text-white bg-gray-900 text-lg focus:outline-none;
+}
+
+.otpVerifyButton {
+    @apply bg-secondary mx-auto w-full mt-4 py-4;
+}

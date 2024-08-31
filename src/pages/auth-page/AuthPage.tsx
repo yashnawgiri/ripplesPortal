@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import SignUp from "./authComponents/signUp";
 import EmailSignUp from "./authComponents/emailSignUp";
 import OTP from "./authComponents/otp";
+import "@/styles/auth/auth.css";
 
 const AuthPage: React.FC = () => {
     const [step, setStep] = useState<'signup' | 'email-signup' | 'otp'>('signup');
@@ -28,7 +29,7 @@ const AuthPage: React.FC = () => {
 
     const handleOtpChange = (index: number, event: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = event.target;
-        if (/^[0-9]$/.test(value)) { 
+        if (/^[0-9]$/.test(value)) {
             const newValues = [...otpValues];
             newValues[index] = value;
             setOtpValues(newValues);
@@ -89,20 +90,20 @@ const AuthPage: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen w-full bg-no-repeat bg-center bg-cover content-center bg-auth-background">
-            <div className="text-center max-w-md bg-primary mx-4 sm:mx-auto rounded-3xl">
-                <div className="px-8 space-y-6 py-8">
-                    <div className="flex text-2xl font-bold text-white justify-center">
+        <div className="authPageContainer">
+            <div className="authFormContainer">
+                <div className="authFormInner">
+                    <div className="authFormHeader">
                         <h2>{siteConfig.name}</h2>
                         <h2 className="text-2xl text-secondary">.</h2>
                     </div>
                     {renderForm()}
                     <div>
-                        <p className="text-sm text-gray-500">
-                            By continuing, you agree to the <Link className="text-gray-400 underline" to={"/terms-and-conditions"}>Terms of Service</Link>
+                        <p className="authFormSubtext">
+                            By continuing, you agree to the <Link className="authFormLink" to={"/terms-and-conditions"}>Terms of Service</Link>
                         </p>
-                        <p className="text-sm text-gray-500">
-                            and acknowledge you’ve read our <Link className="text-gray-400 underline" to={"/privacy-policy"}>Privacy Policy.</Link>
+                        <p className="authFormSubtext">
+                            and acknowledge you’ve read our <Link className="authFormLink" to={"/privacy-policy"}>Privacy Policy.</Link>
                         </p>
                     </div>
                 </div>

@@ -1,3 +1,5 @@
+import "@/styles/customComponents/input.css";
+
 type InputProps = {
     title: string;
     type: string;
@@ -11,14 +13,14 @@ type InputProps = {
 const CustomInput: React.FC<InputProps> = ({ title, type, placeholder = "Enter Text", value, readonly = false, className, onChange }) => {
     return (
         <div className="w-full">
-            <p className="heading-color font-semibold text-md mb-1 font-poppins">{title}</p>
+            <p className="inputTitle heading-color text-md">{title}</p>
             <input
                 type={type}
                 placeholder={placeholder}
                 value={value}
                 readOnly={readonly}
                 onChange={onChange}
-                className={`${className} w-full h-12 px-4 bg-primary text-color text-md font-poppins rounded-md border border-gray-700 focus:outline-none`}
+                className={`${className} h-12 px-4 inputClass text-color text-md`}
             />
         </div>
     );

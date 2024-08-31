@@ -2,6 +2,7 @@ import { useState } from "react";
 import { siteConfig } from "@/config/site";
 import { DotIcon, WalletIcon, HamburgerButton, CrossIcon, LeftArrowIcon } from "./icons";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import "@/styles/userNavbar.css";
 
 export default function UserNavBar() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -61,14 +62,14 @@ export default function UserNavBar() {
 
     return (
         <>
-            <nav className="fixed top-0 left-0 right-0 bg-primary w-full px-8 py-4 flex justify-between items-center">
+            <nav className="userNavContainer">
                 <div className="flex items-center">
-                    <Link to={siteConfig.path.home} className="text-white font-bold text-3xl flex items-center">
+                    <Link to={siteConfig.path.home} className="userNavIcon">
                         {siteConfig.name}
                         <span className="ml-1"><DotIcon /></span>
                     </Link>
-                    <div className="hidden sm:flex sm:items-center sm:ml-6 pl-36">
-                        <Link to={href} className="flex space-x-2 items-center text-color text-lg font-poppins font-semibold">
+                    <div className="userNavHeading">
+                        <Link to={href} className="text-color userNavHeadingText">
                             {(title =="Transactions")&&<LeftArrowIcon/>}
                             <h1>{title}</h1>
                         </Link>
@@ -84,27 +85,27 @@ export default function UserNavBar() {
                 </div>
                 <div className="hidden sm:flex sm:items-center">
                     <WalletIcon />
-                    <div className="text-color text-lg font-poppins font-semibold ml-2">
+                    <div className="text-color userNaveWallet">
                         ₹{"0.00"}
                     </div>
                 </div>
             </nav>
             <aside
-                className={`fixed top-16 left-0 z-40 w-72 h-screen pt-10 transition-transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+                className={`userNavAside ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
                     } bg-primary border-r border-gray-700 sm:translate-x-0`}
                 aria-label="Sidebar"
                 id="logo-sidebar"
             >
-                <div className="h-full px-3 pb-4 overflow-y-auto bg-primary">
+                <div className="userNavSideBar">
                     <ul className="sm:font-medium text-lg">
                         {siteConfig.userNavItems.map((item, index) => (
                             <li key={index} className="">
                                 <NavLink to={item.href}
                                     className={({ isActive }) =>
-                                        `${isActive ? "text-white bg-[#282D45] border border-gray-600" : "text-color"} flex items-center p-2 py-4 rounded-lg group px-6 rounded-sm`
+                                        `${isActive ? "text-white bg-[#282D45] border border-gray-600" : "text-color"} flex items-center p-2 py-4 group px-6 rounded-sm`
                                     }>
                                     <item.icon />
-                                    <span className="flex-1 ms-3 whitespace-nowrap font-poppins">{item.label}</span>
+                                    <span className="userNavItem">{item.label}</span>
                                 </NavLink>
                             </li>
                         ))}
