@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 import HomePage from "@/pages/home";
 import GetDemo from "@/pages/getDemo";
@@ -15,8 +15,23 @@ import MyAccount from "./pages/user-portal/myAccount";
 import Transactions from "./pages/user-portal/Transactions";
 import NotFound from "./pages/notFound";
 import AuthPage from "./pages/auth-page/AuthPage";
+import { useRecoilState } from "recoil";
+import { authTokenState } from "./recoil/authTokenState";
+import { useEffect } from "react";
 
 function App() {
+  const [, setAuthToken] = useRecoilState(authTokenState);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem('authToken');
+    if (storedToken) {
+      setAuthToken(storedToken);
+    } else {
+      navigate(siteConfig.path.signIn);
+    }
+  }, [setAuthToken, navigate]);
+  
   return (
     <Routes>
       <Route element={<HomePage />} path={siteConfig.path.home} />

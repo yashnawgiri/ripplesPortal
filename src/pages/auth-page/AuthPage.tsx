@@ -1,15 +1,22 @@
 import React, { useState } from "react";
 import { siteConfig } from "@/config/site";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SignUp from "./authComponents/signUp";
 import EmailSignUp from "./authComponents/emailSignUp";
 import OTP from "./authComponents/otp";
 import "@/styles/auth/auth.css";
+import { emailLogin, otpVerify } from "@/services/authService";
+import { useRecoilState } from "recoil";
+import { loadingState } from "@/recoil/loadingState";
+import { authTokenState } from "@/recoil/authTokenState";
 
 const AuthPage: React.FC = () => {
     const [step, setStep] = useState<'signup' | 'email-signup' | 'otp'>('signup');
+    const [, setAuthToken] = useRecoilState(authTokenState);
     const [email, setEmail] = useState<string>('');
     const [otpValues, setOtpValues] = useState(['', '', '', '']);
+    const [, setLoading] = useRecoilState(loadingState);
+    const navigate = useNavigate();
 
     const handleEmailSignup = () => {
         setStep('email-signup');
@@ -23,8 +30,18 @@ const AuthPage: React.FC = () => {
         setEmail(event.target.value);
     };
 
-    const handleContinueToOTP = () => {
-        setStep('otp');
+    const handleContinueToOTP = async () => {
+        setLoading(true);
+        try {
+            const res = await emailLogin({ email });
+            console.log(res);
+            setEmail(res.data.email);
+            setStep('otp');
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleOtpChange = (index: number, event: React.ChangeEvent<HTMLInputElement>) => {
@@ -54,8 +71,22 @@ const AuthPage: React.FC = () => {
         }
     };
 
-    const handleVerifyAndLogin = () => {
-        console.log("Verifying OTP:", otpValues.join(''));
+    const handleVerifyAndLogin = async () => {
+        const otp : string = (otpValues.join(''));
+        setLoading(true);
+        try {
+            const res = await otpVerify({ email, otp });
+            console.log(res); 
+            if (res.data) {
+                setAuthToken(res.data.auth_token);
+                localStorage.setItem('authToken',res.data.auth_token);
+                setTimeout(() => navigate('/my-ripples/home'), 100);
+            }
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoading(false);
+        }
     };
 
     const renderForm = () => {

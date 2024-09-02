@@ -1,25 +1,5 @@
-import endpoints from "@/services/endpoints";
-
-interface ApiOptions extends RequestInit {
-  body?: string;
-}
-
-export const apiCall = async <T>(
-  url: string,
-  options: ApiOptions = {}
-): Promise<T> => {
-  try {
-    const response = await fetch(url, options);
-    if (!response.ok) {
-      throw new Error(`Error: ${response.status} - ${response.statusText}`);
-    }
-    const data: T = await response.json();
-    return data;
-  } catch (error) {
-    console.error("API Call Error:", (error as Error).message);
-    throw error;
-  }
-};
+import endpoints from "./endpoints";
+import { apiCall } from "@/utils/utils";
 
 interface LoginResponse {
   message: string;
@@ -52,7 +32,7 @@ interface OtpResponse {
 
 export const otpVerify = async (credentials: {
   email: string;
-  otp: number;
+  otp: string;
 }): Promise<OtpResponse> => {
   return await apiCall<OtpResponse>(endpoints.OTP_VERIFY, {
     method: "POST",
