@@ -1,11 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRecoilValueLoadable, useSetRecoilState } from "recoil";
 import { LeftHalfArrowIcon, MoneyDebetedIcon, MoneyRecievedIcon, RightHalfArrowIcon } from "@/components/icons";
 import UserDefaultLayout from "@/layouts/userDefault";
-
-type Transaction = {
-    transactionType: boolean; // true for credit, false for debit
-    amount: number;
-};
+import { Transaction } from "@/services/apiService";
+import { fetchTransactions, transactionsState } from "@/recoil/transactionsState";
 
 interface TransactionCardProps {
     date: string;
@@ -19,7 +17,7 @@ function TransactionCard({ date, transactions }: TransactionCardProps) {
                 {date}
             </div>
             {transactions.map((transaction, index) => {
-                const isCredit = transaction.transactionType;
+                const isCredit = transaction.type === 'credited';
                 return (
                     <div key={index} className="flex justify-between bg-primary p-6">
                         <div className="flex items-center space-x-6">
@@ -41,107 +39,28 @@ function TransactionCard({ date, transactions }: TransactionCardProps) {
     );
 }
 
-// Dummy Transactions (Will remove after API integration)
-const transactionsData = [
-    {
-        date: "21 JUL, 2024",
-        transactions: [{ transactionType: true, amount: 320 }],
-    },
-    {
-        date: "12 JUL, 2024",
-        transactions: [
-            { transactionType: true, amount: 200 },
-            { transactionType: false, amount: 150 },
-        ],
-    },
-    {
-        date: "09 JUL, 2024",
-        transactions: [
-            { transactionType: true, amount: 250 },
-            { transactionType: false, amount: 120 },
-        ],
-    },
-    {
-        date: "08 JUL, 2024",
-        transactions: [
-            { transactionType: true, amount: 400 },
-            { transactionType: false, amount: 100 },
-        ],
-    },
-    {
-        date: "07 JUL, 2024",
-        transactions: [
-            { transactionType: false, amount: 80 },
-            { transactionType: true, amount: 600 },
-        ],
-    },
-    {
-        date: "06 JUL, 2024",
-        transactions: [
-            { transactionType: false, amount: 50 },
-            { transactionType: true, amount: 500 },
-        ],
-    },
-    {
-        date: "05 JUL, 2024",
-        transactions: [
-            { transactionType: true, amount: 300 },
-            { transactionType: false, amount: 200 },
-        ],
-    },
-    {
-        date: "04 JUL, 2024",
-        transactions: [
-            { transactionType: true, amount: 700 },
-            { transactionType: false, amount: 400 },
-        ],
-    },
-    {
-        date: "03 JUL, 2024",
-        transactions: [
-            { transactionType: true, amount: 100 },
-            { transactionType: false, amount: 50 },
-        ],
-    },
-    {
-        date: "02 JUL, 2024",
-        transactions: [
-            { transactionType: true, amount: 800 },
-            { transactionType: false, amount: 250 },
-        ],
-    },
-    {
-        date: "01 JUL, 2024",
-        transactions: [
-            { transactionType: false, amount: 150 },
-            { transactionType: true, amount: 450 },
-        ],
-    },
-    {
-        date: "30 JUN, 2024",
-        transactions: [
-            { transactionType: true, amount: 650 },
-            { transactionType: false, amount: 300 },
-        ],
-    },
-    {
-        date: "29 JUN, 2024",
-        transactions: [
-            { transactionType: false, amount: 350 },
-            { transactionType: true, amount: 900 },
-        ],
-    },
-];
-
 export default function Transactions() {
     const [currentPage, setCurrentPage] = useState(1);
-    const transactionsPerPage = 3;
+    const transactionsPerPage = 5;
+
+    const setTransactions = useSetRecoilState(transactionsState);
+    const transactionsLoadable = useRecoilValueLoadable<Transaction[]>(fetchTransactions);
+
+    useEffect(() => {
+        if (transactionsLoadable.state === "hasValue") {
+            setTransactions(transactionsLoadable.contents);
+        } else if (transactionsLoadable.state === "hasError") {
+            console.error(transactionsLoadable.contents);
+        }
+    }, [transactionsLoadable, setTransactions]);
 
     const indexOfLastTransaction = currentPage * transactionsPerPage;
     const indexOfFirstTransaction = indexOfLastTransaction - transactionsPerPage;
-    const currentTransactions = transactionsData.slice(indexOfFirstTransaction, indexOfLastTransaction);
 
-    const totalPages = Math.ceil(transactionsData.length / transactionsPerPage);
+    const transactions: Transaction[] = transactionsLoadable.state === "hasValue" ? transactionsLoadable.contents : [];
+    const currentTransactions = transactions.slice(indexOfFirstTransaction, indexOfLastTransaction);
+
+    const totalPages = Math.ceil(transactions.length / transactionsPerPage);
 
     const handleNextPage = () => {
         if (currentPage < totalPages) {
@@ -177,7 +96,7 @@ export default function Transactions() {
                         Transactions History
                     </h1>
                     {currentTransactions.map((data, index) => (
-                        <TransactionCard key={index} date={data.date} transactions={data.transactions} />
+                        <TransactionCard key={index} date={data.date} transactions={[data]} />
                     ))}
 
                     <div className="flex justify-center mt-4 space-x-2">

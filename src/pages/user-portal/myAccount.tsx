@@ -1,25 +1,51 @@
 import CustomButton from "@/components/CustomElements/CustomButton";
 import CustomInput from "@/components/CustomElements/CustomInput";
 import UserDefaultLayout from "@/layouts/userDefault";
+import { authTokenState } from "@/recoil/authTokenState";
+import { loadingState } from "@/recoil/loadingState";
+import { profileDataFormState } from "@/recoil/profileDataFormState";
+import { profileState } from "@/recoil/profileState";
+import { updateProfileService } from "@/services/apiService";
 
 import React, { useState } from 'react';
+import { useRecoilState, useRecoilValue } from "recoil";
 
 
 export default function MyAccount() {
-    const [firstName, setFirstName] = useState<string>('');
-    const [lastName, setLastName] = useState<string>('');
+    const [profileForm, setProfileForm] = useRecoilState(profileDataFormState);
+    const [profileData, setProfileData] = useRecoilState(profileState);
+    const token = useRecoilValue(authTokenState);
     const [email, setEmail] = useState<string>('');
+    const [, setLoading] = useRecoilState(loadingState);
 
     const handleFirstNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setFirstName(event.target.value);
+        setProfileForm({ ...profileForm, first_name: event.target.value });
     };
 
     const handleLastNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setLastName(event.target.value);
+        setProfileForm({ ...profileForm, last_name: event.target.value });
     };
 
     const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(event.target.value);
+    };
+
+    const handleUpdateProfile = async () => {
+        setLoading(true);
+
+        try {
+            const response = await updateProfileService(profileForm, token!);
+            setProfileData({ 
+                ...profileData, 
+                firstname: response.data.first_name, 
+                lastname: response.data.last_name 
+            })
+            console.log('Profile updated successfully:', response);
+        } catch (error) {
+            console.error('Error updating profile:', error);
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -34,14 +60,14 @@ export default function MyAccount() {
                             title="First Name"
                             type="text"
                             placeholder="First Name"
-                            value={firstName}
+                            value={profileForm.first_name}
                             onChange={handleFirstNameChange}
                         />
                         <CustomInput
                             title="Last Name"
                             type="text"
                             placeholder="Last Name"
-                            value={lastName}
+                            value={profileForm.last_name}
                             onChange={handleLastNameChange}
                         />
                     </div>
@@ -60,7 +86,7 @@ export default function MyAccount() {
                         <a href={""} className="text-secondary">Contact Us</a> to update your email preferences.
                     </p>
                     <CustomButton
-                        onClick={() => { }}
+                        onClick={handleUpdateProfile}
                         className="bg-secondary mx-auto w-full mt-4 flex justify-center w-full font-bold text-lg space-x-2"
                     >
                         Save

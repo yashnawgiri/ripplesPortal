@@ -4,31 +4,48 @@ import CustomInput from "@/components/CustomElements/CustomInput";
 import CustomSelect from "@/components/CustomElements/CustomSelect";
 import CustomTextArea from "@/components/CustomElements/CustomTextArea";
 import UserDefaultLayout from "@/layouts/userDefault";
+import { supportFormState } from "@/recoil/supportFormState";
 import { useState } from "react";
+import { useRecoilState } from "recoil";
 
 export default function Support() {
-    const [email, setEmail] = useState<string>('');
-    const [subject, setSubject] = useState<string>('');
-    const [requestCategory, setRequestCategory] = useState<string>('Link Not Working');
-    const [brandName, setBrandName] = useState<string>('');
-    const [description, setDescription] = useState<string>('');
+    const [supportForm, setSupportForm] = useRecoilState(supportFormState);
     const [file, setFile] = useState<File | null>(null);
     file;
 
     const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setEmail(event.target.value);
+        setSupportForm({
+            ...supportForm,
+            email: event.target.value
+        })
     };
 
     const handleSubjectChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSubject(event.target.value);
+        setSupportForm({
+            ...supportForm,
+            subject: event.target.value
+        })
     };
 
     const handleDescriptionChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setDescription(event.target.value);
+        setSupportForm({
+            ...supportForm,
+            description: event.target.value
+        })
     };
 
     const handleBrandNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setBrandName(event.target.value);
+        setSupportForm({
+            ...supportForm,
+            brand_name: event.target.value
+        })
+    }
+
+    const handleRequestCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setSupportForm({
+            ...supportForm,
+            category: event.target.value
+        })
     }
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,7 +66,7 @@ export default function Support() {
                             title="Email"
                             type="email"
                             placeholder="example@gmail.com"
-                            value={email}
+                            value={supportForm.email}
                             readonly={true}
                             onChange={handleEmailChange}
                         />
@@ -58,29 +75,29 @@ export default function Support() {
                             title="Subject"
                             type="text"
                             placeholder="Subject"
-                            value={subject}
+                            value={supportForm.subject}
                             onChange={handleSubjectChange}
                         />
 
                         <CustomSelect
                             title="Request Category"
                             options={["Link Not Working", "Bug Report", "Feature Request", "Other"]}
-                            value={requestCategory}
-                            onChange={(e) => setRequestCategory(e.target.value)}
+                            value={supportForm.category}
+                            onChange={handleRequestCategoryChange}
                         />
 
                         <CustomInput
                             title="Brand Name"
                             type="text"
                             placeholder="Brand Name"
-                            value={brandName}
+                            value={supportForm.brand_name}
                             onChange={handleBrandNameChange}
                         />
 
                         <CustomTextArea
                             title="Description"
                             placeholder="Description..."
-                            value={description}
+                            value={supportForm.description}
                             onChange={handleDescriptionChange}
                         />
 

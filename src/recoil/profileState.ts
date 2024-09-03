@@ -25,7 +25,7 @@ export const fetchProfile = selector({
       return data;
     } catch (error) {
       console.error("Error fetching referral links:", error);
-      return [];
+      return null;
     }
   },
 });

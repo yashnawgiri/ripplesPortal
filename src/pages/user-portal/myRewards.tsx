@@ -1,4 +1,5 @@
 import { CopyIcon, HalfArrowIcon } from "@/components/icons";
+import { siteConfig } from "@/config/site";
 import UserDefaultLayout from "@/layouts/userDefault";
 import { Link } from "react-router-dom";
 
@@ -28,7 +29,7 @@ export default function MyRewards() {
                                 ₹{"220.00"}
                             </p>
                         </div>
-                        <Link to={'/my-rewards'}
+                        <Link to={siteConfig.path.userRewards}
                             className="flex items-center space-x-2 heading-color font-semibold bg-gray-800 rounded-full px-6 py-2"
                         >
                             <p>{"Withdraw"}</p>
