@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 import HomePage from "@/pages/home";
 import GetDemo from "@/pages/getDemo";
@@ -15,39 +15,50 @@ import MyAccount from "./pages/user-portal/myAccount";
 import Transactions from "./pages/user-portal/Transactions";
 import NotFound from "./pages/notFound";
 import AuthPage from "./pages/auth-page/AuthPage";
-import { useRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { authTokenState } from "./recoil/authTokenState";
-import { useEffect } from "react";
+import { ReactNode, useEffect } from "react";
+
+interface PrivateRouteProps {
+  children: ReactNode;
+  redirect: string;
+}
+
+const PrivateRoute = ({ children, redirect }:PrivateRouteProps) => {
+  const authToken = useRecoilValue(authTokenState);
+  return authToken ? (
+    children
+  ) : (
+    <Navigate to={redirect}/>
+  );
+};
 
 function App() {
-  const [, setAuthToken] = useRecoilState(authTokenState);
-  const navigate = useNavigate();
+  const setAuthToken = useSetRecoilState(authTokenState);
 
   useEffect(() => {
     const storedToken = localStorage.getItem('authToken');
     if (storedToken) {
       setAuthToken(storedToken);
-    } else {
-      navigate(siteConfig.path.signIn);
-    }
-  }, [setAuthToken, navigate]);
-  
+    } 
+  }, [setAuthToken]);
+
   return (
     <Routes>
       <Route element={<HomePage />} path={siteConfig.path.home} />
       <Route element={<GetDemo />} path={siteConfig.path.getDemo} />
-      <Route element={<AboutPage />} path={siteConfig.path.about} /> 
+      <Route element={<AboutPage />} path={siteConfig.path.about} />
       <Route element={<PrivacyPolicy />} path={siteConfig.path.privacyPolicy} />
       <Route element={<TermsAndConditions />} path={siteConfig.path.terms} />
-      <Route element={<MyRipples/>} path={siteConfig.path.myRipples}/>
-      <Route element={<MyContent />} path={siteConfig.path.userContent}/>
-      <Route element={<MyRewards />} path={siteConfig.path.userRewards}/>
-      <Route element={<FAQUserPortal />} path={siteConfig.path.userFaq}/>
-      <Route element={<Support />} path={siteConfig.path.userSupport}/>
-      <Route element={<MyAccount />} path={siteConfig.path.userAccount}/>
-      <Route element={<Transactions />} path={siteConfig.path.userTransaction}/>
-      <Route element={<AuthPage/>} path={siteConfig.path.signIn}/>
-      <Route element={<NotFound/>} path={siteConfig.path.default} />
+      <Route element={<PrivateRoute redirect={siteConfig.path.signIn}><MyRipples /></PrivateRoute>}path={siteConfig.path.myRipples}/>
+      <Route element={<PrivateRoute redirect={siteConfig.path.signIn}><MyContent /></PrivateRoute>}path={siteConfig.path.userContent}/>
+      <Route element={<PrivateRoute redirect={siteConfig.path.signIn}><MyRewards /></PrivateRoute>}path={siteConfig.path.userRewards}/>
+      <Route element={<PrivateRoute redirect={siteConfig.path.signIn}><FAQUserPortal /></PrivateRoute>}path={siteConfig.path.userFaq}/>
+      <Route element={<PrivateRoute redirect={siteConfig.path.signIn}><Support /></PrivateRoute>}path={siteConfig.path.userSupport}/>
+      <Route element={<PrivateRoute redirect={siteConfig.path.signIn}><MyAccount /></PrivateRoute>}path={siteConfig.path.userAccount}/>
+      <Route element={<PrivateRoute redirect={siteConfig.path.signIn}><Transactions /></PrivateRoute>}path={siteConfig.path.userTransaction}/>      
+      <Route element={<AuthPage />} path={siteConfig.path.signIn} />
+      <Route element={<NotFound />} path={siteConfig.path.default} />
     </Routes>
   );
 }

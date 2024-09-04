@@ -1,4 +1,4 @@
-const BASE_URL = "http://20.244.26.175";
+const BASE_URL = "https://ripples-stg.goripples.com";
 
 const endpoints = {
   EMAIL_AUTH: `${BASE_URL}/api/temp/auth/email`,
