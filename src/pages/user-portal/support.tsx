@@ -4,11 +4,14 @@ import CustomInput from "@/components/CustomElements/CustomInput";
 import CustomSelect from "@/components/CustomElements/CustomSelect";
 import CustomTextArea from "@/components/CustomElements/CustomTextArea";
 import UserDefaultLayout from "@/layouts/userDefault";
+import { authTokenState } from "@/recoil/authTokenState";
 import { supportFormState } from "@/recoil/supportFormState";
+import { SubmitSupportService } from "@/services/apiService";
 import { useState } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 
 export default function Support() {
+    const authToken = useRecoilValue(authTokenState);
     const [supportForm, setSupportForm] = useRecoilState(supportFormState);
     const [file, setFile] = useState<File | null>(null);
     file;
@@ -53,6 +56,12 @@ export default function Support() {
             setFile(event.target.files[0]);
         }
     };
+
+    const handleSubmit = async () => {
+        if (authToken) {
+            await SubmitSupportService(supportForm,authToken);
+        } 
+    }
 
     return (
         <UserDefaultLayout>
@@ -107,7 +116,7 @@ export default function Support() {
                         />
 
                         <CustomButton
-                            onClick={() => { }}
+                            onClick={handleSubmit}
                             className="bg-secondary flex justify-center w-full font-bold text-lg space-x-2 mx-auto w-full mt-4"
                         >
                             Submit

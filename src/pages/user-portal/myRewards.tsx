@@ -1,10 +1,29 @@
 import { CopyIcon, HalfArrowIcon } from "@/components/icons";
 import { siteConfig } from "@/config/site";
 import UserDefaultLayout from "@/layouts/userDefault";
+import { fetchReferralLinks, referralLinksState } from "@/recoil/referralLinksState";
+import { fetchWalletBalance, walletBalanceState } from "@/recoil/walletBalanceState";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useRecoilState, useRecoilValue } from "recoil";
 
 export default function MyRewards() {
-    const rewards = ["", "", ""];
+    const [rewards, setRewards] = useRecoilState(referralLinksState);
+    const [walletBalance, setWalletBalance] = useRecoilState(walletBalanceState);
+    const fetchBalance = useRecoilValue(fetchWalletBalance);
+    const fetchLinks = useRecoilValue(fetchReferralLinks);
+
+    useEffect(() => {
+        if (fetchBalance) {
+            setWalletBalance(fetchBalance);
+        }
+    }, [fetchBalance, setWalletBalance]);
+
+    useEffect(() => {
+        if (fetchLinks) {
+            setRewards(fetchLinks);
+        }
+    }, [fetchLinks, setRewards]);
 
     const handleCopyClick = (textToCopy: string):void => {
         navigator.clipboard.writeText(textToCopy)
@@ -26,7 +45,7 @@ export default function MyRewards() {
                                 Rewards Earned
                             </p>
                             <p className="text-white text-3xl font-bold">
-                                ₹{"220.00"}
+                                ₹{walletBalance?.current_balance}
                             </p>
                         </div>
                         <Link to={siteConfig.path.userRewards}
@@ -49,7 +68,7 @@ export default function MyRewards() {
                                 Total Rewards Earned
                             </p>
                             <p className="text-white text-sm md:text-lg font-semibold">
-                                ₹{"320"}
+                                ₹{walletBalance?.lifetime_earnings}
                             </p>
                         </div>
                         <Link to={"/transactions"}
@@ -63,14 +82,14 @@ export default function MyRewards() {
                         Referrel Links
                     </h3>
                     {
-                        rewards.map(r => (
-                            <div onClick={() => handleCopyClick("Referral Link")}
+                        rewards?.map(reward => (
+                            <div onClick={() => handleCopyClick(reward.link)}
                             className="bg-primary flex justify-between w-full px-5 py-3 mb-3 rounded-md items-center border border-gray-800 space-y-1">
 
                                 <div className="flex items-center space-x-3">
-                                    <h4 className="text-white text-lg md:text-xl font-semibold">₹{"320"}</h4>
+                                    <h4 className="text-white text-lg md:text-xl font-semibold">₹{reward.rewards_earned}</h4>
                                     <p className="text-gray-400 text-md">
-                                        {"Brand Name"}{r}
+                                        {reward.brand}
                                     </p>
                                     <p className="text-gray-400 text-sm md:text-md">
                                         {"Product Name"}

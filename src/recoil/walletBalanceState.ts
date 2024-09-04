@@ -2,13 +2,18 @@ import { atom, selector } from "recoil";
 import { authTokenState } from "./authTokenState";
 import { fetchWalletBalanceService } from "@/services/apiService";
 
-export const walletBalanceState = atom<string | null>({
+interface WalletBalanceType {
+  current_balance: number;
+  lifetime_earnings: number;
+}
+
+export const walletBalanceState = atom<WalletBalanceType|null>({
   key: "walletBalanceState",
   default: null,
 });
 
 
-export const fetchWalletBalance = selector({
+export const fetchWalletBalance = selector<WalletBalanceType | null>({
   key: "fetchWalletBalance",
   get: async ({ get }) => {
     const token = get(authTokenState);
@@ -18,11 +23,11 @@ export const fetchWalletBalance = selector({
     }
 
     try {
-      const data = await fetchWalletBalanceService(token);
-      return data.total;
+      const response = await fetchWalletBalanceService(token);
+      return response.data;
     } catch (error) {
       console.error("Error fetching referral links:", error);
-      return [];
+      return null;
     }
   },
 });

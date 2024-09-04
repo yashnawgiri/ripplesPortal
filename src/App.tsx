@@ -1,23 +1,24 @@
 import { Navigate, Route, Routes } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { ReactNode } from "react";
+
+import { siteConfig } from "@/config/site";
+import { authTokenState } from "@/recoil/authTokenState";
 
 import HomePage from "@/pages/home";
 import GetDemo from "@/pages/getDemo";
 import AboutPage from "@/pages/about";
-import PrivacyPolicy from "./pages/privacyPolicy";
-import TermsAndConditions from "./pages/termsAndConditions";
-import { siteConfig } from "./config/site";
-import MyRipples from "./pages/user-portal/myRipples";
-import MyContent from "./pages/user-portal/myContent";
-import MyRewards from "./pages/user-portal/myRewards";
-import FAQUserPortal from "./pages/user-portal/faq";
-import Support from "./pages/user-portal/support";
-import MyAccount from "./pages/user-portal/myAccount";
-import Transactions from "./pages/user-portal/Transactions";
-import NotFound from "./pages/notFound";
-import AuthPage from "./pages/auth-page/AuthPage";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { authTokenState } from "./recoil/authTokenState";
-import { ReactNode, useEffect } from "react";
+import PrivacyPolicy from "@/pages/privacyPolicy";
+import TermsAndConditions from "@/pages/termsAndConditions";
+import MyRipples from "@/pages/user-portal/myRipples";
+import MyContent from "@/pages/user-portal/myContent";
+import MyRewards from "@/pages/user-portal/myRewards";
+import FAQUserPortal from "@/pages/user-portal/faq";
+import Support from "@/pages/user-portal/support";
+import MyAccount from "@/pages/user-portal/myAccount";
+import Transactions from "@/pages/user-portal/Transactions";
+import NotFound from "@/pages/notFound";
+import AuthPage from "@/pages/auth-page/AuthPage";
 
 interface PrivateRouteProps {
   children: ReactNode;
@@ -25,7 +26,11 @@ interface PrivateRouteProps {
 }
 
 const PrivateRoute = ({ children, redirect }:PrivateRouteProps) => {
-  const authToken = useRecoilValue(authTokenState);
+  const [authToken,setAuthToken] = useRecoilState(authTokenState);
+  const storedToken = localStorage.getItem('authToken');
+  if (authToken!==storedToken) {
+    setAuthToken(storedToken);
+  }
   return authToken ? (
     children
   ) : (
@@ -34,15 +39,6 @@ const PrivateRoute = ({ children, redirect }:PrivateRouteProps) => {
 };
 
 function App() {
-  const setAuthToken = useSetRecoilState(authTokenState);
-
-  useEffect(() => {
-    const storedToken = localStorage.getItem('authToken');
-    if (storedToken) {
-      setAuthToken(storedToken);
-    } 
-  }, [setAuthToken]);
-
   return (
     <Routes>
       <Route element={<HomePage />} path={siteConfig.path.home} />

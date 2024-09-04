@@ -2,7 +2,12 @@ import { apiCall } from "@/utils/utils";
 import endpoints from "./endpoints";
 
 interface ReferralLinksResponse {
-  links: string[];
+  message: string;
+  data: {
+    brand: string;
+    link: string;
+    rewards_earned: number;
+  }[];
 }
 
 export const fetchReferralLinksService = async (
@@ -18,7 +23,11 @@ export const fetchReferralLinksService = async (
 };
 
 interface WalletBalanceResponse {
-  total: string;
+  message: string;
+  data: {
+    current_balance: number;
+    lifetime_earnings: number;
+  }
 }
 
 export const fetchWalletBalanceService = async (
@@ -33,10 +42,13 @@ export const fetchWalletBalanceService = async (
   });
 };
 
-export interface ProfileResponse {
-  firstname: string;
-  lastname: string;
-  email: string;
+interface ProfileResponse {
+  message: string;
+  data: { 
+    first_name: string; 
+    last_name: string; 
+    email: string 
+  }
 }
 
 export const fetchProfileService = async (
@@ -82,7 +94,7 @@ export interface Transaction {
   date: string;
 }
 
-interface Pagination {
+export interface Pagination {
   current_page: number;
   total_pages: number;
   total_transactions: number;

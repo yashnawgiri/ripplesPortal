@@ -2,6 +2,10 @@ import { CartIcon, ShopIcon, BagIcon, MessageIcon, MoneyRecieveIcon } from "@/co
 import UserDefaultLayout from "@/layouts/userDefault";
 import myRipplesData from "@/data/user-portal.json";
 import CustomButton from "@/components/CustomElements/CustomButton";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { fetchProfile, profileState } from "@/recoil/profileState";
+import { fetchWalletBalance, walletBalanceState } from "@/recoil/walletBalanceState";
+import { useEffect } from "react";
 
 const iconMap = {
     CartIcon: <CartIcon />,
@@ -37,6 +41,22 @@ function Card({ item }: CardProps) {
 }
 
 export default function MyRipples() {
+    const [walletBalance, setWalletBalance] = useRecoilState(walletBalanceState);
+    const [profile,setProfile] = useRecoilState(profileState);
+    const fetchProfileData = useRecoilValue(fetchProfile);
+    const fetchBalance = useRecoilValue(fetchWalletBalance);
+    useEffect(() => {
+        if (fetchProfileData) {
+            setProfile(fetchProfileData);
+        }
+    }, [fetchProfileData, setProfile]);
+
+    useEffect(() => {
+        if (fetchBalance) {
+            setWalletBalance(fetchBalance);
+        }
+    }, [fetchBalance, setWalletBalance]);
+
     const haveRipples = true;
     return (
         <UserDefaultLayout>
@@ -49,7 +69,7 @@ export default function MyRipples() {
                             /> */}
                             </div>
                             <h2 className="heading-color lg:text-lg text-md ml-4 py-2">
-                                {"Syeda"} (you)
+                                {profile?.first_name} (you)
                             </h2>
                         </div>
                         <h3 className="text-lg lg:text-2xl font-extrabold font-poppins text-center mt-14 leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 mb-8">
@@ -63,7 +83,7 @@ export default function MyRipples() {
                                 Rewards Earned
                             </p>
                             <p className="text-white text-3xl font-bold">
-                                ₹{"220.00"}
+                                ₹{walletBalance?.current_balance}
                             </p>
                         </div>
                         <CustomButton
