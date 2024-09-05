@@ -26,7 +26,7 @@ export const fetchProfile = selector<ProfileType|null>({
       const response = await fetchProfileService(token);
       return response.data;
     } catch (error) {
-      console.error("Error fetching referral links:", error);
+      console.error("Error fetching profile:", error);
       return null;
     }
   },

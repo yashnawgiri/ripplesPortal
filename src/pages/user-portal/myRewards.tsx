@@ -1,29 +1,26 @@
 import { CopyIcon, HalfArrowIcon } from "@/components/icons";
 import { siteConfig } from "@/config/site";
 import UserDefaultLayout from "@/layouts/userDefault";
+import { loadingState } from "@/recoil/loadingState";
 import { fetchReferralLinks, referralLinksState } from "@/recoil/referralLinksState";
-import { fetchWalletBalance, walletBalanceState } from "@/recoil/walletBalanceState";
+import { walletBalanceState } from "@/recoil/walletBalanceState";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
 
 export default function MyRewards() {
     const [rewards, setRewards] = useRecoilState(referralLinksState);
-    const [walletBalance, setWalletBalance] = useRecoilState(walletBalanceState);
-    const fetchBalance = useRecoilValue(fetchWalletBalance);
+    const walletBalance = useRecoilValue(walletBalanceState);
     const fetchLinks = useRecoilValue(fetchReferralLinks);
+    const [loading, setLoading] = useRecoilState(loadingState);
 
     useEffect(() => {
-        if (fetchBalance) {
-            setWalletBalance(fetchBalance);
-        }
-    }, [fetchBalance, setWalletBalance]);
-
-    useEffect(() => {
+        setLoading(true);
         if (fetchLinks) {
             setRewards(fetchLinks);
         }
-    }, [fetchLinks, setRewards]);
+        setLoading(false);
+    }, []);
 
     const handleCopyClick = (textToCopy: string):void => {
         navigator.clipboard.writeText(textToCopy)
@@ -34,6 +31,10 @@ export default function MyRewards() {
                 console.error("Failed to copy: ", err);
             });
     };
+
+    if(loading) {
+        return <>loading</>
+    }
 
     return (
         <UserDefaultLayout>

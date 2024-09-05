@@ -26,7 +26,7 @@ export const fetchWalletBalance = selector<WalletBalanceType | null>({
       const response = await fetchWalletBalanceService(token);
       return response.data;
     } catch (error) {
-      console.error("Error fetching referral links:", error);
+      console.error("Error fetching wallet Balance:", error);
       return null;
     }
   },
