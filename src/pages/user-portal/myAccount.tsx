@@ -5,6 +5,7 @@ import { authTokenState } from "@/recoil/authTokenState";
 import { loadingState } from "@/recoil/loadingState";
 import { profileDataFormState } from "@/recoil/profileDataFormState";
 import { profileState } from "@/recoil/profileState";
+import { userIdState } from "@/recoil/userIdState";
 import { updateProfileService } from "@/services/apiService";
 
 import React, { useState } from 'react';
@@ -15,6 +16,7 @@ export default function MyAccount() {
     const [profileForm, setProfileForm] = useRecoilState(profileDataFormState);
     const [profileData, setProfileData] = useRecoilState(profileState);
     const token = useRecoilValue(authTokenState);
+    const userId = useRecoilValue(userIdState);
     const [email, setEmail] = useState<string>('');
     const [, setLoading] = useRecoilState(loadingState);
 
@@ -34,11 +36,11 @@ export default function MyAccount() {
         setLoading(true);
 
         try {
-            const response = await updateProfileService(profileForm, token!);
+            const response = await updateProfileService(profileForm, token!, userId);
             setProfileData({ 
                 ...profileData, 
-                firstname: response.data.first_name, 
-                lastname: response.data.last_name 
+                first_name: response.data.first_name, 
+                last_name: response.data.last_name 
             })
             console.log('Profile updated successfully:', response);
         } catch (error) {

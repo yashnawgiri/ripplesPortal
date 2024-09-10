@@ -5,7 +5,6 @@ interface LoginResponse {
   message: string;
   data: {
     email: string;
-    verification_id: number;
   };
 }
 
@@ -24,9 +23,8 @@ export const emailLogin = async (credentials: {
 interface OtpResponse {
   message: string;
   data: {
-    user_id: number;
-    email: string;
-    auth_token: string;
+    userId: string;
+    token: string;
   };
 }
 

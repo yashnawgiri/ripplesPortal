@@ -84,13 +84,13 @@ export default function MyRewards() {
                     </h3>
                     {
                         rewards?.map(reward => (
-                            <div onClick={() => handleCopyClick(reward.link)}
+                            <div onClick={() => handleCopyClick(reward.link_code)}
                             className="bg-primary flex justify-between w-full px-5 py-3 mb-3 rounded-md items-center border border-gray-800 space-y-1">
 
                                 <div className="flex items-center space-x-3">
-                                    <h4 className="text-white text-lg md:text-xl font-semibold">₹{reward.rewards_earned}</h4>
+                                    <h4 className="text-white text-lg md:text-xl font-semibold">₹{"100"}</h4>
                                     <p className="text-gray-400 text-md">
-                                        {reward.brand}
+                                        {reward.brand_name}
                                     </p>
                                     <p className="text-gray-400 text-sm md:text-md">
                                         {"Product Name"}

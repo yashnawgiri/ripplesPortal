@@ -83,7 +83,7 @@ export default function MyRipples() {
                                 Rewards Earned
                             </p>
                             <p className="text-white text-3xl font-bold">
-                                ₹{walletBalance?.current_balance}
+                                ₹{walletBalance?.wallet_balance}
                             </p>
                         </div>
                         <CustomButton

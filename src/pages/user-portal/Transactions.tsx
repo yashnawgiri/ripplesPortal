@@ -17,7 +17,7 @@ function TransactionCard({ date, transactions }: TransactionCardProps) {
                 {date}
             </div>
             {transactions.map((transaction, index) => {
-                const isCredit = transaction.type === 'credited';
+                const isCredit = transaction.transaction_type === 'CREDITED';
                 return (
                     <div key={index} className="flex justify-between bg-primary p-6">
                         <div className="flex items-center space-x-6">
@@ -96,7 +96,7 @@ export default function Transactions() {
                         Transactions History
                     </h1>
                     {currentTransactions.map((data, index) => (
-                        <TransactionCard key={index} date={data.date} transactions={[data]} />
+                        <TransactionCard key={index} date={data.created_at.toString()} transactions={[data]} />
                     ))}
 
                     <div className="flex justify-center mt-4 space-x-2">

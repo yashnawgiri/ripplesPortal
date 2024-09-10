@@ -4,36 +4,44 @@ import endpoints from "./endpoints";
 interface ReferralLinksResponse {
   message: string;
   data: {
-    brand: string;
-    link: string;
-    rewards_earned: number;
+    link_code: string;
+    state: string;
+    brand_id: bigint;
+    brand_name: string;
   }[];
 }
 
 export const fetchReferralLinksService = async (
-  authToken: string
+  authToken: string,
+  userId: string
 ): Promise<ReferralLinksResponse> => {
-  return await apiCall<ReferralLinksResponse>(endpoints.REFER_LINKS, {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${authToken}`,
-      "Content-Type": "application/json",
-    },
-  });
+  return await apiCall<ReferralLinksResponse>(
+    endpoints.REFER_LINKS.replace(":userId", userId.toString()),
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+        "Content-Type": "application/json",
+      },
+    }
+  );
 };
 
 interface WalletBalanceResponse {
   message: string;
   data: {
-    current_balance: number;
+    wallet_balance: string;
     lifetime_earnings: number;
-  }
+  };
 }
 
 export const fetchWalletBalanceService = async (
-  authToken: string
+  authToken: string,
+  userId: string
 ): Promise<WalletBalanceResponse> => {
-  return await apiCall<WalletBalanceResponse>(endpoints.WALLET_BALANCE, {
+  return await apiCall<WalletBalanceResponse>(
+    endpoints.WALLET_BALANCE.replace(":userId", userId.toString()), 
+    {
     method: "GET",
     headers: {
       Authorization: `Bearer ${authToken}`,
@@ -44,17 +52,24 @@ export const fetchWalletBalanceService = async (
 
 interface ProfileResponse {
   message: string;
-  data: { 
-    first_name: string; 
-    last_name: string; 
-    email: string 
-  }
+  data: {
+    id: bigint;
+    first_name: string;
+    last_name: string;
+    email: string;
+    contact_number: string | null;
+    created_at: Date;
+    updated_at: Date;
+  };
 }
 
 export const fetchProfileService = async (
-  authToken: string
+  authToken: string,
+  userId: string
 ): Promise<ProfileResponse> => {
-  return await apiCall<ProfileResponse>(endpoints.PROFILE, {
+  return await apiCall<ProfileResponse>(
+    endpoints.PROFILE.replace(":userId", userId.toString()), 
+    {
     method: "GET",
     headers: {
       Authorization: `Bearer ${authToken}`,
@@ -66,8 +81,13 @@ export const fetchProfileService = async (
 interface UpdateProfileResponse {
   message: string;
   data: {
+    id: bigint;
     first_name: string;
     last_name: string;
+    email: string;
+    contact_number: string | null;
+    created_at: Date;
+    updated_at: Date;
   };
 }
 
@@ -76,9 +96,12 @@ export const updateProfileService = async (
     first_name: string;
     last_name: string;
   },
-  authToken: string
+  authToken: string,
+  userId: string
 ): Promise<UpdateProfileResponse> => {
-  return await apiCall<UpdateProfileResponse>(endpoints.PROFILE, {
+  return await apiCall<UpdateProfileResponse>(
+    endpoints.PROFILE.replace(":userId", userId.toString()), 
+    {
     method: "PUT",
     headers: {
       Authorization: `Bearer ${authToken}`,
@@ -89,9 +112,9 @@ export const updateProfileService = async (
 };
 
 export interface Transaction {
-  amount: number;
-  type: "credited" | "debited";
-  date: string;
+  created_at: Date;
+  amount: string;
+  transaction_type: string;
 }
 
 export interface Pagination {
@@ -108,11 +131,13 @@ interface TransactionsResponse {
 
 export const fetchTransactionsService = async (
   token: string,
+  userId: string,
   page: number = 1,
-  limit: number = 10
+  limit: number = 10,
 ): Promise<TransactionsResponse> => {
-  return await apiCall<TransactionsResponse>(
-    `${endpoints.TRANSACTIONS}?page=${page}&limit=${limit}`,
+  const url: string = endpoints.TRANSACTIONS.replace(":userId", userId.toString())
+    .concat(`?page=${page}?limit=${limit}`);
+  return await apiCall<TransactionsResponse>(url,
     {
       method: "GET",
       headers: {
@@ -124,13 +149,6 @@ export const fetchTransactionsService = async (
 
 interface SupportResponse {
   message: string;
-  data: {
-    email: string;
-    subject: string;
-    category: string;
-    brand_name: string;
-    description: string;
-  };
 }
 
 export interface SupportForm {

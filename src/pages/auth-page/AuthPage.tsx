@@ -9,10 +9,12 @@ import { emailLogin, otpVerify } from "@/services/authService";
 import { useRecoilState } from "recoil";
 import { loadingState } from "@/recoil/loadingState";
 import { authTokenState } from "@/recoil/authTokenState";
+import { userIdState } from "@/recoil/userIdState";
 
 const AuthPage: React.FC = () => {
     const [step, setStep] = useState<'signup' | 'email-signup' | 'otp'>('signup');
     const [, setAuthToken] = useRecoilState(authTokenState);
+    const [, setUserId] = useRecoilState(userIdState);
     const [email, setEmail] = useState<string>('');
     const [otpValues, setOtpValues] = useState(['', '', '', '']);
     const [, setLoading] = useRecoilState(loadingState);
@@ -78,8 +80,10 @@ const AuthPage: React.FC = () => {
             const res = await otpVerify({ email, otp });
             console.log(res); 
             if (res.data) {
-                setAuthToken(res.data.auth_token);
-                localStorage.setItem('authToken',res.data.auth_token);
+                setAuthToken(res.data.token);
+                setUserId(res.data.userId);
+                localStorage.setItem('authToken',res.data.token);
+                localStorage.setItem('userId',res.data.userId);
                 setTimeout(() => navigate('/my-ripples/home'), 100);
             }
         } catch (error) {
