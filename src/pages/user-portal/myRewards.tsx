@@ -46,7 +46,7 @@ export default function MyRewards() {
                                 Rewards Earned
                             </p>
                             <p className="text-white text-3xl font-bold">
-                                ₹{walletBalance?.current_balance}
+                                ₹{walletBalance?.wallet_balance}
                             </p>
                         </div>
                         <Link to={siteConfig.path.userRewards}
