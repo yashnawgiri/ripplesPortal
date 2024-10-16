@@ -2,9 +2,8 @@
   "home": {
     "heading1" : "Turn customers into influencers, advocates, and UGC creators - your RIPPLERS!",
     "subHeading" : "Increase Your Customer Referrals by 3X.",
-    "description" : "Give cash rewards for referrals and UGC creation - transferred directly to shopper's bank account!",
+    "description" : "Ripples is an OS that helps you automate and scale influencer-style rewards for your customers, unlocking virality.",
     "heading2" : "Your Customer is Your Next Ripple for Sales",
-    "description2" : "Ripples is an OS that helps you automate and scale influencer-style rewards for your customers, unlocking virality.",
     "demoButton": "Book Demo"
   },
   "ComponentsData": {
@@ -32,7 +31,7 @@
     },
     {
       "question": "3. Is it easy to set up Ripples on my ecommerce site?",
-      "answer": "Yes, Ripples is designed to be easy to set up and use. Witha simple app that you can integrate from your Shopify Store, you can integrate and kick start Ripples in 3 easy steps."
+      "answer": "Yes, Ripples is designed to be easy to set up and use. With a simple app that you can integrate from your Shopify Store, you can integrate and kick start Ripples in 3 easy steps."
     },
     {
       "question": "4. What is the pricing model for Ripples?",
@@ -41,7 +40,7 @@
   ],
   "GradiantCardsData": [
     {
-      "title": "Multiply Revenue Streams",
+      "title": "Multiple Revenue Streams",
       "description": "Acquire new users you were currently not able to convert. Use Ripples to leverage the power of word-of-mouth marketing, significantly boosting sales.​"
     },
     {
@@ -87,14 +86,14 @@
   ],
   "dashboardCardData": [
     {
-      "icon": 1,
-      "title": "Incentivize users with Cash Rewards",
-      "description": "Incentivize users at POS and automate post purchase rewards payout. Ripples is a SaaS solution you can set and forget."
-    },
-    {
       "icon": 0,
       "title": "Reduce CAC & Increase ROI",
       "description": "Our user referral GTM strategy operates at approximately 65% lower CAC than performance marketing campaigns."
+    },
+    {
+      "icon": 1,
+      "title": "Incentivize users",
+      "description": "Incentivize users at POS and automate post purchase rewards payout. Ripples is a SaaS solution you can set and forget."
     },
     {
       "icon": 2,

@@ -1,4 +1,4 @@
-import CustomButton from "./CustomButton";
+import CustomButton from "./CustomElements/CustomButton";
 import { siteConfig } from "@/config/site";
 import { checkValueByType, toCamelCase } from "../utils/utils";
 import { useState } from "react";

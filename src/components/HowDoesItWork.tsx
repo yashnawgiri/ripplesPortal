@@ -41,7 +41,7 @@ export default function HowDoesItWork() {
           </div>
         </div>
       </div>
-      <div className="sm:hidden w-full mt-8">
+      <div id="features2" className="sm:hidden w-full mt-8">
         <div className="p-4 text-center w-full">
           <h2 className="title">
             {dashboardData.ComponentsData.HowDoesItWorks.title}

@@ -1,3 +1,13 @@
+import {
+  CategoryIcon,
+  ChatIcon,
+  InfoCircleIcon,
+  LogoutIcon,
+  SettingsIcon,
+  VideoIcon,
+  WalletIcon,
+} from "@/components/icons";
+
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
@@ -13,7 +23,17 @@ export const siteConfig = {
     terms: "/terms-and-conditions",
     docs: "/docs",
     pricing: "/pricing",
-    blog: "/blog"
+    blog: "/blog",
+    myRipples: "my-ripples",
+    userHome: "home",
+    userContent: "content",
+    userRewards: "rewards",
+    userFaq: "faq",
+    userSupport: "support",
+    userAccount: "account",
+    userTransaction: "transactions",
+    signIn: "/sign-in",
+    default: "*",
   },
   navItems: [
     {
@@ -26,7 +46,7 @@ export const siteConfig = {
     },
     {
       label: "Features",
-      href: "/features",
+      href: "/#features",
     },
     {
       label: "Early Bird",
@@ -67,6 +87,43 @@ export const siteConfig = {
       href: "/logout",
     },
   ],
+  userNavItems: [
+    {
+      label: "My Ripples",
+      href: "/my-ripples/home",
+      icon: CategoryIcon,
+    },
+    {
+      label: "My Content",
+      href: "/my-ripples/content",
+      icon: VideoIcon,
+    },
+    {
+      label: "Rewards Wallet",
+      href: "/my-ripples/rewards",
+      icon: WalletIcon,
+    },
+    {
+      label: "FAQ",
+      href: "/my-ripples/faq",
+      icon: InfoCircleIcon,
+    },
+    {
+      label: "Contact Support",
+      href: "/my-ripples/support",
+      icon: ChatIcon,
+    },
+    {
+      label: "My account",
+      href: "/my-ripples/account",
+      icon: SettingsIcon,
+    },
+    {
+      label: "Logout",
+      href: "/logout",
+      icon: LogoutIcon,
+    },
+  ],
   links: {
     github: "",
     twitter: "",
@@ -84,11 +141,11 @@ export const siteConfig = {
       href: "#",
     },
     {
-      label: "About",
+      label: "About Us",
       href: "#",
     },
     {
-      label: "How it works",
+      label: "How Does It Work",
       href: "#",
     },
     {
