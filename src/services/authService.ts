@@ -11,7 +11,7 @@ interface LoginResponse {
 export const emailLogin = async (credentials: {
   email: string;
 }): Promise<LoginResponse> => {
-  return await apiCall<LoginResponse>(endpoints.EMAIL_AUTH, {
+  return apiCall<LoginResponse>(endpoints.EMAIL_AUTH, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -32,7 +32,7 @@ export const otpVerify = async (credentials: {
   email: string;
   otp: string;
 }): Promise<OtpResponse> => {
-  return await apiCall<OtpResponse>(endpoints.OTP_VERIFY, {
+  return apiCall<OtpResponse>(endpoints.OTP_VERIFY, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -17,6 +17,7 @@ export default function MyAccount() {
     const [profileData, setProfileData] = useRecoilState(profileState);
     const token = useRecoilValue(authTokenState);
     const userId = useRecoilValue(userIdState);
+    // TODO: get email from profile
     const [email, setEmail] = useState<string>('');
     const [, setLoading] = useRecoilState(loadingState);
 

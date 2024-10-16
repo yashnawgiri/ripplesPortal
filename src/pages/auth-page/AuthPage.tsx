@@ -5,11 +5,11 @@ import SignUp from "./authComponents/signUp";
 import EmailSignUp from "./authComponents/emailSignUp";
 import OTP from "./authComponents/otp";
 import "@/styles/auth/auth.css";
-import { emailLogin, otpVerify } from "@/services/authService";
 import { useRecoilState } from "recoil";
 import { loadingState } from "@/recoil/loadingState";
 import { authTokenState } from "@/recoil/authTokenState";
 import { userIdState } from "@/recoil/userIdState";
+import { emailLogin, otpVerify } from "../../services/authService.ts";
 
 const AuthPage: React.FC = () => {
     const [step, setStep] = useState<'signup' | 'email-signup' | 'otp'>('signup');
@@ -37,7 +37,7 @@ const AuthPage: React.FC = () => {
         try {
             const res = await emailLogin({ email });
             console.log(res);
-            setEmail(res.data.email);
+            setEmail(email);
             setStep('otp');
         } catch (error) {
             console.error(error);
@@ -95,6 +95,7 @@ const AuthPage: React.FC = () => {
 
     const renderForm = () => {
         switch (step) {
+          // TODO: add email validation
             case 'signup':
                 return (
                     <SignUp

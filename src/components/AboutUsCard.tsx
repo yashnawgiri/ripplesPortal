@@ -12,6 +12,7 @@ const AboutUsCard: React.FC<AboutUsProps> = ({ id }) => {
         <div className="max-w-sm space-y-2 mx-auto">
             <img
                 src={AboutUsImage[id]}
+                alt={aboutUsData.RipplesTeam[id].title}
                 className="rounded-full w-72 mx-auto"
             />
             <h3 className="heading-color text-lg font-bold">

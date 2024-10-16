@@ -15,7 +15,7 @@ export const fetchReferralLinksService = async (
   authToken: string,
   userId: string
 ): Promise<ReferralLinksResponse> => {
-  return await apiCall<ReferralLinksResponse>(
+  return apiCall<ReferralLinksResponse>(
     endpoints.REFER_LINKS.replace(":userId", userId.toString()),
     {
       method: "GET",
@@ -39,7 +39,7 @@ export const fetchWalletBalanceService = async (
   authToken: string,
   userId: string
 ): Promise<WalletBalanceResponse> => {
-  return await apiCall<WalletBalanceResponse>(
+  return apiCall<WalletBalanceResponse>(
     endpoints.WALLET_BALANCE.replace(":userId", userId.toString()), 
     {
     method: "GET",
@@ -67,7 +67,7 @@ export const fetchProfileService = async (
   authToken: string,
   userId: string
 ): Promise<ProfileResponse> => {
-  return await apiCall<ProfileResponse>(
+  return apiCall<ProfileResponse>(
     endpoints.PROFILE.replace(":userId", userId.toString()), 
     {
     method: "GET",
@@ -99,7 +99,7 @@ export const updateProfileService = async (
   authToken: string,
   userId: string
 ): Promise<UpdateProfileResponse> => {
-  return await apiCall<UpdateProfileResponse>(
+  return apiCall<UpdateProfileResponse>(
     endpoints.PROFILE.replace(":userId", userId.toString()), 
     {
     method: "PUT",
@@ -137,7 +137,7 @@ export const fetchTransactionsService = async (
 ): Promise<TransactionsResponse> => {
   const url: string = endpoints.TRANSACTIONS.replace(":userId", userId.toString())
     .concat(`?page=${page}?limit=${limit}`);
-  return await apiCall<TransactionsResponse>(url,
+  return apiCall<TransactionsResponse>(url,
     {
       method: "GET",
       headers: {
@@ -163,7 +163,7 @@ export const SubmitSupportService = async (
   supportForm: SupportForm,
   token: string
 ): Promise<SupportResponse> => {
-  return await apiCall(endpoints.SUPPORT_REQUEST, {
+  return apiCall(endpoints.SUPPORT_REQUEST, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,

@@ -48,12 +48,17 @@ export default function HomePage() {
             </div>
           </div>
           <div className="home-img-mob">
-            <Image className="my-4" height="350px" src={flyer} />
+            <Image 
+              className="my-4" 
+              alt= "home-image" 
+              height="350px" 
+              src={flyer} />
           </div>
           <div className="home-img">
             <Image
               className="my-4"
               height="550px"
+              alt= "home-image" 
               isZoomed={true}
               src={flyer}
             />

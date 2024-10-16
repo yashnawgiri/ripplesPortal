@@ -1,4 +1,5 @@
-const BASE_URL = "https://ripples-stg.goripples.com/api/v1/portal";
+const BASE_URL = 
+  "https://ripples-backend-stg-dsc5gveccgfrg3fr.centralindia-01.azurewebsites.net/api/v1/portal";
 
 const endpoints = {
   EMAIL_AUTH: `${BASE_URL}/auth/email-login`,
