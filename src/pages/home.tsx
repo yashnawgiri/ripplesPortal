@@ -70,7 +70,7 @@ export default function HomePage() {
           </h1>
           <p className="home-div2-p">
             {" "}
-            {dashboardData.home.description}
+            {dashboardData.home.description2}
           </p>
         </div>
         <DashboardCard />
