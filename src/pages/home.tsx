@@ -37,9 +37,12 @@ export default function HomePage() {
             <p className="home-p">
               {dashboardData.home.description}
             </p>
+            <p className="home-p">
+              {dashboardData.home.description2}
+            </p>
             <div className="home-demo-div">
               <CustomButton className="bg-secondary text-2xl" onClick={() => navigate(siteConfig.path.getDemo)}>
-                  {dashboardData.home.demoButton}
+                {dashboardData.home.demoButton}
               </CustomButton>
               {/* <CustomButton onClick={() => { }} 
                 className="bg-[#070c25] border border-gray-700 mx-4">
@@ -48,8 +51,8 @@ export default function HomePage() {
             </div>
           </div>
           <div className="home-img-mob">
-            <Image 
-              className="my-4" 
+            <Image
+              className="my-4"
               alt= "home-image" 
               height="350px" 
               src={flyer} />
@@ -68,10 +71,10 @@ export default function HomePage() {
           <h1 className="home-div2-h1">
             {dashboardData.home.heading2}
           </h1>
-          <p className="home-div2-p">
-            {" "}
-            {dashboardData.home.description}
-          </p>
+          {/*<p className="home-div2-p">*/}
+          {/*  {" "}*/}
+          {/*  {dashboardData.home.description}*/}
+          {/*</p>*/}
         </div>
         <DashboardCard />
         <DemoButton />
