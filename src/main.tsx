@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 import App from "./App.tsx";
 import { Provider } from "./provider.tsx";
@@ -13,6 +14,18 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <BrowserRouter>
       <RecoilRoot>
         <Provider>
+          <Toaster
+            position="top-center"
+            reverseOrder={false}
+            gutter={8}
+            toastOptions={{
+              duration: 2000,
+              style: {
+                background: "#0E1330",
+                color: "#fff",
+              },
+            }}
+          />
           <App />
         </Provider>
       </RecoilRoot>

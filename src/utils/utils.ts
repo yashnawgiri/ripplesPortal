@@ -7,7 +7,7 @@ export function toCamelCase(str: any) {
     .replace(/\s+/g, "");
 }
 
-const validateEmail = (email: any) => {
+export const validateEmail = (email: any) => {
   return String(email)
     .toLowerCase()
     .match(
@@ -43,7 +43,7 @@ interface ApiOptions extends RequestInit {
 
 export const apiCall = async <T>(
   url: string,
-  options: ApiOptions = {},
+  options: ApiOptions = {}
 ): Promise<T> => {
   try {
     const response = await fetch(url, options);

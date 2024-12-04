@@ -33,6 +33,7 @@ export const siteConfig = {
     userAccount: "account",
     userTransaction: "transactions",
     signIn: "/sign-in",
+    logout: "/logout",
     default: "*",
   },
   navItems: [
