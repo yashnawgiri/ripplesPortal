@@ -16,7 +16,7 @@ import Transactions from "@/pages/user-portal/Transactions";
 import NotFound from "@/pages/notFound";
 import AuthPage from "@/pages/auth-page/AuthPage";
 import PrivateRoute from "./pages/auth-page/authComponents/PrivateRoute";
-
+import Logout from "./pages/auth-page/Logout";
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
       <Route element={<AboutPage />} path={siteConfig.path.about} />
       <Route element={<PrivacyPolicy />} path={siteConfig.path.privacyPolicy} />
       <Route element={<TermsAndConditions />} path={siteConfig.path.terms} />
-      <Route element={<PrivateRoute/>} path={siteConfig.path.myRipples}>
+      <Route element={<PrivateRoute />} path={siteConfig.path.myRipples}>
         <Route element={<MyRipples />} path={siteConfig.path.userHome} />
         <Route element={<MyContent />} path={siteConfig.path.userContent} />
         <Route element={<MyRewards />} path={siteConfig.path.userRewards} />
@@ -35,6 +35,7 @@ function App() {
         <Route element={<MyAccount />} path={siteConfig.path.userAccount} />
         <Route element={<Transactions />} path={siteConfig.path.userTransaction} />
       </Route>
+      <Route element={<Logout />} path={siteConfig.path.logout} />
       <Route element={<AuthPage />} path={siteConfig.path.signIn} />
       <Route element={<NotFound />} path={siteConfig.path.default} />
     </Routes>
