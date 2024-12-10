@@ -26,7 +26,7 @@ const SignUp: React.FC<SignUpProps> = ({ onEmailSignup, onGoogleSignup }) => {
                         Continue with Email
                     </p>
                 </CustomButton>
-                <CustomButton
+                {/* <CustomButton
                     onClick={onGoogleSignup}
                     className="signUpGoogleButton"
                 >
@@ -34,7 +34,7 @@ const SignUp: React.FC<SignUpProps> = ({ onEmailSignup, onGoogleSignup }) => {
                     <p className="text-md signUpGoogleText">
                         Continue with Google
                     </p>
-                </CustomButton>
+                </CustomButton> */}
             </div>
         </>
     );
