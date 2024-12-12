@@ -7,17 +7,17 @@ import { InlineWidget } from "react-calendly";
 import getDemoData from "@/data/getDemo.json";
 
 export default function GetDemo() {
-  const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFromData] = useState(siteConfig.formInput);
 
-  const setFormDataforKey = (key: any, value: any) => {
-    setFromData((prev) => {
-      return {
-        ...prev,
-        [key]: value
-      };
-    });
-  };
+  // const setFormDataforKey = (key: any, value: any) => {
+  //   setFromData((prev) => {
+  //     return {
+  //       ...prev,
+  //       [key]: value
+  //     };
+  //   });
+  // };
+
   return (
     <DefaultLayout>
       <section className="main-section">
@@ -25,25 +25,18 @@ export default function GetDemo() {
           {getDemoData.description}
         </p>
         <div className="inline-block max-w-lg text-center justify-center">
-          <Stepper
-            currentStep={currentStep}
-            setCurrentStep={setCurrentStep} />
+          {/* Remove Stepper since Step 1 is removed */}
         </div>
-        {(currentStep == 1) ?
-          <FormInput
-            values={formData}
-            setValue={setFormDataforKey}
-            setCurrentStep={setCurrentStep} /> :
-          <div className="w-100p">
-            <InlineWidget
-              url={siteConfig.links.calendly}
-              prefill={{
-                email: formData["Email"],
-                name: formData["Name"],
-                smsReminderNumber: `+91${formData["Phone number"]}`
-              }}
-            />
-          </div>}
+        <div className="w-100p">
+          <InlineWidget
+            url={siteConfig.links.calendly}
+            prefill={{
+              email: formData["Email"],
+              name: formData["Name"],
+              smsReminderNumber: `+91${formData["Phone number"]}`
+            }}
+          />
+        </div>
       </section>
     </DefaultLayout>
   );
