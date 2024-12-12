@@ -12,7 +12,7 @@ const steps = [step1, step2, step3];
 
 function KeyFeatures({}: Props) {
   return (
-    <div className="px-4 py-8">
+    <div className="px-4 py-8" id="features">
       <motion.h1
         className="text-4xl md:text-6xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-br from-white to-slate-400 py-2"
         initial={{ opacity: 0, y: -50 }}
