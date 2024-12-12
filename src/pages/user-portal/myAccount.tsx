@@ -1,63 +1,63 @@
-import CustomButton from "@/components/CustomElements/CustomButton";
-import CustomInput from "@/components/CustomElements/CustomInput";
+// import CustomButton from "@/components/CustomElements/CustomButton";
+// import CustomInput from "@/components/CustomElements/CustomInput";
 import Fallback from "@/components/Fallback";
 import { siteConfig } from "@/config/site";
 import UserDefaultLayout from "@/layouts/userDefault";
-import { authTokenState } from "@/recoil/authTokenState";
-import { loadingState } from "@/recoil/loadingState";
-import { profileDataFormState } from "@/recoil/profileDataFormState";
+// import { authTokenState } from "@/recoil/authTokenState";
+// import { loadingState } from "@/recoil/loadingState";
+// import { profileDataFormState } from "@/recoil/profileDataFormState";
 import { fetchProfile, profileState } from "@/recoil/profileState";
-import { userIdState } from "@/recoil/userIdState";
-import { updateProfileService } from "@/services/apiService";
+// import { userIdState } from "@/recoil/userIdState";
+// import { updateProfileService } from "@/services/apiService";
 
-import React, { useEffect, useState } from "react";
+import  { useEffect } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
 
 export default function MyAccount() {
   const navigate = useNavigate();
-  const [profileForm, setProfileForm] = useRecoilState(profileDataFormState);
-  const [profileData, setProfileData] = useRecoilState(profileState);
-  const token = useRecoilValue(authTokenState);
-  const userId = useRecoilValue(userIdState);
+  // const [profileForm, setProfileForm] = useRecoilState(profileDataFormState);
+  // const [profileData, setProfileData] = useRecoilState(profileState);
+  // const token = useRecoilValue(authTokenState);
+  // const userId = useRecoilValue(userIdState);
   // TODO: get email from profile
   const fetchProfileData = useRecoilValue(fetchProfile);
   const [profile, setProfile] = useRecoilState(profileState);
-  const [, setEmail] = useState<string>("");
-  const [, setLoading] = useRecoilState(loadingState);
+  // const [, setEmail] = useState<string>("");
+  // const [, setLoading] = useRecoilState(loadingState);
 
-  const handleFirstNameChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setProfileForm({ ...profileForm, first_name: event.target.value });
-  };
+  // const handleFirstNameChange = (
+  //   event: React.ChangeEvent<HTMLInputElement>
+  // ) => {
+  //   setProfileForm({ ...profileForm, first_name: event.target.value });
+  // };
 
-  const handleLastNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setProfileForm({ ...profileForm, last_name: event.target.value });
-  };
+  // const handleLastNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   setProfileForm({ ...profileForm, last_name: event.target.value });
+  // };
 
-  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
-  };
+  // const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   setEmail(event.target.value);
+  // };
 
-  const handleUpdateProfile = async () => {
-    setLoading(true);
+  // const handleUpdateProfile = async () => {
+  //   setLoading(true);
 
-    try {
-      const response = await updateProfileService(profileForm, token!, userId);
-      setProfileData({
-        ...profileData,
-        first_name: response.data.first_name,
-        last_name: response.data.last_name,
-      });
-      console.log("Profile updated successfully:", response);
-    } catch (error) {
-      console.error("Error updating profile:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  //   try {
+  //     const response = await updateProfileService(profileForm, token!, userId);
+  //     setProfileData({
+  //       ...profileData,
+  //       first_name: response.data.first_name,
+  //       last_name: response.data.last_name,
+  //     });
+  //     console.log("Profile updated successfully:", response);
+  //   } catch (error) {
+  //     console.error("Error updating profile:", error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   useEffect(() => {
     if (fetchProfileData) {

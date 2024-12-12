@@ -1,32 +1,29 @@
 import React from "react";
 import CustomButton from "@/components/CustomElements/CustomButton";
-import { GoogleIcon } from "@/components/icons";
+// import { GoogleIcon } from "@/components/icons";
 import "@/styles/auth/signUp.css";
 
 interface SignUpProps {
-    onEmailSignup: () => void;
-    onGoogleSignup: () => void;
+  onEmailSignup: () => void;
+  onGoogleSignup: () => void;
 }
 
-const SignUp: React.FC<SignUpProps> = ({ onEmailSignup, onGoogleSignup }) => {
-    return (
-        <>
-            <div>
-                <h2 className="signUpHeader">
-                    Share the Love: Get Cash Rewards for Referring Your Favorite Brands!
-                </h2>
-                <p className="text-color signUpSubtext">Sign in to see more</p>
-            </div>
-            <div>
-                <CustomButton
-                    onClick={onEmailSignup}
-                    className="signUpButton"
-                >
-                    <p className="flex justify-center font-poppins w-full text-md space-x-2">
-                        Continue with Email
-                    </p>
-                </CustomButton>
-                {/* <CustomButton
+const SignUp: React.FC<SignUpProps> = ({ onEmailSignup }) => {
+  return (
+    <>
+      <div>
+        <h2 className="signUpHeader">
+          Share the Love: Get Cash Rewards for Referring Your Favorite Brands!
+        </h2>
+        <p className="text-color signUpSubtext">Sign in to see more</p>
+      </div>
+      <div>
+        <CustomButton onClick={onEmailSignup} className="signUpButton">
+          <p className="flex justify-center font-poppins w-full text-md space-x-2">
+            Continue with Email
+          </p>
+        </CustomButton>
+        {/* <CustomButton
                     onClick={onGoogleSignup}
                     className="signUpGoogleButton"
                 >
@@ -35,9 +32,9 @@ const SignUp: React.FC<SignUpProps> = ({ onEmailSignup, onGoogleSignup }) => {
                         Continue with Google
                     </p>
                 </CustomButton> */}
-            </div>
-        </>
-    );
+      </div>
+    </>
+  );
 };
 
 export default SignUp;
