@@ -1,24 +1,24 @@
 {
   "home": {
-    "heading1" : "Turn customers into influencers, advocates, and UGC creators - your RIPPLERS!",
-    "heading2" : "Your Customer is Your Next Ripple for Sales",
-    "subHeading" : "Increase Your Customer Referrals by 3X.",
-    "description" : "Ripples is an OS that helps you automate and scale influencer-style rewards for your customers, unlocking virality.",
-    "description2" : "Give cash rewards for referrals and UGC creation—transferred directly to shopper's bank account!",
-    "demoButton": "Book Demo"
+    "heading1": "Turn customers into influencers, advocates, and UGC creators - your RIPPLERS!",
+    "heading2": "Your Customer is Your Next Ripple for Sales",
+    "subHeading": "Increase Your Customer Referrals by 3X.",
+    "description": "Ripples is an OS that helps you automate and scale influencer-style rewards for your customers, unlocking virality.",
+    "description2": "Give cash rewards for referrals and UGC creation—transferred directly to shopper's bank account!",
+    "demoButton": "Start 30 Days free trial"
   },
   "ComponentsData": {
-    "Testimonials" : {
-      "title" : "What our clients say",
-      "description" : "Ripples leverages the power of word-of-mouth marketing, helping you acquire new users you were previously unable to convert. By turning your customers into advocates, influencers, and UGC creators, Ripples significantly boosts your marketing efforts and sales."
+    "Testimonials": {
+      "title": "What our clients say",
+      "description": "Ripples leverages the power of word-of-mouth marketing, helping you acquire new users you were previously unable to convert. By turning your customers into advocates, influencers, and UGC creators, Ripples significantly boosts your marketing efforts and sales."
     },
-    "HowDoesItWorks" : {
-      "title" : "How does it work?",
+    "HowDoesItWorks": {
+      "title": "How does it work?",
       "description": "Use our Shopify/Ecommerce Site plugin and SaaS to gamify the user experience post-purchase, ensuring your customers become brand advocates."
     },
-    "FAQ" : {
-      "title" : "Frequently Asked Questions",
-      "description" : "Torem ipsum dolor sit amet consectetur. Nulla quisque scelerisque eget quis. Eu amet amet eu interdum."
+    "FAQ": {
+      "title": "Frequently Asked Questions",
+      "description": "Torem ipsum dolor sit amet consectetur. Nulla quisque scelerisque eget quis. Eu amet amet eu interdum."
     }
   },
   "faqData": [
@@ -100,6 +100,11 @@
       "icon": 2,
       "title": "Tap into new GTM channel",
       "description": "Brands today are leaving significant revenue on the table by not effectively tapping into customer referrals as an acquisition channel."
+    },
+    {
+      "icon": 3,
+      "title": "Increase CLTV",
+      "description": "Maximize repeat purchases with flexible referral rewards that keep customers coming back for more."
     }
   ],
   "testimonialsData": [
@@ -120,6 +125,17 @@
       "title": "Founder, Food Brand",
       "image": "v",
       "testimonial": "Implementing Ripples was a game-changer for us. Not only did it lower our Customer Acquisition Cost by 65%, but it also turned our satisfied customers into influential brand advocates."
+    }
+  ],
+  "steps": [
+    {
+      "title": "User browsing through your products is incentivized to purchase for the referral rewards"
+    },
+    {
+      "title": "Referral program integrated with checkout, urging folks to share their purchases"
+    },
+    {
+      "title": "Referred user receives discount which is auto-applied on their purchase"
     }
   ]
 }

@@ -1,8 +1,10 @@
 import { Image } from "@nextui-org/image";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 import { title } from "./primitives";
 import { BackwardArrowIcon, DoubleQuotesIcon, ForwardArrowIcon } from "./icons";
-import "./../styles/home/testimonial.css"
+import "./../styles/home/testimonial.css";
 
 import dashboardData from "@/data/landing.json";
 import avatar1 from "@/assets/images/avatars/avatar1.png";
@@ -18,12 +20,17 @@ function TestimonialCard({ id }: TestimonialCardProps) {
   const Avatars = [avatar1, avatar2, avatar3];
 
   return (
-    <div className="relative flex justify-center w-[392px]">
-      <div
-        className="singleTestimonialContainer" />
+    <motion.div
+      className="relative flex justify-center w-full max-w-[392px] p-4"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -50 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+    >
+      <div className="singleTestimonialContainer" />
       <div className="singleTestimonialInnerContainer">
         <div className="flex justify-between">
-          <div className="flex justify-around space-x-2">
+          <div className="flex items-center space-x-2">
             <Image height={40} src={Avatars[id]} width={40} />
             <div className="items-center space-y-1">
               <h3 className="text-md text-white">{testimonial.name}</h3>
@@ -32,38 +39,81 @@ function TestimonialCard({ id }: TestimonialCardProps) {
           </div>
           <DoubleQuotesIcon />
         </div>
-        <p className="text-white w-full">{testimonial.testimonial}</p>
+        <p className="text-white w-full mt-4">{testimonial.testimonial}</p>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 export default function Testimonials() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const testimonialsLength = dashboardData.testimonialsData.length;
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonialsLength);
+  };
+
+  const handlePrevious = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? testimonialsLength - 1 : prevIndex - 1
+    );
+  };
+
+  const visibleTestimonials = () => {
+    if (window.innerWidth >= 1024) {
+      return [
+        dashboardData.testimonialsData[currentIndex],
+        dashboardData.testimonialsData[(currentIndex + 1) % testimonialsLength],
+        dashboardData.testimonialsData[(currentIndex + 2) % testimonialsLength],
+      ];
+    }
+    return [dashboardData.testimonialsData[currentIndex]];
+  };
+
   return (
-    <div className="max-w-7xl w-full space-y-8">
-      <div className="text-center">
-        <h1 className={`${title({ size: "lg", color: "foreground", weight: "bold" })} h-20`}>
+    <div className="max-w-7xl w-full px-4 space-y-8 py-16">
+      <motion.div
+        className="text-center"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+      >
+        <h1
+          className={`${title({ size: "lg", color: "foreground", weight: "bold" })} h-20`}
+        >
           {dashboardData.ComponentsData.Testimonials.title}
         </h1>
         <p className="text-base max-w-2xl py-4 text-color mx-auto">
           {dashboardData.ComponentsData.Testimonials.description}
         </p>
-      </div>
-      <div className="flex justify-between space-x-4">
-        {dashboardData.testimonialsData.map((_, index) => (
-          <TestimonialCard key={index} id={index} />
+      </motion.div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 justify-center">
+        {visibleTestimonials().map((testimonial, index) => (
+          <TestimonialCard
+            key={index}
+            id={(currentIndex + index) % testimonialsLength}
+          />
         ))}
       </div>
-      <div className=" content-center">
+      <div className="content-center">
         <div className="flex justify-center space-x-2">
-          <button className="bg-primary p-2 rounded-xl" onClick={() => {
-          }}>
+          <motion.button
+            className="bg-primary p-2 rounded-xl"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={handlePrevious}
+          >
             <BackwardArrowIcon />
-          </button>
-          <button className="bg-primary p-2 rounded-xl" onClick={() => {
-          }}>
+          </motion.button>
+          <motion.button
+            className="bg-primary p-2 rounded-xl"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={handleNext}
+          >
             <ForwardArrowIcon />
-          </button>
+          </motion.button>
         </div>
       </div>
     </div>

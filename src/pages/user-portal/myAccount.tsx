@@ -27,20 +27,22 @@ export default function MyAccount() {
   const [, setEmail] = useState<string>("");
   const [, setLoading] = useRecoilState(loadingState);
 
-    const handleFirstNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setProfileForm({ ...profileForm, first_name: event.target.value });
-    };
+  const handleFirstNameChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setProfileForm({ ...profileForm, first_name: event.target.value });
+  };
 
-    const handleLastNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setProfileForm({ ...profileForm, last_name: event.target.value });
-    };
+  const handleLastNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setProfileForm({ ...profileForm, last_name: event.target.value });
+  };
 
-    const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setEmail(event.target.value);
-    };
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
 
-    const handleUpdateProfile = async () => {
-        setLoading(true);
+  const handleUpdateProfile = async () => {
+    setLoading(true);
 
     try {
       const response = await updateProfileService(profileForm, token!, userId);
@@ -121,7 +123,7 @@ export default function MyAccount() {
             >
               Contact Us
             </Link>
-            to update your email preferences.
+            <span> to update your email preferences.</span>
           </p>
           {/* <CustomButton
             onClick={handleUpdateProfile}
