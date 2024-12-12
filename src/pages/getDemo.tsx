@@ -1,5 +1,5 @@
-import FormInput from "@/components/FormInput";
-import Stepper from "@/components/Stepper";
+// import FormInput from "@/components/FormInput";
+// import Stepper from "@/components/Stepper";
 import { siteConfig } from "@/config/site";
 import DefaultLayout from "@/layouts/default";
 import { useState } from "react";
@@ -7,7 +7,7 @@ import { InlineWidget } from "react-calendly";
 import getDemoData from "@/data/getDemo.json";
 
 export default function GetDemo() {
-  const [formData, setFromData] = useState(siteConfig.formInput);
+  const [formData] = useState(siteConfig.formInput);
 
   // const setFormDataforKey = (key: any, value: any) => {
   //   setFromData((prev) => {

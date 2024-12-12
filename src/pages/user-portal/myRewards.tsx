@@ -113,7 +113,7 @@ export default function MyRewards() {
           {rewards?.length && (
             <button
               onClick={() => {}}
-              className="bg-gray-800 flex py-1 mx-auto mt-4 heading-color px-6 py-2 font-poppins rounded-full"
+              className="bg-gray-800 flex mx-auto mt-4 heading-color px-6 py-2 font-poppins rounded-full"
             >
               See Others
             </button>

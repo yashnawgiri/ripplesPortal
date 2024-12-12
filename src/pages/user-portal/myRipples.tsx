@@ -106,7 +106,7 @@ export default function MyRipples() {
             </div>
             <CustomButton
               onClick={() => {}}
-              className="bg-secondary mx-auto w-full mt-4 flex justify-center w-full space-x-2"
+              className="bg-secondary mx-auto mt-4 flex justify-center w-full space-x-2"
             >
               <p>Copy Ripples Link</p>
               <MessageIcon />
@@ -117,7 +117,7 @@ export default function MyRipples() {
             </p>
             <button
               onClick={() => {}}
-              className="bg-gray-800 flex py-1 mx-auto mt-4 heading-color px-6 py-2 font-poppins rounded-full"
+              className="bg-gray-800 flex mx-auto mt-4 heading-color px-6 py-2 font-poppins rounded-full"
             >
               See Others
             </button>
