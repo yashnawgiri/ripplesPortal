@@ -1,27 +1,109 @@
 import { DashboardCardIcon } from "./icons";
 import "./../styles/home/dashboardCard.css";
-
 import dashboardData from "@/data/landing.json";
+import { Image } from "@nextui-org/image";
+import dashboardImage from "./../../src/assets/images/customerView.png";
+import { motion } from "framer-motion";
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeInOut" },
+  },
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2, ease: "easeInOut" },
+  },
+};
 
 export default function DashboardCard() {
   return (
-    <div className="dashboardCardContainer">
-      {dashboardData.dashboardCardData.map((item) => (
-        <div
-          key={item.icon}
-          className="w-100p md:w-30p sm:w-50p card"
+    <>
+      <motion.div
+        className="home-div2 py-10 px-4"
+        id="about"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.5 }}
+      >
+        <h1 className="text-transparent bg-clip-text bg-gradient-to-br from-white to-slate-500 py-4 text-center text-3xl md:text-5xl font-bold">
+          {dashboardData.home.heading2}
+        </h1>
+      </motion.div>
+
+      <div className="dashboardCardContainer flex flex-col md:flex-row justify-between items-center gap-8 px-4 md:px-20">
+        {/* Card Grid */}
+        <motion.div
+          className="cards-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 w-full flex-1"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }} // Trigger animation on scroll
         >
-          <div className="flex md:block justify-start items-center">
-            <DashboardCardIcon icon={item.icon} />
-            <h1 className="cardTitle text-md md:text-2xl ">
-              {item.title}
-            </h1>
-          </div>
-          <p className="cardDescription">
-            {item.description}
-          </p>
-        </div>
-      ))}
-    </div>
+          {dashboardData.dashboardCardData.map((item, index) => (
+            <motion.div key={index} variants={cardVariants}>
+              <Card item={item} />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Image Section */}
+        <motion.div
+          className="flex-1 home-img  w-full md:w-1/3 flex justify-center"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Image
+            className="my-4 rounded-lg shadow-lg hidden md:block"
+            height="500px"
+            width="w-1/2"
+            isZoomed={true}
+            src={dashboardImage}
+          />
+        </motion.div>
+      </div>
+    </>
+  );
+}
+
+type CardProps = {
+  item: {
+    icon: number;
+    title: string;
+    description: string;
+  };
+};
+
+function Card({ item }: CardProps) {
+  return (
+    <motion.div
+      key={item.icon}
+      className="bg-primary shadow-lg rounded-lg p-6 flex flex-col items-center md:items-start text-center hover:shadow-2xl transform transition-all duration-300 ease-in-out"
+      whileHover={{
+        scale: 1.05,
+        rotate: 1,
+        boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.2)",
+      }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <div className="flex flex-col items-center md:items-start mb-4">
+        <DashboardCardIcon icon={item.icon} />
+        <h1 className="text-lg md:text-xl font-semibold md:text-start text-white mt-2">
+          {item.title}
+        </h1>
+      </div>
+      <p className="cardDescription text-sm md:text-base text-[#8F9BB7] md:text-start">
+        {item.description}
+      </p>
+    </motion.div>
   );
 }
