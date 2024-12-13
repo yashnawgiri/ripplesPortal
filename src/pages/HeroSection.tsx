@@ -1,17 +1,17 @@
 import { Image } from "@nextui-org/image";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
-import BrandsJoined from "./BrandsJoined";
-import CustomButton from "@/components/CustomElements/CustomButton";
-import dashboardData from "./../data/landing.json";
-import { siteConfig } from "@/config/site";
 import { useNavigate } from "react-router-dom";
+
+import BrandsJoined from "./BrandsJoined";
+import dashboardData from "./../data/landing.json";
+
+import CustomButton from "@/components/CustomElements/CustomButton";
+import { siteConfig } from "@/config/site";
 import flyer from "@/assets/images/flayer.png";
 
-type Props = {};
-
-function HeroSection({}: Props) {
-  let navigate = useNavigate();
+function HeroSection() {
+  const navigate = useNavigate();
   const ref = useRef(null);
 
   // Use the `useInView` hook for scroll tracking. Removed triggerOnce: true to trigger animations every time the section is in view
@@ -52,11 +52,11 @@ function HeroSection({}: Props) {
   };
 
   return (
-    <div className="homeContainer" ref={ref}>
+    <div ref={ref} className="homeContainer" id="home">
       <motion.div
+        animate={controls}
         className="home-div"
         initial="hidden"
-        animate={controls}
         variants={{
           hidden: { opacity: 0 },
           visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
@@ -89,15 +89,15 @@ function HeroSection({}: Props) {
       </motion.div>
 
       <motion.div
+        animate={controls}
         className="home-img"
         initial="hidden"
-        animate={controls}
         variants={imageVariants}
       >
         <Image
+          alt="home-image"
           className="my-4"
           height="550px"
-          alt="home-image"
           isZoomed={true}
           src={flyer}
         />

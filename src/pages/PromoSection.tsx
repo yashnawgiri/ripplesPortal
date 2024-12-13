@@ -1,6 +1,7 @@
 import React from "react";
 import { Image } from "@nextui-org/react";
 import { motion } from "framer-motion"; // Import Framer Motion
+
 import promoImg from "./../assets/images/promoImg.png";
 
 const PromoSection: React.FC = () => {
@@ -29,10 +30,10 @@ const PromoSection: React.FC = () => {
 
   return (
     <motion.div
-      className="flex flex-col lg:flex-row items-center justify-between px-4 py-4"
+      className="flex flex-col lg:flex-row items-center justify-between px-4 md:py-4 py-0"
       initial="hidden"
-      whileInView="visible"
       viewport={{ once: false, amount: 0.2 }}
+      whileInView="visible"
     >
       <motion.div className="home-div lg:w-1/2 w-full" variants={textVariants}>
         <motion.h1 className="home-h1 home-heading" variants={textVariants}>
@@ -54,7 +55,7 @@ const PromoSection: React.FC = () => {
       {/* Image Section */}
       <motion.div className="home-img-mob lg:hidden" variants={imageVariants}>
         <motion.div className="my-4 w-full" whileHover={hoverEffect.hover}>
-          <Image alt="home-image" height="auto" width="100%" src={promoImg} />
+          <Image alt="home-image" height="auto" src={promoImg} width="100%" />
         </motion.div>
       </motion.div>
 

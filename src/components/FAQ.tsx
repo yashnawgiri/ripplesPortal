@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { FaMinus, FaPlus } from "react-icons/fa";
 
 import { title } from "./primitives";
-import { FaMinus, FaPlus } from "react-icons/fa";
 import "./../styles/home/faq.css";
 
 import dashboardData from "@/data/landing.json";
@@ -17,22 +17,15 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
   return (
     <div className="singleFAQ">
       <div className="flex justify-between items-baseline">
-        <h1 className="faqTitle">
-          {question}
-        </h1>
-        <div className="mt-5 md:mt-8 mr-6" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? (
-            <FaMinus className="icon" />
-          ):(
-            <FaPlus className="icon" />
-          )}
-        </div>
+        <h1 className="faqTitle">{question}</h1>
+        <button
+          className="mt-5 md:mt-8 mr-6"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <FaMinus className="icon" /> : <FaPlus className="icon" />}
+        </button>
       </div>
-      {isOpen && (
-        <p className="faqDescription">
-          {answer}
-        </p>
-      )}
+      {isOpen && <p className="faqDescription">{answer}</p>}
     </div>
   );
 };
@@ -41,7 +34,9 @@ export default function FAQ() {
   return (
     <div className="max-w-7xl w-full space-y-8">
       <div className="text-center">
-        <h1 className={`${title({ size: "lg", color: "foreground", weight: "bold" })} h-20`}>
+        <h1
+          className={`${title({ size: "lg", color: "foreground", weight: "bold" })} h-20`}
+        >
           {dashboardData.ComponentsData.FAQ.title}
         </h1>
         {/* <p className="text-base max-w-xl py-4 text-color mx-auto">{dashboardData.ComponentsData.FAQ.description}</p> */}

@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 
 import App from "./App.tsx";
 import { Provider } from "./provider.tsx";
+
 import "@/styles/globals.css";
 import { RecoilRoot } from "recoil";
 
@@ -15,9 +16,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <RecoilRoot>
         <Provider>
           <Toaster
+            gutter={8}
             position="top-center"
             reverseOrder={false}
-            gutter={8}
             toastOptions={{
               duration: 2000,
               style: {
@@ -30,5 +31,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         </Provider>
       </RecoilRoot>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

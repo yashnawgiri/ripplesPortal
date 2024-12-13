@@ -1,5 +1,10 @@
 // import CustomButton from "@/components/CustomElements/CustomButton";
 // import CustomInput from "@/components/CustomElements/CustomInput";
+import { useEffect } from "react";
+import toast from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
+import { useRecoilState, useRecoilValue } from "recoil";
+
 import Fallback from "@/components/Fallback";
 import { siteConfig } from "@/config/site";
 import UserDefaultLayout from "@/layouts/userDefault";
@@ -9,11 +14,6 @@ import UserDefaultLayout from "@/layouts/userDefault";
 import { fetchProfile, profileState } from "@/recoil/profileState";
 // import { userIdState } from "@/recoil/userIdState";
 // import { updateProfileService } from "@/services/apiService";
-
-import  { useEffect } from "react";
-import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
-import { useRecoilState, useRecoilValue } from "recoil";
 
 export default function MyAccount() {
   const navigate = useNavigate();
@@ -118,8 +118,8 @@ export default function MyAccount() {
           <NameCard title="Email" value={profile.email ?? "NA"} />
           <p className="text-color my-2 mb-8 text-md font-poppins">
             <Link
-              to={siteConfig.userNavItems[4].href}
               className="text-secondary"
+              to={siteConfig.userNavItems[4].href}
             >
               Contact Us
             </Link>

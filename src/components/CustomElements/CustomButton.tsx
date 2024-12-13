@@ -16,8 +16,8 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   return (
     <button
       className={`rounded-[36px] text-white px-7 py-3 ${className}`}
-      onClick={onClick}
       disabled={disabled} // Add your condition here to disable the button based on your requirements. For example, if the button should be disabled when a certain condition is met.
+      onClick={onClick}
     >
       {children}
     </button>

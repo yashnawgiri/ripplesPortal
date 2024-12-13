@@ -1,7 +1,9 @@
 import { atom, selector } from "recoil";
+
 import { authTokenState } from "./authTokenState";
-import { fetchReferralLinksService } from "@/services/apiService";
 import { userIdState } from "./userIdState";
+
+import { fetchReferralLinksService } from "@/services/apiService";
 
 interface ReferralType {
   link_code: string;
@@ -26,10 +28,12 @@ export const fetchReferralLinks = selector<ReferralType[] | null>({
     }
 
     try {
-      const response = await fetchReferralLinksService(token,userId);
+      const response = await fetchReferralLinksService(token, userId);
+
       return response.data;
     } catch (error) {
       console.error("Error fetching referral links:", error);
+
       return null;
     }
   },

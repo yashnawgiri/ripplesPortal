@@ -1,4 +1,5 @@
 import React from "react";
+
 import CustomButton from "@/components/CustomElements/CustomButton";
 // import { GoogleIcon } from "@/components/icons";
 import "@/styles/auth/signUp.css";
@@ -18,7 +19,7 @@ const SignUp: React.FC<SignUpProps> = ({ onEmailSignup }) => {
         <p className="text-color signUpSubtext">Sign in to see more</p>
       </div>
       <div>
-        <CustomButton onClick={onEmailSignup} className="signUpButton">
+        <CustomButton className="signUpButton" onClick={onEmailSignup}>
           <p className="flex justify-center font-poppins w-full text-md space-x-2">
             Continue with Email
           </p>

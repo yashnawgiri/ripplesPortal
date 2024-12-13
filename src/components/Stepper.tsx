@@ -2,7 +2,6 @@ import { useState } from "react";
 import "../styles/home/stepper.css";
 import { TiTick } from "react-icons/ti";
 
-
 interface StepperProps {
   currentStep: number;
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
@@ -11,6 +10,7 @@ interface StepperProps {
 const Stepper: React.FC<StepperProps> = ({ currentStep, setCurrentStep }) => {
   const steps = ["Basic Info", "Schedule Demo"];
   const [complete, setComplete] = useState(false);
+
   return (
     <>
       <div className="flex justify-between">

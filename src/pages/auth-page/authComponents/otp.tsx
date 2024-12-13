@@ -1,5 +1,7 @@
 import React from "react";
+
 import CustomButton from "@/components/CustomElements/CustomButton";
+
 import "@/styles/auth/otp.css";
 import { Spinner } from "@nextui-org/spinner";
 
@@ -7,11 +9,11 @@ interface OTPProps {
   otpValues: string[];
   onOtpChange: (
     index: number,
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => void;
   onOtpKeyDown: (
     index: number,
-    event: React.KeyboardEvent<HTMLInputElement>
+    event: React.KeyboardEvent<HTMLInputElement>,
   ) => void;
   onVerify: () => void;
   email: string;
@@ -42,28 +44,33 @@ const OTP: React.FC<OTPProps> = ({
           {otpValues.map((value, index) => (
             <input
               key={index}
+              className="otpInput"
+              maxLength={1}
               name={`input-${index}`}
               type="text"
-              maxLength={1}
               value={value}
               onChange={(event) => onOtpChange(index, event)}
               onKeyDown={(event) => onOtpKeyDown(index, event)}
-              className="otpInput"
             />
           ))}
         </div>
         <CustomButton
-          onClick={onVerify}
           className="otpVerifyButton"
           disabled={loading ? true : false}
+          onClick={onVerify}
         >
           <p className="flex justify-center font-poppins w-full text-md space-x-2">
             {loading ? <Spinner /> : "Verify & login"}
           </p>
         </CustomButton>
       </div>
-      <p onClick={handleEmailSignup} className="text-white cursor-pointer">
-        Incorrect email? Click here to sign in and update it
+      <p>
+        <button
+          className="text-white cursor-pointer border-none bg-transparent underline"
+          onClick={handleEmailSignup}
+        >
+          Incorrect email? Click here to sign in and update it
+        </button>
       </p>
     </>
   );

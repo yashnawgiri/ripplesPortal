@@ -1,6 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import { siteConfig } from "@/config/site";
+import { Suspense } from "react";
 
+import PrivateRoute from "./pages/auth-page/authComponents/PrivateRoute";
+import Logout from "./pages/auth-page/Logout";
+import Fallback from "./components/Fallback";
+
+import { siteConfig } from "@/config/site";
 import HomePage from "@/pages/home";
 import GetDemo from "@/pages/getDemo";
 import AboutPage from "@/pages/about";
@@ -15,10 +20,6 @@ import MyAccount from "@/pages/user-portal/myAccount";
 import Transactions from "@/pages/user-portal/Transactions";
 import NotFound from "@/pages/notFound";
 import AuthPage from "@/pages/auth-page/AuthPage";
-import PrivateRoute from "./pages/auth-page/authComponents/PrivateRoute";
-import Logout from "./pages/auth-page/Logout";
-import { Suspense } from "react";
-import Fallback from "./components/Fallback";
 
 function App() {
   return (

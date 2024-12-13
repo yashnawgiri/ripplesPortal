@@ -1,8 +1,9 @@
+import { Navigate, Outlet } from "react-router-dom";
+import { useRecoilState } from "recoil";
+
 import { siteConfig } from "@/config/site";
 import { authTokenState } from "@/recoil/authTokenState";
 import { userIdState } from "@/recoil/userIdState";
-import { Navigate, Outlet } from "react-router-dom";
-import { useRecoilState } from "recoil";
 
 const PrivateRoute = () => {
   const [authToken, setAuthToken] = useRecoilState(authTokenState);

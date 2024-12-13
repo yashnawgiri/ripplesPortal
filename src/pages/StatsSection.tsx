@@ -9,11 +9,11 @@ interface StatCardProps {
 const StatCard: React.FC<StatCardProps> = ({ value, description }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.2 }}
-      transition={{ duration: 0.5 }}
       className="flex flex-col items-center justify-center bg-[#0A1238] border border-[#1A2A5E] rounded-lg px-4 py-6 text-center md:px-20 md:py-8"
+      initial={{ opacity: 0, y: 50 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: false, amount: 0.2 }}
+      whileInView={{ opacity: 1, y: 0 }}
     >
       <h3 className="text-white text-2xl pb-2 font-bold md:text-7xl">
         {value}
@@ -30,8 +30,9 @@ const StatsSection: React.FC = () => {
   return (
     <motion.div
       ref={ref}
-      initial="hidden"
       animate={isInView ? "visible" : "hidden"}
+      className="flex justify-center gap-4 px-4 py-8 md:flex-nowrap md:gap-8"
+      initial="hidden"
       variants={{
         hidden: { opacity: 0 },
         visible: {
@@ -39,7 +40,6 @@ const StatsSection: React.FC = () => {
           transition: { staggerChildren: 0.3 },
         },
       }}
-      className="flex justify-center gap-4 px-4 py-8 md:flex-nowrap md:gap-8"
     >
       {[
         { value: "4X", description: "Average Conversion rate" },
@@ -48,8 +48,8 @@ const StatsSection: React.FC = () => {
       ].map((stat, index) => (
         <StatCard
           key={index}
-          value={stat.value}
           description={stat.description}
+          value={stat.value}
         />
       ))}
     </motion.div>

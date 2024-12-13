@@ -1,17 +1,16 @@
-import contactUsImg from "@/assets/images/contactus.png";
 import { Image } from "@nextui-org/image";
 import { motion } from "framer-motion"; // Import Framer Motion
 
-type Props = {};
+import contactUsImg from "@/assets/images/contactus.png";
 
-function ResponsibilitySection({}: Props) {
+function ResponsibilitySection() {
   return (
     <div className="flex flex-col lg:flex-row items-center py-16 gap-8">
       {/* Text Content */}
       <motion.div
+        animate={{ opacity: 1, x: 0 }}
         className="w-full lg:w-1/2"
         initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
       >
         <h1 className="text-4xl sm:text-6xl font-bold home-heading">
@@ -26,12 +25,12 @@ function ResponsibilitySection({}: Props) {
 
       {/* Image Section */}
       <motion.div
+        animate={{ opacity: 1, x: 0 }}
         className="w-full lg:w-1/2 flex justify-center"
         initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <Image src={contactUsImg} width={1300} className="max-w-full h-auto" />
+        <Image className="max-w-full h-auto" src={contactUsImg} width={1300} />
       </motion.div>
     </div>
   );
