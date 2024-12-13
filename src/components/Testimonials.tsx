@@ -21,10 +21,10 @@ function TestimonialCard({ id }: TestimonialCardProps) {
 
   return (
     <motion.div
-      className="relative flex justify-center w-full max-w-[392px] p-4"
-      initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
+      className="relative flex justify-center w-full max-w-[392px] p-4"
       exit={{ opacity: 0, y: -50 }}
+      initial={{ opacity: 0, y: 50 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
       <div className="singleTestimonialContainer" />
@@ -55,7 +55,7 @@ export default function Testimonials() {
 
   const handlePrevious = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? testimonialsLength - 1 : prevIndex - 1
+      prevIndex === 0 ? testimonialsLength - 1 : prevIndex - 1,
     );
   };
 
@@ -67,6 +67,7 @@ export default function Testimonials() {
         dashboardData.testimonialsData[(currentIndex + 2) % testimonialsLength],
       ];
     }
+
     return [dashboardData.testimonialsData[currentIndex]];
   };
 
@@ -75,9 +76,9 @@ export default function Testimonials() {
       <motion.div
         className="text-center"
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
+        viewport={{ once: true }}
+        whileInView={{ opacity: 1 }}
       >
         <h1
           className={`${title({ size: "lg", color: "foreground", weight: "bold" })} h-20`}
