@@ -10,25 +10,25 @@ export const title = tv({
       cyan: "from-[#00b7fa] to-[#01cfea]",
       green: "from-[#6FEE8D] to-[#17c964]",
       pink: "from-[#FF72E1] to-[#F54C7A]",
-      foreground: "from-[#FFFFFF] to-[#4B4B4B]"
+      foreground: "from-[#FFFFFF] to-[#4B4B4B]",
     },
     size: {
       sm: "text-3xl lg:text-4xl",
       md: "text-[2.3rem] lg:text-5xl leading-9",
-      lg: "text-4xl lg:text-6xl"
+      lg: "text-4xl lg:text-6xl",
     },
     fullWidth: {
-      true: "w-full block"
+      true: "w-full block",
     },
     weight: {
       semibold: "font-semibold",
       bold: "font-bold",
-      extrabold: "font-extrabold"
-    }
+      extrabold: "font-extrabold",
+    },
   },
   defaultVariants: {
     size: "md",
-    weight: "bold"
+    weight: "bold",
   },
   compoundVariants: [
     {
@@ -39,21 +39,21 @@ export const title = tv({
         "cyan",
         "green",
         "pink",
-        "foreground"
+        "foreground",
       ],
-      class: "bg-clip-text text-transparent bg-gradient-to-b  leading-loose"
-    }
-  ]
+      class: "bg-clip-text text-transparent bg-gradient-to-b  leading-loose",
+    },
+  ],
 });
 
 export const subtitle = tv({
   base: "w-full md:w-1/2 my-2 text-lg lg:text-base text-default-600 block max-w-full",
   variants: {
     fullWidth: {
-      true: "!w-full"
-    }
+      true: "!w-full",
+    },
   },
   defaultVariants: {
-    fullWidth: true
-  }
+    fullWidth: true,
+  },
 });

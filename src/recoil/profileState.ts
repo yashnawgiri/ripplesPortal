@@ -1,10 +1,12 @@
 import { atom, selector } from "recoil";
+
 import { authTokenState } from "./authTokenState";
-import { fetchProfileService } from "@/services/apiService";
 import { userIdState } from "./userIdState";
 
+import { fetchProfileService } from "@/services/apiService";
+
 interface ProfileType {
-  id?: bigint ;
+  id?: bigint;
   first_name: string;
   last_name: string;
   email?: string;
@@ -13,12 +15,12 @@ interface ProfileType {
   updated_at?: Date;
 }
 
-export const profileState = atom<ProfileType|null>({
+export const profileState = atom<ProfileType | null>({
   key: "profileState",
-  default: null
+  default: null,
 });
 
-export const fetchProfile = selector<ProfileType|null>({
+export const fetchProfile = selector<ProfileType | null>({
   key: "fetchProfile",
   get: async ({ get }) => {
     const token = get(authTokenState);
@@ -29,10 +31,12 @@ export const fetchProfile = selector<ProfileType|null>({
     }
 
     try {
-      const response = await fetchProfileService(token,userId);
+      const response = await fetchProfileService(token, userId);
+
       return response.data;
     } catch (error) {
       console.error("Error fetching profile:", error);
+
       return null;
     }
   },

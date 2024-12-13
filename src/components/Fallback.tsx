@@ -5,7 +5,7 @@ export default function Fallback() {
     <div className="flex flex-col items-center justify-center h-screen bg-primary text-white">
       <div className="flex flex-col items-center space-y-6">
         {/* Spinner */}
-        <Spinner size="lg" color="white" />
+        <Spinner color="white" size="lg" />
 
         {/* Loading Message */}
         <h1 className="text-2xl font-semibold text-gray-700">

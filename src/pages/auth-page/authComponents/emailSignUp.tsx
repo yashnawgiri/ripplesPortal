@@ -1,5 +1,7 @@
 import React from "react";
+
 import CustomButton from "@/components/CustomElements/CustomButton";
+
 import "@/styles/auth/emailSignUp.css";
 import { Spinner } from "@nextui-org/spinner";
 
@@ -28,18 +30,18 @@ const EmailSignUp: React.FC<EmailSignUpProps> = ({
         <div className="w-full">
           <p className="emailInputLabel text-md text-color">Email Address</p>
           <input
-            type="email"
+            className="emailInputField text-color text-md"
             placeholder="eg. example@gmail.com"
+            type="email"
             value={email}
             onChange={onEmailChange}
-            className="emailInputField text-color text-md"
           />
         </div>
 
         <CustomButton
-          onClick={onContinue}
           className="emailContinueButton"
           disabled={loading ? true : false}
+          onClick={onContinue}
         >
           <p className="flex justify-center font-poppins w-full text-md space-x-2">
             {loading ? <Spinner /> : "Continue with Email"}

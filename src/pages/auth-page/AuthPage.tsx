@@ -1,16 +1,21 @@
 import React, { useState } from "react";
-import { siteConfig } from "@/config/site";
 import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+
+import { emailLogin, otpVerify } from "../../services/authService.ts";
+
 import SignUp from "./authComponents/signUp";
 import EmailSignUp from "./authComponents/emailSignUp";
 import OTP from "./authComponents/otp";
+
+import { siteConfig } from "@/config/site";
+
 import "@/styles/auth/auth.css";
 import { useRecoilState } from "recoil";
+
 import { loadingState } from "@/recoil/loadingState";
 import { authTokenState } from "@/recoil/authTokenState";
 import { userIdState } from "@/recoil/userIdState";
-import { emailLogin, otpVerify } from "../../services/authService.ts";
-import toast from "react-hot-toast";
 import { validateEmail } from "@/utils/utils.ts";
 
 const AuthPage: React.FC = () => {
@@ -37,11 +42,13 @@ const AuthPage: React.FC = () => {
   const handleContinueToOTP = async () => {
     if (!validateEmail(email)) {
       toast.error("Invalid Email");
+
       return;
     }
     setLoading(true);
     try {
       const res = await emailLogin({ email });
+
       //   console.log(res);
       toast.success(res.message);
       setEmail(email);
@@ -60,18 +67,21 @@ const AuthPage: React.FC = () => {
 
   const handleOtpChange = (
     index: number,
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     const { value } = event.target;
+
     if (/^[0-9]$/.test(value)) {
       const newValues = [...otpValues];
+
       newValues[index] = value;
       setOtpValues(newValues);
 
       if (value && index < 3) {
         const nextSibling = document.querySelector<HTMLInputElement>(
-          `input[name=input-${index + 1}]`
+          `input[name=input-${index + 1}]`,
         );
+
         nextSibling?.focus();
       }
     }
@@ -79,17 +89,19 @@ const AuthPage: React.FC = () => {
 
   const handleOtpKeyDown = (
     index: number,
-    event: React.KeyboardEvent<HTMLInputElement>
+    event: React.KeyboardEvent<HTMLInputElement>,
   ) => {
     if (event.key === "Backspace" || event.key === "Delete") {
       const newValues = [...otpValues];
+
       newValues[index] = "";
       setOtpValues(newValues);
 
       if (index > 0) {
         const prevSibling = document.querySelector<HTMLInputElement>(
-          `input[name=input-${index - 1}]`
+          `input[name=input-${index - 1}]`,
         );
+
         prevSibling?.focus();
       }
     }
@@ -97,9 +109,11 @@ const AuthPage: React.FC = () => {
 
   const handleVerifyAndLogin = async () => {
     const otp: string = otpValues.join("");
+
     setLoading(true);
     try {
       const res = await otpVerify({ email, otp });
+
       console.log(res);
       toast.success(res.message);
       if (res.data) {
@@ -133,18 +147,18 @@ const AuthPage: React.FC = () => {
       case "email-signup":
         return (
           <EmailSignUp
-            loading={loading}
             email={email}
-            onEmailChange={handleEmailChange}
+            loading={loading}
             onContinue={handleContinueToOTP}
+            onEmailChange={handleEmailChange}
           />
         );
       case "otp":
         return (
           <OTP
+            email={email}
             handleEmailSignup={handleEmailSignup}
             loading={loading}
-            email={email}
             otpValues={otpValues}
             onOtpChange={handleOtpChange}
             onOtpKeyDown={handleOtpKeyDown}

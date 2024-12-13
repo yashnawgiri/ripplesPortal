@@ -1,7 +1,9 @@
 import { atom, selector } from "recoil";
+
 import { authTokenState } from "./authTokenState";
-import { fetchTransactionsService, Transaction } from "@/services/apiService";
 import { userIdState } from "./userIdState";
+
+import { fetchTransactionsService, Transaction } from "@/services/apiService";
 
 export const transactionsState = atom<Transaction[]>({
   key: "transactionsState",
@@ -19,10 +21,12 @@ export const fetchTransactions = selector<Transaction[]>({
     }
 
     try {
-      const response = await fetchTransactionsService(token,userId);
+      const response = await fetchTransactionsService(token, userId);
+
       return response.data;
     } catch (error) {
       console.error("Error fetching transactions:", error);
+
       return [];
     }
   },

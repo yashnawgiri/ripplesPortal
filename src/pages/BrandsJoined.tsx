@@ -6,14 +6,13 @@ export default function BrandsJoined() {
       {/* Brand Icons */}
       <div className="flex items-center space-x-[-8px]">
         <Tooltip content="Accenture">
-          <Avatar src="/src/assets/images/brands/accenture.png" size="sm" />
+          <Avatar size="sm" src="/src/assets/images/brands/accenture.png" />
         </Tooltip>
         <Tooltip content="Cred">
-          <Avatar src="/src/assets/images/brands/cred.png" size="sm" />
+          <Avatar size="sm" src="/src/assets/images/brands/cred.png" />
         </Tooltip>
         <Tooltip content="Udaan">
-          <Avatar src="/src/assets/images/brands/udaan.png" size="sm" />
-          
+          <Avatar size="sm" src="/src/assets/images/brands/udaan.png" />
         </Tooltip>
       </div>
 

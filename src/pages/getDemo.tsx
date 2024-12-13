@@ -1,9 +1,10 @@
 // import FormInput from "@/components/FormInput";
 // import Stepper from "@/components/Stepper";
-import { siteConfig } from "@/config/site";
-import DefaultLayout from "@/layouts/default";
 import { useState } from "react";
 import { InlineWidget } from "react-calendly";
+
+import { siteConfig } from "@/config/site";
+import DefaultLayout from "@/layouts/default";
 import getDemoData from "@/data/getDemo.json";
 
 export default function GetDemo() {
@@ -20,21 +21,16 @@ export default function GetDemo() {
 
   return (
     <DefaultLayout>
-      <section className="main-section">
-        <p className="heading-color text-lg mb-2">
-          {getDemoData.description}
-        </p>
-        <div className="inline-block max-w-lg text-center justify-center">
-          {/* Remove Stepper since Step 1 is removed */}
-        </div>
-        <div className="w-100p">
+      <section className="main-section ">
+        <p className="heading-color text-lg">{getDemoData.description}</p>
+        <div className="w-full">
           <InlineWidget
-            url={siteConfig.links.calendly}
             prefill={{
               email: formData["Email"],
               name: formData["Name"],
-              smsReminderNumber: `+91${formData["Phone number"]}`
+              smsReminderNumber: `+91${formData["Phone number"]}`,
             }}
+            url={siteConfig.links.calendly}
           />
         </div>
       </section>

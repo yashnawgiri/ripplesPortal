@@ -1,4 +1,4 @@
-const BASE_URL = 
+const BASE_URL =
   "https://ripples-backend-stg-dsc5gveccgfrg3fr.centralindia-01.azurewebsites.net/api/v1/portal";
 
 const endpoints = {

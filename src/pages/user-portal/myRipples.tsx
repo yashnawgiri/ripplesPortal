@@ -1,3 +1,6 @@
+import { useRecoilState, useRecoilValue } from "recoil";
+import { useEffect } from "react";
+
 import {
   CartIcon,
   ShopIcon,
@@ -8,13 +11,11 @@ import {
 import UserDefaultLayout from "@/layouts/userDefault";
 import myRipplesData from "@/data/user-portal.json";
 import CustomButton from "@/components/CustomElements/CustomButton";
-import { useRecoilState, useRecoilValue } from "recoil";
 import { fetchProfile, profileState } from "@/recoil/profileState";
 import {
   fetchWalletBalance,
   walletBalanceState,
 } from "@/recoil/walletBalanceState";
-import { useEffect } from "react";
 import {
   fetchReferralLinks,
   referralLinksState,
@@ -27,6 +28,7 @@ const iconMap = {
   MessageIcon: <MessageIcon />,
   MoneyRecieveIcon: <MoneyRecieveIcon />,
 };
+
 export interface CardItem {
   title: string;
   description: string;
@@ -60,6 +62,7 @@ export default function MyRipples() {
   const [profile, setProfile] = useRecoilState(profileState);
   const fetchProfileData = useRecoilValue(fetchProfile);
   const fetchBalance = useRecoilValue(fetchWalletBalance);
+
   useEffect(() => {
     if (fetchProfileData) {
       setProfile(fetchProfileData);
@@ -80,6 +83,7 @@ export default function MyRipples() {
 
   console.log(rewards);
   const haveRipples = rewards?.length;
+
   return (
     <UserDefaultLayout>
       {haveRipples ? (
@@ -105,8 +109,8 @@ export default function MyRipples() {
               </p>
             </div>
             <CustomButton
-              onClick={() => {}}
               className="bg-secondary mx-auto mt-4 flex justify-center w-full space-x-2"
+              onClick={() => {}}
             >
               <p>Copy Ripples Link</p>
               <MessageIcon />
@@ -116,8 +120,8 @@ export default function MyRipples() {
               Sell.
             </p>
             <button
-              onClick={() => {}}
               className="bg-gray-800 flex mx-auto mt-4 heading-color px-6 py-2 font-poppins rounded-full"
+              onClick={() => {}}
             >
               See Others
             </button>

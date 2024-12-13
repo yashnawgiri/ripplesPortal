@@ -1,5 +1,6 @@
-import { apiCall } from "@/utils/utils";
 import endpoints from "./endpoints";
+
+import { apiCall } from "@/utils/utils";
 
 interface ReferralLinksResponse {
   message: string;
@@ -13,7 +14,7 @@ interface ReferralLinksResponse {
 
 export const fetchReferralLinksService = async (
   authToken: string,
-  userId: string
+  userId: string,
 ): Promise<ReferralLinksResponse> => {
   return apiCall<ReferralLinksResponse>(
     endpoints.REFER_LINKS.replace(":userId", userId.toString()),
@@ -23,7 +24,7 @@ export const fetchReferralLinksService = async (
         Authorization: `Bearer ${authToken}`,
         "Content-Type": "application/json",
       },
-    }
+    },
   );
 };
 
@@ -37,17 +38,18 @@ interface WalletBalanceResponse {
 
 export const fetchWalletBalanceService = async (
   authToken: string,
-  userId: string
+  userId: string,
 ): Promise<WalletBalanceResponse> => {
   return apiCall<WalletBalanceResponse>(
-    endpoints.WALLET_BALANCE.replace(":userId", userId.toString()), 
+    endpoints.WALLET_BALANCE.replace(":userId", userId.toString()),
     {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${authToken}`,
-      "Content-Type": "application/json",
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+        "Content-Type": "application/json",
+      },
     },
-  });
+  );
 };
 
 interface ProfileResponse {
@@ -65,17 +67,18 @@ interface ProfileResponse {
 
 export const fetchProfileService = async (
   authToken: string,
-  userId: string
+  userId: string,
 ): Promise<ProfileResponse> => {
   return apiCall<ProfileResponse>(
-    endpoints.PROFILE.replace(":userId", userId.toString()), 
+    endpoints.PROFILE.replace(":userId", userId.toString()),
     {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${authToken}`,
-      "Content-Type": "application/json",
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+        "Content-Type": "application/json",
+      },
     },
-  });
+  );
 };
 
 interface UpdateProfileResponse {
@@ -97,18 +100,19 @@ export const updateProfileService = async (
     last_name: string;
   },
   authToken: string,
-  userId: string
+  userId: string,
 ): Promise<UpdateProfileResponse> => {
   return apiCall<UpdateProfileResponse>(
-    endpoints.PROFILE.replace(":userId", userId.toString()), 
+    endpoints.PROFILE.replace(":userId", userId.toString()),
     {
-    method: "PUT",
-    headers: {
-      Authorization: `Bearer ${authToken}`,
-      "Content-Type": "application/json",
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(info),
     },
-    body: JSON.stringify(info),
-  });
+  );
 };
 
 export interface Transaction {
@@ -135,16 +139,17 @@ export const fetchTransactionsService = async (
   page: number = 1,
   limit: number = 10,
 ): Promise<TransactionsResponse> => {
-  const url: string = endpoints.TRANSACTIONS.replace(":userId", userId.toString())
-    .concat(`?page=${page}?limit=${limit}`);
-  return apiCall<TransactionsResponse>(url,
-    {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+  const url: string = endpoints.TRANSACTIONS.replace(
+    ":userId",
+    userId.toString(),
+  ).concat(`?page=${page}?limit=${limit}`);
+
+  return apiCall<TransactionsResponse>(url, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 };
 
 interface SupportResponse {
@@ -161,7 +166,7 @@ export interface SupportForm {
 
 export const SubmitSupportService = async (
   supportForm: SupportForm,
-  token: string
+  token: string,
 ): Promise<SupportResponse> => {
   return apiCall(endpoints.SUPPORT_REQUEST, {
     method: "POST",

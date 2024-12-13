@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useRecoilState, useRecoilValue } from "recoil";
+
 import { CopyIcon, HalfArrowIcon } from "@/components/icons";
 import { siteConfig } from "@/config/site";
 import UserDefaultLayout from "@/layouts/userDefault";
@@ -7,9 +11,6 @@ import {
   referralLinksState,
 } from "@/recoil/referralLinksState";
 import { walletBalanceState } from "@/recoil/walletBalanceState";
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useRecoilState, useRecoilValue } from "recoil";
 
 export default function MyRewards() {
   const [rewards, setRewards] = useRecoilState(referralLinksState);
@@ -52,8 +53,8 @@ export default function MyRewards() {
               </p>
             </div>
             <Link
-              to={siteConfig.path.userRewards}
               className="flex items-center space-x-2 heading-color font-semibold bg-gray-800 rounded-full px-6 py-2"
+              to={siteConfig.path.userRewards}
             >
               <p>{"Withdraw"}</p>
               <HalfArrowIcon />
@@ -76,8 +77,8 @@ export default function MyRewards() {
               </p>
             </div>
             <Link
-              to={"/transactions"}
               className="flex items-center space-x-2 heading-color font-semibold bg-gray-800 rounded-full px-6 py-2"
+              to={"/transactions"}
             >
               <p className="text-xs md:text-base">See Transactions</p>
               <HalfArrowIcon />
@@ -87,10 +88,11 @@ export default function MyRewards() {
             Referrel Links
           </h3>
           {rewards?.length &&
-            rewards?.map((reward) => (
-              <div
-                onClick={() => handleCopyClick(reward.link_code)}
+            rewards?.map((reward, index) => (
+              <button
+                key={index}
                 className="bg-primary flex justify-between w-full px-5 py-3 mb-3 rounded-md items-center border border-gray-800 space-y-1"
+                onClick={() => handleCopyClick(reward.link_code)}
               >
                 <div className="flex items-center space-x-3">
                   <h4 className="text-white text-lg md:text-xl font-semibold">
@@ -107,13 +109,13 @@ export default function MyRewards() {
                     <p>Copy Link</p>
                   </div>
                 </div>
-              </div>
+              </button>
             ))}
 
           {rewards?.length && (
             <button
-              onClick={() => {}}
               className="bg-gray-800 flex mx-auto mt-4 heading-color px-6 py-2 font-poppins rounded-full"
+              onClick={() => {}}
             >
               See Others
             </button>

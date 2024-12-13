@@ -1,5 +1,6 @@
-import { SupportForm } from "@/services/apiService";
 import { atom } from "recoil";
+
+import { SupportForm } from "@/services/apiService";
 
 export const supportFormState = atom<SupportForm>({
   key: "supportFormState",
