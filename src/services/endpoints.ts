@@ -9,6 +9,7 @@ const endpoints = {
   TRANSACTIONS: `${BASE_URL}/users/:userId/wallet/transactions`,
   PROFILE: `${BASE_URL}/users/:userId/profile`,
   SUPPORT_REQUEST: `${BASE_URL}/support-requests`,
+  LINK_DETAILS: `${BASE_URL}/brand/:brand_id/link_code/:link_code`,
 } as const;
 
 export default endpoints;
