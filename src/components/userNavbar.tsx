@@ -11,8 +11,12 @@ import {
 
 import { siteConfig } from "@/config/site";
 import "@/styles/userNavbar.css";
+import { profileState } from "@/recoil/profileState";
+
+import { useRecoilState } from "recoil";
 
 export default function UserNavBar() {
+  const [profile] = useRecoilState(profileState);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const location = useLocation();
 
@@ -27,14 +31,16 @@ export default function UserNavBar() {
     };
   };
 
+  const firstName = profile?.first_name || "Rippler";
+
   const routeMapping: RouteMapping = {
     "/my-ripples/home": {
       href: siteConfig.path.myRipples,
-      title: "Welcome to your Dashboard, Syeda",
+      title: `Welcome to your Dashboard, ${firstName}`,
     },
     "/my-ripples/content": {
       href: siteConfig.path.userContent,
-      title: "Welcome to your Dashboard, Syeda",
+      title: `Welcome to your Dashboard, ${firstName}`,
     },
     "/my-ripples/rewards": {
       href: siteConfig.path.userRewards,
@@ -52,7 +58,7 @@ export default function UserNavBar() {
       href: siteConfig.path.userAccount,
       title: "Account Settings",
     },
-    "my-ripples/transactions": {
+    "/my-ripples/transactions": {
       href: siteConfig.path.userRewards,
       title: "Transactions",
     },
@@ -61,10 +67,12 @@ export default function UserNavBar() {
   const getPageDetails = () => {
     const currentPath = location.pathname;
 
+    console.log(currentPath, routeMapping[currentPath]);
+
     return (
       routeMapping[currentPath] || {
         href: siteConfig.path.home,
-        title: `Welcome to Ripples, ${"Syeda"}`,
+        title: `Welcome to Ripples, ${firstName}`,
       }
     );
   };
