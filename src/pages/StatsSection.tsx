@@ -18,7 +18,7 @@ const StatCard: React.FC<StatCardProps> = ({ value, description }) => {
       <h3 className="text-white text-2xl pb-2 font-bold md:text-7xl">
         {value}
       </h3>
-      <p className="text-[#8F9BB7] text-sm md:text-md">{description}</p>
+      <p className="text-[#8F9BB7] text-sm md:text-lg">{description}</p>
     </motion.div>
   );
 };
@@ -42,9 +42,9 @@ const StatsSection: React.FC = () => {
       }}
     >
       {[
-        { value: "4X", description: "Average Conversion rate" },
-        { value: "22%", description: "Average Conversion rate" },
-        { value: "5X", description: "Average Conversion rate" },
+        { value: "5X", description: "Your Referrals" },
+        { value: "10%", description: "Increase in Sales" },
+        { value: "65%", description: "Reduction in CAC" },
       ].map((stat, index) => (
         <StatCard
           key={index}
