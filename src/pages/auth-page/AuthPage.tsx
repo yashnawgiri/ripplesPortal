@@ -84,6 +84,11 @@ const AuthPage: React.FC = () => {
 
         nextSibling?.focus();
       }
+
+      // Verify OTP when all 4 inputs are filled
+      if (newValues.join("").trim().length === 4) {
+        handleVerifyAndLogin(newValues.join(""));
+      }
     }
   };
 
@@ -107,8 +112,8 @@ const AuthPage: React.FC = () => {
     }
   };
 
-  const handleVerifyAndLogin = async () => {
-    const otp: string = otpValues.join("");
+  const handleVerifyAndLogin = async (num?:string) => {
+    const otp: string = num || otpValues.join("");
 
     setLoading(true);
     try {
