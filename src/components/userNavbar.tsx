@@ -90,10 +90,10 @@ export default function UserNavBar() {
             </span>
           </Link>
           <div className="userNavHeading">
-            <Link className="text-color userNavHeadingText" to={href}>
+            <div className="text-color userNavHeadingText cursor-default" >
               {title == "Transactions" && <LeftArrowIcon />}
               <h1>{title}</h1>
-            </Link>
+            </div>
           </div>
         </div>
         <div className="flex sm:hidden">
