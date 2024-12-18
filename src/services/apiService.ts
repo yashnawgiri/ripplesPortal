@@ -117,8 +117,13 @@ export const updateProfileService = async (
 
 export interface Transaction {
   created_at: Date;
-  amount: string;
+  amount: number;
   transaction_type: string;
+}
+
+export interface TransactionGroup {
+  data: Transaction[];
+  pagination: Pagination;
 }
 
 export interface Pagination {
@@ -129,8 +134,7 @@ export interface Pagination {
 
 interface TransactionsResponse {
   message: string;
-  data: Transaction[];
-  pagination: Pagination;
+  data: TransactionGroup;
 }
 
 export const fetchTransactionsService = async (
@@ -176,4 +180,66 @@ export const SubmitSupportService = async (
     },
     body: JSON.stringify(supportForm),
   });
+};
+
+interface RewardDetails {
+  type: "PERCENTAGE" | "FIXED_INR" | string;
+  amount: number;
+}
+
+export interface MilestoneDetails {
+  nth?: number;
+}
+
+export interface ReferringUserCommission {
+  reward_details: RewardDetails;
+  milestone_details?: MilestoneDetails;
+  referral_eligible: "every_referral" | "milestone_referral" | string;
+}
+
+export interface ReferredUserRewards {
+  reward_details: RewardDetails;
+}
+
+export interface UserRewards {
+  id: number;
+  brand_id: number;
+  referral_program_id: number;
+  referral_program_state: "ACTIVE" | "INACTIVE" | string;
+  user_id: number;
+  link: string;
+  link_code: string;
+  link_code_state: "ACTIVE" | "INACTIVE" | string;
+  created_at: string; // ISO date format
+  updated_at: string; // ISO date format
+  referring_user_commission: ReferringUserCommission[];
+  referred_user_rewards: ReferredUserRewards;
+  min_amount: number | null;
+  discount_type: "FIXED_INR" | string;
+  discount_amount: number;
+  commission_type: string;
+  commission_amount: number;
+  referrer_first_name: string;
+}
+
+interface LinkDetailResponse {
+  data: UserRewards;
+  message: string;
+}
+
+export const fetchLinkDetailsService = async (
+  linkCode: string,
+  brandId: number,
+): Promise<LinkDetailResponse> => {
+  return apiCall<LinkDetailResponse>(
+    endpoints.LINK_DETAILS.replace(":link_code", linkCode)
+      .replace(":brand_id", String(brandId))
+      .replace("portal/", ""),
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    },
+  );
 };

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
+import toast from "react-hot-toast";
 
 import { CopyIcon, HalfArrowIcon } from "@/components/icons";
 import { siteConfig } from "@/config/site";
@@ -10,11 +11,15 @@ import {
   fetchReferralLinks,
   referralLinksState,
 } from "@/recoil/referralLinksState";
-import { walletBalanceState } from "@/recoil/walletBalanceState";
+import {
+  fetchWalletBalance,
+  walletBalanceState,
+} from "@/recoil/walletBalanceState";
 
 export default function MyRewards() {
   const [rewards, setRewards] = useRecoilState(referralLinksState);
-  const walletBalance = useRecoilValue(walletBalanceState);
+  const [walletBalance, setWalletBalance] = useRecoilState(walletBalanceState);
+  const fetchBalance = useRecoilValue(fetchWalletBalance);
   const fetchLinks = useRecoilValue(fetchReferralLinks);
   const [loading, setLoading] = useRecoilState(loadingState);
 
@@ -26,14 +31,20 @@ export default function MyRewards() {
     setLoading(false);
   }, []);
 
+  useEffect(() => {
+    if (fetchBalance) {
+      setWalletBalance(fetchBalance);
+    }
+  }, [fetchBalance, setWalletBalance]);
+
   const handleCopyClick = (textToCopy: string): void => {
     navigator.clipboard
       .writeText(textToCopy)
       .then(() => {
-        alert("Text copied to clipboard!");
+        toast.success("Text copied to clipboard!");
       })
       .catch((err) => {
-        console.error("Failed to copy: ", err);
+        toast.error("Failed to copy: ", err);
       });
   };
 
@@ -78,7 +89,7 @@ export default function MyRewards() {
             </div>
             <Link
               className="flex items-center space-x-2 heading-color font-semibold bg-gray-800 rounded-full px-6 py-2"
-              to={"/transactions"}
+              to={`/my-ripples/${siteConfig.path.userTransaction}`}
             >
               <p className="text-xs md:text-base">See Transactions</p>
               <HalfArrowIcon />
@@ -112,14 +123,14 @@ export default function MyRewards() {
               </button>
             ))}
 
-          {rewards?.length && (
+          {/* {rewards?.length && (
             <button
               className="bg-gray-800 flex mx-auto mt-4 heading-color px-6 py-2 font-poppins rounded-full"
               onClick={() => {}}
             >
               See Others
             </button>
-          )}
+          )} */}
         </div>
       </div>
     </UserDefaultLayout>
