@@ -77,7 +77,7 @@ export default function UserNavBar() {
     );
   };
 
-  const { href, title } = getPageDetails();
+  const { title } = getPageDetails();
 
   return (
     <>
