@@ -2,14 +2,25 @@ import endpoints from "./endpoints";
 
 import { apiCall } from "@/utils/utils";
 
+interface RewardDetails {
+  type: "FIXED_INR" | "PERCENTAGE";
+  amount: number;
+}
+
+export interface ReferralType {
+  id: number;
+  state: string;
+  link: string;
+  link_code: string;
+  brand_id: bigint;
+  brand_name: string;
+  referred_user_rewards: ReferredUserRewards;
+  referring_user_commission: ReferringUserCommission[];
+}
+
 interface ReferralLinksResponse {
   message: string;
-  data: {
-    link_code: string;
-    state: string;
-    brand_id: bigint;
-    brand_name: string;
-  }[];
+  data: ReferralType[];
 }
 
 export const fetchReferralLinksService = async (
@@ -183,7 +194,7 @@ export const SubmitSupportService = async (
 };
 
 interface RewardDetails {
-  type: "PERCENTAGE" | "FIXED_INR" | string;
+  type: "PERCENTAGE" | "FIXED_INR";
   amount: number;
 }
 
