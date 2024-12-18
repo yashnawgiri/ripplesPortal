@@ -3,14 +3,17 @@ import { atom, selector } from "recoil";
 import { authTokenState } from "./authTokenState";
 import { userIdState } from "./userIdState";
 
-import { fetchTransactionsService, Transaction } from "@/services/apiService";
+import {
+  fetchTransactionsService,
+  TransactionGroup,
+} from "@/services/apiService";
 
-export const transactionsState = atom<Transaction[]>({
+export const transactionsState = atom<TransactionGroup | null>({
   key: "transactionsState",
-  default: [],
+  default: null, // Updated default to be compatible with TransactionGroup | null
 });
 
-export const fetchTransactions = selector<Transaction[]>({
+export const fetchTransactions = selector<TransactionGroup | null>({
   key: "fetchTransactions",
   get: async ({ get }) => {
     const token = get(authTokenState);
@@ -23,11 +26,11 @@ export const fetchTransactions = selector<Transaction[]>({
     try {
       const response = await fetchTransactionsService(token, userId);
 
-      return response.data;
+      return response.data as TransactionGroup;
     } catch (error) {
       console.error("Error fetching transactions:", error);
 
-      return [];
+      return null; // Returning null to align with updated type
     }
   },
 });

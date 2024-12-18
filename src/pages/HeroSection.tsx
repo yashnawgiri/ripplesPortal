@@ -3,7 +3,7 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-import BrandsJoined from "./BrandsJoined";
+// import BrandsJoined from "./BrandsJoined";
 import dashboardData from "./../data/landing.json";
 
 import CustomButton from "@/components/CustomElements/CustomButton";
@@ -85,7 +85,7 @@ function HeroSection() {
           </motion.div>
         </motion.div>
 
-        <BrandsJoined />
+        {/* <BrandsJoined /> */}
       </motion.div>
 
       <motion.div
