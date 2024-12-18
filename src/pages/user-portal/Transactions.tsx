@@ -73,7 +73,7 @@ export default function Transactions() {
   const handlePageChange = async (pageNumber: number) => {
     if (
       transactionGroup &&
-      pageNumber < transactionGroup?.pagination.total_pages &&
+      pageNumber <= transactionGroup?.pagination.total_pages &&
       pageNumber > 0
     ) {
       const token = localStorage.getItem("authToken") || "";
