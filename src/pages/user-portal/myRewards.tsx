@@ -103,7 +103,7 @@ export default function MyRewards() {
               <button
                 key={index}
                 className="bg-primary flex justify-between w-full px-5 py-3 mb-3 rounded-md items-center border border-gray-800 space-y-1"
-                onClick={() => handleCopyClick(reward.link_code)}
+                onClick={() => handleCopyClick(reward.link)}
               >
                 <div className="flex items-center space-x-3">
                   <h4 className="text-white text-lg md:text-xl font-semibold">
