@@ -5,32 +5,42 @@ import { userIdState } from "./userIdState";
 
 import {
   fetchTransactionsService,
-  TransactionGroup,
+  TransactionFilteredGroup,
 } from "@/services/apiService";
+import { groupTransactionsByDate } from "@/utils/utils";
 
-export const transactionsState = atom<TransactionGroup | null>({
+// Atom to hold transactions state
+export const transactionsState = atom<TransactionFilteredGroup | null>({
   key: "transactionsState",
-  default: null, // Updated default to be compatible with TransactionGroup | null
+  default: null, // Initial state set to null
 });
 
-export const fetchTransactions = selector<TransactionGroup | null>({
+// Selector to fetch and process transactions
+export const fetchTransactions = selector<TransactionFilteredGroup | null>({
   key: "fetchTransactions",
   get: async ({ get }) => {
     const token = get(authTokenState);
     const userId = get(userIdState);
 
     if (!token) {
-      throw new Error("No authentication token found");
+      console.error("No authentication token found");
+
+      return null; // Returning null when there's no token
     }
 
     try {
       const response = await fetchTransactionsService(token, userId);
+      // Group transactions by date
+      const transactions = groupTransactionsByDate(response.data.data);
+      const pagination = response.data.pagination;
 
-      return response.data as TransactionGroup;
+      // Return the processed transactions as TransactionFilteredGroup
+      return { data: transactions, pagination } as TransactionFilteredGroup;
     } catch (error) {
       console.error("Error fetching transactions:", error);
 
-      return null; // Returning null to align with updated type
+      // Return null to indicate an error occurred
+      return null;
     }
   },
 });

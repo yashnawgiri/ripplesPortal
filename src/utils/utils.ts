@@ -1,3 +1,5 @@
+import { Transaction } from "@/services/apiService";
+
 // TODO: Replace all any
 export function toCamelCase(str: string) {
   return str
@@ -59,4 +61,31 @@ export const apiCall = async <T>(
     console.error("API Call Error:", (error as Error).message);
     throw error;
   }
+};
+
+export interface GroupedTransactions {
+  created_at: string;
+  transactions: Transaction[];
+}
+
+export const groupTransactionsByDate = (
+  transactions: Transaction[],
+): GroupedTransactions[] => {
+  const grouped: { [date: string]: Transaction[] } = {};
+
+  transactions.forEach((transaction) => {
+    const date = transaction.created_at.toString().split("T")[0]; // Extract the date portion
+
+    if (!grouped[date]) {
+      grouped[date] = [];
+    }
+
+    grouped[date].push(transaction);
+  });
+
+  // Convert the grouped object into an array
+  return Object.entries(grouped).map(([date, transactions]) => ({
+    created_at: date,
+    transactions,
+  }));
 };

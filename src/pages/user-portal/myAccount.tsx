@@ -76,7 +76,7 @@ export default function MyAccount() {
     <UserDefaultLayout>
       <div className="flex justify-center items-center">
         <div className="w-full sm:w-2/3 mb-4">
-          <h1 className="text-xl lg:text-2xl font-extrabold font-poppins text-center mt-10 leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 mb-8">
+          <h1 className="text-2xl lg:text-2xl font-extrabold font-poppins text-center mt-10 leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 mb-8">
             My Account
           </h1>
           <div className="md:flex justify-stretch w-full space-y-2 md:space-y-0 md:space-x-4">
@@ -143,9 +143,9 @@ type NameCardProps = {
 };
 function NameCard({ title, value }: NameCardProps) {
   return (
-    <div className="w-full">
-      <p className="inputTitle heading-color text-md">{title}</p>
-      <p className={`h-12 text-color text-md`}>{value}</p>
+    <div className="w-full bg-primary  p-4 rounded-md">
+      <p className="inputTitle heading-color text-xl">{title}</p>
+      <p className={`h-12 text-color text-xl`}>{value}</p>
     </div>
   );
 }

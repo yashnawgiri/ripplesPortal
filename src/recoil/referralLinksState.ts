@@ -3,14 +3,7 @@ import { atom, selector } from "recoil";
 import { authTokenState } from "./authTokenState";
 import { userIdState } from "./userIdState";
 
-import { fetchReferralLinksService } from "@/services/apiService";
-
-interface ReferralType {
-  link_code: string;
-  state: string;
-  brand_id: bigint;
-  brand_name: string;
-}
+import { fetchReferralLinksService, ReferralType } from "@/services/apiService";
 
 export const referralLinksState = atom<ReferralType[] | null>({
   key: "referralLinksState",

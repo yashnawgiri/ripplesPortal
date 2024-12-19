@@ -1,15 +1,27 @@
 import endpoints from "./endpoints";
 
-import { apiCall } from "@/utils/utils";
+import { apiCall, GroupedTransactions } from "@/utils/utils";
+
+interface RewardDetails {
+  type: "FIXED_INR" | "PERCENTAGE";
+  amount: number;
+}
+
+export interface ReferralType {
+  id: number;
+  state: string;
+  link: string;
+  link_code: string;
+  brand_id: bigint;
+  brand_name: string;
+  referred_user_rewards: ReferredUserRewards;
+  referring_user_commission: RewardDetails;
+  totalEarning: number;
+}
 
 interface ReferralLinksResponse {
   message: string;
-  data: {
-    link_code: string;
-    state: string;
-    brand_id: bigint;
-    brand_name: string;
-  }[];
+  data: ReferralType[];
 }
 
 export const fetchReferralLinksService = async (
@@ -118,11 +130,16 @@ export const updateProfileService = async (
 export interface Transaction {
   created_at: Date;
   amount: number;
-  transaction_type: string;
+  transaction_type: "CREDITED" | "DEBITED";
 }
 
 export interface TransactionGroup {
   data: Transaction[];
+  pagination: Pagination;
+}
+
+export interface TransactionFilteredGroup {
+  data: GroupedTransactions[];
   pagination: Pagination;
 }
 
@@ -183,7 +200,7 @@ export const SubmitSupportService = async (
 };
 
 interface RewardDetails {
-  type: "PERCENTAGE" | "FIXED_INR" | string;
+  type: "PERCENTAGE" | "FIXED_INR";
   amount: number;
 }
 

@@ -112,7 +112,7 @@ const AuthPage: React.FC = () => {
     }
   };
 
-  const handleVerifyAndLogin = async (num?:string) => {
+  const handleVerifyAndLogin = async (num?: string) => {
     const otp: string = num || otpValues.join("");
 
     setLoading(true);
