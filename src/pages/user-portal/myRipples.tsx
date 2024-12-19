@@ -110,7 +110,7 @@ export default function MyRipples() {
                 link={reward.link}
                 referredReward={reward.referred_user_rewards}
                 referringCommission={reward.referring_user_commission}
-                walletBalance={walletBalance}
+                totalEarning={reward.totalEarning}
               />
             ))}
 
@@ -158,15 +158,18 @@ export default function MyRipples() {
 }
 
 type CardProps2 = {
-  walletBalance: WalletBalanceType;
+  totalEarning: number;
   link: string;
   brandName: string;
-  referringCommission: ReferringUserCommission[];
+  referringCommission: {
+    amount: number;
+    type: "FIXED_INR" | "PERCENTAGE";
+  };
   referredReward: ReferredUserRewards;
 };
 
 function MyRewards({
-  walletBalance,
+  totalEarning,
   brandName,
   link,
   referredReward,
@@ -188,14 +191,14 @@ function MyRewards({
     <>
       <h3 className="text-lg lg:text-2xl font-extrabold font-poppins text-center mt-14 leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 mb-8">
         Give Rs.{referredReward.reward_details.amount} off , Get Rs.
-        {referringCommission[0].reward_details.amount}
+        {referringCommission.amount}
         &nbsp;cash
       </h3>
       <p className="text-white text-md mb-2">{`${brandName} Sell`}</p>
       <div className="bg-primary w-full p-5 rounded-sm items-center border border-gray-800 space-y-1">
         <p className="text-gray-400 text-sm">Rewards Earned</p>
         <p className="text-white text-3xl font-bold">
-          ₹{walletBalance?.wallet_balance}
+          ₹{totalEarning}
         </p>
       </div>
       <CustomButton
