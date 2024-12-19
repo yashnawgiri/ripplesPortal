@@ -16,16 +16,12 @@ import { fetchProfile, profileState } from "@/recoil/profileState";
 import {
   fetchWalletBalance,
   walletBalanceState,
-  WalletBalanceType,
 } from "@/recoil/walletBalanceState";
 import {
   fetchReferralLinks,
   referralLinksState,
 } from "@/recoil/referralLinksState";
-import {
-  ReferredUserRewards,
-  ReferringUserCommission,
-} from "@/services/apiService";
+import { ReferredUserRewards } from "@/services/apiService";
 
 const iconMap = {
   CartIcon: <CartIcon />,
@@ -197,9 +193,7 @@ function MyRewards({
       <p className="text-white text-md mb-2">{`${brandName} Sell`}</p>
       <div className="bg-primary w-full p-5 rounded-sm items-center border border-gray-800 space-y-1">
         <p className="text-gray-400 text-sm">Rewards Earned</p>
-        <p className="text-white text-3xl font-bold">
-          ₹{totalEarning}
-        </p>
+        <p className="text-white text-3xl font-bold">₹{totalEarning}</p>
       </div>
       <CustomButton
         className="bg-secondary mx-auto mt-4 flex justify-center w-full space-x-2"

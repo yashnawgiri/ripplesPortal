@@ -90,7 +90,7 @@ export default function UserNavBar() {
             </span>
           </Link>
           <div className="userNavHeading">
-            <div className="text-color userNavHeadingText cursor-default" >
+            <div className="text-color userNavHeadingText cursor-default">
               {title == "Transactions" && <LeftArrowIcon />}
               <h1>{title}</h1>
             </div>

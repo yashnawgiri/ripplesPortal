@@ -47,7 +47,8 @@ const PromoSection: React.FC = () => {
           </motion.span>
         </motion.h1>
         <motion.p className="home-p" variants={textVariants}>
-          Switch to a Referral program that your customers actually want to share
+          Switch to a Referral program that your customers actually want to
+          share
         </motion.p>
       </motion.div>
 

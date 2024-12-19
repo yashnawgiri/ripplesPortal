@@ -16,7 +16,7 @@ export interface ReferralType {
   brand_name: string;
   referred_user_rewards: ReferredUserRewards;
   referring_user_commission: RewardDetails;
-  totalEarning : number
+  totalEarning: number;
 }
 
 interface ReferralLinksResponse {
