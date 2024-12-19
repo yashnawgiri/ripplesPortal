@@ -17,34 +17,46 @@ import {
   walletBalanceState,
 } from "@/recoil/walletBalanceState";
 import { fetchTransactionsService, Transaction } from "@/services/apiService";
+import { groupTransactionsByDate } from "@/utils/utils";
 
 interface TransactionCardProps {
-  transaction: Transaction;
+  data: { created_at: string; transactions: Transaction[] };
 }
 
-function TransactionCard({ transaction }: TransactionCardProps) {
-  const isCredit = transaction.transaction_type === "CREDITED";
-
+function TransactionCard({ data }: TransactionCardProps) {
   return (
     <div className="w-full mb-4">
       <div className="bg-[#282D45] h-8 pl-4 text-color content-center text-sm font-poppins">
-        {new Date(transaction.created_at).toLocaleDateString()}
+        {new Date(data.created_at).toLocaleDateString()}
       </div>
-      <div className="flex justify-between bg-primary p-6">
-        <div className="flex items-center space-x-6">
-          {isCredit ? <MoneyRecievedIcon /> : <MoneyDebetedIcon />}
-          <h4 className="heading-color text-xl">
-            Reward {isCredit ? "Earned" : "Withdrawn"}
-          </h4>
+      {data.transactions.map((transaction: Transaction, index: number) => (
+        <div key={index} className="flex justify-between bg-primary p-6">
+          <div className="flex items-center space-x-6">
+            {transaction.transaction_type == "CREDITED" ? (
+              <MoneyRecievedIcon />
+            ) : (
+              <MoneyDebetedIcon />
+            )}
+            <h4 className="heading-color text-xl">
+              Reward&nbsp;
+              {transaction.transaction_type == "CREDITED"
+                ? "Earned"
+                : "Withdrawn"}
+            </h4>
+          </div>
+          <p
+            className={`font-poppins text-2xl font-bold ${
+              transaction.transaction_type == "CREDITED"
+                ? "text-green-400"
+                : "text-red-400"
+            }`}
+          >
+            {transaction.transaction_type == "CREDITED"
+              ? `₹${transaction.amount}`
+              : `-₹${transaction.amount}`}
+          </p>
         </div>
-        <p
-          className={`font-poppins text-2xl font-bold ${
-            isCredit ? "text-green-400" : "text-red-400"
-          }`}
-        >
-          {isCredit ? `₹${transaction.amount}` : `-₹${transaction.amount}`}
-        </p>
-      </div>
+      ))}
     </div>
   );
 }
@@ -80,7 +92,10 @@ export default function Transactions() {
       const userId = localStorage.getItem("userId") || "";
       const res = await fetchTransactionsService(token, userId, pageNumber);
 
-      setTransactionGroup(res.data);
+      const transactions = groupTransactionsByDate(res.data.data);
+      const pagination = res.data.pagination;
+
+      setTransactionGroup({ data: transactions, pagination });
     }
   };
 
@@ -106,9 +121,14 @@ export default function Transactions() {
           <h1 className="text-xl lg:text-2xl font-extrabold font-poppins text-center mt-10 leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 mb-8">
             Transactions History
           </h1>
-          {transactions.map((data: Transaction, index: number) => (
-            <TransactionCard key={index} transaction={data} />
-          ))}
+          {transactions.map(
+            (
+              data: { created_at: string; transactions: Transaction[] },
+              index: number,
+            ) => (
+              <TransactionCard key={index} data={data} />
+            ),
+          )}
 
           {pagination.total_pages > 1 && (
             <div className="flex justify-center mt-4 space-x-2">

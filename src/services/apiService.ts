@@ -1,6 +1,6 @@
 import endpoints from "./endpoints";
 
-import { apiCall } from "@/utils/utils";
+import { apiCall, GroupedTransactions } from "@/utils/utils";
 
 interface RewardDetails {
   type: "FIXED_INR" | "PERCENTAGE";
@@ -15,7 +15,8 @@ export interface ReferralType {
   brand_id: bigint;
   brand_name: string;
   referred_user_rewards: ReferredUserRewards;
-  referring_user_commission: ReferringUserCommission[];
+  referring_user_commission: RewardDetails;
+  totalEarning : number
 }
 
 interface ReferralLinksResponse {
@@ -129,11 +130,16 @@ export const updateProfileService = async (
 export interface Transaction {
   created_at: Date;
   amount: number;
-  transaction_type: string;
+  transaction_type: "CREDITED" | "DEBITED";
 }
 
 export interface TransactionGroup {
   data: Transaction[];
+  pagination: Pagination;
+}
+
+export interface TransactionFilteredGroup {
+  data: GroupedTransactions[];
   pagination: Pagination;
 }
 
