@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 import { emailLogin, otpVerify } from "../../services/authService.ts";
@@ -8,8 +8,6 @@ import SignUp from "./authComponents/signUp";
 import EmailSignUp from "./authComponents/emailSignUp";
 import OTP from "./authComponents/otp";
 
-import { siteConfig } from "@/config/site";
-
 import "@/styles/auth/auth.css";
 import { useRecoilState } from "recoil";
 
@@ -17,6 +15,13 @@ import { loadingState } from "@/recoil/loadingState";
 import { authTokenState } from "@/recoil/authTokenState";
 import { userIdState } from "@/recoil/userIdState";
 import { validateEmail } from "@/utils/utils.ts";
+import { Image } from "@nextui-org/image";
+import gift1 from "@/assets/images/login/gift1.png";
+import gift2 from "@/assets/images/login/gift2.png";
+import gift3 from "@/assets/images/login/gift3.png";
+import rupee from "@/assets/images/rupees.png";
+import coins from "@/assets/images/coins.png";
+import backgroundImg from '@/assets/images/login/login-bg.png';
 
 const AuthPage: React.FC = () => {
   const [step, setStep] = useState<"signup" | "email-signup" | "otp">("signup");
@@ -67,7 +72,7 @@ const AuthPage: React.FC = () => {
 
   const handleOtpChange = (
     index: number,
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const { value } = event.target;
 
@@ -79,7 +84,7 @@ const AuthPage: React.FC = () => {
 
       if (value && index < 3) {
         const nextSibling = document.querySelector<HTMLInputElement>(
-          `input[name=input-${index + 1}]`,
+          `input[name=input-${index + 1}]`
         );
 
         nextSibling?.focus();
@@ -94,7 +99,7 @@ const AuthPage: React.FC = () => {
 
   const handleOtpKeyDown = (
     index: number,
-    event: React.KeyboardEvent<HTMLInputElement>,
+    event: React.KeyboardEvent<HTMLInputElement>
   ) => {
     if (event.key === "Backspace" || event.key === "Delete") {
       const newValues = [...otpValues];
@@ -104,7 +109,7 @@ const AuthPage: React.FC = () => {
 
       if (index > 0) {
         const prevSibling = document.querySelector<HTMLInputElement>(
-          `input[name=input-${index - 1}]`,
+          `input[name=input-${index - 1}]`
         );
 
         prevSibling?.focus();
@@ -112,8 +117,8 @@ const AuthPage: React.FC = () => {
     }
   };
 
-  const handleVerifyAndLogin = async (num?: string) => {
-    const otp: string = num || otpValues.join("");
+  const handleVerifyAndLogin = async (num: string) => {
+    const otp: string = num;
 
     setLoading(true);
     try {
@@ -164,9 +169,6 @@ const AuthPage: React.FC = () => {
             email={email}
             handleEmailSignup={handleEmailSignup}
             loading={loading}
-            otpValues={otpValues}
-            onOtpChange={handleOtpChange}
-            onOtpKeyDown={handleOtpKeyDown}
             onVerify={handleVerifyAndLogin}
           />
         );
@@ -176,30 +178,64 @@ const AuthPage: React.FC = () => {
   };
 
   return (
-    <div className="authPageContainer">
-      <div className="authFormContainer">
-        <div className="authFormInner">
-          <div className="authFormHeader">
-            <h2>{siteConfig.name}</h2>
-            <h2 className="text-2xl text-secondary">.</h2>
-          </div>
-          {renderForm()}
-          <div>
-            <p className="authFormSubtext">
-              By continuing, you agree to the{" "}
-              <Link className="authFormLink" to={"/terms-and-conditions"}>
-                Terms of Service
-              </Link>
-            </p>
-            <p className="authFormSubtext">
-              and acknowledge you’ve read our{" "}
-              <Link className="authFormLink" to={"/privacy-policy"}>
-                Privacy Policy.
-              </Link>
-            </p>
-          </div>
+    <div className="min-h-screen w-full bg-primary text-white relative overflow-hidden px-4">
+      {/* Decorative Elements */}
+        {/* Left decorations */}
+        <div className="absolute top-10 left-0 md:top-1/2 md:-translate-y-1/2 md:left-0 z-0">
+          <Image
+            src={gift3}
+            alt="Phone with gifts"
+            className="z-10 w-48 md:w-[30rem]"
+          />
         </div>
-      </div>
+        <div className="absolute hidden md:block md:top-15 md:left-[20%] z-0">
+          <Image
+            src={coins}
+            alt="Coins"
+            width={350}
+            className="animate-float"
+          />
+        </div>
+
+        {/* Right decorations */}
+        <div className="absolute top-0 right-0 md:right-0 md:top-0 z-0">
+          <Image
+            src={gift1}
+            alt="Phone with shopping"
+            width={700}
+            className=" w-80 relative z-10 md:w-[800px] "
+          />
+        </div>
+        <div className="absolute bottom-8 right-1/2 translate-x-1/2 md:translate-x-0 md:bottom-0 md:right-10 z-0">
+          <Image
+            src={gift2}
+            alt="Shopping bag"
+            width={600}
+            className="animate-float-delayed"
+          />
+        </div>
+
+        {/* Bottom decorations */}
+        <div className="hidden md:block absolute md:bottom-2 md:left-80 z-0">
+          <Image
+            src={rupee}
+            alt="rupees icon"
+            width={300}
+            className="animate-float"
+          />
+        </div>
+
+        <div className="hidden  md:block md:absolute md:w-svw md:h-svh md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-0 ">
+          <Image
+            src={backgroundImg}
+            alt="background shadow"
+            className="animate-float"
+          />
+        </div>
+
+      {/* Main Content */}
+       
+      <div className="max-w-3/4 mx-auto z-10">{renderForm()}</div>
     </div>
   );
 };
