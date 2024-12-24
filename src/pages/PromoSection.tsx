@@ -1,9 +1,10 @@
 import React from "react";
 import { Image } from "@nextui-org/react";
 import { motion } from "framer-motion"; // Import Framer Motion
-import promoData from "@/data/landing.json";
 
 import promoImg from "./../assets/images/promoImg.png";
+
+import promoData from "@/data/landing.json";
 
 const PromoSection: React.FC = () => {
   // Variants for animations

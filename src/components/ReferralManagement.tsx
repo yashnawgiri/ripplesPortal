@@ -1,7 +1,7 @@
 import { Image } from "@nextui-org/image";
 import { motion } from "framer-motion";
-import {referral} from "@/data/landing.json"
 
+import { referral } from "@/data/landing.json";
 import campaignImg from "@/assets/images/campaign.png";
 
 function ReferralManagement() {

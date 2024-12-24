@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import statsData from '@/data/landing.json';
+
+import statsData from "@/data/landing.json";
 
 interface StatCardProps {
   value: string;

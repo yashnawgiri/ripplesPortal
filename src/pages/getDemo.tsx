@@ -35,10 +35,10 @@ export default function GetDemo() {
                 name: formData["Name"],
                 smsReminderNumber: `+91${formData["Phone number"]}`,
               }}
-              url={siteConfig.links.calendly}
               styles={{
                 height: "600px",
               }}
+              url={siteConfig.links.calendly}
             />
           </div>
         </div>

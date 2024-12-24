@@ -2,8 +2,8 @@ import { Image } from "@nextui-org/image";
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import data from "@/data/landing.json";
 
+import data from "@/data/landing.json";
 import ruppes from "@/assets/images/rupees.png";
 import rewardmanage from "@/assets/images/rewardmanage.png";
 import cashbackImg from "@/assets/images/cashback.png";
@@ -144,7 +144,7 @@ const CashbackAndMileStone = () => {
             &nbsp;{data.reward.milestone.heading[1]}
           </h1>
           <p className="text-gray-300 md:text-start md:w-2/3 md:pb-0 pb-4">
-          {data.reward.milestone.description}
+            {data.reward.milestone.description}
           </p>
         </div>
         <motion.div

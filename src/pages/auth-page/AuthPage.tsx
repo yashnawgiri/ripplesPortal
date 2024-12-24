@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { Image } from "@nextui-org/image";
 
 import { emailLogin, otpVerify } from "../../services/authService.ts";
 
@@ -15,20 +16,18 @@ import { loadingState } from "@/recoil/loadingState";
 import { authTokenState } from "@/recoil/authTokenState";
 import { userIdState } from "@/recoil/userIdState";
 import { validateEmail } from "@/utils/utils.ts";
-import { Image } from "@nextui-org/image";
 import gift1 from "@/assets/images/login/gift1.png";
 import gift2 from "@/assets/images/login/gift2.png";
 import gift3 from "@/assets/images/login/gift3.png";
 import rupee from "@/assets/images/rupees.png";
 import coins from "@/assets/images/coins.png";
-import backgroundImg from '@/assets/images/login/login-bg.png';
+import backgroundImg from "@/assets/images/login/login-bg.png";
 
 const AuthPage: React.FC = () => {
   const [step, setStep] = useState<"signup" | "email-signup" | "otp">("signup");
   const [, setAuthToken] = useRecoilState(authTokenState);
   const [, setUserId] = useRecoilState(userIdState);
   const [email, setEmail] = useState<string>("");
-  const [otpValues, setOtpValues] = useState(["", "", "", ""]);
   const [loading, setLoading] = useRecoilState(loadingState);
   const navigate = useNavigate();
 
@@ -70,52 +69,52 @@ const AuthPage: React.FC = () => {
     }
   };
 
-  const handleOtpChange = (
-    index: number,
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const { value } = event.target;
+  // const handleOtpChange = (
+  //   index: number,
+  //   event: React.ChangeEvent<HTMLInputElement>,
+  // ) => {
+  //   const { value } = event.target;
 
-    if (/^[0-9]$/.test(value)) {
-      const newValues = [...otpValues];
+  //   if (/^[0-9]$/.test(value)) {
+  //     const newValues = [...otpValues];
 
-      newValues[index] = value;
-      setOtpValues(newValues);
+  //     newValues[index] = value;
+  //     setOtpValues(newValues);
 
-      if (value && index < 3) {
-        const nextSibling = document.querySelector<HTMLInputElement>(
-          `input[name=input-${index + 1}]`
-        );
+  //     if (value && index < 3) {
+  //       const nextSibling = document.querySelector<HTMLInputElement>(
+  //         `input[name=input-${index + 1}]`,
+  //       );
 
-        nextSibling?.focus();
-      }
+  //       nextSibling?.focus();
+  //     }
 
-      // Verify OTP when all 4 inputs are filled
-      if (newValues.join("").trim().length === 4) {
-        handleVerifyAndLogin(newValues.join(""));
-      }
-    }
-  };
+  //     // Verify OTP when all 4 inputs are filled
+  //     if (newValues.join("").trim().length === 4) {
+  //       handleVerifyAndLogin(newValues.join(""));
+  //     }
+  //   }
+  // };
 
-  const handleOtpKeyDown = (
-    index: number,
-    event: React.KeyboardEvent<HTMLInputElement>
-  ) => {
-    if (event.key === "Backspace" || event.key === "Delete") {
-      const newValues = [...otpValues];
+  // const handleOtpKeyDown = (
+  //   index: number,
+  //   event: React.KeyboardEvent<HTMLInputElement>,
+  // ) => {
+  //   if (event.key === "Backspace" || event.key === "Delete") {
+  //     const newValues = [...otpValues];
 
-      newValues[index] = "";
-      setOtpValues(newValues);
+  //     newValues[index] = "";
+  //     setOtpValues(newValues);
 
-      if (index > 0) {
-        const prevSibling = document.querySelector<HTMLInputElement>(
-          `input[name=input-${index - 1}]`
-        );
+  //     if (index > 0) {
+  //       const prevSibling = document.querySelector<HTMLInputElement>(
+  //         `input[name=input-${index - 1}]`,
+  //       );
 
-        prevSibling?.focus();
-      }
-    }
-  };
+  //       prevSibling?.focus();
+  //     }
+  //   }
+  // };
 
   const handleVerifyAndLogin = async (num: string) => {
     const otp: string = num;
@@ -180,61 +179,56 @@ const AuthPage: React.FC = () => {
   return (
     <div className="min-h-screen w-full bg-primary text-white relative overflow-hidden px-4">
       {/* Decorative Elements */}
-        {/* Left decorations */}
-        <div className="absolute top-10 left-0 md:top-1/2 md:-translate-y-1/2 md:left-0 z-0">
-          <Image
-            src={gift3}
-            alt="Phone with gifts"
-            className="z-10 w-48 md:w-[30rem]"
-          />
-        </div>
-        <div className="absolute hidden md:block md:top-15 md:left-[20%] z-0">
-          <Image
-            src={coins}
-            alt="Coins"
-            width={350}
-            className="animate-float"
-          />
-        </div>
+      {/* Left decorations */}
+      <div className="absolute top-10 left-0 md:top-1/2 md:-translate-y-1/2 md:left-0 z-0">
+        <Image
+          alt="Phone with gifts"
+          className="z-10 w-48 md:w-[30rem]"
+          src={gift3}
+        />
+      </div>
+      <div className="absolute hidden md:block md:top-15 md:left-[20%] z-0">
+        <Image alt="Coins" className="animate-float" src={coins} width={350} />
+      </div>
 
-        {/* Right decorations */}
-        <div className="absolute top-0 right-0 md:right-0 md:top-0 z-0">
-          <Image
-            src={gift1}
-            alt="Phone with shopping"
-            width={700}
-            className=" w-80 relative z-10 md:w-[800px] "
-          />
-        </div>
-        <div className="absolute bottom-8 right-1/2 translate-x-1/2 md:translate-x-0 md:bottom-0 md:right-10 z-0">
-          <Image
-            src={gift2}
-            alt="Shopping bag"
-            width={600}
-            className="animate-float-delayed"
-          />
-        </div>
+      {/* Right decorations */}
+      <div className="absolute top-0 right-0 md:right-0 md:top-0 z-0">
+        <Image
+          alt="Phone with shopping"
+          className=" w-80 relative z-10 md:w-[800px] "
+          src={gift1}
+          width={700}
+        />
+      </div>
+      <div className="absolute bottom-8 right-1/2 translate-x-1/2 md:translate-x-0 md:bottom-0 md:right-10 z-0">
+        <Image
+          alt="Shopping bag"
+          className="animate-float-delayed"
+          src={gift2}
+          width={600}
+        />
+      </div>
 
-        {/* Bottom decorations */}
-        <div className="hidden md:block absolute md:bottom-2 md:left-80 z-0">
-          <Image
-            src={rupee}
-            alt="rupees icon"
-            width={300}
-            className="animate-float"
-          />
-        </div>
+      {/* Bottom decorations */}
+      <div className="hidden md:block absolute md:bottom-2 md:left-80 z-0">
+        <Image
+          alt="rupees icon"
+          className="animate-float"
+          src={rupee}
+          width={300}
+        />
+      </div>
 
-        <div className="hidden  md:block md:absolute md:w-svw md:h-svh md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-0 ">
-          <Image
-            src={backgroundImg}
-            alt="background shadow"
-            className="animate-float"
-          />
-        </div>
+      <div className="hidden  md:block md:absolute md:w-svw md:h-svh md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-0 ">
+        <Image
+          alt="background shadow"
+          className="animate-float"
+          src={backgroundImg}
+        />
+      </div>
 
       {/* Main Content */}
-       
+
       <div className="max-w-3/4 mx-auto z-10">{renderForm()}</div>
     </div>
   );

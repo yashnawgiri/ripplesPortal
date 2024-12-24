@@ -2,8 +2,8 @@ import { Image } from "@nextui-org/image";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
-import { linkCode } from "@/data/landing.json";
 
+import { linkCode } from "@/data/landing.json";
 import discountCodeToggleImg from "@/assets/images/discountCodeToggle.png";
 import linkModalImg from "@/assets/images/linkModal.png";
 import linkImg from "@/assets/images/link.png";

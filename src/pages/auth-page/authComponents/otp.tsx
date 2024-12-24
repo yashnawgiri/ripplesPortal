@@ -1,13 +1,13 @@
-import { Button } from "@nextui-org/button"
-import { Spinner } from "@nextui-org/spinner"
-import { InputOtp } from "@nextui-org/input-otp"
-import { useState } from "react"
+import { Button } from "@nextui-org/button";
+import { Spinner } from "@nextui-org/spinner";
+import { InputOtp } from "@nextui-org/input-otp";
+import { useState } from "react";
 
 interface OTPProps {
-  onVerify: (num: string) => void
-  email: string
-  loading: boolean | null
-  handleEmailSignup: () => void
+  onVerify: (num: string) => void;
+  email: string;
+  loading: boolean | null;
+  handleEmailSignup: () => void;
 }
 
 export default function OTP({
@@ -16,8 +16,8 @@ export default function OTP({
   email,
   onVerify,
 }: OTPProps) {
-  const [otp, setOtp] = useState("")
-  
+  const [otp, setOtp] = useState("");
+
   return (
     <div className="min-h-screen text-white flex items-center justify-center p-4 z-50">
       <div className="w-full max-w-md space-y-8 backdrop-blur-sm rounded-md p-8  ">
@@ -30,24 +30,28 @@ export default function OTP({
         <div className="space-y-6">
           <div className="flex flex-col justify-center items-center gap-4">
             <InputOtp
+              className="text-black text-lg"
               length={4}
+              textAlign="center"
               value={otp}
               variant="flat"
-              textAlign="center"
-              className="text-black text-lg"
-              onValueChange={setOtp}
               onComplete={() => onVerify(otp)}
+              onValueChange={setOtp}
             />
           </div>
 
           <div className="space-y-4">
             <Button
               className="w-full font-semibold bg-secondary text-white hover:bg-secondary/90 transition-colors"
-              size="lg"
               isDisabled={loading ?? false}
+              size="lg"
               onClick={() => onVerify(otp)}
             >
-              {loading ? <Spinner size="sm" color="current" /> : "Verify & Login"}
+              {loading ? (
+                <Spinner color="current" size="sm" />
+              ) : (
+                "Verify & Login"
+              )}
             </Button>
 
             <Button
@@ -60,6 +64,5 @@ export default function OTP({
         </div>
       </div>
     </div>
-  )
+  );
 }
-

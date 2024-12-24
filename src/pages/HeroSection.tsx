@@ -70,20 +70,20 @@ function HeroSection() {
           {dashboardData.home.description}
         </motion.p>
 
-      <motion.div
-        animate={controls}
-        className="home-img-mob md:hidden"
-        initial="hidden"
-        variants={imageVariants}
-      >
-        <Image
-          alt="home-image"
-          className=""
-          height="280px"
-          isZoomed={true}
-          src={flyer}
-        />
-      </motion.div>
+        <motion.div
+          animate={controls}
+          className="home-img-mob md:hidden"
+          initial="hidden"
+          variants={imageVariants}
+        >
+          <Image
+            alt="home-image"
+            className=""
+            height="280px"
+            isZoomed={true}
+            src={flyer}
+          />
+        </motion.div>
 
         <motion.div className="home-demo-div" variants={descriptionVariants}>
           <motion.div
