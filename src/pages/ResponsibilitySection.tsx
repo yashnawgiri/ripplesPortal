@@ -1,6 +1,7 @@
 import { Image } from "@nextui-org/image";
 import { motion } from "framer-motion"; // Import Framer Motion
 
+import {responsibility} from '@/data/landing.json'
 import contactUsImg from "@/assets/images/contactus.png";
 
 function ResponsibilitySection() {
@@ -14,12 +15,10 @@ function ResponsibilitySection() {
         transition={{ duration: 0.8 }}
       >
         <h1 className="text-4xl sm:text-6xl font-bold home-heading">
-          We take ownership of your referral outcomes
+          {responsibility.heading}
         </h1>
-        <p className="text-[#8F9BB7] py-6 sm:py-8 text-lg sm:text-xl">
-          With our 24*7 dedicated customer service and complete involvement in
-          setup and running your referral programs, we ensure you get the
-          necessary outcomes.
+        <p className="text-gray-300 py-6 sm:py-8 text-lg sm:text-xl">
+          {responsibility.description}
         </p>
       </motion.div>
 

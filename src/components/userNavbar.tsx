@@ -81,7 +81,7 @@ export default function UserNavBar() {
 
   return (
     <>
-      <nav className="userNavContainer">
+      <nav className="userNavContainer z-50">
         <div className="flex items-center">
           <Link className="userNavIcon" to={siteConfig.path.home}>
             {siteConfig.name}

@@ -1,5 +1,6 @@
 import { Image } from "@nextui-org/image";
 import { motion } from "framer-motion";
+import {referral} from "@/data/landing.json"
 
 import campaignImg from "@/assets/images/campaign.png";
 
@@ -14,22 +15,20 @@ function ReferralManagement() {
         viewport={{ once: false, amount: 0.3 }} // Ensure animations trigger every time the element enters the viewport
         whileInView={{ opacity: 1, x: 0 }}
       >
-        <h2 className="text-2xl font-bold py-2 ">Direct Referrals ✨</h2>
+        <h2 className="text-2xl font-bold py-2 ">{referral.heading}</h2>
         <h1 className="text-4xl md:text-6xl font-bold">
           <p className="text-transparent bg-clip-text bg-gradient-to-br from-white to-slate-500 py-2 ">
-            Automate Your
+            {referral.heading2[1]}
           </p>
-          <p className="text-[#EA63FE]">Referral Campaigns</p>
+          <p className="text-[#EA63FE]">{referral.heading2[1]}</p>
         </h1>
-        <p className="text-[#8F9BB7] py-4 text-lg md:text-xl">
-          Let Ripples manage your referral campaigns while you stay focused on
-          your products. Our system rewards customers for bringing in new
-          sign-ups and purchases, with seamless payouts for everyone involved.
+        <p className="text-gray-300 py-4 text-lg md:text-xl">
+          {referral.description}
         </p>
         <ol className="md:list-disc pl-4 flex flex-col gap-4 text-lg md:text-xl ">
-          <li>Automate & streamline direct referral campaigns with ease</li>
-          <li>Earn rewards for every referral-driven sign-up and purchase</li>
-          <li>Fast, automatic payouts for both referrers and new customers</li>
+          {referral.lists.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
         </ol>
       </motion.div>
 

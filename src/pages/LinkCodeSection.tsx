@@ -2,6 +2,7 @@ import { Image } from "@nextui-org/image";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
+import { linkCode } from "@/data/landing.json";
 
 import discountCodeToggleImg from "@/assets/images/discountCodeToggle.png";
 import linkModalImg from "@/assets/images/linkModal.png";
@@ -45,14 +46,12 @@ function LinkCodeSection() {
       >
         <h1 className="text-3xl md:text-5xl font-bold py-4 text-center md:text-start">
           <p className="text-transparent bg-clip-text bg-gradient-to-br from-white to-slate-500">
-            Link and
+            {linkCode.heading[0]}{" "}
           </p>
-          <p className="text-[#EA63FE]">Code Management</p>
+          <p className="text-[#EA63FE]">{linkCode.heading[1]}</p>
         </h1>
-        <h2 className="text-[#8F9BB7] w-full md:w-3/4 text-lg md:text-xl text-center md:text-start">
-          Every customer is given their own vanity URL and code that is easy to
-          remember and share. Our “one-time use codes” make sure there’s no code
-          leakage across any discount site.
+        <h2 className="text-gray-300 w-full md:w-3/4 text-lg md:text-xl text-center md:text-start">
+          {linkCode.description}
         </h2>
         <div className="flex justify-end items-end w-full md:w-3/4 mt-8">
           <Image

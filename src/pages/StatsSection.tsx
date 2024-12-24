@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import statsData from '@/data/landing.json';
 
 interface StatCardProps {
   value: string;
@@ -9,16 +10,16 @@ interface StatCardProps {
 const StatCard: React.FC<StatCardProps> = ({ value, description }) => {
   return (
     <motion.div
-      className="flex flex-col items-center justify-center bg-[#0A1238] border border-[#1A2A5E] rounded-lg px-4 py-6 text-center md:px-20 md:py-8"
+      className="flex flex-col items-center justify-center bg-primary border border-[#282D45] rounded-md py-2 px-4 text-center md:px-20 md:py-8"
       initial={{ opacity: 0, y: 50 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: false, amount: 0.2 }}
       whileInView={{ opacity: 1, y: 0 }}
     >
-      <h3 className="text-white text-2xl pb-2 font-bold md:text-7xl">
+      <h3 className="text-gray-300 text-xl md:pb-2 font-bold md:text-7xl">
         {value}
       </h3>
-      <p className="text-[#8F9BB7] text-sm md:text-lg">{description}</p>
+      <p className="text-gray-300 text-sm md:text-lg">{description}</p>
     </motion.div>
   );
 };
@@ -41,11 +42,7 @@ const StatsSection: React.FC = () => {
         },
       }}
     >
-      {[
-        { value: "5X", description: "Your Referrals" },
-        { value: "10%", description: "Increase in Sales" },
-        { value: "65%", description: "Reduction in CAC" },
-      ].map((stat, index) => (
+      {statsData.stats.map((stat, index) => (
         <StatCard
           key={index}
           description={stat.description}
