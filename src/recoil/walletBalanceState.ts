@@ -8,6 +8,7 @@ import { fetchWalletBalanceService } from "@/services/apiService";
 export interface WalletBalanceType {
   wallet_balance: string;
   lifetime_earnings: number;
+  pending_earnings: number;
 }
 
 export const walletBalanceState = atom<WalletBalanceType | null>({
