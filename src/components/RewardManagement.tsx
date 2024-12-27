@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
+import data from "@/data/landing.json";
 import ruppes from "@/assets/images/rupees.png";
 import rewardmanage from "@/assets/images/rewardmanage.png";
 import cashbackImg from "@/assets/images/cashback.png";
@@ -47,11 +48,13 @@ const Reward: React.FC = () => {
       <div className="flex flex-col md:flex-row gap-6 text-white">
         <div className="text-center md:text-left">
           <h1 className="text-3xl md:text-5xl font-bold py-4 text-[#EA63FE] bg-gradient-to-br from-white to-slate-500 bg-clip-text text-transparent">
-            Reward <span className="text-[#EA63FE]">Management</span>
+            {data.reward.rewardManagement.heading[0]}{" "}
+            <span className="text-[#EA63FE]">
+              {data.reward.rewardManagement.heading[1]}
+            </span>
           </h1>
-          <p className="text-[#8F9BB7] md:w-2/3">
-            Empower your customers by providing attractive rewards, whether
-            it&apos;s flat rate commissions or percentage-based benefits.
+          <p className="text-gray-300 md:w-2/3">
+            {data.reward.rewardManagement.description}
           </p>
         </div>
 
@@ -99,13 +102,12 @@ const CashbackAndMileStone = () => {
           visible: { opacity: 1, x: 0 },
         }}
       >
-        <div className="text-white md:text-start text-center">
+        <div className="text-gray-300 md:text-start text-center">
           <h1 className="text-3xl md:text-5xl font-bold text-[#EA63FE] py-2">
-            Cashback
+            {data.reward.cashback.heading}
           </h1>
-          <p className="pb-4 text-[#8F9BB7] md:w-2/3">
-            Customers earn store credits or direct bank cashback on all their
-            successful referrals. Let your customers enjoy seamless rewards!
+          <p className="pb-4 text-gray-300 md:w-2/3">
+            {data.reward.cashback.description}
           </p>
         </div>
 
@@ -137,13 +139,12 @@ const CashbackAndMileStone = () => {
         <div>
           <h1 className="text-3xl md:text-5xl md:text-start font-bold text-[#EA63FE]">
             <span className="bg-gradient-to-br from-white to-slate-500 bg-clip-text text-transparent">
-              Milestone Based
+              {data.reward.milestone.heading[0]}
             </span>
-            &nbsp;Gifting
+            &nbsp;{data.reward.milestone.heading[1]}
           </h1>
-          <p className="text-[#8F9BB7] md:text-start md:w-2/3 md:pb-0 pb-4">
-            Make rewards exciting by gamifying incentives. Set milestones that
-            unlock exclusive gifts for referrals or orders.
+          <p className="text-gray-300 md:text-start md:w-2/3 md:pb-0 pb-4">
+            {data.reward.milestone.description}
           </p>
         </div>
         <motion.div

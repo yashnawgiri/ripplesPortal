@@ -1,79 +1,68 @@
-import React from "react";
-
-import CustomButton from "@/components/CustomElements/CustomButton";
-
-import "@/styles/auth/otp.css";
+import { Button } from "@nextui-org/button";
 import { Spinner } from "@nextui-org/spinner";
+import { InputOtp } from "@nextui-org/input-otp";
+import { useState } from "react";
 
 interface OTPProps {
-  otpValues: string[];
-  onOtpChange: (
-    index: number,
-    event: React.ChangeEvent<HTMLInputElement>,
-  ) => void;
-  onOtpKeyDown: (
-    index: number,
-    event: React.KeyboardEvent<HTMLInputElement>,
-  ) => void;
-  onVerify: () => void;
+  onVerify: (num: string) => void;
   email: string;
   loading: boolean | null;
   handleEmailSignup: () => void;
 }
 
-const OTP: React.FC<OTPProps> = ({
+export default function OTP({
   handleEmailSignup,
   loading,
   email,
-  otpValues,
-  onOtpChange,
-  onOtpKeyDown,
   onVerify,
-}) => {
-  return (
-    <>
-      <div>
-        <h2 className="otpHeader">OTP Verification</h2>
-        <p className="text-color otpText text-xl pt-1  truncate">{email}</p>
-        <p className="text-color otpSubtext">
-          Enter the code sent to your email
-        </p>
-      </div>
-      <div>
-        <div className="flex space-x-4 justify-center my-6">
-          {otpValues.map((value, index) => (
-            <input
-              key={index}
-              className="otpInput"
-              maxLength={1}
-              name={`input-${index}`}
-              type="text"
-              value={value}
-              onChange={(event) => onOtpChange(index, event)}
-              onKeyDown={(event) => onOtpKeyDown(index, event)}
-            />
-          ))}
-        </div>
-        <CustomButton
-          className="otpVerifyButton"
-          disabled={loading ? true : false}
-          onClick={onVerify}
-        >
-          <p className="flex justify-center font-poppins w-full text-md space-x-2">
-            {loading ? <Spinner /> : "Verify & login"}
-          </p>
-        </CustomButton>
-      </div>
-      <p>
-        <button
-          className="text-white cursor-pointer border-none bg-transparent underline"
-          onClick={handleEmailSignup}
-        >
-          Incorrect email? Click here to sign in and update it
-        </button>
-      </p>
-    </>
-  );
-};
+}: OTPProps) {
+  const [otp, setOtp] = useState("");
 
-export default OTP;
+  return (
+    <div className="min-h-screen text-white flex items-center justify-center p-4 z-50">
+      <div className="w-full max-w-md space-y-8 backdrop-blur-sm rounded-md p-8  ">
+        <div className="text-center space-y-3">
+          <h2 className="text-3xl font-bold text-white">OTP Verification</h2>
+          <p className="text-xl text-white/90 truncate font-medium">{email}</p>
+          <p className="text-white/80">Enter the code sent to your email</p>
+        </div>
+
+        <div className="space-y-6">
+          <div className="flex flex-col justify-center items-center gap-4">
+            <InputOtp
+              className="text-black text-lg"
+              length={4}
+              textAlign="center"
+              value={otp}
+              variant="flat"
+              onComplete={() => onVerify(otp)}
+              onValueChange={setOtp}
+            />
+          </div>
+
+          <div className="space-y-4">
+            <Button
+              className="w-full font-semibold bg-secondary text-white hover:bg-secondary/90 transition-colors"
+              isDisabled={loading ?? false}
+              size="lg"
+              onClick={() => onVerify(otp)}
+            >
+              {loading ? (
+                <Spinner color="current" size="sm" />
+              ) : (
+                "Verify & Login"
+              )}
+            </Button>
+
+            <Button
+              className="w-full text-white/80 border-none bg-transparent text-wrap"
+              onClick={handleEmailSignup}
+            >
+              Incorrect email? Click here to sign in and update it
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

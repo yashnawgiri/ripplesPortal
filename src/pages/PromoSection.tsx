@@ -4,6 +4,8 @@ import { motion } from "framer-motion"; // Import Framer Motion
 
 import promoImg from "./../assets/images/promoImg.png";
 
+import promoData from "@/data/landing.json";
+
 const PromoSection: React.FC = () => {
   // Variants for animations
   const textVariants = {
@@ -37,18 +39,17 @@ const PromoSection: React.FC = () => {
     >
       <motion.div className="home-div lg:w-1/2 w-full" variants={textVariants}>
         <motion.h1 className="home-h1 home-heading" variants={textVariants}>
-          Move away from boring old referral programs by giving
+          {promoData.promo.heading1}
           <motion.span
             className="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent"
             whileHover={hoverEffect.hover}
           >
             {" "}
-            Cash & Free Gifts{" "}
+            {promoData.promo.heading2}{" "}
           </motion.span>
         </motion.h1>
         <motion.p className="home-p" variants={textVariants}>
-          Switch to a Referral program that your customers actually want to
-          share
+          {promoData.promo.description}
         </motion.p>
       </motion.div>
 

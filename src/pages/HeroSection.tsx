@@ -70,6 +70,21 @@ function HeroSection() {
           {dashboardData.home.description}
         </motion.p>
 
+        <motion.div
+          animate={controls}
+          className="home-img-mob md:hidden"
+          initial="hidden"
+          variants={imageVariants}
+        >
+          <Image
+            alt="home-image"
+            className=""
+            height="280px"
+            isZoomed={true}
+            src={flyer}
+          />
+        </motion.div>
+
         <motion.div className="home-demo-div" variants={descriptionVariants}>
           <motion.div
             variants={buttonVariants}
@@ -77,7 +92,7 @@ function HeroSection() {
             whileTap="tap"
           >
             <CustomButton
-              className="font-bold bg-custom-gradient text-2xl"
+              className="font-bold bg-custom-gradient md:text-2xl text-xl"
               onClick={() => navigate(siteConfig.path.getDemo)}
             >
               {dashboardData.home.demoButton}
