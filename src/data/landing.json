@@ -7,6 +7,16 @@
     "description2": "Give cash rewards for referrals and UGC creation—transferred directly to shopper's bank account!",
     "demoButton": "Start 30 Days free trial"
   },
+  "stats": [
+    { "value": "10%", "description": "Increase in Sales" },
+    { "value": "5X", "description": "Your Referrals" },
+    { "value": "65%", "description": "Reduction in CAC" }
+  ],
+  "promo": {
+    "heading1": "Move away from boring old referral programs by giving",
+    "heading2": "Cash & Free Gifts",
+    "description": "Switch to a Referral program that your customers actually want to share"
+  },
   "ComponentsData": {
     "Testimonials": {
       "title": "What our clients say",
@@ -21,6 +31,35 @@
       "description": "Torem ipsum dolor sit amet consectetur. Nulla quisque scelerisque eget quis. Eu amet amet eu interdum."
     }
   },
+  "reward": {
+    "rewardManagement": {
+      "heading": ["Reward", "Management"],
+      "description": "Empower your customers by providing attractive rewards, whether it&apos;s flat rate commissions or percentage-based benefits."
+    },
+    "cashback": {
+      "heading": "Cashback",
+      "description": "Customers earn store credits or direct bank cashback on all their successful referrals. Let your customers enjoy seamless rewards! "
+    },
+    "milestone": {
+      "heading": ["Milestone Based" ,"Gifting"],
+      "description": "Make rewards exciting by gamifying incentives. Set milestones that unlock exclusive gifts for referrals or orders."
+    }
+  },
+    "referral": {
+      "heading": "Direct Referrals ✨",
+      "heading2": ["Automate Your" ,"Referrals Campaigns"],
+      "description": "Let Ripples manage your referral campaigns while you stay focused on growing your products. Our system rewards customers for bringing in new sign-ups and purchases, with seamless payouts for everyone involved."
+      ,"lists": [
+        "Automate & streamline direct referral campaigns with ease",
+        "Earn rewards for every referral-driven sign-up and purchase",
+        "Fast, automatic payouts for both referrers and new customers"
+      ]
+  },
+   "linkCode" : {
+      "heading": ["Link and","Code Management"],
+      "description": "Every customer is given their own vanity URL and code that is easy to remember and share. Our “one-time use codes” make sure there’s no code leakage across any discount site."
+
+   },
   "faqData": [
     {
       "question": "1. Can I track the performance of my referral program?",
@@ -137,5 +176,9 @@
     {
       "title": "Referred user receives discount which is auto-applied on their purchase"
     }
-  ]
+  ],
+  "responsibility": {
+       "heading":"We take ownership of your referral outcomes",
+       "description":"With our 24*7 dedicated customer service and complete involvement in setup and running your referral programs, we ensure you get the necessary outcomes."
+  }
 }

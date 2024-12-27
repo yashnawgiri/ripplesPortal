@@ -20,7 +20,7 @@ const PrivateRoute = () => {
     setUserId(storedUserId || "");
   }
 
-  return authToken ? <Outlet /> : <Navigate to={siteConfig.path.signIn} />;
+  return storedToken ? <Outlet /> : <Navigate to={siteConfig.path.signIn} />;
 };
 
 export default PrivateRoute;
