@@ -14,6 +14,10 @@
     @apply lg:max-w-[44rem] text-center lg:text-start leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400;
 }
 
+.white-gray-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400
+}
+
 .home-h1 {
     @apply font-bold text-3xl md:text-5xl xl:text-6xl lg:leading-tight;
 }
@@ -23,7 +27,7 @@
 }
 
 .home-p {
-    @apply text-gray-400 text-center lg:text-start max-w-2xl lg:text-lg xl:text-xl text-sm;
+    @apply text-gray-300 text-center lg:text-start max-w-2xl lg:text-lg xl:text-xl text-sm;
 }
 
 .home-demo-div {

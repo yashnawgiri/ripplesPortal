@@ -104,7 +104,7 @@ function Card({ item }: CardProps) {
           {item.title}
         </h1>
       </div>
-      <p className="cardDescription text-sm md:text-base text-[#8F9BB7] md:text-start">
+      <p className="cardDescription text-sm md:text-base text-gray-300 md:text-start">
         {item.description}
       </p>
     </motion.div>
