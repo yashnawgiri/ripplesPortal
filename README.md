@@ -35,6 +35,24 @@ npm install
 npm run dev
 ```
 
+### Build the project
+
+```bash
+npm run build
+```
+
+### Run the production server
+
+```bash
+npm run start
+```
+
+Note: Make sure to install `serve` globally before to execute above command
+```bash
+npm install -g serve
+```
+
+
 ### Setup pnpm (optional)
 
 If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
