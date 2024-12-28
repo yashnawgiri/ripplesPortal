@@ -56,7 +56,13 @@ const PromoSection: React.FC = () => {
       {/* Image Section */}
       <motion.div className="home-img-mob lg:hidden" variants={imageVariants}>
         <motion.div className="my-4 w-full" whileHover={hoverEffect.hover}>
-          <Image disableSkeleton alt="home-image" height="auto" src={promoImg} width="100%" />
+          <Image
+            disableSkeleton
+            alt="home-image"
+            height="auto"
+            src={promoImg}
+            width="100%"
+          />
         </motion.div>
       </motion.div>
 
@@ -65,7 +71,12 @@ const PromoSection: React.FC = () => {
         variants={imageVariants}
       >
         <motion.div className="my-4" whileHover={hoverEffect.hover}>
-          <Image disableSkeleton alt="Promo Image" src={promoImg} width="900px" />
+          <Image
+            disableSkeleton
+            alt="Promo Image"
+            src={promoImg}
+            width="900px"
+          />
         </motion.div>
       </motion.div>
     </motion.div>

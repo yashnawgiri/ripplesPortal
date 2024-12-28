@@ -189,7 +189,13 @@ const AuthPage: React.FC = () => {
         />
       </div>
       <div className="absolute hidden md:block md:top-15 md:left-[20%] z-0">
-        <Image disableSkeleton alt="Coins" className="animate-float" src={coins} width={350} />
+        <Image
+          disableSkeleton
+          alt="Coins"
+          className="animate-float"
+          src={coins}
+          width={350}
+        />
       </div>
 
       {/* Right decorations */}
@@ -228,8 +234,8 @@ const AuthPage: React.FC = () => {
           disableSkeleton
           alt="background shadow"
           className="animate-float"
-          width={'100%'}
           src={backgroundImg}
+          width={"100%"}
         />
       </div>
 
