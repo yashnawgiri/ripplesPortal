@@ -1,55 +1,11 @@
 import { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 
+import data from '@/data/user-portal.json'
 import UserDefaultLayout from "@/layouts/userDefault";
 import { SearchBarIcon } from "@/components/icons";
 
-const faqData = [
-  {
-    title: "Open ambassador program FAQs",
-    description:
-      "This is a dummy description for Open ambassador program FAQs.",
-  },
-  {
-    title: "How does the open ambassador program work?",
-    description:
-      "This is a dummy description for How does the open ambassador program work?",
-  },
-  {
-    title: "How It Works?",
-    description: "This is a dummy description for How It Works.",
-  },
-  {
-    title: "Can I earn rewards for purchases I make using my own Ripples link?",
-    description:
-      "This is a dummy description for Can I earn rewards for purchases I make using my own Ripples link?",
-  },
-  {
-    title: "Can I share my Ripples link on social media?",
-    description:
-      "This is a dummy description for Can I share my Ripples link on social media?",
-  },
-  {
-    title: "What happens if my friend returns their purchase?",
-    description:
-      "This is a dummy description for What happens if my friend returns their purchase?",
-  },
-  {
-    title: "What kind of rewards can I earn with Ripples?",
-    description:
-      "This is a dummy description for What kind of rewards can I earn with Ripples?",
-  },
-  {
-    title:
-      "How long do I have to wait to receive my rewards after my friend makes a purchase?",
-    description:
-      "This is a dummy description for How long do I have to wait to receive my rewards after my friend makes a purchase?",
-  },
-  {
-    title: "How can I get my rewards?",
-    description: "This is a dummy description for How can I get my rewards?",
-  },
-];
+const faqData = data.faqDataUserPortal;
 
 type FAQItemProps = {
   question: string;
@@ -114,8 +70,8 @@ export default function FAQUserPortal() {
             {faqData.map((item, index) => (
               <FAQItem
                 key={index}
-                answer={item.description}
-                question={item.title}
+                answer={item.answer}
+                question={item.question}
               />
             ))}
           </div>
