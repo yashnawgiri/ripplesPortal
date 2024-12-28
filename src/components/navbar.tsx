@@ -25,7 +25,7 @@ export default function Navbar() {
             <DotIcon />
           </span>
         </Link>
-        <div className="hidden md:flex space-x-10">
+        <div className="hidden md:flex md:items-center space-x-10">
           {siteConfig.navItems.map((item) =>
             item.label === "Features" ? (
               <a
@@ -39,7 +39,7 @@ export default function Navbar() {
               <NavLink
                 key={item.href}
                 className={({ isActive }) =>
-                  isActive ? "text-white" : "text-color"
+                  isActive ? "text-white" : `${item.href=='/sign-in'? 'bg-secondary px-6 py-3 rounded-3xl text-white': 'text-color'}`
                 }
                 to={item.href}
               >
