@@ -55,6 +55,7 @@ const Card = ({ title, index }: CardProps) => {
         <p>{`${index + 1}. `}</p> <p>{title}</p>
       </h1>
       <Image
+        disableSkeleton
         alt={`Step ${index + 1}`}
         className="transition-transform duration-300 hover:scale-105"
         src={steps[index]}
