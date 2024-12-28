@@ -223,6 +223,7 @@ const AuthPage: React.FC = () => {
         <Image
           alt="background shadow"
           className="animate-float"
+          width={'100%'}
           src={backgroundImg}
         />
       </div>

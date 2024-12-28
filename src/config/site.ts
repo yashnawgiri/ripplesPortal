@@ -2,7 +2,6 @@ import {
   CategoryIcon,
   ChatIcon,
   InfoCircleIcon,
-  LogoutIcon,
   SettingsIcon,
   VideoIcon,
   WalletIcon,
@@ -52,6 +51,10 @@ export const siteConfig = {
     {
       label: "Early Bird",
       href: "/get-demo",
+    },
+    {
+      label: "Shoppers: Access Rewards",
+      href: "/sign-in",
     },
   ],
   navMenuItems: [
@@ -118,11 +121,6 @@ export const siteConfig = {
       label: "My account",
       href: "/my-ripples/account",
       icon: SettingsIcon,
-    },
-    {
-      label: "Logout",
-      href: "/logout",
-      icon: LogoutIcon,
     },
   ],
   links: {

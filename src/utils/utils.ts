@@ -1,4 +1,11 @@
-import { Transaction } from "@/services/apiService";
+import toast from "react-hot-toast";
+
+import {
+  ReferralEligible,
+  RewardProgramDetail,
+  RewardType,
+  Transaction,
+} from "@/services/apiService";
 
 // TODO: Replace all any
 export function toCamelCase(str: string) {
@@ -89,3 +96,49 @@ export const groupTransactionsByDate = (
     transactions,
   }));
 };
+
+export function copyToClipboard(link: string) {
+  if (!link) return;
+  navigator.clipboard.writeText(link).then(
+    function () {
+      toast.success("Copied to clipboard");
+    },
+    function () {
+      toast.error("Failed to copy to clipboard");
+    },
+  );
+}
+
+export function formatRewardString(
+  rewardType: "FIXED_INR" | "PERCENTAGE",
+  rewardAmount: number,
+  commissionType: "FIXED_INR" | "PERCENTAGE",
+  commissionAmount: number,
+) {
+  return `Give ${rewardType === "FIXED_INR" ? `Rs.${rewardAmount}` : `${rewardAmount}%`} off, Get ${commissionType === "FIXED_INR" ? `Rs.${commissionAmount}` : `${commissionAmount}%`} cash`;
+}
+
+export type OrganizeRewards = {
+  type: RewardType;
+  amount: number; // Amount of the reward
+  milestone: number | null; // Milestone nth value or null if not applicable
+  referralEligible: ReferralEligible; // Referral eligibility (e.g., 'every_referral', 'milestone_referral')
+};
+
+export function organizeRewardData(
+  data: RewardProgramDetail[],
+): OrganizeRewards[] {
+  const organizedData = data.map((reward) => {
+    return {
+      type: reward.reward_details.type,
+      amount: reward.reward_details.amount,
+      milestone: reward.milestone_details?.nth || 0,
+      referralEligible:
+        reward.referral_eligible.toLocaleUpperCase() as ReferralEligible,
+    };
+  });
+
+  organizedData.sort((a, b) => a.milestone - b.milestone);
+
+  return organizedData;
+}
