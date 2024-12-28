@@ -1,9 +1,6 @@
 import { Button } from "@nextui-org/button";
 import { Card, CardBody, CardHeader } from "@nextui-org/card";
 import { Input } from "@nextui-org/input";
-import { Link } from "@nextui-org/link";
-
-import { GithubIcon, InstagramIcon, LinkedInIcon, TwitterIcon } from "./icons";
 
 export default function ComingSoon() {
   return (
