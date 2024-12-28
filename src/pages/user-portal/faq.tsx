@@ -42,6 +42,13 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
 };
 
 export default function FAQUserPortal() {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredFAQs = faqData.filter((item) => {
+    const searchContent = (item.question + " " + item.answer).toLowerCase();
+    return searchContent.includes(searchTerm.toLowerCase());
+  });
+
   return (
     <UserDefaultLayout>
       <div className="flex justify-end items-center p-4">
@@ -50,6 +57,8 @@ export default function FAQUserPortal() {
             className="w-72 h-10 pl-10 pr-4 bg-primary text-white rounded-full border border-gray-700 focus:outline-none"
             placeholder="Search"
             type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <SearchBarIcon />
@@ -67,7 +76,7 @@ export default function FAQUserPortal() {
             </h3>
           </div>
           <div className="space-y-3">
-            {faqData.map((item, index) => (
+            {filteredFAQs.map((item, index) => (
               <FAQItem
                 key={index}
                 answer={item.answer}
@@ -75,8 +84,12 @@ export default function FAQUserPortal() {
               />
             ))}
           </div>
+          {filteredFAQs.length === 0 && (
+            <p className="text-center text-gray-400 mt-4">No matching FAQs found.</p>
+          )}
         </div>
       </div>
     </UserDefaultLayout>
   );
 }
+
