@@ -7,6 +7,7 @@ import {
   HamburgerButton,
   CrossIcon,
   LeftArrowIcon,
+  LogoutIcon,
 } from "./icons";
 
 import { siteConfig } from "@/config/site";
@@ -132,6 +133,15 @@ export default function UserNavBar() {
               </li>
             ))}
           </ul>
+          <NavLink
+            className={({ isActive }) =>
+              `${isActive ? "text-white bg-[#282D45] border border-gray-600" : "text-color"} flex items-center p-2 py-4 group px-6 rounded-sm`
+            }
+            to={"/logout"}
+          >
+            <LogoutIcon />
+            <span className="userNavItem">Logout</span>
+          </NavLink>
         </div>
       </aside>
     </>
