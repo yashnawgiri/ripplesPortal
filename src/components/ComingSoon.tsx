@@ -35,26 +35,6 @@ export default function ComingSoon() {
               </Button>
             </form>
           </div>
-
-          {/* Social Links */}
-          <div className="flex justify-center gap-6">
-            <Link className="text-default-600 hover:text-default-900" href="#">
-              <TwitterIcon />
-              <span className="sr-only">Twitter</span>
-            </Link>
-            <Link className="text-default-600 hover:text-default-900" href="#">
-              <InstagramIcon />
-              <span className="sr-only">Instagram</span>
-            </Link>
-            <Link className="text-default-600 hover:text-default-900" href="#">
-              <GithubIcon />
-              <span className="sr-only">GitHub</span>
-            </Link>
-            <Link className="text-default-600 hover:text-default-900" href="#">
-              <LinkedInIcon />
-              <span className="sr-only">LinkedIn</span>
-            </Link>
-          </div>
         </CardBody>
       </Card>
     </div>
