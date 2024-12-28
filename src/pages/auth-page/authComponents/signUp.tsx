@@ -1,6 +1,4 @@
 import React from "react";
-
-// import { GoogleIcon } from "@/components/icons";
 import "@/styles/auth/signUp.css";
 import { Button } from "@nextui-org/button";
 import { Link } from "react-router-dom";
@@ -45,19 +43,6 @@ const SignUp: React.FC<SignUpProps> = ({ onEmailSignup }) => {
               Continue with email
             </span>
           </Button>
-
-          {/* <Button 
-          variant="light"
-          className="w-full h-12 text-base bg-white text-black hover:bg-gray-100 flex items-center justify-center gap-2"
-        >
-          <Image
-            src="/placeholder.svg?height=20&width=20"
-            alt="Google logo"
-            width={20}
-            height={20}
-          />
-          Continue with Google
-        </Button> */}
         </div>
 
         <p className="text-xs md:text-sm text-gray-400 px-6">
