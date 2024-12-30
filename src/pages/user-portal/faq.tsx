@@ -1,55 +1,11 @@
 import { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 
+import data from '@/data/user-portal.json'
 import UserDefaultLayout from "@/layouts/userDefault";
 import { SearchBarIcon } from "@/components/icons";
 
-const faqData = [
-  {
-    title: "Open ambassador program FAQs",
-    description:
-      "This is a dummy description for Open ambassador program FAQs.",
-  },
-  {
-    title: "How does the open ambassador program work?",
-    description:
-      "This is a dummy description for How does the open ambassador program work?",
-  },
-  {
-    title: "How It Works?",
-    description: "This is a dummy description for How It Works.",
-  },
-  {
-    title: "Can I earn rewards for purchases I make using my own Ripples link?",
-    description:
-      "This is a dummy description for Can I earn rewards for purchases I make using my own Ripples link?",
-  },
-  {
-    title: "Can I share my Ripples link on social media?",
-    description:
-      "This is a dummy description for Can I share my Ripples link on social media?",
-  },
-  {
-    title: "What happens if my friend returns their purchase?",
-    description:
-      "This is a dummy description for What happens if my friend returns their purchase?",
-  },
-  {
-    title: "What kind of rewards can I earn with Ripples?",
-    description:
-      "This is a dummy description for What kind of rewards can I earn with Ripples?",
-  },
-  {
-    title:
-      "How long do I have to wait to receive my rewards after my friend makes a purchase?",
-    description:
-      "This is a dummy description for How long do I have to wait to receive my rewards after my friend makes a purchase?",
-  },
-  {
-    title: "How can I get my rewards?",
-    description: "This is a dummy description for How can I get my rewards?",
-  },
-];
+const faqData = data.faqDataUserPortal;
 
 type FAQItemProps = {
   question: string;
@@ -86,6 +42,13 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
 };
 
 export default function FAQUserPortal() {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredFAQs = faqData.filter((item) => {
+    const searchContent = (item.question + " " + item.answer).toLowerCase();
+    return searchContent.includes(searchTerm.toLowerCase());
+  });
+
   return (
     <UserDefaultLayout>
       <div className="flex justify-end items-center p-4">
@@ -94,6 +57,8 @@ export default function FAQUserPortal() {
             className="w-72 h-10 pl-10 pr-4 bg-primary text-white rounded-full border border-gray-700 focus:outline-none"
             placeholder="Search"
             type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <SearchBarIcon />
@@ -111,16 +76,20 @@ export default function FAQUserPortal() {
             </h3>
           </div>
           <div className="space-y-3">
-            {faqData.map((item, index) => (
+            {filteredFAQs.map((item, index) => (
               <FAQItem
                 key={index}
-                answer={item.description}
-                question={item.title}
+                answer={item.answer}
+                question={item.question}
               />
             ))}
           </div>
+          {filteredFAQs.length === 0 && (
+            <p className="text-center text-gray-400 mt-4">No matching FAQs found.</p>
+          )}
         </div>
       </div>
     </UserDefaultLayout>
   );
 }
+

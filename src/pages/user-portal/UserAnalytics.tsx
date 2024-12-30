@@ -73,7 +73,7 @@ export function UserAnalytics({ wallet }: Props) {
         brand.referred_user_rewards.type,
         brand.referred_user_rewards.amount,
         brand.referring_user_commission.type,
-        brand.referring_user_commission.amount,
+        brand.referring_user_commission.amount
       ),
       link: brand.link,
       brandId: brand.brand_id,
@@ -151,8 +151,18 @@ export function UserAnalytics({ wallet }: Props) {
   // Error state
   if (error) {
     return (
-      <div className="text-center text-white p-8">
-        <h2 className="text-xl">Error: {error}</h2>
+      <div className="flex flex-col items-center justify-start min-h-screen">
+        <div className="bg-primary text-white rounded-lg shadow-md p-6 max-w-md w-full">
+          <h2 className="text-2xl font-semibold mb-4">
+            Oops! Something went wrong.
+          </h2>
+          <button
+            onClick={() => window.location.reload()}
+            className="mt-6 bg-secondary text-white px-4 py-2 rounded-md transition duration-200"
+          >
+            Reload Page
+          </button>
+        </div>
       </div>
     );
   }

@@ -41,6 +41,7 @@ function ReferralManagement() {
         whileInView={{ opacity: 1, scale: 1 }}
       >
         <Image
+          disableSkeleton
           alt="Referral Campaigns"
           className="max-w-full rounded-lg shadow-lg"
           src={campaignImg}

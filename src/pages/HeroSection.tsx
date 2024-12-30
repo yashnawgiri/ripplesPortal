@@ -77,6 +77,7 @@ function HeroSection() {
           variants={imageVariants}
         >
           <Image
+            disableSkeleton
             alt="home-image"
             className=""
             height="280px"
@@ -110,6 +111,7 @@ function HeroSection() {
         variants={imageVariants}
       >
         <Image
+          disableSkeleton
           alt="home-image"
           className="my-4"
           height="550px"
