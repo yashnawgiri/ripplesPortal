@@ -66,6 +66,7 @@ export default function DashboardCard() {
           whileInView={{ opacity: 1, scale: 1 }}
         >
           <Image
+            disableSkeleton
             className="my-4 rounded-lg shadow-lg hidden md:block"
             height="500px"
             isZoomed={true}

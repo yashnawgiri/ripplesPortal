@@ -29,7 +29,7 @@ function ResponsibilitySection() {
         initial={{ opacity: 0, x: 50 }}
         transition={{ duration: 0.8 }}
       >
-        <Image className="max-w-full h-auto" src={contactUsImg} width={1300} />
+        <Image disableSkeleton className="max-w-full h-auto" src={contactUsImg} width={1300} />
       </motion.div>
     </div>
   );

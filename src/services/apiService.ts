@@ -2,7 +2,7 @@ import endpoints from "./endpoints";
 
 import { apiCall, GroupedTransactions } from "@/utils/utils";
 
-interface RewardDetails {
+export interface RewardDetails {
   type: "FIXED_INR" | "PERCENTAGE";
   amount: number;
 }
@@ -45,6 +45,7 @@ interface WalletBalanceResponse {
   data: {
     wallet_balance: string;
     lifetime_earnings: number;
+    pending_earnings: number;
   };
 }
 
@@ -199,11 +200,6 @@ export const SubmitSupportService = async (
   });
 };
 
-interface RewardDetails {
-  type: "PERCENTAGE" | "FIXED_INR";
-  amount: number;
-}
-
 export interface MilestoneDetails {
   nth?: number;
 }
@@ -255,6 +251,92 @@ export const fetchLinkDetailsService = async (
     {
       method: "GET",
       headers: {
+        "Content-Type": "application/json",
+      },
+    },
+  );
+};
+
+export interface BrandStats {
+  brand_id: number;
+  brand_name: string;
+  totalEarning: number;
+  totalCommissions: number;
+  pendingEarning: number;
+  users: number;
+  link: string;
+  referred_user_rewards: RewardDetails;
+  referring_user_commission: RewardDetails;
+}
+
+export interface UserStatisticsResponse {
+  message: string;
+  data: {
+    totalReferredUsers: number;
+    totalLifeTimeCash: number;
+    totalLinkClicks: number;
+    brandStats: BrandStats[];
+  };
+}
+
+export const getUserStatistics = async (
+  token: string,
+  user_id: string,
+): Promise<UserStatisticsResponse> => {
+  return apiCall<UserStatisticsResponse>(
+    endpoints.USER_STATISTICS.replace(":userId", user_id),
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    },
+  );
+};
+
+export interface RewardProgramDetail {
+  reward_details: {
+    amount: number;
+    type: RewardType; // FIXED_INR, PERCENTAGE
+  };
+  milestone_details: {
+    nth: number;
+  } | null;
+  referral_eligible: ReferralEligible; //milestone_referral, every_referral
+
+  [key: string]: any; // index signature for type 'string'
+}
+
+export enum RewardType {
+  FIXED_INR = "FIXED_INR",
+  PERCENTAGE = "PERCENTAGE",
+}
+
+export enum ReferralEligible {
+  EVERY_REFERRAL = "EVERY_REFERRAL",
+  MILESTONE_REFERRAL = "MILESTONE_REFERRAL",
+}
+
+export interface ReferralProgramDetailResponse {
+  message: string;
+  data: RewardProgramDetail[];
+}
+
+export const fetchRewardProgramDetailService = async (
+  linkCode: string,
+  brandId: string,
+  token: string,
+): Promise<ReferralProgramDetailResponse> => {
+  return apiCall<ReferralProgramDetailResponse>(
+    endpoints.REWARD_PROGRAM_DETAIL.replace(":linkCode", linkCode).replace(
+      ":brandId",
+      brandId,
+    ),
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
     },

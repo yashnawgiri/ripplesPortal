@@ -1,4 +1,3 @@
-import { Image } from "@nextui-org/image";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
@@ -8,6 +7,7 @@ import discountCodeToggleImg from "@/assets/images/discountCodeToggle.png";
 import linkModalImg from "@/assets/images/linkModal.png";
 import linkImg from "@/assets/images/link.png";
 import editShareImg from "@/assets/images/editShare.png";
+import { Image } from "@nextui-org/image";
 
 function LinkCodeSection() {
   const { ref: sectionRef, inView } = useInView({
@@ -54,7 +54,7 @@ function LinkCodeSection() {
           {linkCode.description}
         </h2>
         <div className="flex justify-end items-end w-full md:w-3/4 mt-8">
-          <Image
+          <Image disableSkeleton
             alt="Discount Code Toggle"
             src={discountCodeToggleImg}
             width={400}
@@ -70,8 +70,8 @@ function LinkCodeSection() {
         variants={variants}
       >
         <div className="flex justify-between w-96">
-          <Image alt="Edit Share" src={editShareImg} width={200} />
-          <Image alt="Link" src={linkImg} width={200} />
+          <Image disableSkeleton alt="Edit Share" src={editShareImg} width={200} />
+          <Image disableSkeleton alt="Link" src={linkImg} width={200} />
         </div>
       </motion.div>
 
@@ -85,7 +85,7 @@ function LinkCodeSection() {
           visible: { opacity: 1, scale: 1 },
         }}
       >
-        <Image
+        <Image disableSkeleton
           alt="Link Modal"
           className="max-w-full rounded-lg shadow-lg"
           src={linkModalImg}

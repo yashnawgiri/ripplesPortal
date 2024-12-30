@@ -10,6 +10,8 @@ const endpoints = {
   PROFILE: `${BASE_URL}/users/:userId/profile`,
   SUPPORT_REQUEST: `${BASE_URL}/support-requests`,
   LINK_DETAILS: `${BASE_URL}/brand/:brand_id/link_code/:link_code`,
+  USER_STATISTICS: `${BASE_URL}/users/:userId/statistics`,
+  REWARD_PROGRAM_DETAIL: `${BASE_URL}/users/:brandId/:linkCode/reward_program_detail`,
 } as const;
 
 export default endpoints;
