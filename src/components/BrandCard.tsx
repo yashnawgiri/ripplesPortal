@@ -92,7 +92,7 @@ export function BrandCard({ brand }: BrandCardProps) {
                     animate={{ scale: 1, opacity: 1 }}
                     initial={{ scale: 1.2, opacity: 0 }}
                   >
-                    ${brand.totalEarning.toFixed(2)}
+                    ₹{brand.totalEarning.toFixed(2)}
                   </motion.span>
                 </div>
                 <Progress
