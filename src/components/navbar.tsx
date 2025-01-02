@@ -39,7 +39,9 @@ export default function Navbar() {
               <NavLink
                 key={item.href}
                 className={({ isActive }) =>
-                  isActive ? "text-white" : `${item.href=='/sign-in'? 'bg-secondary px-6 py-3 rounded-3xl text-white': 'text-color'}`
+                  isActive
+                    ? "text-white"
+                    : `${item.href == "/sign-in" ? "bg-secondary px-6 py-3 rounded-3xl text-white" : "text-color"}`
                 }
                 to={item.href}
               >

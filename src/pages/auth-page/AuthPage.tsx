@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { Image } from "@nextui-org/image";
@@ -69,53 +69,6 @@ const AuthPage: React.FC = () => {
     }
   };
 
-  // const handleOtpChange = (
-  //   index: number,
-  //   event: React.ChangeEvent<HTMLInputElement>,
-  // ) => {
-  //   const { value } = event.target;
-
-  //   if (/^[0-9]$/.test(value)) {
-  //     const newValues = [...otpValues];
-
-  //     newValues[index] = value;
-  //     setOtpValues(newValues);
-
-  //     if (value && index < 3) {
-  //       const nextSibling = document.querySelector<HTMLInputElement>(
-  //         `input[name=input-${index + 1}]`,
-  //       );
-
-  //       nextSibling?.focus();
-  //     }
-
-  //     // Verify OTP when all 4 inputs are filled
-  //     if (newValues.join("").trim().length === 4) {
-  //       handleVerifyAndLogin(newValues.join(""));
-  //     }
-  //   }
-  // };
-
-  // const handleOtpKeyDown = (
-  //   index: number,
-  //   event: React.KeyboardEvent<HTMLInputElement>,
-  // ) => {
-  //   if (event.key === "Backspace" || event.key === "Delete") {
-  //     const newValues = [...otpValues];
-
-  //     newValues[index] = "";
-  //     setOtpValues(newValues);
-
-  //     if (index > 0) {
-  //       const prevSibling = document.querySelector<HTMLInputElement>(
-  //         `input[name=input-${index - 1}]`,
-  //       );
-
-  //       prevSibling?.focus();
-  //     }
-  //   }
-  // };
-
   const handleVerifyAndLogin = async (num: string) => {
     const otp: string = num;
 
@@ -142,6 +95,13 @@ const AuthPage: React.FC = () => {
       setLoading(false);
     }
   };
+
+  useEffect(()=>{
+    const zendeskScript = document.getElementById("ze-snippet");
+    if (zendeskScript) {    
+      zendeskScript.remove();
+    }
+  },[])
 
   const renderForm = () => {
     switch (step) {
@@ -189,7 +149,13 @@ const AuthPage: React.FC = () => {
         />
       </div>
       <div className="absolute hidden md:block md:top-15 md:left-[20%] z-0">
-        <Image disableSkeleton alt="Coins" className="animate-float" src={coins} width={350} />
+        <Image
+          disableSkeleton
+          alt="Coins"
+          className="animate-float"
+          src={coins}
+          width={350}
+        />
       </div>
 
       {/* Right decorations */}
@@ -228,8 +194,8 @@ const AuthPage: React.FC = () => {
           disableSkeleton
           alt="background shadow"
           className="animate-float"
-          width={'100%'}
           src={backgroundImg}
+          width={"100%"}
         />
       </div>
 

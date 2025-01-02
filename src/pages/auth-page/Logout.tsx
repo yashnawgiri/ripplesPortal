@@ -4,7 +4,6 @@ import { Spinner } from "@nextui-org/spinner";
 
 function Logout() {
   const navigate = useNavigate();
-
   useEffect(() => {
     localStorage.clear();
     navigate("/sign-in");
