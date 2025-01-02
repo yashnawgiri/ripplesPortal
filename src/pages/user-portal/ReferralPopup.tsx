@@ -168,16 +168,18 @@ export default function ReferralPopup({
                               classNames={{
                                 base: "h-3",
                                 indicator:
-                                  "bg-gradient-to-r from-blue-500 to-purple-500",
+                                "bg-gradient-to-r from-blue-500 to-purple-500",
                               }}
                               value={
                                 (referredUsers / (item.milestone || 1)) * 100
                               }
-                            />
+                              />
+                            {index !=0 &&
                             <p className="text-xs text-zinc-400">
-                              {referredUsers} of {item.milestone || "∞"}{" "}
+                              {`${referredUsers} of ${item.milestone} `}
                               referrals completed
                             </p>
+                            }
                           </div>
                         </CardBody>
                       </Card>

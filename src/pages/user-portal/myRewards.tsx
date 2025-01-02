@@ -15,6 +15,7 @@ import {
   fetchWalletBalance,
   walletBalanceState,
 } from "@/recoil/walletBalanceState";
+import { formatRewardString } from "@/utils/utils";
 
 export default function MyRewards() {
   const [rewards, setRewards] = useRecoilState(referralLinksState);
@@ -101,26 +102,35 @@ export default function MyRewards() {
           {rewards?.length &&
             rewards?.map((reward, index) => (
               <button
-                key={index}
-                className="bg-primary flex justify-between w-full px-5 py-3 mb-3 rounded-md items-center border border-gray-800 space-y-1"
-                onClick={() => handleCopyClick(reward.link)}
-              >
-                <div className="flex items-center space-x-3">
+              key={index}
+              className="bg-primary flex flex-col md:flex-row justify-between w-full px-5 py-4 mb-4 rounded-lg items-center border border-gray-800"
+              onClick={() => handleCopyClick(reward.link)}
+            >
+              <div className="flex flex-col md:flex-row md:items-center space-y-3 md:space-y-0 md:space-x-4 w-full">
+                <div className="flex-1 text-center md:text-left">
                   <h4 className="text-white text-lg md:text-xl font-semibold">
-                    ₹{"100"}
+                    {reward.brand_name}
                   </h4>
-                  <p className="text-gray-400 text-md">{reward.brand_name}</p>
-                  <p className="text-gray-400 text-sm md:text-md">
-                    {"Product Name"}
+                  <p className="text-gray-400 text-md">
+                    {formatRewardString(
+                      reward.referring_user_commission.type,
+                      reward.referring_user_commission.amount,
+                      reward.referred_user_rewards.reward_details.type,
+                      reward.referred_user_rewards.reward_details.amount
+                    )}
                   </p>
                 </div>
-                <div className="hidden md:block">
-                  <div className="flex items-center space-x-2 text-color font-semibold px-6 py-2">
+                <div className="flex items-center justify-center md:justify-end space-x-3 md:space-x-4">
+                  <button
+                    className="flex items-center space-x-2 px-4 py-2 bg-transparent text-white rounded-md hover:bg-opacity-90 transition"
+                  >
                     <CopyIcon />
                     <p>Copy Link</p>
-                  </div>
+                  </button>
                 </div>
-              </button>
+              </div>
+            </button>
+            
             ))}
 
           {/* {rewards?.length && (
