@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 
-import data from '@/data/user-portal.json'
+import data from "@/data/user-portal.json";
 import UserDefaultLayout from "@/layouts/userDefault";
 import { SearchBarIcon } from "@/components/icons";
 
@@ -46,6 +46,7 @@ export default function FAQUserPortal() {
 
   const filteredFAQs = faqData.filter((item) => {
     const searchContent = (item.question + " " + item.answer).toLowerCase();
+
     return searchContent.includes(searchTerm.toLowerCase());
   });
 
@@ -85,11 +86,12 @@ export default function FAQUserPortal() {
             ))}
           </div>
           {filteredFAQs.length === 0 && (
-            <p className="text-center text-gray-400 mt-4">No matching FAQs found.</p>
+            <p className="text-center text-gray-400 mt-4">
+              No matching FAQs found.
+            </p>
           )}
         </div>
       </div>
     </UserDefaultLayout>
   );
 }
-

@@ -73,7 +73,7 @@ export function UserAnalytics({ wallet }: Props) {
         brand.referred_user_rewards.type,
         brand.referred_user_rewards.amount,
         brand.referring_user_commission.type,
-        brand.referring_user_commission.amount
+        brand.referring_user_commission.amount,
       ),
       link: brand.link,
       brandId: brand.brand_id,
@@ -157,8 +157,8 @@ export function UserAnalytics({ wallet }: Props) {
             Oops! Something went wrong.
           </h2>
           <button
-            onClick={() => window.location.reload()}
             className="mt-6 bg-secondary text-white px-4 py-2 rounded-md transition duration-200"
+            onClick={() => window.location.reload()}
           >
             Reload Page
           </button>
