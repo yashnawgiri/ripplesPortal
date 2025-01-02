@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from "react";
 import {
   Button,
@@ -9,7 +7,6 @@ import {
   Input,
   Select,
   SelectItem,
-  Spacer,
 } from "@nextui-org/react";
 import UserDefaultLayout from "@/layouts/userDefault";
 
@@ -20,6 +17,7 @@ const Withdraw = () => {
   const [accountNumber, setAccountNumber] = useState("");
   const [bankName, setBankName] = useState("");
   const [ifscCode, setIfscCode] = useState("");
+  const [phone,setPhone] = useState("");
   const [accountHolderName, setAccountHolderName] = useState("");
 
   const handleNext = () => {
@@ -45,7 +43,7 @@ const Withdraw = () => {
 
   return (
     <UserDefaultLayout>
-      <Card className="max-w-lg mx-auto bg-primary text-white p-8 shadow-lg rounded-xl">
+      <Card className="max-w-lg mx-auto bg-transparent text-white p-8 ">
         <CardHeader className="text-center">
           <h3 className="text-2xl font-bold">Withdraw Funds</h3>
         </CardHeader>
@@ -103,6 +101,8 @@ const Withdraw = () => {
                         variant="underlined"
                         placeholder="Enter account holder name"
                         color="primary"
+                        inputMode="text"
+                        required
                         value={accountHolderName}
                         onChange={(e) => setAccountHolderName(e.target.value)}
                         className="w-full border-gray-300 rounded-md focus:ring-primary focus:border-primary"
@@ -116,11 +116,13 @@ const Withdraw = () => {
                       <Input
                         variant="underlined"
                         color="primary"
+                        inputMode="text"
                         placeholder="Enter bank name"
                         value={bankName}
                         onChange={(e) => setBankName(e.target.value)}
+                        required
                         className="w-full border-gray-300 rounded-md focus:ring-primary focus:border-primary"
-                      />
+                        />
                     </div>
 
                     <div>
@@ -130,11 +132,13 @@ const Withdraw = () => {
                       <Input
                         variant="underlined"
                         color="primary"
+                        inputMode="numeric"
                         placeholder="Enter account number"
                         value={accountNumber}
                         onChange={(e) => setAccountNumber(e.target.value)}
                         className="w-full border-gray-300 rounded-md focus:ring-primary focus:border-primary"
-                      />
+                        required
+                        />
                     </div>
 
                     <div>
@@ -145,9 +149,26 @@ const Withdraw = () => {
                         variant="underlined"
                         color="primary"
                         placeholder="Enter IFSC code"
+                        inputMode="text"
                         value={ifscCode}
+                        required
                         onChange={(e) => setIfscCode(e.target.value)}
                         className="w-full border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium">
+                        Phone Number
+                      </label>
+                      <Input
+                        variant="underlined"
+                        color="primary"
+                        placeholder="Enter phone number"
+                        value={phone}
+                        inputMode="tel"
+                        onChange={(e) => setPhone(e.target.value)}
+                        className="w-full border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                        required
                       />
                     </div>
                   </div>
@@ -227,6 +248,10 @@ const Withdraw = () => {
                     <p>
                       <span className="font-semibold">IFSC Code:</span>{" "}
                       {ifscCode}
+                    </p>
+                    <p>
+                      <span className="font-semibold">Phone Number:</span>{" "}
+                      {phone}
                     </p>
                   </>
                 )}
