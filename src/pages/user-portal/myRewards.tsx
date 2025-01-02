@@ -66,7 +66,7 @@ export default function MyRewards() {
             </div>
             <Link
               className="flex items-center space-x-2 heading-color font-semibold bg-gray-800 rounded-full px-6 py-2"
-              to={siteConfig.path.userRewards}
+              to={siteConfig.path.withdraw}
             >
               <p>{"Withdraw"}</p>
               <HalfArrowIcon />

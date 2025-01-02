@@ -20,6 +20,7 @@ import MyAccount from "@/pages/user-portal/myAccount";
 import Transactions from "@/pages/user-portal/Transactions";
 import NotFound from "@/pages/notFound";
 import AuthPage from "@/pages/auth-page/AuthPage";
+import Withdraw from "./components/Withdraw";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route element={<FAQUserPortal />} path={siteConfig.path.userFaq} />
           <Route element={<Support />} path={siteConfig.path.userSupport} />
           <Route element={<MyAccount />} path={siteConfig.path.userAccount} />
+          <Route element={<Withdraw />} path={siteConfig.path.withdraw} />
           <Route
             element={<Transactions />}
             path={siteConfig.path.userTransaction}
