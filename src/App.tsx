@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import PrivateRoute from "./pages/auth-page/authComponents/PrivateRoute";
 import Logout from "./pages/auth-page/Logout";
 import Fallback from "./components/Fallback";
+import Withdraw from "./components/Withdraw";
 
 import { siteConfig } from "@/config/site";
 import HomePage from "@/pages/home";
@@ -20,7 +21,6 @@ import MyAccount from "@/pages/user-portal/myAccount";
 import Transactions from "@/pages/user-portal/Transactions";
 import NotFound from "@/pages/notFound";
 import AuthPage from "@/pages/auth-page/AuthPage";
-import Withdraw from "./components/Withdraw";
 
 function App() {
   return (

@@ -74,9 +74,9 @@ function LinkCodeSection() {
           <Image
             disableSkeleton
             alt="Edit Share"
+            className="object-contain"
             src={editShareImg}
             width={200}
-            className="object-contain"
           />
           <Image disableSkeleton alt="Link" src={linkImg} width={200} />
         </div>

@@ -8,6 +8,7 @@ import {
   Select,
   SelectItem,
 } from "@nextui-org/react";
+
 import UserDefaultLayout from "@/layouts/userDefault";
 
 const Withdraw = () => {
@@ -17,7 +18,7 @@ const Withdraw = () => {
   const [accountNumber, setAccountNumber] = useState("");
   const [bankName, setBankName] = useState("");
   const [ifscCode, setIfscCode] = useState("");
-  const [phone,setPhone] = useState("");
+  const [phone, setPhone] = useState("");
   const [accountHolderName, setAccountHolderName] = useState("");
 
   const handleNext = () => {
@@ -52,13 +53,13 @@ const Withdraw = () => {
             <>
               <p className="text-white text-sm mb-4">Enter withdrawal amount</p>
               <Input
-                placeholder="Enter amount"
-                variant="underlined"
-                color="primary"
                 className="bg-primary text-white"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
+                color="primary"
+                placeholder="Enter amount"
                 type="number"
+                value={amount}
+                variant="underlined"
+                onChange={(e) => setAmount(e.target.value)}
               />
             </>
           )}
@@ -70,9 +71,9 @@ const Withdraw = () => {
               </p>
               <Select
                 className="bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
-                variant="underlined"
                 color="primary"
                 value={withdrawalMethod}
+                variant="underlined"
                 onChange={(e) =>
                   setWithdrawalMethod(e.target.value as unknown as string)
                 }
@@ -89,8 +90,8 @@ const Withdraw = () => {
               <h3 className="text-white text-xl mb-4">Enter account details</h3>
               {withdrawalMethod === "bank" && (
                 <form
-                  onSubmit={handleSubmit}
                   className="space-y-6 w-full text-white"
+                  onSubmit={handleSubmit}
                 >
                   <div className="space-y-4">
                     <div>
@@ -98,14 +99,14 @@ const Withdraw = () => {
                         Account Holder Name
                       </label>
                       <Input
-                        variant="underlined"
-                        placeholder="Enter account holder name"
+                        required
+                        className="w-full border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                         color="primary"
                         inputMode="text"
-                        required
+                        placeholder="Enter account holder name"
                         value={accountHolderName}
+                        variant="underlined"
                         onChange={(e) => setAccountHolderName(e.target.value)}
-                        className="w-full border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                       />
                     </div>
 
@@ -114,15 +115,15 @@ const Withdraw = () => {
                         Bank Name
                       </label>
                       <Input
-                        variant="underlined"
+                        required
+                        className="w-full border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                         color="primary"
                         inputMode="text"
                         placeholder="Enter bank name"
                         value={bankName}
+                        variant="underlined"
                         onChange={(e) => setBankName(e.target.value)}
-                        required
-                        className="w-full border-gray-300 rounded-md focus:ring-primary focus:border-primary"
-                        />
+                      />
                     </div>
 
                     <div>
@@ -130,15 +131,15 @@ const Withdraw = () => {
                         Account Number
                       </label>
                       <Input
-                        variant="underlined"
+                        required
+                        className="w-full border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                         color="primary"
                         inputMode="numeric"
                         placeholder="Enter account number"
                         value={accountNumber}
+                        variant="underlined"
                         onChange={(e) => setAccountNumber(e.target.value)}
-                        className="w-full border-gray-300 rounded-md focus:ring-primary focus:border-primary"
-                        required
-                        />
+                      />
                     </div>
 
                     <div>
@@ -146,14 +147,14 @@ const Withdraw = () => {
                         IFSC Code
                       </label>
                       <Input
-                        variant="underlined"
-                        color="primary"
-                        placeholder="Enter IFSC code"
-                        inputMode="text"
-                        value={ifscCode}
                         required
-                        onChange={(e) => setIfscCode(e.target.value)}
                         className="w-full border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                        color="primary"
+                        inputMode="text"
+                        placeholder="Enter IFSC code"
+                        value={ifscCode}
+                        variant="underlined"
+                        onChange={(e) => setIfscCode(e.target.value)}
                       />
                     </div>
                     <div>
@@ -161,31 +162,31 @@ const Withdraw = () => {
                         Phone Number
                       </label>
                       <Input
-                        variant="underlined"
+                        required
+                        className="w-full border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                         color="primary"
+                        inputMode="tel"
                         placeholder="Enter phone number"
                         value={phone}
-                        inputMode="tel"
+                        variant="underlined"
                         onChange={(e) => setPhone(e.target.value)}
-                        className="w-full border-gray-300 rounded-md focus:ring-primary focus:border-primary"
-                        required
                       />
                     </div>
                   </div>
 
                   <div className="flex justify-between items-center mt-6">
                     <Button
-                      onPress={handleBack}
+                      className="px-4 py-2 text-sm font-medium bg-primary text-white rounded-md hover:bg-gray-300 hover:text-black"
                       color="primary"
                       type="button"
-                      className="px-4 py-2 text-sm font-medium bg-primary text-white rounded-md hover:bg-gray-300 hover:text-black"
+                      onPress={handleBack}
                     >
                       Back
                     </Button>
                     <Button
+                      className="px-4 py-2 text-sm font-medium bg-secondary text-white rounded-md hover:bg-secondary/90"
                       color="success"
                       type="submit"
-                      className="px-4 py-2 text-sm font-medium bg-secondary text-white rounded-md hover:bg-secondary/90"
                     >
                       Submit Withdrawal
                     </Button>
@@ -194,22 +195,22 @@ const Withdraw = () => {
               )}
               {withdrawalMethod === "paypal" && (
                 <Input
-                  variant="underlined"
+                  classNames={{ label: "text-white" }}
                   color="primary"
                   label="PayPal Email"
-                  classNames={{ label: "text-white" }}
                   placeholder="Enter PayPal email"
                   type="email"
+                  variant="underlined"
                   onChange={(e) => setAccountNumber(e.target.value)}
                 />
               )}
               {withdrawalMethod === "crypto" && (
                 <Input
-                  variant="underlined"
+                  classNames={{ label: "text-white" }}
                   color="primary"
                   label="Cryptocurrency Wallet Address"
-                  classNames={{ label: "text-white" }}
                   placeholder="Enter cryptocurrency wallet address"
+                  variant="underlined"
                   onChange={(e) => setAccountNumber(e.target.value)}
                 />
               )}
@@ -221,7 +222,7 @@ const Withdraw = () => {
               <h4 className="text-xl font-bold text-center mb-4 text-white">
                 Withdrawal Confirmation
               </h4>
-              <div className="mb-4 border-t border-gray-600"></div>
+              <div className="mb-4 border-t border-gray-600" />
               <div className="flex flex-col space-y-2 text-white">
                 <p>
                   <span className="font-semibold">Amount:</span> ₹{amount}
@@ -268,7 +269,7 @@ const Withdraw = () => {
                   </p>
                 )}
               </div>
-              <div className="my-4 border-t border-gray-600"></div>
+              <div className="my-4 border-t border-gray-600" />
               <div className="text-center">
                 <p className="text-green-400 text-lg font-semibold mb-2">
                   Your withdrawal request has been submitted successfully!
@@ -284,13 +285,13 @@ const Withdraw = () => {
           {step < 3 && step < 4 && (
             <div className="flex justify-between mt-6">
               <Button
-                onPress={handleBack}
                 color="primary"
                 disabled={step === 1}
+                onPress={handleBack}
               >
                 Back
               </Button>
-              <Button onPress={handleNext} color="secondary">
+              <Button color="secondary" onPress={handleNext}>
                 Next
               </Button>
             </div>

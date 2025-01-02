@@ -96,12 +96,13 @@ const AuthPage: React.FC = () => {
     }
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     const zendeskScript = document.getElementById("ze-snippet");
-    if (zendeskScript) {    
+
+    if (zendeskScript) {
       zendeskScript.remove();
     }
-  },[])
+  }, []);
 
   const renderForm = () => {
     switch (step) {
