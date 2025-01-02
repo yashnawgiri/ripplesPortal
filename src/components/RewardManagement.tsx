@@ -4,9 +4,9 @@ import { useInView } from "react-intersection-observer";
 import { Image } from "@nextui-org/image";
 
 import data from "@/data/landing.json";
-import ruppes from "@/assets/images/rupees.png";
+import ruppes from "@/assets/images/rupees.webp";
 import rewardmanage from "@/assets/images/rewardmanage.png";
-import cashbackImg from "@/assets/images/cashback.png";
+import cashbackImg from "@/assets/images/cashback.webp";
 import wallet from "@/assets/images/wallet.png";
 import milestone from "@/assets/images/milestone.png";
 

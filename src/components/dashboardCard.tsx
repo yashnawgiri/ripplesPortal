@@ -1,7 +1,7 @@
 import { DashboardCardIcon } from "./icons";
 
 import "./../styles/home/dashboardCard.css";
-import dashboardImage from "./../../src/assets/images/customerView.png";
+import dashboardImage from "./../../src/assets/images/customerView.webp";
 
 import dashboardData from "@/data/landing.json";
 

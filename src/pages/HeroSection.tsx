@@ -8,7 +8,7 @@ import dashboardData from "./../data/landing.json";
 
 import CustomButton from "@/components/CustomElements/CustomButton";
 import { siteConfig } from "@/config/site";
-import flyer from "@/assets/images/flayer.png";
+import flyer from "@/assets/images/flayer.webp";
 
 function HeroSection() {
   const navigate = useNavigate();

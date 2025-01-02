@@ -4,10 +4,10 @@ import { useEffect } from "react";
 import { Image } from "@nextui-org/image";
 
 import { linkCode } from "@/data/landing.json";
-import discountCodeToggleImg from "@/assets/images/discountCodeToggle.png";
+import discountCodeToggleImg from "@/assets/images/discountCodeToggle.webp";
 import linkModalImg from "@/assets/images/linkModal.png";
-import linkImg from "@/assets/images/link.png";
-import editShareImg from "@/assets/images/editShare.png";
+import linkImg from "@/assets/images/link.webp";
+import editShareImg from "@/assets/images/editShare.webp";
 
 function LinkCodeSection() {
   const { ref: sectionRef, inView } = useInView({
