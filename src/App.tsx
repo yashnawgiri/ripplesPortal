@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import PrivateRoute from "./pages/auth-page/authComponents/PrivateRoute";
 import Logout from "./pages/auth-page/Logout";
 import Fallback from "./components/Fallback";
+import Withdraw from "./components/Withdraw";
 
 import { siteConfig } from "@/config/site";
 import HomePage from "@/pages/home";
@@ -40,6 +41,7 @@ function App() {
           <Route element={<FAQUserPortal />} path={siteConfig.path.userFaq} />
           <Route element={<Support />} path={siteConfig.path.userSupport} />
           <Route element={<MyAccount />} path={siteConfig.path.userAccount} />
+          <Route element={<Withdraw />} path={siteConfig.path.withdraw} />
           <Route
             element={<Transactions />}
             path={siteConfig.path.userTransaction}

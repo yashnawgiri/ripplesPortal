@@ -33,6 +33,7 @@ export const siteConfig = {
     userTransaction: "transactions",
     signIn: "/sign-in",
     logout: "/logout",
+    withdraw: "/my-ripples/withdraw",
     default: "*",
   },
   navItems: [

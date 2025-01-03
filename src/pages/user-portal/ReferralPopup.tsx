@@ -174,10 +174,12 @@ export default function ReferralPopup({
                                 (referredUsers / (item.milestone || 1)) * 100
                               }
                             />
-                            <p className="text-xs text-zinc-400">
-                              {referredUsers} of {item.milestone || "∞"}{" "}
-                              referrals completed
-                            </p>
+                            {index != 0 && (
+                              <p className="text-xs text-zinc-400">
+                                {`${referredUsers} of ${item.milestone} `}
+                                referrals completed
+                              </p>
+                            )}
                           </div>
                         </CardBody>
                       </Card>

@@ -2,7 +2,7 @@ import { Image } from "@nextui-org/image";
 import { motion } from "framer-motion"; // Import Framer Motion
 
 import { responsibility } from "@/data/landing.json";
-import contactUsImg from "@/assets/images/contactus.png";
+import contactUsImg from "@/assets/images/contactus.webp";
 
 function ResponsibilitySection() {
   return (

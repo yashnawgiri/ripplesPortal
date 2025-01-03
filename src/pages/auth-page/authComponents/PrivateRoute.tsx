@@ -1,10 +1,10 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useRecoilState } from "recoil";
+import { useEffect } from "react";
 
 import { siteConfig } from "@/config/site";
 import { authTokenState } from "@/recoil/authTokenState";
 import { userIdState } from "@/recoil/userIdState";
-import { useEffect } from "react";
 
 const PrivateRoute = () => {
   const [authToken, setAuthToken] = useRecoilState(authTokenState);
@@ -25,8 +25,10 @@ const PrivateRoute = () => {
     // Load the Zendesk script dynamically
     if (!document.getElementById("ze-snippet")) {
       const script = document.createElement("script");
+
       script.id = "ze-snippet";
-      script.src = "https://static.zdassets.com/ekr/snippet.js?key=ff935203-968c-4bb2-ba8c-325d7e5e644e";
+      script.src =
+        "https://static.zdassets.com/ekr/snippet.js?key=ff935203-968c-4bb2-ba8c-325d7e5e644e";
       script.async = true;
       document.body.appendChild(script);
     }
@@ -34,6 +36,7 @@ const PrivateRoute = () => {
     return () => {
       // Clean up the script when the component is unmounted
       const zendeskScript = document.getElementById("ze-snippet");
+
       if (zendeskScript) {
         zendeskScript.remove();
       }

@@ -6,7 +6,7 @@ import { userIdState } from "./userIdState";
 import { fetchWalletBalanceService } from "@/services/apiService";
 
 export interface WalletBalanceType {
-  wallet_balance: string;
+  wallet_balance: number;
   lifetime_earnings: number;
   pending_earnings: number;
 }
