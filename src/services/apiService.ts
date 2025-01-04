@@ -343,7 +343,6 @@ export const fetchRewardProgramDetailService = async (
   );
 };
 
-
 export interface WithdrawRequestDetails {
   amount: number;
   bankAccountDetails: accountDetails;
@@ -373,4 +372,4 @@ export const withdrawRequestService = async (
       },
     },
   );
-}
+};

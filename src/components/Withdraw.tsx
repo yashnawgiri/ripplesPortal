@@ -10,15 +10,19 @@ import {
   Progress,
   Chip,
 } from "@nextui-org/react";
+import toast from "react-hot-toast";
+import { useRecoilState, useRecoilValue } from "recoil";
+
 import UserDefaultLayout from "@/layouts/userDefault";
 import {
   accountDetails,
   WithdrawRequestDetails,
   withdrawRequestService,
 } from "@/services/apiService";
-import toast from "react-hot-toast";
-import { fetchWalletBalance, walletBalanceState } from "@/recoil/walletBalanceState";
-import { useRecoilState, useRecoilValue } from "recoil";
+import {
+  fetchWalletBalance,
+  walletBalanceState,
+} from "@/recoil/walletBalanceState";
 
 interface FormErrors {
   amount: string;
@@ -28,16 +32,6 @@ interface FormErrors {
   phone: string;
   accountHolderName: string;
   withdrawalMethod: string;
-}
-
-interface WithdrawalData {
-  amount: string;
-  withdrawalMethod: string;
-  accountNumber: string;
-  bankName: string;
-  ifscCode: string;
-  phone: string;
-  accountHolderName: string;
 }
 
 const Withdraw: React.FC = () => {
@@ -51,7 +45,7 @@ const Withdraw: React.FC = () => {
   const [accountHolderName, setAccountHolderName] = useState<string>("");
 
   const fetchBalance = useRecoilValue(fetchWalletBalance);
-   const [walletBalance, setWalletBalance] = useRecoilState(walletBalanceState);
+  const [walletBalance, setWalletBalance] = useRecoilState(walletBalanceState);
 
   const [errors, setErrors] = useState<FormErrors>({
     amount: "",
@@ -67,18 +61,22 @@ const Withdraw: React.FC = () => {
     if (!value) return "Amount is required";
     if (isNaN(Number(value))) return "Amount must be a number";
     if (Number(value) <= 0) return "Amount must be greater than 0";
-    if (walletBalance && Number(value) > walletBalance?.wallet_balance) return "Insufficient balance";
+    if (walletBalance && Number(value) > walletBalance?.wallet_balance)
+      return "Insufficient balance";
+
     return "";
   };
 
   const validateWithdrawalMethod = (value: string): string => {
     if (!value) return "Please select a withdrawal method";
+
     return "";
   };
 
   const validateAccountNumber = (value: string): string => {
     if (!value) return "Account number is required";
     if (!/^\d{9,18}$/.test(value)) return "Invalid account number format";
+
     return "";
   };
 
@@ -86,39 +84,47 @@ const Withdraw: React.FC = () => {
     if (!value) return "IFSC code is required";
     if (!/^[A-Z]{4}0[A-Z0-9]{6}$/.test(value))
       return "Invalid IFSC code format";
+
     return "";
   };
 
   const validatePhone = (value: string): string => {
     if (!value) return "Phone number is required";
     if (!/^[6-9]\d{9}$/.test(value)) return "Invalid Indian phone number";
+
     return "";
   };
 
   const validateBankName = (value: string): string => {
     if (!value) return "Bank name is required";
     if (value.length < 3) return "Bank name is too short";
+
     return "";
   };
 
   const validateAccountHolderName = (value: string): string => {
     if (!value) return "Account holder name is required";
     if (value.length < 3) return "Name is too short";
+
     return "";
   };
 
   const handleNext = (): void => {
     if (step === 1) {
       const amountError = validateAmount(amount);
+
       if (amountError) {
         setErrors((prev) => ({ ...prev, amount: amountError }));
+
         return;
       }
     }
     if (step === 2) {
       const methodError = validateWithdrawalMethod(withdrawalMethod);
+
       if (methodError) {
         setErrors((prev) => ({ ...prev, withdrawalMethod: methodError }));
+
         return;
       }
     }
@@ -134,49 +140,49 @@ const Withdraw: React.FC = () => {
       e.preventDefault();
 
       const newErrors = {
-      accountNumber: validateAccountNumber(accountNumber),
-      bankName: validateBankName(bankName),
-      ifscCode: validateIFSC(ifscCode),
-      phone: validatePhone(phone),
-      accountHolderName: validateAccountHolderName(accountHolderName),
-      amount: validateAmount(amount),
-      withdrawalMethod: validateWithdrawalMethod(withdrawalMethod),
+        accountNumber: validateAccountNumber(accountNumber),
+        bankName: validateBankName(bankName),
+        ifscCode: validateIFSC(ifscCode),
+        phone: validatePhone(phone),
+        accountHolderName: validateAccountHolderName(accountHolderName),
+        amount: validateAmount(amount),
+        withdrawalMethod: validateWithdrawalMethod(withdrawalMethod),
       };
 
       if (Object.values(newErrors).some((error) => error !== "")) {
-      setErrors(newErrors);
-      return;
+        setErrors(newErrors);
+
+        return;
       }
 
       const bankDetails: accountDetails = {
-      account_number: accountNumber,
-      ifsc_code: ifscCode,
-      account_holder_name: accountHolderName,
-      contact_number: phone,
-      bank_name: bankName,
+        account_number: accountNumber,
+        ifsc_code: ifscCode,
+        account_holder_name: accountHolderName,
+        contact_number: phone,
+        bank_name: bankName,
       };
 
       const withdrawalData: WithdrawRequestDetails = {
-      amount: Number(amount),
-      bankAccountDetails: bankDetails,
+        amount: Number(amount),
+        bankAccountDetails: bankDetails,
       };
 
-      let userId = localStorage.getItem("userId") || "";
-      let authToken = localStorage.getItem("authToken") || "";
+      const userId = localStorage.getItem("userId") || "";
+      const authToken = localStorage.getItem("authToken") || "";
 
-      let response = await withdrawRequestService(
-      userId,
-      authToken,
-      withdrawalData
+      const response = await withdrawRequestService(
+        userId,
+        authToken,
+        withdrawalData,
       );
 
       toast.success(response.message);
       setStep(4);
     } catch (error) {
       if (error instanceof Error)
-      toast.error("Insufficient balance in your account.");
-      else 
-      toast.error("An error occurred. Please try again later.");
+        toast.error("Insufficient balance in your account.");
+      else toast.error("An error occurred. Please try again later.");
     }
   };
 
@@ -195,35 +201,35 @@ const Withdraw: React.FC = () => {
               Withdraw Funds
             </h3>
             <Progress
-              size="sm"
-              value={(step / 3) * 100}
               className="max-w-md"
               color="secondary"
+              size="sm"
+              value={(step / 3) * 100}
             />
           </CardHeader>
           <CardBody className="gap-4">
             {step === 1 && (
               <div className="flex flex-col gap-4">
                 <Input
-                  label="Amount"
-                  labelPlacement="outside"
-                  color="primary"
-                  placeholder="Enter amount"
-                  type="number"
-                  value={amount}
-                  isInvalid={!!errors.amount}
-                  errorMessage={errors.amount}
                   classNames={{
                     label: "text-zinc-200",
                     input: "text-black",
                     innerWrapper: "bg-default-100/50",
                     errorMessage: "text-danger text-xs mt-1",
                   }}
+                  color="primary"
+                  errorMessage={errors.amount}
+                  isInvalid={!!errors.amount}
+                  label="Amount"
+                  labelPlacement="outside"
+                  placeholder="Enter amount"
                   startContent={
                     <div className="pointer-events-none flex items-center">
                       <span className="text-zinc-300 text-sm">₹</span>
                     </div>
                   }
+                  type="number"
+                  value={amount}
                   onChange={(e) => {
                     setAmount(e.target.value);
                     setErrors((prev) => ({
@@ -238,22 +244,22 @@ const Withdraw: React.FC = () => {
             {step === 2 && (
               <div className="flex flex-col gap-4">
                 <Select
-                  label="Select withdrawal method"
-                  placeholder="Select a method"
-                  selectedKeys={withdrawalMethod ? [withdrawalMethod] : []}
-                  isInvalid={!!errors.withdrawalMethod}
-                  errorMessage={errors.withdrawalMethod}
                   classNames={{
                     label: "text-zinc-200",
                     trigger: "bg-default-100/50 text-zinc-100",
                     errorMessage: "text-danger text-xs mt-1",
                   }}
+                  errorMessage={errors.withdrawalMethod}
+                  isInvalid={!!errors.withdrawalMethod}
+                  label="Select withdrawal method"
+                  placeholder="Select a method"
+                  selectedKeys={withdrawalMethod ? [withdrawalMethod] : []}
                   onChange={(e) => {
                     setWithdrawalMethod(e.target.value);
                     setErrors((prev) => ({
                       ...prev,
                       withdrawalMethod: validateWithdrawalMethod(
-                        e.target.value
+                        e.target.value,
                       ),
                     }));
                   }}
@@ -266,7 +272,7 @@ const Withdraw: React.FC = () => {
             )}
 
             {step === 3 && (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
                 {[
                   {
                     label: "Account Holder Name",
@@ -276,7 +282,7 @@ const Withdraw: React.FC = () => {
                       setErrors((prev) => ({
                         ...prev,
                         accountHolderName: validateAccountHolderName(
-                          e.target.value
+                          e.target.value,
                         ),
                       }));
                     },
@@ -338,20 +344,20 @@ const Withdraw: React.FC = () => {
                 ].map((field, index) => (
                   <Input
                     key={index}
-                    label={field.label}
-                    color="primary"
-                    labelPlacement="outside"
-                    placeholder={field.placeholder}
-                    value={field.value}
-                    isInvalid={!!field.error}
-                    errorMessage={field.error}
-                    onChange={field.onChange}
                     classNames={{
                       label: "text-white",
                       input: "text-black",
                       innerWrapper: "bg-default-100/50",
                       errorMessage: "text-danger text-xs mt-1",
                     }}
+                    color="primary"
+                    errorMessage={field.error}
+                    isInvalid={!!field.error}
+                    label={field.label}
+                    labelPlacement="outside"
+                    placeholder={field.placeholder}
+                    value={field.value}
+                    onChange={field.onChange}
                   />
                 ))}
 
@@ -372,7 +378,7 @@ const Withdraw: React.FC = () => {
 
             {step === 4 && (
               <div className="flex flex-col gap-6 items-center text-zinc-100">
-                <Chip color="success" variant="flat" size="lg">
+                <Chip color="success" size="lg" variant="flat">
                   Withdrawal Request Successful!
                 </Chip>
 
@@ -406,16 +412,16 @@ const Withdraw: React.FC = () => {
               <div className="flex justify-between mt-4">
                 <Button
                   color="secondary"
-                  variant="flat"
                   isDisabled={step === 1}
+                  variant="flat"
                   onPress={handleBack}
                 >
                   Back
                 </Button>
                 <Button
                   color="secondary"
-                  onPress={handleNext}
                   isDisabled={step === 2 && !withdrawalMethod}
+                  onPress={handleNext}
                 >
                   Next
                 </Button>
