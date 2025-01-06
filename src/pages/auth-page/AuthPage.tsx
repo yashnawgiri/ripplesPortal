@@ -16,12 +16,12 @@ import { loadingState } from "@/recoil/loadingState";
 import { authTokenState } from "@/recoil/authTokenState";
 import { userIdState } from "@/recoil/userIdState";
 import { validateEmail } from "@/utils/utils.ts";
-import gift1 from "@/assets/images/login/gift1.png";
-import gift2 from "@/assets/images/login/gift2.png";
-import gift3 from "@/assets/images/login/gift3.png";
-import rupee from "@/assets/images/rupees.png";
-import coins from "@/assets/images/coins.png";
-import backgroundImg from "@/assets/images/login/login-bg.png";
+import gift1 from "@/assets/images/login/gift1.webp";
+import gift2 from "@/assets/images/login/gift2.webp";
+import gift3 from "@/assets/images/login/gift3.webp";
+import rupee from "@/assets/images/rupees.webp";
+import coins from "@/assets/images/coins.webp";
+import backgroundImg from "@/assets/images/login/login-bg.webp";
 
 const AuthPage: React.FC = () => {
   const [step, setStep] = useState<"signup" | "email-signup" | "otp">("signup");
@@ -96,12 +96,13 @@ const AuthPage: React.FC = () => {
     }
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     const zendeskScript = document.getElementById("ze-snippet");
-    if (zendeskScript) {    
+
+    if (zendeskScript) {
       zendeskScript.remove();
     }
-  },[])
+  }, []);
 
   const renderForm = () => {
     switch (step) {

@@ -43,7 +43,7 @@ export const fetchReferralLinksService = async (
 interface WalletBalanceResponse {
   message: string;
   data: {
-    wallet_balance: string;
+    wallet_balance: number;
     lifetime_earnings: number;
     pending_earnings: number;
   };
