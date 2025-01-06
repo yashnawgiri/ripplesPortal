@@ -31,14 +31,14 @@ export default function MyAccount() {
   const setLoading = useSetRecoilState(loadingState);
   const setProfile = useSetRecoilState(profileState);
   const profile = useRecoilValue(profileState);
-  
+
   const [isEditing, setIsEditing] = useState(false);
   const [editedProfile, setEditedProfile] = useState<ProfileData>({
     first_name: "",
     last_name: "",
     contact_number: "",
     instagram_id: "",
-    email: ""
+    email: "",
   });
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export default function MyAccount() {
         last_name: profile.last_name || "",
         contact_number: profile.contact_number || "",
         instagram_id: "",
-        email: profile.email || ""
+        email: profile.email || "",
       });
     }
   }, [profile]);
@@ -62,18 +62,19 @@ export default function MyAccount() {
     }
   }, [fetchProfileData, setProfile, navigate]);
 
-  const handleInputChange = (field: keyof ProfileData) => (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setEditedProfile(prev => ({
-      ...prev,
-      [field]: event.target.value
-    }));
-  };
+  const handleInputChange =
+    (field: keyof ProfileData) =>
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setEditedProfile((prev) => ({
+        ...prev,
+        [field]: event.target.value,
+      }));
+    };
 
   const handleUpdateProfile = async () => {
     if (!isEditing) {
       setIsEditing(true);
+
       return;
     }
 
@@ -83,13 +84,18 @@ export default function MyAccount() {
         firstName: editedProfile.first_name,
         lastName: editedProfile.last_name,
         contactNumber: editedProfile.contact_number,
-        instagramId: editedProfile.instagram_id
+        instagramId: editedProfile.instagram_id,
       };
 
-      const response = await updateProfileService(updatePayload, token!, userId);
-      setProfile(prevProfile => ({
+      const response = await updateProfileService(
+        updatePayload,
+        token!,
+        userId,
+      );
+
+      setProfile((prevProfile) => ({
         ...prevProfile!,
-        ...response.data
+        ...response.data,
       }));
       setIsEditing(false);
       toast.success("Profile updated successfully");
@@ -112,71 +118,78 @@ export default function MyAccount() {
           <h1 className="text-2xl lg:text-2xl font-extrabold font-poppins text-center mt-10 leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 mb-8">
             My Account
           </h1>
-          
+
           <div className="md:flex justify-stretch w-full space-y-2 md:space-y-0 md:space-x-4">
             <CustomInput
+              placeholder="First Name"
+              readonly={!isEditing}
               title="First Name"
               type="text"
-              placeholder="First Name"
               value={isEditing ? editedProfile.first_name : profile.first_name}
               onChange={handleInputChange("first_name")}
-              readonly={!isEditing}
             />
             <CustomInput
+              placeholder="Last Name"
+              readonly={!isEditing}
               title="Last Name"
               type="text"
-              placeholder="Last Name"
               value={isEditing ? editedProfile.last_name : profile.last_name}
               onChange={handleInputChange("last_name")}
-              readonly={!isEditing}
             />
           </div>
-          
+
           <p className="text-color my-2 mb-8 text-md font-poppins">
             Friends will be able to see this when you share links.
           </p>
-          
+
           <div className="my-2">
             <CustomInput
+              placeholder="Enter your Contact Number"
+              readonly={!isEditing}
               title="Contact Number"
               type="tel"
-              placeholder="Enter your Contact Number"
-              value={isEditing ? editedProfile.contact_number : profile.contact_number || ""}
+              value={
+                isEditing
+                  ? editedProfile.contact_number
+                  : profile.contact_number || ""
+              }
               onChange={handleInputChange("contact_number")}
-              readonly={!isEditing}
             />
           </div>
-          
+
           <CustomInput
+            placeholder="example@gmail.com"
+            readonly={true}
             title="Email"
             type="email"
-            placeholder="example@gmail.com"
             value={profile.email || ""}
-            readonly={true}
             onChange={handleInputChange("email")}
           />
-          
+
           <div className="mt-4">
             <CustomInput
+              placeholder="Coming Soon"
+              readonly={true}
               title="Instagram Id"
               type="text"
-              placeholder="Coming Soon"
               value={isEditing ? editedProfile.instagram_id : ""}
               onChange={handleInputChange("instagram_id")}
-              readonly={true}
             />
           </div>
-          
+
           <p className="text-color my-2 mb-8 text-md font-poppins">
-            <Link className="text-secondary" to={siteConfig.userNavItems[4].href}>
+            <Link
+              className="text-secondary"
+              to={siteConfig.userNavItems[4].href}
+            >
               Contact Us
             </Link>
             <span> to update your email preferences.</span>
           </p>
-          
+
           <CustomButton
-            onClick={handleUpdateProfile}
             className="bg-secondary mx-auto w-full mt-4 flex justify-center items-center font-bold text-lg space-x-2"
+            onClick={handleUpdateProfile}
           >
             {isEditing ? (
               <>

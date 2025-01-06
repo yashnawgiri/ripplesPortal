@@ -111,7 +111,7 @@ export const updateProfileService = async (
   info: {
     firstName: string;
     lastName: string;
-    contactNumber: string
+    contactNumber: string;
   },
   authToken: string,
   userId: string,
