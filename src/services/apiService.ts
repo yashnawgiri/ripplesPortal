@@ -109,8 +109,9 @@ interface UpdateProfileResponse {
 
 export const updateProfileService = async (
   info: {
-    first_name: string;
-    last_name: string;
+    firstName: string;
+    lastName: string;
+    contactNumber: string
   },
   authToken: string,
   userId: string,
