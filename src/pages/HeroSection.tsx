@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 // import BrandsJoined from "./BrandsJoined";
 import dashboardData from "./../data/landing.json";
+import BrandsJoined from "./BrandsJoined";
 
 import CustomButton from "@/components/CustomElements/CustomButton";
 import { siteConfig } from "@/config/site";
@@ -101,7 +102,7 @@ function HeroSection() {
           </motion.div>
         </motion.div>
 
-        {/* <BrandsJoined /> */}
+        <BrandsJoined />
       </motion.div>
 
       <motion.div

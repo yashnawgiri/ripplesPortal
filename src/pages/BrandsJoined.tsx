@@ -1,10 +1,10 @@
-import { Avatar, Tooltip } from "@nextui-org/react";
+import { Image } from "@nextui-org/react";
 
 export default function BrandsJoined() {
   return (
     <div className="flex items-center gap-2 text-gray-300 text-large lg:justify-start md:justify-center justify-center flex-wrap">
       {/* Brand Icons */}
-      <div className="flex items-center space-x-[-8px]">
+      {/* <div className="flex items-center space-x-[-8px]">
         <Tooltip content="Accenture">
           <Avatar size="sm" src="/src/assets/images/brands/accenture.png" />
         </Tooltip>
@@ -14,10 +14,14 @@ export default function BrandsJoined() {
         <Tooltip content="Udaan">
           <Avatar size="sm" src="/src/assets/images/brands/udaan.png" />
         </Tooltip>
-      </div>
+      </div> */}
 
       {/* Text */}
-      <span className="text-sm font-medium">+25 brands joined</span>
+      {/* <span className="text-sm font-medium">+25 brands joined</span> */}
+      <Image
+        className="max-w-60 rounded-xl md:mx-2"
+        src="/src/assets/images/brands/shopify.png"
+      />
     </div>
   );
 }
