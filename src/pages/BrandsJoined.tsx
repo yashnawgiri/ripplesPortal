@@ -15,12 +15,19 @@ export default function BrandsJoined() {
           <Avatar size="sm" src="/src/assets/images/brands/udaan.png" />
         </Tooltip>
       </div> */}
-
       {/* Text */}
       {/* <span className="text-sm font-medium">+25 brands joined</span> */}
+      Exclusively built for
       <Image
-        className="max-w-60 rounded-xl md:mx-2"
-        src="/src/assets/images/brands/shopify.png"
+        className="rounded-xl"
+        src="/src/assets/images/shopify.png"
+        width={150}
+      />
+      &
+      <Image
+        className="rounded-xl"
+        src="/src/assets/images/shopify plus.png"
+        width={120}
       />
     </div>
   );
