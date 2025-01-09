@@ -77,7 +77,7 @@ export default function MyRewards() {
             Sell.
           </p> */}
           <h3 className="text-lg lg:text-2xl font-extrabold font-poppins text-center mt-10 leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 mb-8">
-            {"4"} Ripplers Used Your Link
+            Transaction History
           </h3>
           <div className="bg-primary flex justify-between w-full p-3 md:p-5 rounded-sm items-center border border-gray-800 space-y-1">
             <div className="flex items-center space-x-2">

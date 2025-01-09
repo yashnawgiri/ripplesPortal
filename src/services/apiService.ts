@@ -109,8 +109,9 @@ interface UpdateProfileResponse {
 
 export const updateProfileService = async (
   info: {
-    first_name: string;
-    last_name: string;
+    firstName: string;
+    lastName: string;
+    contactNumber: string;
   },
   authToken: string,
   userId: string,
@@ -335,6 +336,37 @@ export const fetchRewardProgramDetailService = async (
     ),
     {
       method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    },
+  );
+};
+
+export interface WithdrawRequestDetails {
+  amount: number;
+  bankAccountDetails: accountDetails;
+}
+
+export interface accountDetails {
+  account_number: string;
+  ifsc_code: string;
+  account_holder_name: string;
+  contact_number: string;
+  bank_name: string;
+}
+
+export const withdrawRequestService = async (
+  userId: string,
+  token: string,
+  details: WithdrawRequestDetails,
+): Promise<{ message: string }> => {
+  return apiCall<{ message: string }>(
+    endpoints.WITHDRAW_REQUEST.replace(":userId", userId),
+    {
+      method: "POST",
+      body: JSON.stringify(details),
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
