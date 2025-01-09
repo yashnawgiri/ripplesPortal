@@ -39,27 +39,30 @@ type CardProps = {
 const Card = ({ title, index }: CardProps) => {
   const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.5 });
 
+  // Define the widths for the images in descending order
+  const widths = [300, 260, 310];
+
   return (
     <motion.li
       key={index}
       ref={ref}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      className="text-white text-2xl font-bold flex flex-col cursor-pointer"
+      className="text-white text-2xl font-bold flex flex-col cursor-pointer items-center md:items-start"
       initial={{ opacity: 0, y: 50 }}
       transition={{ duration: 0.5, delay: index * 0.2 }}
       viewport={{ once: false, amount: 0.3 }} // Ensures animation triggers every time it enters the viewport
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
-      <h1 className="py-8 text-xl md:text-2xl flex gap-2">
+      <h1 className="py-8 text-xl md:text-2xl flex gap-1">
         <p>{`${index + 1}. `}</p> <p>{title}</p>
       </h1>
       <Image
         disableSkeleton
         alt={`Step ${index + 1}`}
-        className="transition-transform duration-300 hover:scale-105"
+        className="transition-transform duration-300 hover:scale-105 "
         src={steps[index]}
-        width={350}
+        width={widths[index]} // Set the width based on the index
       />
     </motion.li>
   );
