@@ -27,6 +27,7 @@ export default function OTP({
       const interval = setInterval(() => {
         setTimer((prev) => prev - 1);
       }, 1000);
+
       return () => clearInterval(interval);
     } else {
       setIsResendDisabled(false);

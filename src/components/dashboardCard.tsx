@@ -2,7 +2,6 @@ import { DashboardCardIcon } from "./icons";
 
 import "./../styles/home/dashboardCard.css";
 import dashboardImage from "@/assets/images/customerView.webp";
-
 import dashboardData from "@/data/landing.json";
 
 import { Image } from "@nextui-org/image";
