@@ -1,8 +1,7 @@
 import { DashboardCardIcon } from "./icons";
 
 import "./../styles/home/dashboardCard.css";
-import dashboardImage from "./../../src/assets/images/customerView.webp";
-
+import dashboardImage from "@/assets/images/customerView.webp";
 import dashboardData from "@/data/landing.json";
 
 import { Image } from "@nextui-org/image";
@@ -59,7 +58,7 @@ export default function DashboardCard() {
 
         {/* Image Section */}
         <motion.div
-          className="flex-1 home-img  w-full md:w-1/3 flex justify-center"
+          className="flex-1 home-img  w-full md:w-full flex justify-center"
           initial={{ opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -68,8 +67,7 @@ export default function DashboardCard() {
           <Image
             disableSkeleton
             className="my-4 rounded-lg shadow-lg hidden md:block"
-            height="500px"
-            isZoomed={true}
+            height="550px"
             src={dashboardImage}
             width="w-1/2"
           />

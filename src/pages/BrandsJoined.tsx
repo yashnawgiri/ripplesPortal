@@ -1,6 +1,7 @@
 import { Image } from "@nextui-org/react";
-import shopifyExpert from '@/assets/images/shopify.png'
-import shopifyPlus from '@/assets/images/shopify plus.png'
+
+import shopifyExpert from "@/assets/images/shopify.png";
+import shopifyPlus from "@/assets/images/shopify plus.png";
 
 export default function BrandsJoined() {
   return (
@@ -21,17 +22,17 @@ export default function BrandsJoined() {
       {/* <span className="text-sm font-medium">+25 brands joined</span> */}
       Exclusively built for
       <Image
+        alt="Shopify Expert"
         className="rounded-xl"
         src={shopifyExpert}
-        width={150}
-        alt="Shopify Expert"
+        width={100}
       />
       &
       <Image
+        alt="Shopify Plus"
         className="rounded-xl"
         src={shopifyPlus}
         width={120}
-        alt ="Shopify Plus"
       />
     </div>
   );

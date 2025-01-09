@@ -61,7 +61,7 @@ const Reward: React.FC = () => {
         <motion.div className="flex justify-center" whileHover={{ scale: 1.1 }}>
           <Image
             disableSkeleton
-            className="w-full max-w-[300px] md:max-w-[500px]"
+            className="w-full max-w-[300px] md:max-w-[500px] object-contain"
             src={rewardmanage}
           />
         </motion.div>
