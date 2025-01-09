@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, FormEvent, ChangeEvent, useEffect } from "react";
 import {
   Button,
   Card,
@@ -7,297 +7,429 @@ import {
   Input,
   Select,
   SelectItem,
+  Progress,
+  Chip,
 } from "@nextui-org/react";
+import toast from "react-hot-toast";
+import { useRecoilState, useRecoilValue } from "recoil";
 
 import UserDefaultLayout from "@/layouts/userDefault";
+import {
+  accountDetails,
+  WithdrawRequestDetails,
+  withdrawRequestService,
+} from "@/services/apiService";
+import {
+  fetchWalletBalance,
+  walletBalanceState,
+} from "@/recoil/walletBalanceState";
 
-const Withdraw = () => {
-  const [step, setStep] = useState(1);
-  const [amount, setAmount] = useState("");
-  const [withdrawalMethod, setWithdrawalMethod] = useState("bank");
-  const [accountNumber, setAccountNumber] = useState("");
-  const [bankName, setBankName] = useState("");
-  const [ifscCode, setIfscCode] = useState("");
-  const [phone, setPhone] = useState("");
-  const [accountHolderName, setAccountHolderName] = useState("");
+interface FormErrors {
+  amount: string;
+  accountNumber: string;
+  bankName: string;
+  ifscCode: string;
+  phone: string;
+  accountHolderName: string;
+  withdrawalMethod: string;
+}
 
-  const handleNext = () => {
+const Withdraw: React.FC = () => {
+  const [step, setStep] = useState<number>(1);
+  const [amount, setAmount] = useState<string>("");
+  const [withdrawalMethod, setWithdrawalMethod] = useState<string>("");
+  const [accountNumber, setAccountNumber] = useState<string>("");
+  const [bankName, setBankName] = useState<string>("");
+  const [ifscCode, setIfscCode] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [accountHolderName, setAccountHolderName] = useState<string>("");
+
+  const fetchBalance = useRecoilValue(fetchWalletBalance);
+  const [walletBalance, setWalletBalance] = useRecoilState(walletBalanceState);
+
+  const [errors, setErrors] = useState<FormErrors>({
+    amount: "",
+    accountNumber: "",
+    bankName: "",
+    ifscCode: "",
+    phone: "",
+    accountHolderName: "",
+    withdrawalMethod: "",
+  });
+
+  const validateAmount = (value: string): string => {
+    if (!value) return "Amount is required";
+    if (isNaN(Number(value))) return "Amount must be a number";
+    if (Number(value) <= 0) return "Amount must be greater than 0";
+    if (walletBalance && Number(value) > walletBalance?.wallet_balance)
+      return "Insufficient balance";
+
+    return "";
+  };
+
+  const validateWithdrawalMethod = (value: string): string => {
+    if (!value) return "Please select a withdrawal method";
+
+    return "";
+  };
+
+  const validateAccountNumber = (value: string): string => {
+    if (!value) return "Account number is required";
+    if (!/^\d{9,18}$/.test(value)) return "Invalid account number format";
+
+    return "";
+  };
+
+  const validateIFSC = (value: string): string => {
+    if (!value) return "IFSC code is required";
+    if (!/^[A-Z]{4}0[A-Z0-9]{6}$/.test(value))
+      return "Invalid IFSC code format";
+
+    return "";
+  };
+
+  const validatePhone = (value: string): string => {
+    if (!value) return "Phone number is required";
+    if (!/^[6-9]\d{9}$/.test(value)) return "Invalid Indian phone number";
+
+    return "";
+  };
+
+  const validateBankName = (value: string): string => {
+    if (!value) return "Bank name is required";
+    if (value.length < 3) return "Bank name is too short";
+
+    return "";
+  };
+
+  const validateAccountHolderName = (value: string): string => {
+    if (!value) return "Account holder name is required";
+    if (value.length < 3) return "Name is too short";
+
+    return "";
+  };
+
+  const handleNext = (): void => {
+    if (step === 1) {
+      const amountError = validateAmount(amount);
+
+      if (amountError) {
+        setErrors((prev) => ({ ...prev, amount: amountError }));
+
+        return;
+      }
+    }
+    if (step === 2) {
+      const methodError = validateWithdrawalMethod(withdrawalMethod);
+
+      if (methodError) {
+        setErrors((prev) => ({ ...prev, withdrawalMethod: methodError }));
+
+        return;
+      }
+    }
     if (step < 3) setStep(step + 1);
   };
 
-  const handleBack = () => {
+  const handleBack = (): void => {
     if (step > 1) setStep(step - 1);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Withdrawal submitted:", {
-      amount,
-      withdrawalMethod,
-      accountNumber,
-      bankName,
-      ifscCode,
-      accountHolderName,
-    });
-    setStep(4); // Move to confirmation step
+  const handleSubmit = async (e: FormEvent) => {
+    try {
+      e.preventDefault();
+
+      const newErrors = {
+        accountNumber: validateAccountNumber(accountNumber),
+        bankName: validateBankName(bankName),
+        ifscCode: validateIFSC(ifscCode),
+        phone: validatePhone(phone),
+        accountHolderName: validateAccountHolderName(accountHolderName),
+        amount: validateAmount(amount),
+        withdrawalMethod: validateWithdrawalMethod(withdrawalMethod),
+      };
+
+      if (Object.values(newErrors).some((error) => error !== "")) {
+        setErrors(newErrors);
+
+        return;
+      }
+
+      const bankDetails: accountDetails = {
+        account_number: accountNumber,
+        ifsc_code: ifscCode,
+        account_holder_name: accountHolderName,
+        contact_number: phone,
+        bank_name: bankName,
+      };
+
+      const withdrawalData: WithdrawRequestDetails = {
+        amount: Number(amount),
+        bankAccountDetails: bankDetails,
+      };
+
+      const userId = localStorage.getItem("userId") || "";
+      const authToken = localStorage.getItem("authToken") || "";
+
+      const response = await withdrawRequestService(
+        userId,
+        authToken,
+        withdrawalData,
+      );
+
+      toast.success(response.message);
+      setStep(4);
+    } catch (error) {
+      if (error instanceof Error)
+        toast.error("Insufficient balance in your account.");
+      else toast.error("An error occurred. Please try again later.");
+    }
   };
+
+  useEffect(() => {
+    if (fetchBalance) {
+      setWalletBalance(fetchBalance);
+    }
+  }, [fetchBalance, setWalletBalance]);
 
   return (
     <UserDefaultLayout>
-      <Card className="max-w-lg mx-auto bg-transparent text-white p-8 ">
-        <CardHeader className="text-center">
-          <h3 className="text-2xl font-bold">Withdraw Funds</h3>
-        </CardHeader>
-        <CardBody>
-          {step === 1 && (
-            <>
-              <p className="text-white text-sm mb-4">Enter withdrawal amount</p>
-              <Input
-                className="bg-primary text-white"
-                color="primary"
-                placeholder="Enter amount"
-                type="number"
-                value={amount}
-                variant="underlined"
-                onChange={(e) => setAmount(e.target.value)}
-              />
-            </>
-          )}
+      <div className="min-h-screen bg-primary p-4">
+        <Card className="max-w-lg mx-auto bg-primary shadow-lg">
+          <CardHeader className="flex flex-col gap-3 border-b border-white/10">
+            <h3 className="text-2xl font-bold text-center text-zinc-100">
+              Withdraw Funds
+            </h3>
+            <Progress
+              className="max-w-md"
+              color="secondary"
+              size="sm"
+              value={(step / 3) * 100}
+            />
+          </CardHeader>
+          <CardBody className="gap-4">
+            {step === 1 && (
+              <div className="flex flex-col gap-4">
+                <Input
+                  classNames={{
+                    label: "text-zinc-200",
+                    input: "text-black",
+                    innerWrapper: "bg-default-100/50",
+                    errorMessage: "text-danger text-xs mt-1",
+                  }}
+                  color="primary"
+                  errorMessage={errors.amount}
+                  isInvalid={!!errors.amount}
+                  label="Amount"
+                  labelPlacement="outside"
+                  placeholder="Enter amount"
+                  startContent={
+                    <div className="pointer-events-none flex items-center">
+                      <span className="text-zinc-300 text-sm">₹</span>
+                    </div>
+                  }
+                  type="number"
+                  value={amount}
+                  onChange={(e) => {
+                    setAmount(e.target.value);
+                    setErrors((prev) => ({
+                      ...prev,
+                      amount: validateAmount(e.target.value),
+                    }));
+                  }}
+                />
+              </div>
+            )}
 
-          {step === 2 && (
-            <>
-              <p className="text-white text-sm mb-4">
-                Select withdrawal method
-              </p>
-              <Select
-                className="bg-white text-gray-800 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
-                color="primary"
-                value={withdrawalMethod}
-                variant="underlined"
-                onChange={(e) =>
-                  setWithdrawalMethod(e.target.value as unknown as string)
-                }
-              >
-                <SelectItem key="bank" value="bank">
-                  Bank Transfer
-                </SelectItem>
-              </Select>
-            </>
-          )}
-
-          {step === 3 && (
-            <>
-              <h3 className="text-white text-xl mb-4">Enter account details</h3>
-              {withdrawalMethod === "bank" && (
-                <form
-                  className="space-y-6 w-full text-white"
-                  onSubmit={handleSubmit}
+            {step === 2 && (
+              <div className="flex flex-col gap-4">
+                <Select
+                  classNames={{
+                    label: "text-zinc-200",
+                    trigger: "bg-default-100/50 text-zinc-100",
+                    errorMessage: "text-danger text-xs mt-1",
+                  }}
+                  errorMessage={errors.withdrawalMethod}
+                  isInvalid={!!errors.withdrawalMethod}
+                  label="Select withdrawal method"
+                  placeholder="Select a method"
+                  selectedKeys={withdrawalMethod ? [withdrawalMethod] : []}
+                  onChange={(e) => {
+                    setWithdrawalMethod(e.target.value);
+                    setErrors((prev) => ({
+                      ...prev,
+                      withdrawalMethod: validateWithdrawalMethod(
+                        e.target.value,
+                      ),
+                    }));
+                  }}
                 >
-                  <div className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium">
-                        Account Holder Name
-                      </label>
-                      <Input
-                        required
-                        className="w-full border-gray-300 rounded-md focus:ring-primary focus:border-primary"
-                        color="primary"
-                        inputMode="text"
-                        placeholder="Enter account holder name"
-                        value={accountHolderName}
-                        variant="underlined"
-                        onChange={(e) => setAccountHolderName(e.target.value)}
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium">
-                        Bank Name
-                      </label>
-                      <Input
-                        required
-                        className="w-full border-gray-300 rounded-md focus:ring-primary focus:border-primary"
-                        color="primary"
-                        inputMode="text"
-                        placeholder="Enter bank name"
-                        value={bankName}
-                        variant="underlined"
-                        onChange={(e) => setBankName(e.target.value)}
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium">
-                        Account Number
-                      </label>
-                      <Input
-                        required
-                        className="w-full border-gray-300 rounded-md focus:ring-primary focus:border-primary"
-                        color="primary"
-                        inputMode="numeric"
-                        placeholder="Enter account number"
-                        value={accountNumber}
-                        variant="underlined"
-                        onChange={(e) => setAccountNumber(e.target.value)}
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium">
-                        IFSC Code
-                      </label>
-                      <Input
-                        required
-                        className="w-full border-gray-300 rounded-md focus:ring-primary focus:border-primary"
-                        color="primary"
-                        inputMode="text"
-                        placeholder="Enter IFSC code"
-                        value={ifscCode}
-                        variant="underlined"
-                        onChange={(e) => setIfscCode(e.target.value)}
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium">
-                        Phone Number
-                      </label>
-                      <Input
-                        required
-                        className="w-full border-gray-300 rounded-md focus:ring-primary focus:border-primary"
-                        color="primary"
-                        inputMode="tel"
-                        placeholder="Enter phone number"
-                        value={phone}
-                        variant="underlined"
-                        onChange={(e) => setPhone(e.target.value)}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex justify-between items-center mt-6">
-                    <Button
-                      className="px-4 py-2 text-sm font-medium bg-primary text-white rounded-md hover:bg-gray-300 hover:text-black"
-                      color="primary"
-                      type="button"
-                      onPress={handleBack}
-                    >
-                      Back
-                    </Button>
-                    <Button
-                      className="px-4 py-2 text-sm font-medium bg-secondary text-white rounded-md hover:bg-secondary/90"
-                      color="success"
-                      type="submit"
-                    >
-                      Submit Withdrawal
-                    </Button>
-                  </div>
-                </form>
-              )}
-              {withdrawalMethod === "paypal" && (
-                <Input
-                  classNames={{ label: "text-white" }}
-                  color="primary"
-                  label="PayPal Email"
-                  placeholder="Enter PayPal email"
-                  type="email"
-                  variant="underlined"
-                  onChange={(e) => setAccountNumber(e.target.value)}
-                />
-              )}
-              {withdrawalMethod === "crypto" && (
-                <Input
-                  classNames={{ label: "text-white" }}
-                  color="primary"
-                  label="Cryptocurrency Wallet Address"
-                  placeholder="Enter cryptocurrency wallet address"
-                  variant="underlined"
-                  onChange={(e) => setAccountNumber(e.target.value)}
-                />
-              )}
-            </>
-          )}
-
-          {step === 4 && (
-            <div className="p-4">
-              <h4 className="text-xl font-bold text-center mb-4 text-white">
-                Withdrawal Confirmation
-              </h4>
-              <div className="mb-4 border-t border-gray-600" />
-              <div className="flex flex-col space-y-2 text-white">
-                <p>
-                  <span className="font-semibold">Amount:</span> ₹{amount}
-                </p>
-                <p>
-                  <span className="font-semibold">Method:</span>{" "}
-                  {withdrawalMethod.charAt(0).toUpperCase() +
-                    withdrawalMethod.slice(1)}
-                </p>
-                {withdrawalMethod === "bank" && (
-                  <>
-                    <p>
-                      <span className="font-semibold">Account Holder:</span>{" "}
-                      {accountHolderName}
-                    </p>
-                    <p>
-                      <span className="font-semibold">Bank Name:</span>{" "}
-                      {bankName}
-                    </p>
-                    <p>
-                      <span className="font-semibold">Account Number:</span>{" "}
-                      {accountNumber}
-                    </p>
-                    <p>
-                      <span className="font-semibold">IFSC Code:</span>{" "}
-                      {ifscCode}
-                    </p>
-                    <p>
-                      <span className="font-semibold">Phone Number:</span>{" "}
-                      {phone}
-                    </p>
-                  </>
-                )}
-                {withdrawalMethod === "paypal" && (
-                  <p>
-                    <span className="font-semibold">PayPal Email:</span>{" "}
-                    {accountNumber}
-                  </p>
-                )}
-                {withdrawalMethod === "crypto" && (
-                  <p>
-                    <span className="font-semibold">Wallet Address:</span>{" "}
-                    {accountNumber}
-                  </p>
-                )}
+                  <SelectItem key="bank" className="text-zinc-800">
+                    Bank Transfer
+                  </SelectItem>
+                </Select>
               </div>
-              <div className="my-4 border-t border-gray-600" />
-              <div className="text-center">
-                <p className="text-green-400 text-lg font-semibold mb-2">
-                  Your withdrawal request has been submitted successfully!
-                </p>
-                <p className="text-gray-300">
+            )}
+
+            {step === 3 && (
+              <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+                {[
+                  {
+                    label: "Account Holder Name",
+                    value: accountHolderName,
+                    onChange: (e: ChangeEvent<HTMLInputElement>) => {
+                      setAccountHolderName(e.target.value);
+                      setErrors((prev) => ({
+                        ...prev,
+                        accountHolderName: validateAccountHolderName(
+                          e.target.value,
+                        ),
+                      }));
+                    },
+                    error: errors.accountHolderName,
+                    placeholder: "Enter account holder name",
+                  },
+                  {
+                    label: "Bank Name",
+                    value: bankName,
+                    onChange: (e: ChangeEvent<HTMLInputElement>) => {
+                      setBankName(e.target.value);
+                      setErrors((prev) => ({
+                        ...prev,
+                        bankName: validateBankName(e.target.value),
+                      }));
+                    },
+                    error: errors.bankName,
+                    placeholder: "Enter bank name",
+                  },
+                  {
+                    label: "Account Number",
+                    value: accountNumber,
+                    onChange: (e: ChangeEvent<HTMLInputElement>) => {
+                      setAccountNumber(e.target.value);
+                      setErrors((prev) => ({
+                        ...prev,
+                        accountNumber: validateAccountNumber(e.target.value),
+                      }));
+                    },
+                    error: errors.accountNumber,
+                    placeholder: "Enter account number",
+                  },
+                  {
+                    label: "IFSC Code",
+                    value: ifscCode,
+                    onChange: (e: ChangeEvent<HTMLInputElement>) => {
+                      setIfscCode(e.target.value);
+                      setErrors((prev) => ({
+                        ...prev,
+                        ifscCode: validateIFSC(e.target.value),
+                      }));
+                    },
+                    error: errors.ifscCode,
+                    placeholder: "Enter IFSC code",
+                  },
+                  {
+                    label: "Phone Number",
+                    value: phone,
+                    onChange: (e: ChangeEvent<HTMLInputElement>) => {
+                      setPhone(e.target.value);
+                      setErrors((prev) => ({
+                        ...prev,
+                        phone: validatePhone(e.target.value),
+                      }));
+                    },
+                    error: errors.phone,
+                    placeholder: "Enter phone number",
+                  },
+                ].map((field, index) => (
+                  <Input
+                    key={index}
+                    classNames={{
+                      label: "text-white",
+                      input: "text-black",
+                      innerWrapper: "bg-default-100/50",
+                      errorMessage: "text-danger text-xs mt-1",
+                    }}
+                    color="primary"
+                    errorMessage={field.error}
+                    isInvalid={!!field.error}
+                    label={field.label}
+                    labelPlacement="outside"
+                    placeholder={field.placeholder}
+                    value={field.value}
+                    onChange={field.onChange}
+                  />
+                ))}
+
+                <div className="flex justify-between mt-4">
+                  <Button
+                    color="primary"
+                    variant="bordered"
+                    onPress={handleBack}
+                  >
+                    Back
+                  </Button>
+                  <Button color="secondary" type="submit">
+                    Submit Withdrawal
+                  </Button>
+                </div>
+              </form>
+            )}
+
+            {step === 4 && (
+              <div className="flex flex-col gap-6 items-center text-zinc-100">
+                <Chip color="success" size="lg" variant="flat">
+                  Withdrawal Request Successful!
+                </Chip>
+
+                <div className="w-full space-y-4">
+                  {[
+                    { label: "Amount", value: `₹${amount}` },
+                    { label: "Account Holder", value: accountHolderName },
+                    { label: "Bank Name", value: bankName },
+                    { label: "Account Number", value: accountNumber },
+                    { label: "IFSC Code", value: ifscCode },
+                    { label: "Phone Number", value: phone },
+                  ].map((item, index) => (
+                    <div key={index} className="flex justify-between">
+                      <span className="text-zinc-300">{item.label}:</span>
+                      <span className="font-semibold">{item.value}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="text-center text-zinc-300 mt-4">
                   You will receive the funds in your account within{" "}
-                  <span className="font-medium">2 to 3 working days</span>.
+                  <span className="font-medium text-zinc-100">
+                    2 to 3 working days
+                  </span>
+                  .
                 </p>
               </div>
-            </div>
-          )}
+            )}
 
-          {step < 3 && step < 4 && (
-            <div className="flex justify-between mt-6">
-              <Button
-                color="primary"
-                disabled={step === 1}
-                onPress={handleBack}
-              >
-                Back
-              </Button>
-              <Button color="secondary" onPress={handleNext}>
-                Next
-              </Button>
-            </div>
-          )}
-        </CardBody>
-      </Card>
+            {step < 3 && (
+              <div className="flex justify-between mt-4">
+                <Button
+                  color="secondary"
+                  isDisabled={step === 1}
+                  variant="flat"
+                  onPress={handleBack}
+                >
+                  Back
+                </Button>
+                <Button
+                  color="secondary"
+                  isDisabled={step === 2 && !withdrawalMethod}
+                  onPress={handleNext}
+                >
+                  Next
+                </Button>
+              </div>
+            )}
+          </CardBody>
+        </Card>
+      </div>
     </UserDefaultLayout>
   );
 };

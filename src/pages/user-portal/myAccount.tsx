@@ -1,72 +1,111 @@
-// import CustomButton from "@/components/CustomElements/CustomButton";
-// import CustomInput from "@/components/CustomElements/CustomInput";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { FaPencilAlt, FaSave } from "react-icons/fa";
 
+import CustomButton from "@/components/CustomElements/CustomButton";
+import CustomInput from "@/components/CustomElements/CustomInput";
 import Fallback from "@/components/Fallback";
 import { siteConfig } from "@/config/site";
 import UserDefaultLayout from "@/layouts/userDefault";
-// import { authTokenState } from "@/recoil/authTokenState";
-// import { loadingState } from "@/recoil/loadingState";
-// import { profileDataFormState } from "@/recoil/profileDataFormState";
+import { authTokenState } from "@/recoil/authTokenState";
+import { loadingState } from "@/recoil/loadingState";
 import { fetchProfile, profileState } from "@/recoil/profileState";
-// import { userIdState } from "@/recoil/userIdState";
-// import { updateProfileService } from "@/services/apiService";
+import { userIdState } from "@/recoil/userIdState";
+import { updateProfileService } from "@/services/apiService";
+
+interface ProfileData {
+  first_name: string;
+  last_name: string;
+  contact_number: string;
+  instagram_id: string;
+  email: string;
+}
 
 export default function MyAccount() {
   const navigate = useNavigate();
-  // const [profileForm, setProfileForm] = useRecoilState(profileDataFormState);
-  // const [profileData, setProfileData] = useRecoilState(profileState);
-  // const token = useRecoilValue(authTokenState);
-  // const userId = useRecoilValue(userIdState);
-  // TODO: get email from profile
+  const token = useRecoilValue(authTokenState);
+  const userId = useRecoilValue(userIdState);
   const fetchProfileData = useRecoilValue(fetchProfile);
-  const [profile, setProfile] = useRecoilState(profileState);
-  // const [, setEmail] = useState<string>("");
-  // const [, setLoading] = useRecoilState(loadingState);
+  const setLoading = useSetRecoilState(loadingState);
+  const setProfile = useSetRecoilState(profileState);
+  const profile = useRecoilValue(profileState);
 
-  // const handleFirstNameChange = (
-  //   event: React.ChangeEvent<HTMLInputElement>
-  // ) => {
-  //   setProfileForm({ ...profileForm, first_name: event.target.value });
-  // };
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedProfile, setEditedProfile] = useState<ProfileData>({
+    first_name: "",
+    last_name: "",
+    contact_number: "",
+    instagram_id: "",
+    email: "",
+  });
 
-  // const handleLastNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setProfileForm({ ...profileForm, last_name: event.target.value });
-  // };
-
-  // const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setEmail(event.target.value);
-  // };
-
-  // const handleUpdateProfile = async () => {
-  //   setLoading(true);
-
-  //   try {
-  //     const response = await updateProfileService(profileForm, token!, userId);
-  //     setProfileData({
-  //       ...profileData,
-  //       first_name: response.data.first_name,
-  //       last_name: response.data.last_name,
-  //     });
-  //     console.log("Profile updated successfully:", response);
-  //   } catch (error) {
-  //     console.error("Error updating profile:", error);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
+  useEffect(() => {
+    if (profile) {
+      setEditedProfile({
+        first_name: profile.first_name || "",
+        last_name: profile.last_name || "",
+        contact_number: profile.contact_number || "",
+        instagram_id: "",
+        email: profile.email || "",
+      });
+    }
+  }, [profile]);
 
   useEffect(() => {
     if (fetchProfileData) {
       setProfile(fetchProfileData);
-    } else if (fetchProfileData == null) {
+    } else if (fetchProfileData === null) {
       toast.error("Invalid Token");
       navigate(siteConfig.path.signIn);
     }
-  }, [fetchProfileData, setProfile]);
+  }, [fetchProfileData, setProfile, navigate]);
+
+  const handleInputChange =
+    (field: keyof ProfileData) =>
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setEditedProfile((prev) => ({
+        ...prev,
+        [field]: event.target.value,
+      }));
+    };
+
+  const handleUpdateProfile = async () => {
+    if (!isEditing) {
+      setIsEditing(true);
+
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const updatePayload = {
+        firstName: editedProfile.first_name,
+        lastName: editedProfile.last_name,
+        contactNumber: editedProfile.contact_number,
+        instagramId: editedProfile.instagram_id,
+      };
+
+      const response = await updateProfileService(
+        updatePayload,
+        token!,
+        userId,
+      );
+
+      setProfile((prevProfile) => ({
+        ...prevProfile!,
+        ...response.data,
+      }));
+      setIsEditing(false);
+      toast.success("Profile updated successfully");
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      toast.error("Failed to update profile");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   if (!profile) {
     return <Fallback />;
@@ -79,43 +118,65 @@ export default function MyAccount() {
           <h1 className="text-2xl lg:text-2xl font-extrabold font-poppins text-center mt-10 leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 mb-8">
             My Account
           </h1>
+
           <div className="md:flex justify-stretch w-full space-y-2 md:space-y-0 md:space-x-4">
-            {/* <CustomInput
+            <CustomInput
+              placeholder="First Name"
+              readonly={!isEditing}
               title="First Name"
               type="text"
-              placeholder="First Name"
-              value={profile?.first_name ?? ""}
-              onChange={handleFirstNameChange}
-            /> */}
-            {/* <CustomInput
+              value={isEditing ? editedProfile.first_name : profile.first_name}
+              onChange={handleInputChange("first_name")}
+            />
+            <CustomInput
+              placeholder="Last Name"
+              readonly={!isEditing}
               title="Last Name"
               type="text"
-              placeholder="Last Name"
-              value={profile?.last_name ?? ""}
-              onChange={handleLastNameChange}
-              /> */}
-
-            <NameCard
-              title={"First Name"}
-              value={profile.first_name.length == 0 ? "NA" : profile.first_name}
-            />
-            <NameCard
-              title={"Last Name"}
-              value={profile.last_name.length == 0 ? "NA" : profile.last_name}
+              value={isEditing ? editedProfile.last_name : profile.last_name}
+              onChange={handleInputChange("last_name")}
             />
           </div>
+
           <p className="text-color my-2 mb-8 text-md font-poppins">
             Friends will be able to see this when you share links.
           </p>
-          {/* <CustomInput
+
+          <div className="my-2">
+            <CustomInput
+              placeholder="Enter your Contact Number"
+              readonly={!isEditing}
+              title="Contact Number"
+              type="tel"
+              value={
+                isEditing
+                  ? editedProfile.contact_number
+                  : profile.contact_number || ""
+              }
+              onChange={handleInputChange("contact_number")}
+            />
+          </div>
+
+          <CustomInput
+            placeholder="example@gmail.com"
+            readonly={true}
             title="Email"
             type="email"
-            placeholder="example@gmail.com"
-            value={profile?.email ?? ""}
-            readonly={true}
-            onChange={handleEmailChange}
-          /> */}
-          <NameCard title="Email" value={profile.email ?? "NA"} />
+            value={profile.email || ""}
+            onChange={handleInputChange("email")}
+          />
+
+          <div className="mt-4">
+            <CustomInput
+              placeholder="Coming Soon"
+              readonly={true}
+              title="Instagram Id"
+              type="text"
+              value={isEditing ? editedProfile.instagram_id : ""}
+              onChange={handleInputChange("instagram_id")}
+            />
+          </div>
+
           <p className="text-color my-2 mb-8 text-md font-poppins">
             <Link
               className="text-secondary"
@@ -125,27 +186,25 @@ export default function MyAccount() {
             </Link>
             <span> to update your email preferences.</span>
           </p>
-          {/* <CustomButton
+
+          <CustomButton
+            className="bg-secondary mx-auto w-full mt-4 flex justify-center items-center font-bold text-lg space-x-2"
             onClick={handleUpdateProfile}
-            className="bg-secondary mx-auto w-full mt-4 flex justify-center w-full font-bold text-lg space-x-2"
           >
-            Save
-          </CustomButton> */}
+            {isEditing ? (
+              <>
+                <FaSave className="w-5 h-5" />
+                <span>Save Changes</span>
+              </>
+            ) : (
+              <>
+                <FaPencilAlt className="w-5 h-5" />
+                <span>Edit Profile</span>
+              </>
+            )}
+          </CustomButton>
         </div>
       </div>
     </UserDefaultLayout>
-  );
-}
-
-type NameCardProps = {
-  title: string;
-  value: string;
-};
-function NameCard({ title, value }: NameCardProps) {
-  return (
-    <div className="w-full bg-primary  p-4 rounded-md">
-      <p className="inputTitle heading-color text-xl">{title}</p>
-      <p className={`h-12 text-color text-xl`}>{value}</p>
-    </div>
   );
 }
