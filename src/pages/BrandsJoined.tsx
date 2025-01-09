@@ -23,7 +23,7 @@ export default function BrandsJoined() {
       <Image
         className="rounded-xl"
         src={shopifyExpert}
-        width={150}
+        width={100}
         alt="Shopify Expert"
       />
       &
