@@ -130,6 +130,7 @@ const AuthPage: React.FC = () => {
             handleEmailSignup={handleEmailSignup}
             loading={loading}
             onVerify={handleVerifyAndLogin}
+            sendOtp={handleContinueToOTP}
           />
         );
       default:
