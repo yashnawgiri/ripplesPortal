@@ -23,6 +23,8 @@ import Testimonials from "@/components/Testimonials";
 
 import ResponsibilitySection from "./ResponsibilitySection";
 import HeroSection from "./HeroSection";
+import RevenueBoostCalculator from "@/components/RevenueBoostCalculator";
+import DataPrivacyComponent from "@/components/DataPrivacyComponent";
 
 function DemoButton() {
   const navigate = useNavigate();
@@ -45,6 +47,8 @@ export default function HomePage() {
         <HeroSection />
         <StatsSection />
         <PromoSection />
+        <RevenueBoostCalculator />
+        <DataPrivacyComponent />
         <DashboardCard />
         <RewardManagement />
         <ReferralManagement />
