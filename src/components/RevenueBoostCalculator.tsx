@@ -50,6 +50,7 @@ const RevenueBoostCalculator = () => {
   const calculateBoost = () => {
     const annualBoost =
       spend * ordersPerWeek * 52 * referralRate * conversionRate || 0;
+
     return annualBoost.toFixed(2);
   };
 
@@ -65,25 +66,25 @@ const RevenueBoostCalculator = () => {
 
   return (
     <motion.div
-      className="py-12 px-4 max-w-4xl mx-auto"
       key={animationKey} // Key ensures re-mount triggers animation
-      initial="hidden"
       animate="visible"
+      className="py-12 px-4 max-w-4xl mx-auto"
+      initial="hidden"
       variants={fadeIn}
     >
       <header className="text-center mb-1">
         <motion.h1
+          animate={{ opacity: 1, scale: 1 }}
           className="md:text-6xl text-3xl font-semibold mb-4 text-white"
           initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
         >
           Boost Your Revenue by 10% with Cash Back Referrals
         </motion.h1>
         <motion.p
+          animate={{ opacity: 1 }}
           className="text-md md:text-medium text-white max-w-3xl mx-auto"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
           Transform customers into advocates with cash incentives. Quick
@@ -94,9 +95,9 @@ const RevenueBoostCalculator = () => {
 
       <section>
         <motion.header
+          animate={{ opacity: 1 }}
           className="flex justify-center text-white"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.8 }}
         >
           <h2 className="text-2xl font-bold py-4 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
@@ -104,9 +105,9 @@ const RevenueBoostCalculator = () => {
           </h2>
         </motion.header>
         <motion.div
+          animate="visible"
           className="space-y-8 text-white"
           initial="hidden"
-          animate="visible"
           variants={{
             hidden: { opacity: 0 },
             visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
@@ -115,8 +116,8 @@ const RevenueBoostCalculator = () => {
           {inputConfig.map((slider, index) => (
             <motion.div
               key={index}
-              variants={fadeIn}
               className="slider-container"
+              variants={fadeIn}
             >
               <Slider {...slider} color="secondary" />
             </motion.div>
@@ -126,9 +127,9 @@ const RevenueBoostCalculator = () => {
         <Spacer y={6} />
 
         <motion.div
+          animate={{ scale: 1, opacity: 1 }}
           className="text-center"
           initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6 }}
         >
           <div className="text-white flex items-center justify-center py-1 px-6">
@@ -150,8 +151,8 @@ const RevenueBoostCalculator = () => {
                   <span className="font-semibold">The Rave</span>. Want to see
                   the full impact?{" "}
                   <Link
-                    to="/get-demo"
                     className="text-purple-500 underline font-semibold"
+                    to="/get-demo"
                   >
                     Unlock your growth potential today!
                   </Link>

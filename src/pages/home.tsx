@@ -23,6 +23,7 @@ import Testimonials from "@/components/Testimonials";
 
 import ResponsibilitySection from "./ResponsibilitySection";
 import HeroSection from "./HeroSection";
+
 import RevenueBoostCalculator from "@/components/RevenueBoostCalculator";
 import DataPrivacyComponent from "@/components/DataPrivacyComponent";
 

@@ -75,7 +75,7 @@ export default function OTP({
                 "Verify & Login"
               )}
             </Button>
-            <Button             
+            <Button
               className="w-full text-secondary !important z-100 border-none bg-transparent text-wrap"
               isDisabled={isResendDisabled}
               onClick={handleResendOtp}
@@ -90,7 +90,6 @@ export default function OTP({
             >
               Incorrect email? Click here to sign in and update it
             </Button>
-
           </div>
         </div>
       </div>
