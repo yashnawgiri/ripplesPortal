@@ -10,6 +10,7 @@ import BrandsJoined from "./BrandsJoined";
 import CustomButton from "@/components/CustomElements/CustomButton";
 import { siteConfig } from "@/config/site";
 import flyer from "@/assets/images/flayer.webp";
+import Typewriter from "@/components/Typewriter";
 
 function HeroSection() {
   const navigate = useNavigate();
@@ -65,6 +66,7 @@ function HeroSection() {
       >
         <motion.h1 className="home-h1 home-heading" variants={headingVariants}>
           {dashboardData.home.heading1}
+          <Typewriter words={dashboardData.home.heading1Array} />
         </motion.h1>
 
         <motion.p className="home-p" variants={descriptionVariants}>
