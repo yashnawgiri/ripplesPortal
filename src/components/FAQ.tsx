@@ -25,7 +25,12 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
           {isOpen ? <FaMinus className="icon" /> : <FaPlus className="icon" />}
         </button>
       </div>
-      {isOpen && <p className="faqDescription">{answer}</p>}
+      {isOpen && (
+        <div
+          className="faqDescription"
+          dangerouslySetInnerHTML={{ __html: answer }}
+        />
+      )}
     </div>
   );
 };

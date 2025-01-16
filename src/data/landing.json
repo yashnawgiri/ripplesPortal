@@ -1,7 +1,7 @@
 {
   "home": {
     "heading1": "Turn customers into ",
-    "heading1Array" : ["Content Creator","Influencer","Advocates","UGC creator"],
+    "heading1Array" : ["Content Creators","influencers","Advocates","UGC creators"],
     "heading2": "Your Customer is Your Next Ripple for Sales",
     "subHeading": "Increase Your Customer Referrals by 3X.",
     "description": "Ripples is an OS that helps you automate and scale influencer-style rewards for your customers, unlocking virality.",
@@ -67,9 +67,9 @@
       "answer": "Yes, Ripples offers dashboards that track sales, traffic generated, and conversions for each customer sharing referral links, allowing you to monitor the success of your referral program."
     },
     {
-      "question": "2.  How do customers receive their rewards?",
-"answer": "Customers receive their rewards through a seamless and flexible system:\nPurchase & Share Prompt: After making a purchase, customers are notified via a pop-up, email, and SMS, encouraging them to share their purchase with friends and family.\nReferral Success: When a referred friend makes a purchase, the customer earns a cash reward.\nReward Crediting Options:\nThe reward can be credited to the store wallet for future purchases.\nAlternatively, it can be transferred directly to the customer's bank account.\nPayment Process:\nThe rewards are credited after the brand's return policy period is over to ensure transaction completion.\nFor bank account transfers, Ripples processes payments weekly once the brand reviews and approves the reward amounts.\nThis system ensures a reliable and rewarding experience for both customers and brands."
-    },
+      "question": "2. How do customers receive their rewards?",
+      "answer": "<ul>\n  <li>\n    <strong>Purchase & Share Prompt:</strong>\n    <p>After making a purchase, customers are notified via:</p>\n    <ul>\n      <li>Pop-up</li>\n      <li>Email</li>\n      <li>SMS</li>\n    </ul>\n    <p>Encouraging them to share their purchase with friends and family.</p>\n  </li>\n  <li>\n    <strong>Referral Success:</strong>\n    <p>When a referred friend makes a purchase, the customer earns a cash reward.</p>\n  </li>\n  <li>\n    <strong>Reward Crediting Options:</strong>\n    <ul>\n      <li>The reward can be credited to the store wallet for future purchases.</li>\n      <li>Alternatively, it can be transferred directly to the customer's bank account.</li>\n    </ul>\n  </li>\n  <li>\n    <strong>Payment Process:</strong>\n    <ul>\n      <li>Rewards are credited after the brand's return policy period is over to ensure transaction completion.</li>\n      <li>For bank account transfers, Ripples processes payments weekly after the brand reviews and approves the reward amounts.</li>\n    </ul>\n  </li>\n</ul>"
+    },  
     {
       "question": "3. Is it easy to set up Ripples on my ecommerce site?",
       "answer": "Yes, Ripples is designed to be easy to set up and use. With a simple app that you can integrate from your Shopify Store, you can integrate and kick start Ripples in 3 easy steps."

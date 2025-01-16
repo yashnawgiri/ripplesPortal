@@ -6,15 +6,15 @@ import { Link } from "react-router-dom";
 const RevenueBoostCalculator = () => {
   const [spend, setSpend] = useState(500);
   const [ordersPerWeek, setOrdersPerWeek] = useState(100);
-  const [referralRate, setReferralRate] = useState(0.4);
-  const [conversionRate, setConversionRate] = useState(0.25);
+  const [referralRate, setReferralRate] = useState(0.2);
+  const [conversionRate, setConversionRate] = useState(0.5);
   const [animationKey, setAnimationKey] = useState(0);
   const inputConfig = [
     {
       label: "Average customer spend",
       value: spend,
       step: 10,
-      maxValue: 10000,
+      maxValue: 2500,
       minValue: 0,
       formatOptions: { style: "currency" as const, currency: "USD" as const },
       onChange: (value: any) => setSpend(Number(value)),
@@ -23,7 +23,7 @@ const RevenueBoostCalculator = () => {
       label: "Weekly Orders",
       value: ordersPerWeek,
       step: 10,
-      maxValue: 1000,
+      maxValue: 25000,
       minValue: 0,
       onChange: (value: any) => setOrdersPerWeek(Number(value)),
     },
@@ -88,8 +88,7 @@ const RevenueBoostCalculator = () => {
           transition={{ delay: 0.4, duration: 0.8 }}
         >
           Transform customers into advocates with cash incentives. Quick
-          15-minute integration and trusted by 30+ businesses for incremental
-          referral growth.
+          5-minute integration.
         </motion.p>
       </header>
 

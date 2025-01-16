@@ -49,7 +49,6 @@ export default function HomePage() {
         <StatsSection />
         <PromoSection />
         <RevenueBoostCalculator />
-        <DataPrivacyComponent />
         <DashboardCard />
         <RewardManagement />
         <ReferralManagement />
@@ -61,6 +60,7 @@ export default function HomePage() {
         <GradiantCards />
         <DemoButton />
         <FAQ />
+        <DataPrivacyComponent />
         <ResponsibilitySection />
         <DemoButton />
         {/* <Testimonials /> */}
