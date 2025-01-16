@@ -27,8 +27,8 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
       </div>
       {isOpen && (
         <div
-          className="faqDescription"
           dangerouslySetInnerHTML={{ __html: answer }}
+          className="faqDescription"
         />
       )}
     </div>
