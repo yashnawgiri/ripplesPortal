@@ -10,7 +10,7 @@ const DataPrivacyComponent: React.FC = () => {
       <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
         <img
           alt="data privacy"
-          className="object-cover w-4/5 h-auto rounded-lg shadow-lg"
+          className="object-cover w-4/5 h-auto rounded-lg shadow-lg hue-rotate-[260deg]"
           src={privacyImage}
         />
       </div>
