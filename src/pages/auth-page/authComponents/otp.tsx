@@ -19,7 +19,7 @@ export default function OTP({
   sendOtp,
 }: OTPProps) {
   const [otp, setOtp] = useState("");
-  const [timer, setTimer] = useState(60);
+  const [timer, setTimer] = useState(30);
   const [isResendDisabled, setIsResendDisabled] = useState(true);
 
   useEffect(() => {
@@ -62,7 +62,7 @@ export default function OTP({
             />
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-1">
             <Button
               className="w-full font-semibold bg-secondary text-white hover:bg-secondary/90 transition-colors"
               isDisabled={loading ?? false}
@@ -75,22 +75,20 @@ export default function OTP({
                 "Verify & Login"
               )}
             </Button>
-
             <Button
-              className="w-full text-white/80 border-none bg-transparent text-wrap"
-              onClick={handleEmailSignup}
-            >
-              Incorrect email? Click here to sign in and update it
-            </Button>
-
-            <Button
-              className="w-full text-white/80 border-none bg-transparent text-wrap"
+              className="w-full text-secondary !important z-100 border-none bg-transparent text-wrap"
               isDisabled={isResendDisabled}
               onClick={handleResendOtp}
             >
               {isResendDisabled
                 ? `Resend OTP in ${timer} seconds`
                 : "Resend OTP"}
+            </Button>
+            <Button
+              className="w-full text-white/80 border-none bg-transparent text-wrap"
+              onClick={handleEmailSignup}
+            >
+              Incorrect email? Click here to sign in and update it
             </Button>
           </div>
         </div>

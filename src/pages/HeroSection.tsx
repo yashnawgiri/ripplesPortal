@@ -8,6 +8,7 @@ import dashboardData from "./../data/landing.json";
 import CustomButton from "@/components/CustomElements/CustomButton";
 import { siteConfig } from "@/config/site";
 import flyer from "@/assets/images/flayer.webp";
+import Typewriter from "@/components/Typewriter";
 
 // Lazy load BrandsJoined
 const BrandsJoined = lazy(() => import("./BrandsJoined"));
@@ -86,6 +87,7 @@ function HeroSection() {
       >
         <motion.h1 className="home-h1 home-heading" variants={headingVariants}>
           {dashboardData.home.heading1}
+          <Typewriter words={dashboardData.home.heading1Array} />
         </motion.h1>
 
         <motion.p className="home-p" variants={descriptionVariants}>
