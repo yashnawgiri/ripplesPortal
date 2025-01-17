@@ -15,16 +15,13 @@ const DataPrivacyComponent: React.FC = () => {
           fully secure.
         </h3>
         <p className="text-base mb-2">
-          🔒 All the data on Ripples is hosted on Microsoft Azure Servers in the
-          India.
+          🔒 All the data on Ripples is hosted on Microsoft Azure Servers in India.
         </p>
         <p className="text-base mb-2">
-          🔒 All of your data on Ripples is secured by TLS (SSL) 256-bit
-          encryption.
+          🔒 All of your data on Ripples is secured by TLS (SSL) 256-bit encryption.
         </p>
         <p className="text-base mb-8">
-          🔒 All the Shopper and Store data stays private and is not shared
-          between parties.
+          🔒 All the Shopper and Store data stays private and is not shared between parties.
         </p>
         <Link
           className="px-6 w-full bg-secondary text-white py-3 rounded-lg text-lg font-semibold hover:bg-secondary-dark"
