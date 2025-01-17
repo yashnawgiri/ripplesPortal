@@ -17,20 +17,22 @@ const DataPrivacyComponent: React.FC = () => {
 
       {/* Text Section */}
       <div className="w-full md:w-1/2 bg-primary text-white p-6 md:p-8 rounded-lg text-center md:text-left">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">
-          Your data?
-        </h2>
+        <h2 className="text-4xl md:text-5xl font-bold mb-4">Your data?</h2>
         <h3 className="text-xl md:text-2xl font-semibold mb-6">
-          Always <span className="text-green-400 underline">private</span>, fully secure.
+          Always <span className="text-green-400 underline">private</span>,
+          fully secure.
         </h3>
         <p className="text-base md:text-lg mb-4">
-          🔒 All the data on Ripples is hosted on Microsoft Azure Servers in India.
+          🔒 All the data on Ripples is hosted on Microsoft Azure Servers in
+          India.
         </p>
         <p className="text-base md:text-lg mb-4">
-          🔒 All of your data on Ripples is secured by TLS (SSL) 256-bit encryption.
+          🔒 All of your data on Ripples is secured by TLS (SSL) 256-bit
+          encryption.
         </p>
         <p className="text-base md:text-lg mb-6">
-          🔒 All the Shopper and Store data stays private and is not shared between parties.
+          🔒 All the Shopper and Store data stays private and is not shared
+          between parties.
         </p>
         <Link
           className="inline-block px-8 py-3 bg-secondary text-white rounded-lg text-lg font-semibold hover:bg-secondary-dark transition duration-300"
