@@ -36,6 +36,7 @@ const Stepper: React.FC<StepperProps> = ({ currentStep, setCurrentStep }) => {
               ? setComplete(true)
               : setCurrentStep((prev: number) => prev + 1);
           }}
+          aria-label={currentStep === steps.length ? "Finish setup" : "Next step"}
         >
           {currentStep === steps.length ? "Finish" : "Next"}
         </button>

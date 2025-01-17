@@ -1,30 +1,34 @@
+/* eslint-disable max-len */
 import { Image } from "@nextui-org/image";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, Suspense, lazy } from "react";
 import { useNavigate } from "react-router-dom";
 
-// import BrandsJoined from "./BrandsJoined";
 import dashboardData from "./../data/landing.json";
-import BrandsJoined from "./BrandsJoined";
-
 import CustomButton from "@/components/CustomElements/CustomButton";
 import { siteConfig } from "@/config/site";
 import flyer from "@/assets/images/flayer.webp";
+
+// Lazy load BrandsJoined
+const BrandsJoined = lazy(() => import("./BrandsJoined"));
 
 function HeroSection() {
   const navigate = useNavigate();
   const ref = useRef(null);
 
-  // Use the `useInView` hook for scroll tracking. Removed triggerOnce: true to trigger animations every time the section is in view
-  const isInView = useInView(ref, { once: false, amount: 0.2 });
+  // Optimize intersection observer with larger threshold
+  const isInView = useInView(ref, { 
+    once: true, 
+    amount: 0.1
+  });
   const controls = useAnimation();
 
   useEffect(() => {
-    // Start the animation when the section is in view and stop it when it's out of view
     if (isInView) {
-      controls.start("visible");
-    } else {
-      controls.start("hidden");
+      // Use requestAnimationFrame to defer animation start
+      requestAnimationFrame(() => {
+        controls.start("visible");
+      });
     }
   }, [isInView, controls]);
 
@@ -34,21 +38,38 @@ function HeroSection() {
   };
 
   const headingVariants = {
-    hidden: { opacity: 0, y: -50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    hidden: { opacity: 0, transform: "translateY(-50px)" },
+    visible: { 
+      opacity: 1, 
+      transform: "translateY(0)",
+      transition: { duration: 0.5, ease: "easeOut" }
+    },
   };
 
   const descriptionVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.2 } },
+    hidden: { opacity: 0, transform: "translateY(20px)" },
+    visible: { 
+      opacity: 1, 
+      transform: "translateY(0)",
+      transition: { duration: 0.5, ease: "easeOut", delay: 0.1 }
+    },
   };
 
   const imageVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { 
+      opacity: 0,
+      y: 20
+    },
     visible: {
       opacity: 1,
-      scale: 1,
-      transition: { duration: 0.8, delay: 0.4 },
+      y: 0,
+      transition: { 
+        type: "spring",
+        stiffness: 50,
+        damping: 20,
+        duration: 0.8,
+        delay: 0.2 
+      },
     },
   };
 
@@ -76,15 +97,32 @@ function HeroSection() {
           className="home-img-mob md:hidden"
           initial="hidden"
           variants={imageVariants}
+          style={{
+            overflow: "hidden",
+            borderRadius: "24px",
+            boxShadow: "0 20px 70px rgba(0, 0, 0, 0.3)"
+          }}
         >
-          <Image
-            disableSkeleton
-            alt="home-image"
-            className=""
-            height="280px"
-            isZoomed={true}
-            src={flyer}
-          />
+          <div className="transition-transform duration-500 ease-in-out hover:scale-125 origin-center mt-8">
+            <Image
+              isBlurred
+              alt="GoRipples dashboard interface showcasing analytics and features - mobile view"
+              className="blur-load"
+              height={500}
+              width={500}
+              loading="eager"
+              src={flyer}
+              style={{
+                objectFit: "contain",
+                objectPosition: "center",
+                maxWidth: "100%",
+                height: "auto",
+                transform: "scale(1.15)",
+                transformOrigin: "center"
+              }}
+              radius="lg"
+            />
+          </div>
         </motion.div>
 
         <motion.div className="home-demo-div" variants={descriptionVariants}>
@@ -102,7 +140,9 @@ function HeroSection() {
           </motion.div>
         </motion.div>
 
-        <BrandsJoined />
+        <Suspense fallback={<div className="h-20" />}>
+          <BrandsJoined />
+        </Suspense>
       </motion.div>
 
       <motion.div
@@ -110,15 +150,32 @@ function HeroSection() {
         className="home-img"
         initial="hidden"
         variants={imageVariants}
+        style={{
+          overflow: "hidden",
+          borderRadius: "32px",
+          boxShadow: "0 25px 80px rgba(0, 0, 0, 0.35)"
+        }}
       >
-        <Image
-          disableSkeleton
-          alt="home-image"
-          className="my-4"
-          height="550px"
-          isZoomed={true}
-          src={flyer}
-        />
+        <div className="transition-transform duration-500 ease-in-out hover:scale-125 origin-center mt-8">
+          <Image
+            isBlurred
+            alt="GoRipples dashboard interface showcasing analytics and features"
+            className="my-4"
+            height={1200}
+            width={1200}
+            loading="lazy"
+            style={{
+              objectFit: "contain",
+              objectPosition: "center",
+              maxWidth: "100%",
+              height: "auto",
+              transform: "scale(1.15)",
+              transformOrigin: "center"
+            }}
+            radius="lg"
+            src={flyer}
+          />
+        </div>
       </motion.div>
     </div>
   );

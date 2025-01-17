@@ -61,9 +61,17 @@ const FormInput: React.FC<FormInputProps> = ({
   };
 
   return (
-    <div className={`form-wrapper ${loader ? "opacity-50" : ""}`}>
+    <form 
+      className={`form-wrapper ${loader ? "opacity-50" : ""}`}
+      onSubmit={(e) => {
+        e.preventDefault();
+        onFormSubmit();
+      }}
+      role="form"
+      aria-label="Registration form"
+    >
       {loader ? (
-        <div className="loader-comp">
+        <div className="loader-comp" role="status" aria-label="Loading">
           <Spinner color="default" labelColor="foreground" />
         </div>
       ) : null}
@@ -71,7 +79,8 @@ const FormInput: React.FC<FormInputProps> = ({
         <div key={toCamelCase(key)} className="form-element">
           <label className="text-title" htmlFor={toCamelCase(key)}>
             {key}
-            <span className="text-red-500">* </span>:
+            <span className="text-red-500" aria-hidden="true">* </span>
+            <span className="sr-only">Required</span>
           </label>
           <input
             required
@@ -84,22 +93,31 @@ const FormInput: React.FC<FormInputProps> = ({
             onChange={(e) => {
               setError("");
               const val = e.target.value;
-
               setValue(key, val);
             }}
+            aria-required="true"
+            aria-invalid={!checkValueByType(toCamelCase(key), values[key])}
+            aria-describedby={error ? `${toCamelCase(key)}-error` : undefined}
           />
         </div>
       ))}
       {error ? (
-        <div className="text-red-500 text-lg text-center">{error}</div>
+        <div 
+          className="text-red-500 text-lg text-center" 
+          role="alert"
+          aria-live="polite"
+        >
+          {error}
+        </div>
       ) : null}
       <CustomButton
         className="bg-secondary w-50p mx-auto mt-4 justify-center"
         onClick={onFormSubmit}
+        ariaLabel="Submit registration form"
       >
         Submit
       </CustomButton>
-    </div>
+    </form>
   );
 };
 

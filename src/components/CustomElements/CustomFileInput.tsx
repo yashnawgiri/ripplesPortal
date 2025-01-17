@@ -21,7 +21,12 @@ const CustomFileInput: React.FC<FileInputProps> = ({ title, onChange }) => {
       <p className="inputTitle heading-color text-md">{title}</p>
       <label className="inputFileLabel text-md text-color">
         {fileName ? fileName : "Add file or drop files here."}
-        <input className="hidden" type="file" onChange={handleFileChange} />
+        <input 
+          className="hidden" 
+          type="file" 
+          onChange={handleFileChange}
+          aria-label={title}
+        />
       </label>
     </div>
   );

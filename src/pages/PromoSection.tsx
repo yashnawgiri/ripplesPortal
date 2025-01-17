@@ -58,7 +58,7 @@ const PromoSection: React.FC = () => {
         <motion.div className="my-4 w-full" whileHover={hoverEffect.hover}>
           <Image
             disableSkeleton
-            alt="home-image"
+            alt="GoRipples promotional features showcase"
             height="auto"
             src={promoImg}
             width="100%"
@@ -73,7 +73,7 @@ const PromoSection: React.FC = () => {
         <motion.div className="my-4" whileHover={hoverEffect.hover}>
           <Image
             disableSkeleton
-            alt="Promo Image"
+            alt="GoRipples promotional features and benefits showcase"
             src={promoImg}
             width="900px"
           />
