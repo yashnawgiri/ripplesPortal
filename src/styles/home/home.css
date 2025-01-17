@@ -7,7 +7,7 @@
 }
 
 .home-div {
-    @apply md:w-3/6 text-left justify-center space-y-7;
+    @apply md:w-3/6 text-left flex flex-col justify-center align-middle space-y-7;
 }
 
 .home-heading {
