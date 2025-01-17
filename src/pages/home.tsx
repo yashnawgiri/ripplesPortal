@@ -60,10 +60,9 @@ export default function HomePage() {
         <GradiantCards />
         <DemoButton />
         <FAQ />
-        <DataPrivacyComponent />
         <ResponsibilitySection />
         <DemoButton />
-        {/* <Testimonials /> */}
+        <DataPrivacyComponent />
       </section>
     </DefaultLayout>
   );
