@@ -23,11 +23,11 @@ function LinkCodeSection() {
   }, [inView, animationControls]);
 
   const variants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 10 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+      transition: { duration: 0.3, ease: "easeOut" },
     },
   };
 
@@ -41,7 +41,7 @@ function LinkCodeSection() {
         animate={animationControls}
         className="w-full lg:w-1/2"
         initial="hidden"
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.3 }}
         variants={variants}
       >
         <h2 className="text-4xl sm:text-6xl font-bold home-heading">
@@ -57,7 +57,7 @@ function LinkCodeSection() {
         animate={animationControls}
         className="absolute bottom-5 left-10 hidden lg:block"
         initial="hidden"
-        transition={{ duration: 0.8, delay: 0.5 }}
+        transition={{ duration: 0.3, delay: 0.2 }}
         variants={variants}
       >
         <div className="flex justify-between w-96">
@@ -67,12 +67,16 @@ function LinkCodeSection() {
             className="object-contain"
             src={editShareImg}
             width={200}
+            loading="lazy"
+            style={{ willChange: "transform" }}
           />
           <Image 
             disableSkeleton 
             alt="Link sharing interface" 
             src={linkImg} 
-            width={200} 
+            width={200}
+            loading="lazy"
+            style={{ willChange: "transform" }}
           />
         </div>
       </motion.div>
@@ -81,9 +85,9 @@ function LinkCodeSection() {
         animate={animationControls}
         className="flex-1 flex justify-center items-center"
         initial="hidden"
-        transition={{ duration: 0.8, delay: 0.3 }}
+        transition={{ duration: 0.3, delay: 0.1 }}
         variants={{
-          hidden: { opacity: 0, scale: 0.9 },
+          hidden: { opacity: 0, scale: 0.95 },
           visible: { opacity: 1, scale: 1 },
         }}
       >
@@ -93,6 +97,8 @@ function LinkCodeSection() {
           className="max-w-full rounded-lg shadow-lg"
           src={linkModalImg}
           width={600}
+          loading="lazy"
+          style={{ willChange: "transform" }}
         />
       </motion.div>
     </div>

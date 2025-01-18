@@ -1,5 +1,5 @@
 import { Image } from "@nextui-org/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 import keyFeaturesData from "@/data/landing.json";
@@ -10,13 +10,24 @@ import step3 from "@/assets/images/step3.png";
 const steps = [step1, step2, step3];
 
 function KeyFeatures() {
+  const shouldReduceMotion = useReducedMotion();
+
+  const headingVariants = {
+    hidden: { opacity: 0, y: shouldReduceMotion ? -20 : -50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: shouldReduceMotion ? 0.3 : 1 }
+    }
+  };
+
   return (
     <div className="px-4 py-8" id="features">
       <motion.h1
         animate={{ opacity: 1, y: 0 }}
         className="text-4xl md:text-6xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-br from-white to-slate-400 py-2"
         initial={{ opacity: 0, y: -50 }}
-        transition={{ duration: 1 }}
+        variants={headingVariants}
       >
         Key Features
       </motion.h1>
@@ -37,10 +48,37 @@ type CardProps = {
 };
 
 const Card = ({ title, index }: CardProps) => {
-  const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.5 });
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.5 });
+  const shouldReduceMotion = useReducedMotion();
 
   // Define the widths for the images in descending order
-  const widths = [300, 260, 310];
+  const widths = {
+    mobile: [200, 180, 200],
+    desktop: [300, 260, 310]
+  };
+
+  const isMobile = window.innerWidth < 768;
+  const currentWidths = isMobile ? widths.mobile : widths.desktop;
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: shouldReduceMotion ? 20 : 50 
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: shouldReduceMotion ? 0.3 : 0.5, 
+        delay: shouldReduceMotion ? 0 : index * 0.2 
+      }
+    }
+  };
+
+  const imageHoverVariants = shouldReduceMotion ? {} : {
+    hover: { scale: 1.05 },
+    tap: { scale: 0.95 }
+  };
 
   return (
     <motion.li
@@ -48,11 +86,11 @@ const Card = ({ title, index }: CardProps) => {
       ref={ref}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       className="text-white text-2xl font-bold flex flex-col cursor-pointer items-center md:items-start"
-      initial={{ opacity: 0, y: 50 }}
-      transition={{ duration: 0.5, delay: index * 0.2 }}
-      viewport={{ once: false, amount: 0.3 }} // Ensures animation triggers every time it enters the viewport
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+      initial="hidden"
+      variants={cardVariants}
+      viewport={{ once: true, amount: 0.3 }}
+      whileHover={imageHoverVariants.hover}
+      whileTap={imageHoverVariants.tap}
     >
       <h1 className="py-8 text-xl md:text-2xl flex gap-1">
         <p>{`${index + 1}. `}</p> <p>{title}</p>
@@ -60,9 +98,15 @@ const Card = ({ title, index }: CardProps) => {
       <Image
         disableSkeleton
         alt={`Step ${index + 1}`}
-        className="transition-transform duration-300 hover:scale-105 "
+        className="transition-transform duration-300"
         src={steps[index]}
-        width={widths[index]} // Set the width based on the index
+        width={currentWidths[index]}
+        loading={index === 0 ? "eager" : "lazy"}
+        style={{
+          objectFit: "contain",
+          maxWidth: "100%",
+          height: "auto"
+        }}
       />
     </motion.li>
   );
