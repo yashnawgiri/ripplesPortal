@@ -147,8 +147,8 @@ const RevenueBoostCalculator = () => {
               <div className="flex flex-col space-y-4 text-left md:w-1/2">
                 <p className="text-lg">
                   That’s what your customers could be driving with{" "}
-                  <span className="font-semibold text-secondary">Ripples</span>. Want to see
-                  the full impact?{" "}
+                  <span className="font-semibold text-secondary">Ripples</span>.
+                  Want to see the full impact?{" "}
                   <Link
                     className="text-purple-500 underline font-semibold"
                     to="/get-demo"
