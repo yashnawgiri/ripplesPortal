@@ -5,7 +5,7 @@ import privacyImage from "@/assets/images/data_privacy.png";
 
 const DataPrivacyComponent: React.FC = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center w-full bg-primary p-6 md:p-12">
+    <div className="flex flex-col md:flex-row justify-center items-center w-full p-6 md:p-12">
       {/* Image Section */}
       <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
         <img
@@ -16,7 +16,7 @@ const DataPrivacyComponent: React.FC = () => {
       </div>
 
       {/* Text Section */}
-      <div className="w-full md:w-1/2 bg-primary text-white p-6 md:p-8 rounded-lg text-center md:text-left">
+      <div className="w-full md:w-1/2 text-white p-6 md:p-8 rounded-lg text-center md:text-left">
         <h2 className="text-4xl md:text-5xl font-bold mb-4">Your data?</h2>
         <h3 className="text-xl md:text-2xl font-semibold mb-6">
           Always <span className="text-green-400 underline">private</span>,
