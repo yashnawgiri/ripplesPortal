@@ -153,7 +153,7 @@ const AuthPage: React.FC = () => {
       <div className="absolute hidden md:block md:top-15 md:left-[20%] z-0">
         <Image
           disableSkeleton
-          alt="Coins"
+          alt="Decorative floating coins animation"
           className="animate-float"
           src={coins}
           width={350}
@@ -164,7 +164,7 @@ const AuthPage: React.FC = () => {
       <div className="absolute top-0 right-0 md:right-0 md:top-0 z-0">
         <Image
           disableSkeleton
-          alt="Phone with shopping"
+          alt="Mobile phone displaying shopping interface"
           className=" w-80 relative z-10 md:w-[800px] "
           src={gift1}
           width={700}
@@ -173,7 +173,7 @@ const AuthPage: React.FC = () => {
       <div className="absolute bottom-8 right-1/2 translate-x-1/2 md:translate-x-0 md:bottom-0 md:right-10 z-0">
         <Image
           disableSkeleton
-          alt="Shopping bag"
+          alt="Decorative floating shopping bag animation"
           className="animate-float-delayed"
           src={gift2}
           width={600}
@@ -184,7 +184,7 @@ const AuthPage: React.FC = () => {
       <div className="hidden md:block absolute md:bottom-2 md:left-80 z-0">
         <Image
           disableSkeleton
-          alt="rupees icon"
+          alt="Decorative floating rupee symbol animation"
           className="animate-float"
           src={rupee}
           width={300}
@@ -194,7 +194,7 @@ const AuthPage: React.FC = () => {
       <div className="hidden  md:block md:absolute md:w-svw md:h-svh md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-0 ">
         <Image
           disableSkeleton
-          alt="background shadow"
+          alt="Decorative background shadow effect"
           className="animate-float"
           src={backgroundImg}
           width={"100%"}

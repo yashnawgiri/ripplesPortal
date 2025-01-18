@@ -14,9 +14,9 @@ function ResponsibilitySection() {
         initial={{ opacity: 0, x: -50 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-4xl sm:text-6xl font-bold home-heading">
+        <h2 className="text-4xl sm:text-6xl font-bold home-heading">
           {responsibility.heading}
-        </h1>
+        </h2>
         <p className="text-gray-300 py-6 sm:py-8 text-lg sm:text-xl">
           {responsibility.description}
         </p>
@@ -31,6 +31,7 @@ function ResponsibilitySection() {
       >
         <Image
           disableSkeleton
+          alt="Contact us section showing customer support and communication features"
           className="max-w-full h-auto"
           src={contactUsImg}
           width={1300}

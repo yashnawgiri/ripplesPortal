@@ -4,7 +4,8 @@ interface CustomButtonProps {
   onClick: () => void;
   className: string;
   children: React.ReactNode;
-  disabled?: boolean; // Add this prop to enable/disable the button. Default is false.
+  disabled?: boolean;
+  ariaLabel?: string;
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
@@ -12,12 +13,14 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   className,
   children,
   disabled,
+  ariaLabel,
 }) => {
   return (
     <button
       className={`rounded-[36px] text-white px-7 py-3 ${className}`}
-      disabled={disabled} // Add your condition here to disable the button based on your requirements. For example, if the button should be disabled when a certain condition is met.
+      disabled={disabled}
       onClick={onClick}
+      aria-label={ariaLabel || (typeof children === 'string' ? children : undefined)}
     >
       {children}
     </button>

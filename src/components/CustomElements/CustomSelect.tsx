@@ -15,13 +15,17 @@ const CustomSelect: React.FC<SelectProps> = ({
   className,
   onChange,
 }) => {
+  const selectId = title.toLowerCase().replace(/\s+/g, '-');
+  
   return (
     <div className="w-full">
-      <p className="inputTitle heading-color text-md">{title}</p>
+      <label htmlFor={selectId} className="inputTitle heading-color text-md">{title}</label>
       <select
+        id={selectId}
         className={`${className} h-12 px-4 inputClass text-color text-md`}
         value={value}
         onChange={onChange}
+        aria-label={title}
       >
         {options.map((option, index) => (
           <option key={index} value={option}>

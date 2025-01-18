@@ -54,6 +54,7 @@ export default function Navbar() {
           <CustomButton
             className="bg-secondary"
             onClick={() => navigate(siteConfig.path.getDemo)}
+            ariaLabel="Book a demo"
           >
             Book Demo
           </CustomButton>
@@ -64,6 +65,7 @@ export default function Navbar() {
             onClick={() => {
               setIsOpen(!isOpen);
             }}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
           >
             {isOpen ? <CrossIcon /> : <HamburgerButton />}
           </button>
@@ -79,6 +81,7 @@ export default function Navbar() {
           onClick={() => {
             setIsOpen(false);
           }}
+          aria-label="Close mobile menu"
         >
           {/* <CrossIcon /> */}
         </button>
@@ -109,6 +112,7 @@ export default function Navbar() {
           <CustomButton
             className="bg-secondary mx-auto max-w-36"
             onClick={() => navigate(siteConfig.path.getDemo)}
+            ariaLabel="Book a demo"
           >
             Book Demo
           </CustomButton>
