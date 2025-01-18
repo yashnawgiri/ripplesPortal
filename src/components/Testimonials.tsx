@@ -1,6 +1,6 @@
 import { Image } from "@nextui-org/image";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { title } from "./primitives";
 import { BackwardArrowIcon, DoubleQuotesIcon, ForwardArrowIcon } from "./icons";
@@ -48,6 +48,10 @@ function TestimonialCard({ id }: TestimonialCardProps) {
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const testimonialsLength = dashboardData.testimonialsData.length;
+
+  useEffect(() => {
+    setCurrentIndex(0)
+  }, []);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonialsLength);
