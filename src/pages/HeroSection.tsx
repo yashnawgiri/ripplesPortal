@@ -1,55 +1,72 @@
+/* eslint-disable max-len */
 import { Image } from "@nextui-org/image";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, Suspense, lazy } from "react";
 import { useNavigate } from "react-router-dom";
 
-// import BrandsJoined from "./BrandsJoined";
 import dashboardData from "./../data/landing.json";
-import BrandsJoined from "./BrandsJoined";
-
 import CustomButton from "@/components/CustomElements/CustomButton";
 import { siteConfig } from "@/config/site";
 import flyer from "@/assets/images/flayer.webp";
 import Typewriter from "@/components/Typewriter";
 
+// Lazy load non-critical components
+const BrandsJoined = lazy(() => import("./BrandsJoined"));
+
+// Preload LCP image
+const preloadImage = () => {
+  const link = document.createElement('link');
+  link.rel = 'preload';
+  link.as = 'image';
+  link.href = flyer;
+  document.head.appendChild(link);
+};
+
 function HeroSection() {
   const navigate = useNavigate();
   const ref = useRef(null);
-
-  // Use the `useInView` hook for scroll tracking. Removed triggerOnce: true to trigger animations every time the section is in view
-  const isInView = useInView(ref, { once: false, amount: 0.2 });
+  const isInView = useInView(ref, { 
+    once: true, 
+    amount: 0.05
+  });
   const controls = useAnimation();
 
   useEffect(() => {
-    // Start the animation when the section is in view and stop it when it's out of view
+    preloadImage();
     if (isInView) {
       controls.start("visible");
-    } else {
-      controls.start("hidden");
     }
   }, [isInView, controls]);
 
+  // Simplified animation variants for better performance
   const buttonVariants = {
-    hover: { scale: 1.1, boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)" },
+    hover: { scale: 1.05 },
     tap: { scale: 0.95 },
   };
 
   const headingVariants = {
-    hidden: { opacity: 0, y: -50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    hidden: { opacity: 0, y: -20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.2 }
+    },
   };
 
   const descriptionVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.2 } },
+    hidden: { opacity: 0, y: 10 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.2, delay: 0.1 }
+    },
   };
 
   const imageVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      scale: 1,
-      transition: { duration: 0.8, delay: 0.4 },
+      transition: { duration: 0.3 }
     },
   };
 
@@ -61,7 +78,7 @@ function HeroSection() {
         initial="hidden"
         variants={{
           hidden: { opacity: 0 },
-          visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+          visible: { opacity: 1 },
         }}
       >
         <motion.h1 className="home-h1 home-heading" variants={headingVariants}>
@@ -78,15 +95,33 @@ function HeroSection() {
           className="home-img-mob md:hidden"
           initial="hidden"
           variants={imageVariants}
+          style={{
+            overflow: "hidden",
+            borderRadius: "24px",
+            boxShadow: "0 20px 70px rgba(0, 0, 0, 0.2)"
+          }}
         >
-          <Image
-            disableSkeleton
-            alt="home-image"
-            className=""
-            height="280px"
-            isZoomed={true}
-            src={flyer}
-          />
+          <div className="transition-transform duration-300 ease-in-out hover:scale-110 origin-center mt-8">
+            <Image
+              isBlurred
+              alt="GoRipples dashboard interface showcasing analytics and features - mobile view"
+              className="blur-load"
+              height={300}
+              width={300}
+              loading="eager"
+              src={flyer}
+              disableSkeleton={true}
+              style={{
+                objectFit: "contain",
+                objectPosition: "center",
+                maxWidth: "100%",
+                height: "auto",
+                transform: "scale(1.1)",
+                transformOrigin: "center",
+              }}
+              radius="lg"
+            />
+          </div>
         </motion.div>
 
         <motion.div className="home-demo-div" variants={descriptionVariants}>
@@ -98,29 +133,50 @@ function HeroSection() {
             <CustomButton
               className="font-bold bg-custom-gradient md:text-2xl text-xl"
               onClick={() => navigate(siteConfig.path.getDemo)}
+              ariaLabel="Book a demo"
             >
               {dashboardData.home.demoButton}
             </CustomButton>
           </motion.div>
         </motion.div>
 
-        <BrandsJoined />
+        <Suspense fallback={<div className="h-20" aria-label="Loading brands section" />}>
+          <BrandsJoined />
+        </Suspense>
       </motion.div>
 
       <motion.div
         animate={controls}
-        className="home-img"
+        className="home-img hidden md:block"
         initial="hidden"
         variants={imageVariants}
+        style={{
+          overflow: "hidden",
+          borderRadius: "32px",
+          boxShadow: "0 25px 80px rgba(0, 0, 0, 0.35)"
+        }}
       >
-        <Image
-          disableSkeleton
-          alt="home-image"
-          className="my-4"
-          height="550px"
-          isZoomed={true}
-          src={flyer}
-        />
+        <div className="transition-transform duration-300 ease-in-out hover:scale-125 origin-center mt-8">
+          <Image
+            isBlurred
+            alt="GoRipples dashboard interface showcasing analytics and features"
+            className="my-4"
+            height={1200}
+            width={1200}
+            loading="lazy"
+            style={{
+              objectFit: "contain",
+              objectPosition: "center",
+              maxWidth: "100%",
+              height: "auto",
+              transform: "scale(1.15)",
+              transformOrigin: "center",
+              willChange: "transform"
+            }}
+            radius="lg"
+            src={flyer}
+          />
+        </div>
       </motion.div>
     </div>
   );
