@@ -204,6 +204,7 @@ export default function ReferralPopup({
                           color="secondary"
                           variant="flat"
                           onClick={handleCopy}
+                          aria-label="Copy referral link"
                         >
                           <CopyIcon />
                         </Button>
@@ -216,6 +217,7 @@ export default function ReferralPopup({
                         className="bg-blue-600 text-white"
                         variant="flat"
                         onClick={() => shareOnSocial("facebook")}
+                        aria-label="Share on Facebook"
                       >
                         <FaFacebook size={20} />
                       </Button>
@@ -224,6 +226,7 @@ export default function ReferralPopup({
                         className="bg-sky-500 text-white"
                         variant="flat"
                         onClick={() => shareOnSocial("twitter")}
+                        aria-label="Share on Twitter"
                       >
                         <TwitterIcon size={20} />
                       </Button>
@@ -232,6 +235,7 @@ export default function ReferralPopup({
                         className="bg-blue-700 text-white"
                         variant="flat"
                         onClick={() => shareOnSocial("linkedin")}
+                        aria-label="Share on LinkedIn"
                       >
                         <FaLinkedin size={20} />
                       </Button>

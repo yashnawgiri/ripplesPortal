@@ -1,6 +1,6 @@
 import { Image } from "@nextui-org/image";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { title } from "./primitives";
 import { BackwardArrowIcon, DoubleQuotesIcon, ForwardArrowIcon } from "./icons";
@@ -31,10 +31,15 @@ function TestimonialCard({ id }: TestimonialCardProps) {
       <div className="singleTestimonialInnerContainer">
         <div className="flex justify-between">
           <div className="flex items-center space-x-2">
-            <Image height={40} src={Avatars[id]} width={40} />
+            <Image 
+              height={40} 
+              src={Avatars[id]} 
+              width={40} 
+              alt={`${testimonial.name}'s profile picture`}
+            />
             <div className="items-center space-y-1">
               <h3 className="text-md text-white">{testimonial.name}</h3>
-              <h4 className="text-xs text-color">{testimonial.title}</h4>
+              <p className="text-xs text-color">{testimonial.title}</p>
             </div>
           </div>
           <DoubleQuotesIcon />
@@ -48,6 +53,10 @@ function TestimonialCard({ id }: TestimonialCardProps) {
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const testimonialsLength = dashboardData.testimonialsData.length;
+
+  useEffect(() => {
+    setCurrentIndex(0)
+  }, []);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonialsLength);
@@ -80,11 +89,11 @@ export default function Testimonials() {
         viewport={{ once: true }}
         whileInView={{ opacity: 1 }}
       >
-        <h1
+        <h2
           className={`${title({ size: "lg", color: "foreground", weight: "bold" })} h-20`}
         >
           {dashboardData.ComponentsData.Testimonials.title}
-        </h1>
+        </h2>
         <p className="text-base max-w-2xl py-4 text-color mx-auto">
           {dashboardData.ComponentsData.Testimonials.description}
         </p>
@@ -104,6 +113,7 @@ export default function Testimonials() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={handlePrevious}
+            aria-label="Previous testimonial"
           >
             <BackwardArrowIcon />
           </motion.button>
@@ -112,6 +122,7 @@ export default function Testimonials() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleNext}
+            aria-label="Next testimonial"
           >
             <ForwardArrowIcon />
           </motion.button>
