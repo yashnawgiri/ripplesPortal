@@ -21,12 +21,14 @@ import MyAccount from "@/pages/user-portal/myAccount";
 import Transactions from "@/pages/user-portal/Transactions";
 import NotFound from "@/pages/notFound";
 import AuthPage from "@/pages/auth-page/AuthPage";
+import UGCHomePage from "./pages/ugcHome";
 
 function App() {
   return (
     <Suspense fallback={<Fallback />}>
       <Routes>
         <Route element={<HomePage />} path={siteConfig.path.home} />
+        <Route element={<UGCHomePage />} path={siteConfig.path.ugcHome} />
         <Route element={<GetDemo />} path={siteConfig.path.getDemo} />
         <Route element={<AboutPage />} path={siteConfig.path.about} />
         <Route

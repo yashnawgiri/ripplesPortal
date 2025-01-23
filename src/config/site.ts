@@ -15,6 +15,7 @@ export const siteConfig = {
     "Turn customers into influencers, advocates, and UGC creators - your RIPPLERS!",
   path: {
     home: "/",
+    ugcHome: "/ugc-home",
     getDemo: "/get-demo",
     about: "/about",
     features: "/features",
