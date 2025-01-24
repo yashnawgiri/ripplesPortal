@@ -1,6 +1,11 @@
 import * as React from "react";
 
 import { IconSvgProps } from "@/types";
+// import Icon1 from "@/assets/icons/icon1.svg";
+// import Icon2 from "@/assets/icons/icon2.svg";
+// import Icon3 from "@/assets/icons/icon3.svg";
+// import Icon4 from "@/assets/icons/icon4.svg";
+
 
 export const Logo: React.FC<IconSvgProps> = ({
   size = 36,
@@ -212,6 +217,23 @@ export const NextUILogo: React.FC<IconSvgProps> = (props) => {
     </svg>
   );
 };
+
+// export const BenefitSectionIcons: React.FC<{ icon: number }> = ({ icon }) => {
+//   switch (icon) {
+//     case 0: {
+//       return <Icon1 />;
+//     }
+//     case 1: {
+//       return <Icon2 />;
+//     }
+//     case 2: {
+//       return <Icon3 />;
+//     }
+//     default: {
+//       return <Icon4 />;
+//     }
+//   }
+// };
 
 export const DashboardCardIcon: React.FC<{ icon: number }> = ({ icon }) => {
   switch (icon) {

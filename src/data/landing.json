@@ -1,7 +1,13 @@
 {
   "home": {
     "heading1": "Turn customers into ",
-    "heading1Array" : ["Content Creators","Influencers","Advocates","UGC Creators","Referrers"],
+    "heading1Array": [
+      "Content Creators",
+      "Influencers",
+      "Advocates",
+      "UGC Creators",
+      "Referrers"
+    ],
     "heading2": "Your Customer is Your Next Ripple for Sales",
     "subHeading": "Increase Your Customer Referrals by 3X.",
     "description": "Ripples is an OS that helps you automate and scale influencer-style rewards for your customers, unlocking virality.",
@@ -25,7 +31,39 @@
     },
     "HowDoesItWorks": {
       "title": "How does it work?",
-      "description": "Use our Shopify/Ecommerce Site plugin and SaaS to gamify the user experience post-purchase, ensuring your customers become brand advocates."
+      "description": "Use our Shopify/Ecommerce Site plugin and SaaS to gamify the user experience post-purchase, ensuring your customers become brand advocates.",
+      "data": [
+        {
+          "number": 1,
+          "title": "Setup reward programs",
+          "description": "Use our Shopify app as a plugin to create gamified, actionable steps post-purchase, encouraging your customers to share their purchase with a unique link."
+        },
+        {
+          "number": 2,
+          "title": "Shopper receives CTA at POS",
+          "description": "As soon as a shopper makes a purchase, they receive a pop-up, email, and SMS offering cash for sharing their purchase."
+        },
+        {
+          "number": 3,
+          "title": "Shopper shares amongst followers",
+          "description": "The shopper shares their purchase with their followers and social circle."
+        },
+        {
+          "number": 4,
+          "title": "Brand tracks sales & traffic",
+          "description": "Dashboards track sales, traffic generated, and conversions for each customer sharing referral links."
+        },
+        {
+          "number": 5,
+          "title": "Brands give out influencer style rewards - cash in the ripple wallet",
+          "description": "If anyone makes a purchase through the customer’s unique link, brands provide them with an affiliate-style cash reward after the return period ends. Your shoppers access a portal to access gamified rewards."
+        },
+        {
+          "number": 6,
+          "title": "Identify Micro Influencers amongst shoppers",
+          "description": "Identify and incentivize customers with significant social media followings (over 5,000 followers) to become micro-influencers for your brand. Provide them with unique tasks and rewards to create user-generated content (UGC) at scale."
+        }
+      ]
     },
     "FAQ": {
       "title": "Frequently Asked Questions",
@@ -42,25 +80,24 @@
       "description": "Customers earn store credits or direct bank cashback on all their successful referrals. Let your customers enjoy seamless rewards! "
     },
     "milestone": {
-      "heading": ["Milestone Based" ,"Gifting"],
+      "heading": ["Milestone Based", "Gifting"],
       "description": "Make rewards exciting by gamifying incentives. Set milestones that unlock exclusive gifts for referrals or orders."
     }
   },
-    "referral": {
-      "heading": "Direct Referrals ✨",
-      "heading2": ["Automate Your" ,"Referrals Campaigns"],
-      "description": "Let Ripples manage your referral campaigns while you stay focused on growing your products. Our system rewards customers for bringing in new sign-ups and purchases, with seamless payouts for everyone involved."
-      ,"lists": [
-        "Automate & streamline direct referral campaigns with ease",
-        "Earn rewards for every referral-driven sign-up and purchase",
-        "Fast, automatic payouts for both referrers and new customers"
-      ]
+  "referral": {
+    "heading": "Direct Referrals ✨",
+    "heading2": ["Automate Your", "Referrals Campaigns"],
+    "description": "Let Ripples manage your referral campaigns while you stay focused on growing your products. Our system rewards customers for bringing in new sign-ups and purchases, with seamless payouts for everyone involved.",
+    "lists": [
+      "Automate & streamline direct referral campaigns with ease",
+      "Earn rewards for every referral-driven sign-up and purchase",
+      "Fast, automatic payouts for both referrers and new customers"
+    ]
   },
-   "linkCode" : {
-      "heading": ["Link and","Code Management"],
-      "description": "Every customer is given their own vanity URL and code that is easy to remember and share. Our “one-time use codes” make sure there’s no code leakage across any discount site."
-
-   },
+  "linkCode": {
+    "heading": ["Link and", "Code Management"],
+    "description": "Every customer is given their own vanity URL and code that is easy to remember and share. Our “one-time use codes” make sure there’s no code leakage across any discount site."
+  },
   "faqData": [
     {
       "question": "1. Can I track the performance of my referral program?",
@@ -69,7 +106,7 @@
     {
       "question": "2. How do customers receive their rewards?",
       "answer": "<ul>\n  <li>\n    <strong>Purchase & Share Prompt:</strong>\n    <p>After making a purchase, customers are notified via:</p>\n    <ul>\n      <li>Pop-up</li>\n      <li>Email</li>\n      <li>SMS</li>\n    </ul>\n    <p>Encouraging them to share their purchase with friends and family.</p>\n  </li>\n  <li>\n    <strong>Referral Success:</strong>\n    <p>When a referred friend makes a purchase, the customer earns a cash reward.</p>\n  </li>\n  <li>\n    <strong>Reward Crediting Options:</strong>\n    <ul>\n      <li>The reward can be credited to the store wallet for future purchases.</li>\n      <li>Alternatively, it can be transferred directly to the customer's bank account.</li>\n    </ul>\n  </li>\n  <li>\n    <strong>Payment Process:</strong>\n    <ul>\n      <li>Rewards are credited after the brand's return policy period is over to ensure transaction completion.</li>\n      <li>For bank account transfers, Ripples processes payments weekly after the brand reviews and approves the reward amounts.</li>\n    </ul>\n  </li>\n</ul>"
-    },  
+    },
     {
       "question": "3. Is it easy to set up Ripples on my ecommerce site?",
       "answer": "Yes, Ripples is designed to be easy to set up and use. With a simple app that you can integrate from your Shopify Store, you can integrate and kick start Ripples in 3 easy steps."
@@ -91,38 +128,6 @@
     {
       "title": "Get Ad-worthy content from customers",
       "description": "UGC created by customers can then be repurposed into advertisements, providing you with authentic and cost-effective marketing material."
-    }
-  ],
-  "HowDoesItWorkData": [
-    {
-      "number": 1,
-      "title": "Setup reward programs",
-      "description": "Use our Shopify app as a plugin to create gamified, actionable steps post-purchase, encouraging your customers to share their purchase with a unique link."
-    },
-    {
-      "number": 2,
-      "title": "Shopper receives CTA at POS",
-      "description": "As soon as a shopper makes a purchase, they receive a pop-up, email, and SMS offering cash for sharing their purchase."
-    },
-    {
-      "number": 3,
-      "title": "Shopper shares amongst followers",
-      "description": "The shopper shares their purchase with their followers and social circle."
-    },
-    {
-      "number": 4,
-      "title": "Brand tracks sales & traffic",
-      "description": "Dashboards track sales, traffic generated, and conversions for each customer sharing referral links."
-    },
-    {
-      "number": 5,
-      "title": "Brands give out influencer style rewards - cash in the ripple wallet",
-      "description": "If anyone makes a purchase through the customer’s unique link, brands provide them with an affiliate-style cash reward after the return period ends. Your shoppers access a portal to access gamified rewards."
-    },
-    {
-      "number": 6,
-      "title": "Identify Micro Influencers amongst shoppers",
-      "description": "Identify and incentivize customers with significant social media followings (over 5,000 followers) to become micro-influencers for your brand. Provide them with unique tasks and rewards to create user-generated content (UGC) at scale."
     }
   ],
   "dashboardCardData": [
@@ -179,7 +184,7 @@
     }
   ],
   "responsibility": {
-       "heading":"We take ownership of your referral outcomes",
-       "description":"With our 24*7 dedicated customer service and complete involvement in setup and running your referral programs, we ensure you get the necessary outcomes."
+    "heading": "We take ownership of your referral outcomes",
+    "description": "With our 24*7 dedicated customer service and complete involvement in setup and running your referral programs, we ensure you get the necessary outcomes."
   }
 }
