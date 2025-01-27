@@ -1,14 +1,20 @@
+/* eslint-disable max-len */
 
+import pic1 from "@/assets/images/profilePics/profilepic1.jpg";
+import pic2 from "@/assets/images/profilePics/profilepic2.jpg";
+import pic3 from "@/assets/images/profilePics/profilepic3.jpg";
 
 export default function ShoppersBanner() {
+    const pics = [pic1, pic2, pic3];
+
     return (
         <div className="py-4 px-6">
             <div className="max-w-7xl mx-auto flex items-center gap-4">
                 <div className="flex -space-x-4">
-                    {[...Array(3)].map((_, i) => (
+                    {pics.map((pic, i) => (
                         <div key={i} className="relative w-12 h-12 rounded-full border-2 border-white overflow-hidden">
                             <img
-                                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-24%20233814-R4SCVr7zIel197jr4bvggtdshk9IpZ.png"
+                                src={pic}
                                 alt={`Shopper ${i + 1}`}
                                 className="w-full h-full object-cover"
                             />

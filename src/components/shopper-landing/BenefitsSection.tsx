@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-import { DashboardCardIcon } from "@/components/icons"
 
 import "@/styles/home/dashboardCard.css";
 import dashboardImage from "@/assets/images/benefitsSectionImage.png";
@@ -7,6 +6,7 @@ import dashboardData from "@/data/shopperLanding.json";
 
 import { Image } from "@nextui-org/image";
 import { motion } from "framer-motion";
+import { BenefitSectionIcons } from './../icons';
 
 const cardVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -99,7 +99,7 @@ function Card({ item }: CardProps) {
             whileTap={{ scale: 0.95 }}
         >
             <div className="flex flex-col items-center md:items-start mb-4">
-                <DashboardCardIcon icon={item.icon} />
+                <BenefitSectionIcons icon={item.icon}/>
                 <h1 className="text-lg md:text-xl font-semibold md:text-start text-white mt-2">
                     {item.title}
                 </h1>

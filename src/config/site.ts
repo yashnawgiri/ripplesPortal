@@ -56,7 +56,7 @@ export const siteConfig = {
     },
     {
       label: "Shoppers: Access Rewards",
-      href: "/sign-in",
+      href: "/shopper-home",
     },
   ],
   navMenuItems: [

@@ -92,9 +92,8 @@ function BottomSection() {
                         boxShadow: "0 20px 70px rgba(0, 0, 0, 0.2)"
                     }}
                 >
-                    <div className="transition-transform duration-300 ease-in-out hover:scale-110 origin-center mt-8">
+                    <div className="mt-8">
                         <Image
-                            isBlurred
                             alt="GoRipples dashboard interface showcasing analytics and features - mobile view"
                             className="blur-load"
                             height={300}
@@ -107,8 +106,6 @@ function BottomSection() {
                                 objectPosition: "center",
                                 maxWidth: "100%",
                                 height: "auto",
-                                transform: "scale(1.1)",
-                                transformOrigin: "center",
                             }}
                             radius="lg"
                         />
@@ -143,7 +140,7 @@ function BottomSection() {
                     boxShadow: "0 25px 80px rgba(0, 0, 0, 0.35)"
                 }}
             >
-                <div className="transition-transform duration-300 ease-in-out hover:scale-125 origin-center mt-8">
+                <div className="mt-8">
                     <Image
                         alt="GoRipples dashboard interface showcasing analytics and features"
                         className="my-4"
@@ -155,9 +152,7 @@ function BottomSection() {
                             objectPosition: "center",
                             maxWidth: "100%",
                             height: "auto",
-                            transform: "scale(1.15)",
-                            transformOrigin: "center",
-                            willChange: "transform"
+                            transform: "scale(1.15)"
                         }}
                         radius="lg"
                         src={bottomSectionImage}

@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import dashboardData from '@/data/shopperLanding.json';
 import CustomButton from "@/components/CustomElements/CustomButton";
 import { siteConfig } from "@/config/site";
-import flyer from "@/assets/images/flayer.webp";
+import flyer from "@/assets/images/shopperPageFlayer.png";
 import Typewriter from "@/components/Typewriter";
 
 // Lazy load non-critical components
