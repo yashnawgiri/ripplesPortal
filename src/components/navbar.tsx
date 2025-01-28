@@ -11,14 +11,16 @@ export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const navItems =
-    location.pathname === "/shopper"
-      ? siteConfig.navItems.map((item) =>
-        item.label === "Shoppers: Access Rewards"
-          ? { label: "Sign-In", href: "/sign-in" }
-          : item
-      )
-      : siteConfig.navItems;
+  let navItems = siteConfig.navItems;
+  const btn = {
+    label: "Book Demo",
+    href: siteConfig.path.getDemo,
+  }
+  if (location.pathname === "/shopper") {
+    navItems = siteConfig.shopperPageNavItems;
+    btn.label = "Sign-In"
+    btn.href = siteConfig.path.signIn
+  }
 
   return (
     <nav
@@ -51,8 +53,7 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   isActive
                     ? "text-white"
-                    : `${item.href === "/shopper" 
-                      || item.href === "/sign-in"
+                    : `${item.href === "/shopper"
                       ? "bg-secondary px-6 py-3 rounded-3xl text-white"
                       : "text-color"
                     }`
@@ -67,10 +68,10 @@ export default function Navbar() {
         <div className="hidden md:block">
           <CustomButton
             className="bg-secondary"
-            onClick={() => navigate(siteConfig.path.getDemo)}
-            ariaLabel="Book a demo"
+            onClick={() => navigate(btn.label)}
+            ariaLabel={btn.label}
           >
-            Book Demo
+            {btn.label}
           </CustomButton>
         </div>
         <div className="md:hidden">
@@ -124,10 +125,10 @@ export default function Navbar() {
           )}
           <CustomButton
             className="bg-secondary mx-auto max-w-36"
-            onClick={() => navigate(siteConfig.path.getDemo)}
-            ariaLabel="Book a demo"
+            onClick={() => navigate(btn.href)}
+            ariaLabel={btn.label}
           >
-            Book Demo
+            {btn.label}
           </CustomButton>
         </div>
       </div>
