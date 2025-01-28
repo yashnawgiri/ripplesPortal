@@ -173,7 +173,7 @@ function HeroSection() {
               transform: "scale(1.15)",
               transformOrigin: "center",
               willChange: "transform",
-              backgroundColor: "transparent" // Add this
+              backgroundColor: "transparent"
             }}
             radius="lg"
             src={flyer}
