@@ -12,7 +12,7 @@ export default function Navbar() {
   const location = useLocation();
 
   const navItems =
-    location.pathname === "/shopper-home"
+    location.pathname === "/shopper"
       ? siteConfig.navItems.map((item) =>
         item.label === "Shoppers: Access Rewards"
           ? { label: "Sign-In", href: "/sign-in" }
@@ -51,7 +51,7 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   isActive
                     ? "text-white"
-                    : `${item.href === "/shopper-home" 
+                    : `${item.href === "/shopper" 
                       || item.href === "/sign-in"
                       ? "bg-secondary px-6 py-3 rounded-3xl text-white"
                       : "text-color"

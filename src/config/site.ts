@@ -15,7 +15,7 @@ export const siteConfig = {
     "Turn customers into influencers, advocates, and UGC creators - your RIPPLERS!",
   path: {
     home: "/",
-    shopperHome: "/shopper-home",
+    shopperHome: "/shopper",
     getDemo: "/get-demo",
     about: "/about",
     features: "/features",
@@ -56,7 +56,7 @@ export const siteConfig = {
     },
     {
       label: "Shoppers: Access Rewards",
-      href: "/shopper-home",
+      href: "/shopper",
     },
   ],
   navMenuItems: [
