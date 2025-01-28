@@ -11,7 +11,7 @@
 }
 
 .home-heading {
-    @apply lg:max-w-[44rem] pb-10 text-center lg:text-start leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400;
+    @apply lg:max-w-[44rem] text-center lg:text-start leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400;
 }
 
 .white-gray-gradient {

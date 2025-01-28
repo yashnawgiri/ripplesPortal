@@ -54,7 +54,7 @@ const Typewriter = ({
   ]);
 
   return (
-    <div className="typewriter bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
+    <div className="typewriter h-32 pb-12 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
       {displayedText}
       <span className="cursor bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent animate-blink">
         |
