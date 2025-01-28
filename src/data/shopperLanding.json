@@ -1,0 +1,75 @@
+{
+  "home": {
+    "heading1": "Monetize your influence now for ",
+    "heading1Array": [
+      "Referring friends",
+      "Creating reels",
+      "Sharing your purchase on social media"
+    ],
+    "description": "Earn cash rewards and cashback instantly for every purchase, for referring your friends and posting on social media!",
+    "demoButton": "Earn Cashback Now"
+  },
+  "stats": [
+    { 
+      "value": "₹25K", 
+      "description": "Average Cash Earned/mo" },
+    {
+      "value": "80%",
+      "description": "Earn upto 80% cashback on your purchases"
+    },
+    {
+      "value": "5X",
+      "description": "Your earnings if you are a creator/influencer"
+    }
+  ],
+  "HowDoesItWorks": {
+    "title": "How does it work?",
+    "description": "Turn your passions into profit. Ripples lets you create shoppable links at partner brands to share products your friends & audience loves.\n  When you post , you earn.\n When they shop, you earn more.",
+    "data": [
+      {
+        "number": 1,
+        "title": "Shop Smart",
+        "description": "Purchase at our wide network of partner brands and stores."
+      },
+      {
+        "number": 2,
+        "title": "Share your purchase on Social media",
+        "description": "Post about your purchase on social media by creating a reel and tagging the brand and Ripples."
+      },
+      {
+        "number": 3,
+        "title": "Earn Real Cash & Cashbacks",
+        "description": "Enjoy the convenience of having your cash rewards deposited directly into your bank account or brand’s store wallets!"
+      }
+    ]
+  },
+  "benefitsSection": {
+    "heading": "Benefits of using Ripples",
+    "data": [
+      {
+        "icon": 0,
+        "title": "Real Cash Rewards",
+        "description": "No more points or vouchers. Earn real money with every purchase, where 1 Rs = 1 Rs , unlimited usage."
+      },
+      {
+        "icon": 1,
+        "title": "Instant Transfers*",
+        "description": "Receive your cashback and rewards instantly, without any delays."
+      },
+      {
+        "icon": 2,
+        "title": "Extensive Partnerships",
+        "description": "Shop from a diverse range of partner stores & brands to maximize earnings."
+      },
+      {
+        "icon": 3,
+        "title": "Earn fixed + variable reward",
+        "description": "Earn an assured cash amount every time you post, also earn commissions from sales through your unique links."
+      }
+    ]
+  },
+  "bottomSection": {
+    "heading": "Sign up now and see how easy it is to boost your cash flow with every purchase",
+    "button": "Start 30 days free trial"
+  }
+}

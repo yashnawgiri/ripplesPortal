@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 
 import { CrossIcon, DotIcon, HamburgerButton } from "./icons";
 import CustomButton from "./CustomElements/CustomButton";
@@ -9,6 +9,16 @@ import { siteConfig } from "@/config/site";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const navItems =
+    location.pathname === "/shopper"
+      ? siteConfig.navItems.map((item) =>
+        item.label === "Shoppers: Access Rewards"
+          ? { label: "Sign-In", href: "/sign-in" }
+          : item
+      )
+      : siteConfig.navItems;
 
   return (
     <nav
@@ -26,7 +36,7 @@ export default function Navbar() {
           </span>
         </Link>
         <div className="hidden md:flex md:items-center space-x-10">
-          {siteConfig.navItems.map((item) =>
+          {navItems.map((item) =>
             item.label === "Features" ? (
               <a
                 key={item.href}
@@ -41,13 +51,17 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   isActive
                     ? "text-white"
-                    : `${item.href == "/sign-in" ? "bg-secondary px-6 py-3 rounded-3xl text-white" : "text-color"}`
+                    : `${item.href === "/shopper" 
+                      || item.href === "/sign-in"
+                      ? "bg-secondary px-6 py-3 rounded-3xl text-white"
+                      : "text-color"
+                    }`
                 }
                 to={item.href}
               >
                 {item.label}
               </NavLink>
-            ),
+            )
           )}
         </div>
         <div className="hidden md:block">
@@ -72,9 +86,8 @@ export default function Navbar() {
         </div>
       </div>
       <div
-        className={`fixed top-20 left-0 h-full w-3/4 bg-primary p-6 z-50 transform ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out md:hidden`}
+        className={`fixed top-20 left-0 h-full w-3/4 bg-primary p-6 z-50 transform ${isOpen ? "translate-x-0" : "-translate-x-full"
+          } transition-transform duration-300 ease-in-out md:hidden`}
       >
         <button
           className="text-white mb-6"
@@ -86,7 +99,7 @@ export default function Navbar() {
           {/* <CrossIcon /> */}
         </button>
         <div className="flex flex-col space-y-8 text-center">
-          {siteConfig.navItems.map((item) =>
+          {navItems.map((item) =>
             item.label === "Features" ? (
               <a
                 key={item.href}
@@ -107,7 +120,7 @@ export default function Navbar() {
               >
                 {item.label}
               </NavLink>
-            ),
+            )
           )}
           <CustomButton
             className="bg-secondary mx-auto max-w-36"

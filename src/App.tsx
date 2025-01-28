@@ -21,12 +21,17 @@ import MyAccount from "@/pages/user-portal/myAccount";
 import Transactions from "@/pages/user-portal/Transactions";
 import NotFound from "@/pages/notFound";
 import AuthPage from "@/pages/auth-page/AuthPage";
+import ShopperHomePage from "./pages/ShopperHome";
 
 function App() {
   return (
     <Suspense fallback={<Fallback />}>
       <Routes>
         <Route element={<HomePage />} path={siteConfig.path.home} />
+        <Route 
+           element={<ShopperHomePage/>} 
+           path={siteConfig.path.shopperHome} 
+        />
         <Route element={<GetDemo />} path={siteConfig.path.getDemo} />
         <Route element={<AboutPage />} path={siteConfig.path.about} />
         <Route

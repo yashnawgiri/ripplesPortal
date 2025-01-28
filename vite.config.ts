@@ -62,7 +62,7 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'framer-motion', '@nextui-org/react'],
-    exclude: ['@nextui-org/theme']
+    exclude: []
   },
   server: {
     headers: {
