@@ -59,16 +59,6 @@ export const siteConfig = {
       href: "/shopper",
     },
   ],
-  shopperPageNavItems: [
-    {
-      label: "Home",
-      href: "/shopper",
-    },
-    {
-      label: "For Brands",
-      href: "/",
-    }
-  ],
   navMenuItems: [
     {
       label: "Profile",

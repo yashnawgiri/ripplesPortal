@@ -15,11 +15,12 @@ export default function Navbar() {
   const btn = {
     label: "Book Demo",
     href: siteConfig.path.getDemo,
-  }
+  };
+
   if (location.pathname === "/shopper") {
-    navItems = siteConfig.shopperPageNavItems;
-    btn.label = "Sign-In"
-    btn.href = siteConfig.path.signIn
+    navItems = [];
+    btn.label = "Sign-In";
+    btn.href = siteConfig.path.signIn;
   }
 
   return (
@@ -65,10 +66,18 @@ export default function Navbar() {
             )
           )}
         </div>
-        <div className="hidden md:block">
+        <div className="hidden md:block space-x-4">
+          {location.pathname === "/shopper" && (
+            <CustomButton
+              className="bg-pink-500 mx-auto"
+              onClick={() => navigate(siteConfig.path.home)}
+              ariaLabel="For Brands">
+              For Brands
+            </CustomButton>
+          )}
           <CustomButton
             className="bg-secondary"
-            onClick={() => navigate(btn.label)}
+            onClick={() => navigate(btn.href)}
             ariaLabel={btn.label}
           >
             {btn.label}
@@ -123,6 +132,15 @@ export default function Navbar() {
               </NavLink>
             )
           )}
+          {location.pathname === "/shopper" &&
+            <CustomButton
+              className="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 mx-auto max-w-36"
+              onClick={() => navigate(siteConfig.path.home)}
+              ariaLabel="For Brands"
+            >
+              For Brands
+            </CustomButton>
+          }
           <CustomButton
             className="bg-secondary mx-auto max-w-36"
             onClick={() => navigate(btn.href)}
