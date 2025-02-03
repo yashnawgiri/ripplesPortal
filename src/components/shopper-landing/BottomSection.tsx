@@ -120,8 +120,8 @@ function BottomSection() {
                     >
                         <CustomButton
                             className="font-bold bg-custom-gradient md:text-2xl text-xl"
-                            onClick={() => navigate(siteConfig.path.getDemo)}
-                            ariaLabel="Book a demo"
+                            onClick={() => navigate(siteConfig.path.signIn)}
+                            ariaLabel="Sign-In"
                         >
                             {dashboardData.bottomSection.button}
                         </CustomButton>

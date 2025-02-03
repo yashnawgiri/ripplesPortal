@@ -134,7 +134,7 @@ function ShopperHeroSection() {
                     >
                         <CustomButton
                             className="font-bold bg-custom-gradient md:text-2xl text-xl"
-                            onClick={() => navigate(siteConfig.path.getDemo)}
+                            onClick={() => navigate(siteConfig.path.signIn)}
                             ariaLabel="Book a demo"
                         >
                             {dashboardData.home.demoButton}
