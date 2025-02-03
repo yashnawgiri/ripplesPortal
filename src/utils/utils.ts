@@ -7,6 +7,9 @@ import {
   Transaction,
 } from "@/services/apiService";
 
+import { clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
+
 // TODO: Replace all any
 export function toCamelCase(str: string) {
   return str
@@ -141,4 +144,8 @@ export function organizeRewardData(
   organizedData.sort((a, b) => a.milestone - b.milestone);
 
   return organizedData;
+}
+
+export function cn(...inputs: Array<string | undefined | null | boolean>) {
+  return twMerge(clsx(inputs));
 }
