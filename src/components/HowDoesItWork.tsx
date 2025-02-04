@@ -4,23 +4,37 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "./../styles/home/howDoesItWork.css";
-import dashboardData from "@/data/landing.json";
+// import dashboardData from "@/data/landing.json";
 
-export default function HowDoesItWork() {
+interface HowDoesItWorkData {
+  title: string;
+  description: string;
+  data: {
+    number: number;
+    title: string;
+    description: string;
+  }[];
+}
+
+interface HowDoesItWorkProps {
+  howDoesItWorkData: HowDoesItWorkData;
+}
+
+const HowDoesItWork: React.FC<HowDoesItWorkProps> = ({ howDoesItWorkData }) => {
   return (
     <>
       <div className="outerContainer" id="features">
         <div className="p-4 text-center">
           <h2 className="title">
-            {dashboardData.ComponentsData.HowDoesItWorks.title}
+            {howDoesItWorkData.title}
           </h2>
           <p className="description">
-            {dashboardData.ComponentsData.HowDoesItWorks.description}
+            {howDoesItWorkData.description}
           </p>
         </div>
         <div className="relative">
           <div className="innerContainer">
-            {dashboardData.HowDoesItWorkData.map((step) => (
+            {howDoesItWorkData.data.map((step) => (
               <div key={step.number} className="secondContainer w-30p md:w-50p">
                 <div className="cardNumber">
                   <span className="text-4xl font-bold text-white">
@@ -39,10 +53,10 @@ export default function HowDoesItWork() {
       <div className="sm:hidden w-full mt-8" id="features2">
         <div className="p-4 text-center w-full">
           <h2 className="title">
-            {dashboardData.ComponentsData.HowDoesItWorks.title}
+            {howDoesItWorkData.title}
           </h2>
           <p className="description">
-            {dashboardData.ComponentsData.HowDoesItWorks.description}
+            {howDoesItWorkData.description}
           </p>
         </div>
         <Swiper
@@ -55,7 +69,7 @@ export default function HowDoesItWork() {
           spaceBetween={0}
         >
           <div className="">
-            {dashboardData.HowDoesItWorkData.map((step) => (
+            {howDoesItWorkData.data.map((step) => (
               <SwiperSlide key={step.number}>
                 <div key={step.number} className="swiperContainer">
                   <div className="cardNumber">
@@ -76,3 +90,5 @@ export default function HowDoesItWork() {
     </>
   );
 }
+
+export default HowDoesItWork;

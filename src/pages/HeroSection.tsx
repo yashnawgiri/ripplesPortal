@@ -103,7 +103,7 @@ function HeroSection() {
         >
           <div className="transition-transform duration-300 ease-in-out hover:scale-110 origin-center mt-8">
             <Image
-              isBlurred
+              isBlurred={false}
               alt="GoRipples dashboard interface showcasing analytics and features - mobile view"
               className="blur-load"
               height={300}
@@ -118,6 +118,7 @@ function HeroSection() {
                 height: "auto",
                 transform: "scale(1.1)",
                 transformOrigin: "center",
+                backgroundColor: "transparent" // Add this
               }}
               radius="lg"
             />
@@ -158,12 +159,12 @@ function HeroSection() {
       >
         <div className="transition-transform duration-300 ease-in-out hover:scale-125 origin-center mt-8">
           <Image
-            isBlurred
+            isBlurred={false}
             alt="GoRipples dashboard interface showcasing analytics and features"
             className="my-4"
             height={1200}
             width={1200}
-            loading="lazy"
+            loading="eager"
             style={{
               objectFit: "contain",
               objectPosition: "center",
@@ -171,7 +172,8 @@ function HeroSection() {
               height: "auto",
               transform: "scale(1.15)",
               transformOrigin: "center",
-              willChange: "transform"
+              willChange: "transform",
+              backgroundColor: "transparent"
             }}
             radius="lg"
             src={flyer}

@@ -1,11 +1,14 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-import statsData from "@/data/landing.json";
 
 interface StatCardProps {
   value: string;
   description: string;
+}
+
+interface StatsSectionProps {
+  statsData: StatCardProps[];
 }
 
 const StatCard: React.FC<StatCardProps> = ({ value, description }) => {
@@ -25,7 +28,7 @@ const StatCard: React.FC<StatCardProps> = ({ value, description }) => {
   );
 };
 
-const StatsSection: React.FC = () => {
+const StatsSection: React.FC<StatsSectionProps> = ({ statsData }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false }); // Set `once: false` to allow repeated animations
 
@@ -43,7 +46,7 @@ const StatsSection: React.FC = () => {
         },
       }}
     >
-      {statsData.stats.map((stat, index) => (
+      {statsData.map((stat, index) => (
         <StatCard
           key={index}
           description={stat.description}

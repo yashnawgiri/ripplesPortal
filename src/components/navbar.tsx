@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 
 import { CrossIcon, DotIcon, HamburgerButton } from "./icons";
 import CustomButton from "./CustomElements/CustomButton";
@@ -9,6 +9,19 @@ import { siteConfig } from "@/config/site";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  let navItems = siteConfig.navItems;
+  const btn = {
+    label: "Book Demo",
+    href: siteConfig.path.getDemo,
+  };
+
+  if (location.pathname === "/shopper") {
+    navItems = [];
+    btn.label = "Sign-In";
+    btn.href = siteConfig.path.signIn;
+  }
 
   return (
     <nav
@@ -26,7 +39,7 @@ export default function Navbar() {
           </span>
         </Link>
         <div className="hidden md:flex md:items-center space-x-10">
-          {siteConfig.navItems.map((item) =>
+          {navItems.map((item) =>
             item.label === "Features" ? (
               <a
                 key={item.href}
@@ -41,22 +54,33 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   isActive
                     ? "text-white"
-                    : `${item.href == "/sign-in" ? "bg-secondary px-6 py-3 rounded-3xl text-white" : "text-color"}`
+                    : `${item.href === "/shopper"
+                      ? "bg-secondary px-6 py-3 rounded-3xl text-white"
+                      : "text-color"
+                    }`
                 }
                 to={item.href}
               >
                 {item.label}
               </NavLink>
-            ),
+            )
           )}
         </div>
-        <div className="hidden md:block">
+        <div className="hidden md:block space-x-4">
+          {location.pathname === "/shopper" && (
+            <CustomButton
+              className="bg-pink-500 mx-auto"
+              onClick={() => navigate(siteConfig.path.home)}
+              ariaLabel="For Brands">
+              For Brands
+            </CustomButton>
+          )}
           <CustomButton
             className="bg-secondary"
-            onClick={() => navigate(siteConfig.path.getDemo)}
-            ariaLabel="Book a demo"
+            onClick={() => navigate(btn.href)}
+            ariaLabel={btn.label}
           >
-            Book Demo
+            {btn.label}
           </CustomButton>
         </div>
         <div className="md:hidden">
@@ -72,9 +96,8 @@ export default function Navbar() {
         </div>
       </div>
       <div
-        className={`fixed top-20 left-0 h-full w-3/4 bg-primary p-6 z-50 transform ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out md:hidden`}
+        className={`fixed top-20 left-0 h-full w-3/4 bg-primary p-6 z-50 transform ${isOpen ? "translate-x-0" : "-translate-x-full"
+          } transition-transform duration-300 ease-in-out md:hidden`}
       >
         <button
           className="text-white mb-6"
@@ -86,7 +109,7 @@ export default function Navbar() {
           {/* <CrossIcon /> */}
         </button>
         <div className="flex flex-col space-y-8 text-center">
-          {siteConfig.navItems.map((item) =>
+          {navItems.map((item) =>
             item.label === "Features" ? (
               <a
                 key={item.href}
@@ -107,14 +130,23 @@ export default function Navbar() {
               >
                 {item.label}
               </NavLink>
-            ),
+            )
           )}
+          {location.pathname === "/shopper" &&
+            <CustomButton
+              className="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 mx-auto max-w-36"
+              onClick={() => navigate(siteConfig.path.home)}
+              ariaLabel="For Brands"
+            >
+              For Brands
+            </CustomButton>
+          }
           <CustomButton
             className="bg-secondary mx-auto max-w-36"
-            onClick={() => navigate(siteConfig.path.getDemo)}
-            ariaLabel="Book a demo"
+            onClick={() => navigate(btn.href)}
+            ariaLabel={btn.label}
           >
-            Book Demo
+            {btn.label}
           </CustomButton>
         </div>
       </div>
