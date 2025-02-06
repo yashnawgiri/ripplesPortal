@@ -20,7 +20,7 @@ import { ROICalculator } from "@/components/ugc-landing/roi-calculator"
 import { BrandsSection } from "@/components/ugc-landing/brands-section"
 import { ParticleBackground } from "@/components/ugc-landing/particle-background"
 import { SiteHeader } from "@/components/ugc-landing/site-header"
-import { Testimonials } from "@/components/ugc-landing/testimonials"
+// import { Testimonials } from "@/components/ugc-landing/testimonials"
 import { Typewriter } from "@/components/ugc-landing/typewriter"
 import { FloatingButtons } from "@/components/ugc-landing/floating-buttons"
 import { ScrollProgress } from "@/components/ugc-landing/scroll-progress"
@@ -341,38 +341,38 @@ export default function UGCLanding() {
                 </ScrollReveal>
             </Suspense>
 
-            <Suspense fallback={<LoadingSection />}>
+            {/* <Suspense fallback={<LoadingSection />}> */}
                 {/* Testimonials Section */}
-                <ScrollReveal>
-                    <section id="testimonials" className="py-24 md:py-32 relative overflow-hidden">
-                        <div className="container px-4 sm:px-6 md:px-8 relative">
-                            {" "}
+                {/* <ScrollReveal> */}
+                    {/* <section id="testimonials" className="py-24 md:py-32 relative overflow-hidden"> */}
+                        {/* <div className="container px-4 sm:px-6 md:px-8 relative"> */}
+                            {/* {" "} */}
                             {/* Update 1 */}
-                            <ScrollReveal>
-                                <div className="text-center space-y-3 sm:space-y-4 sm:mb-4">
-                                    {" "}
+                            {/* <ScrollReveal> */}
+                                {/* <div className="text-center space-y-3 sm:space-y-4 sm:mb-4"> */}
+                                    {/* {" "} */}
                                     {/* Update 2 */}
-                                    <span className="px-3 py-1 text-sm font-medium text-white/60 border border-white/10 rounded-full">
-                                        Client Testimonials
-                                    </span>
-                                    <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-                                        What Our Clients Say
-                                    </h2><p className="text-center mx-auto text-white/60 text-lg">
-                                        Hear from our satisfied clients and see how Ripples has helped them achieve their goals.
-                                    </p>
-                                </div>
-                            </ScrollReveal>
-                            <StaggerReveal
-                                className="w-full min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8"
-                                stagger={100}
-                            >
-                                <Testimonials />
-                            </StaggerReveal>
+                                    {/* <span className="px-3 py-1 text-sm font-medium text-white/60 border border-white/10 rounded-full"> */}
+                                        {/* Client Testimonials */}
+                                    {/* </span> */}
+                                    {/* <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600"> */}
+                                        {/* What Our Clients Say */}
+                                    {/* </h2><p className="text-center mx-auto text-white/60 text-lg"> */}
+                                        {/* Hear from our satisfied clients and see how Ripples has helped them achieve their goals. */}
+                                    {/* </p> */}
+                                {/* </div> */}
+                            {/* </ScrollReveal> */}
+                            {/* <StaggerReveal */}
+                                {/* className="w-full min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8" */}
+                                {/* stagger={100} */}
+                            {/* > */}
+                                {/* <Testimonials /> */}
+                            {/* </StaggerReveal> */}
 
-                        </div>
-                    </section>
-                </ScrollReveal>
-            </Suspense>
+                        {/* </div> */}
+                    {/* </section> */}
+                {/* </ScrollReveal> */}
+            {/* </Suspense> */}
 
             <Suspense fallback={<LoadingSection />}>
                 {/* Rewards Strategy Comparison Section */}
