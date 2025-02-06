@@ -83,9 +83,9 @@ export function RewardsSimulator() {
     <TooltipProvider>
       <Card className="bg-black/50 border-white/10 backdrop-blur-sm">
         <CardHeader>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-2">
-              <CardTitle className="text-white">Discover your rewards strategy</CardTitle>
+              <CardTitle className="text-white text-xl sm:text-2xl">Discover your rewards strategy</CardTitle>
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Info className="h-4 w-4 text-white/60" />
@@ -102,21 +102,19 @@ export function RewardsSimulator() {
               <div className="flex border border-white/10 rounded-lg">
                 <button
                   onClick={() => setState((prev) => ({ ...prev, currency: "USD" }))}
-                  className={`flex items-center gap-1 px-3 py-1.5 rounded-l-md transition-colors ${
-                    state.currency === "USD" ? "bg-white/10 text-white" : "text-white/60 hover:text-white"
-                  }`}
+                  className={`flex items-center gap-1 px-3 py-1.5 rounded-l-md transition-colors ${state.currency === "USD" ? "bg-white/10 text-white" : "text-white/60 hover:text-white"
+                    }`}
                 >
                   <DollarSign className="h-4 w-4" />
-                  <span className="hidden sm:inline">USD</span>
+                  <span className="inline">USD</span>
                 </button>
                 <button
                   onClick={() => setState((prev) => ({ ...prev, currency: "INR" }))}
-                  className={`flex items-center gap-1 px-3 py-1.5 rounded-r-md transition-colors ${
-                    state.currency === "INR" ? "bg-white/10 text-white" : "text-white/60 hover:text-white"
-                  }`}
+                  className={`flex items-center gap-1 px-3 py-1.5 rounded-r-md transition-colors ${state.currency === "INR" ? "bg-white/10 text-white" : "text-white/60 hover:text-white"
+                    }`}
                 >
                   <IndianRupee className="h-4 w-4" />
-                  <span className="hidden sm:inline">INR</span>
+                  <span className="inline">INR</span>
                 </button>
               </div>
             </div>
@@ -124,21 +122,22 @@ export function RewardsSimulator() {
         </CardHeader>
         <CardContent className="space-y-6">
           <Tabs defaultValue="settings" className="space-y-4">
-            <TabsList className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-transparent p-2">
+            <TabsList className="grid w-full grid-cols-1 sm:grid-cols-2 gap-4 bg-transparent">
               <TabsTrigger
                 value="settings"
-                className="data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:border-white/20 hover:bg-white/5 transition-all px-2 sm:px-4 py-3 rounded-lg border border-white/10 hover:border-white/20 text-sm sm:text-base"
+                className="data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:border-white/20 hover:bg-white/5 transition-all px-2 py-2 sm:py-3 rounded-lg border border-white/10 hover:border-white/20 text-sm"
               >
                 Type of creators you wish to engage
               </TabsTrigger>
               <TabsTrigger
                 value="comparison"
-                className="data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:border-white/20 hover:bg-white/5 transition-all px-2 sm:px-4 py-3 rounded-lg border border-white/10 hover:border-white/20 text-sm sm:text-base"
+                className="data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:border-white/20 hover:bg-white/5 transition-all px-2 py-2 sm:py-3 rounded-lg border border-white/10 hover:border-white/20 text-sm"
               >
                 Rewards Strategy
               </TabsTrigger>
             </TabsList>
-
+            <br/>
+            <br/>
             <TabsContent value="settings" className="space-y-6">
               <div className="space-y-6">
                 <div className="space-y-4">
@@ -161,7 +160,7 @@ export function RewardsSimulator() {
                       setState((prev) => ({ ...prev, contentQuality: value }))
                     }
                   >
-                    <SelectTrigger className="bg-white/5 border-white/10 text-white w-full sm:w-[200px]">
+                    <SelectTrigger className="bg-white/5 border-white/10 text-white w-full">
                       <SelectValue placeholder="Select quality" />
                     </SelectTrigger>
                     <SelectContent>
@@ -257,7 +256,7 @@ export function RewardsSimulator() {
 
             <TabsContent value="comparison">
               <div className="space-y-6">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:items-center sm:justify-between">
                   <div className="flex items-center gap-2">
                     <h3 className="text-white font-semibold">Reward Strategy Breakdown</h3>
                     <Tooltip>
@@ -304,7 +303,7 @@ export function RewardsSimulator() {
                 </div>
 
                 <div className="overflow-x-auto -mx-6 px-6">
-                  <div className="min-w-[600px]">
+                  <div className="min-w-full sm:min-w-[600px]">
                     <Table>
                       <TableHeader>
                         <TableRow>

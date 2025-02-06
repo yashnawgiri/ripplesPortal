@@ -27,14 +27,8 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <div className="w-full min-h-screen flex flex-col justify-center items-center bg-black px-4 sm:px-6 lg:px-8">
+    <div className="w-full flex flex-col justify-center items-center bg-black px-4 sm:px-6 lg:px-8">
       <div className="text-center space-y-4 mb-8">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-          What Our Clients Say
-        </h2>
-        <p className="text-white/60 max-w-[600px] mx-auto">
-          Join hundreds of brands transforming their UGC strategy with Ripples
-        </p>
       </div>
       <div className="grid w-full max-w-[1600px] gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {testimonials.map((testimonial, i) => (

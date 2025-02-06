@@ -32,6 +32,8 @@ import { Suspense } from "react"
 import { Spinner } from "@/components/ugc-landing/ui/spinner"
 import { ScrollReveal } from "@/components/ugc-landing/scroll-reveal"
 import { StaggerReveal } from "@/components/ugc-landing/stagger-reveal"
+import { Image } from '@nextui-org/image';
+import flyer from "@/assets/images/shopperPageFlayer.png";
 
 const getImpactColor = (impact: string) => {
     switch (impact) {
@@ -41,7 +43,7 @@ const getImpactColor = (impact: string) => {
             return "bg-yellow-500 text-white"
         case "Low":
             return "bg-red-500 text-white"
-        case "Very High":
+        case "V. High":
             return "bg-blue-500 text-white"
         default:
             return ""
@@ -103,11 +105,34 @@ export default function UGCLanding() {
                                         <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
                                     </EnhancedButton>
                                     <p className="text-white/80 text-lg mt-4 max-w-[600px]">
-                                        {" "}
-                                        {/* Updated className */}
                                         The Ripples Tech Stack & Influencer Network expands your customer base and drives attributable
                                         sales.
                                     </p>
+                                </div>
+                                <div className="flex justify-center items-center">
+                                    <div className="relative w-full max-w-sm sm:max-w-md md:max-w-lg aspect-square">
+                                        <Image
+                                            isBlurred={false}
+                                            alt="GoRipples dashboard interface showcasing analytics and features - mobile view"
+                                            className="blur-load transition-transform duration-300 ease-in-out transform hover:scale-110 rounded-2xl"
+                                            height={600}
+                                            width={600}
+                                            loading="eager"
+                                            src={flyer}
+                                            disableSkeleton={true}
+                                            style={{
+                                                objectFit: "contain",
+                                                objectPosition: "center",
+                                                width: "100%",
+                                                height: "100%",
+                                                backgroundColor: "transparent",
+                                                borderRadius: "16px",
+                                                border: "2px solid rgba(255, 255, 255, 0.2)",
+                                                boxShadow: "0px 4px 20px rgba(255, 255, 255, 0.15)",
+                                            }}
+                                        />
+                                        <div className="absolute inset-0 rounded-2xl border-2 border-white/30 opacity-70 blur-lg"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -205,7 +230,25 @@ export default function UGCLanding() {
                     </section>
                 </ScrollReveal>
             </Suspense>
-
+            <Suspense fallback={<LoadingSection />}>
+                {/* Rewards Simulator Section */}
+                <ScrollReveal>
+                    <section className="py-24 md:py-32 relative overflow-hidden">
+                        <HolographicGradient className="absolute inset-0 opacity-20" />
+                        <div className="container px-4 md:px-6 relative">
+                            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+                                    Simulate Your Rewards Strategy
+                                </h2>
+                                <p className="max-w-[600px] text-white/80 md:text-xl">
+                                    Find the perfect reward mix for your UGC campaign
+                                </p>
+                            </div>
+                            <RewardsSimulator />
+                        </div>
+                    </section>
+                </ScrollReveal>
+            </Suspense>
             <Suspense fallback={<LoadingSection />}>
                 {/* Features Section */}
                 <section id="features" className="py-24 md:py-32 relative">
@@ -306,7 +349,7 @@ export default function UGCLanding() {
                             {" "}
                             {/* Update 1 */}
                             <ScrollReveal>
-                                <div className="text-center space-y-3 sm:space-y-4 mb-8 sm:mb-12">
+                                <div className="text-center space-y-3 sm:space-y-4 sm:mb-4">
                                     {" "}
                                     {/* Update 2 */}
                                     <span className="px-3 py-1 text-sm font-medium text-white/60 border border-white/10 rounded-full">
@@ -382,7 +425,7 @@ export default function UGCLanding() {
                                                         cashback: "Medium",
                                                         cash: "Low",
                                                         credit: "High",
-                                                        product: "Very High",
+                                                        product: "V. High",
                                                     },
                                                     {
                                                         feature: "Cost Effectiveness",
@@ -396,13 +439,13 @@ export default function UGCLanding() {
                                                         cashback: "Medium",
                                                         cash: "Medium",
                                                         credit: "High",
-                                                        product: "Very High",
+                                                        product: "V. High",
                                                     },
                                                     {
                                                         feature: "Repeat Purchase Rate",
                                                         cashback: "High",
                                                         cash: "Low",
-                                                        credit: "Very High",
+                                                        credit: "V. High",
                                                         product: "High",
                                                     },
                                                 ].map((row, i) => (
@@ -475,26 +518,6 @@ export default function UGCLanding() {
                                     </div>
                                 </CardContent>
                             </Card>
-                        </div>
-                    </section>
-                </ScrollReveal>
-            </Suspense>
-
-            <Suspense fallback={<LoadingSection />}>
-                {/* Rewards Simulator Section */}
-                <ScrollReveal>
-                    <section className="py-24 md:py-32 relative overflow-hidden">
-                        <HolographicGradient className="absolute inset-0 opacity-20" />
-                        <div className="container px-4 md:px-6 relative">
-                            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-                                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-                                    Simulate Your Rewards Strategy
-                                </h2>
-                                <p className="max-w-[600px] text-white/80 md:text-xl">
-                                    Find the perfect reward mix for your UGC campaign
-                                </p>
-                            </div>
-                            <RewardsSimulator />
                         </div>
                     </section>
                 </ScrollReveal>
