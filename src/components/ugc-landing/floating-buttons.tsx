@@ -14,8 +14,10 @@ export function FloatingButtons() {
       setShowBackToTop(window.scrollY > 500)
     }
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll)
+      return () => window.removeEventListener("scroll", handleScroll)
+    }
   }, [])
 
   const scrollToTop = () => {

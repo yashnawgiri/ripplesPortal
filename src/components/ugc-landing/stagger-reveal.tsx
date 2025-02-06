@@ -24,7 +24,7 @@ export function StaggerReveal({
     const container = containerRef.current
     if (!container) return
 
-    const childElements = Array.from(container.children)
+    const childElements = container?.children ? Array.from(container.children) : []
 
     // Set initial styles
     childElements.forEach((child, i) => {
@@ -35,7 +35,7 @@ export function StaggerReveal({
         down: "translateY(-20px)",
         left: "translateX(20px)",
         right: "translateX(-20px)",
-      }[direction]
+      }[direction] || "translateY(0)"
       element.style.transition = `all ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${baseDelay + i * stagger}ms`
     })
 

@@ -40,7 +40,7 @@ export function ScrollReveal({ children, className, delay = 0, duration = 500, d
       down: "translateY(-20px)",
       left: "translateX(20px)",
       right: "translateX(-20px)",
-    }[direction]
+    }[direction] || "translateY(0)"
     element.style.transition = `all ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`
 
     observer.observe(element)

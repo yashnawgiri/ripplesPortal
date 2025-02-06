@@ -19,7 +19,7 @@ export function ParticleBackground() {
     if (!ctx) return
 
     const particles: Particle[] = []
-    const particleCount = 50
+    const particleCount = Math.min(50, Math.floor((canvas.width * canvas.height) / 10000))
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth

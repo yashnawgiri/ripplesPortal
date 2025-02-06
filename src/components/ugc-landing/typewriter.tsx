@@ -16,7 +16,7 @@ export function Typewriter({ words, className }: TypewriterProps) {
     const wordPause = 1800 // Slightly shorter pause between words
 
     const type = () => {
-      const currentWord = words[currentWordIndex]
+      const currentWord = words.length > 0 ? words[currentWordIndex] : ""
 
       if (isDeleting) {
         // Deleting text
