@@ -17,7 +17,7 @@ import {
 } from "lucide-react"
 import { HolographicGradient } from "@/components/ugc-landing/holographic-gradient"
 import { ROICalculator } from "@/components/ugc-landing/roi-calculator"
-import { BrandsSection } from "@/components/ugc-landing/brands-section"
+// import { BrandsSection } from "@/components/ugc-landing/brands-section"
 import { ParticleBackground } from "@/components/ugc-landing/particle-background"
 import { SiteHeader } from "@/components/ugc-landing/site-header"
 // import { Testimonials } from "@/components/ugc-landing/testimonials"
@@ -125,7 +125,8 @@ export default function UGCLanding() {
                                                 objectPosition: "center",
                                                 width: "100%",
                                                 height: "100%",
-                                                backgroundColor: "transparent",
+                                                backgroundColor: "rgba(255, 255, 255, 0.02)",
+                                                backdropFilter: "blur(10px)",
                                                 borderRadius: "16px",
                                                 border: "2px solid rgba(255, 255, 255, 0.2)",
                                                 boxShadow: "0px 4px 20px rgba(255, 255, 255, 0.15)",
@@ -329,17 +330,17 @@ export default function UGCLanding() {
                 </section>
             </Suspense>
 
-            <Suspense fallback={<LoadingSection />}>
+            {/* <Suspense fallback={<LoadingSection />}> */}
                 {/* Brands Section */}
-                <ScrollReveal>
-                    <section id="brands" className="py-24 md:py-32 relative overflow-hidden">
-                        <HolographicGradient className="absolute inset-0 opacity-20" />
-                        <div className="container px-4 md:px-6 relative">
-                            <BrandsSection />
-                        </div>
-                    </section>
-                </ScrollReveal>
-            </Suspense>
+                {/* <ScrollReveal> */}
+                    {/* <section id="brands" className="py-24 md:py-32 relative overflow-hidden"> */}
+                        {/* <HolographicGradient className="absolute inset-0 opacity-20" /> */}
+                        {/* <div className="container px-4 md:px-6 relative"> */}
+                            {/* <BrandsSection /> */}
+                        {/* </div> */}
+                    {/* </section> */}
+                {/* </ScrollReveal> */}
+            {/* </Suspense>  */}
 
             {/* <Suspense fallback={<LoadingSection />}> */}
                 {/* Testimonials Section */}
