@@ -20,7 +20,7 @@ const Typewriter = ({
   useEffect(() => {
     let typingTimeout;
 
-    const currentWord = words[currentWordIndex];
+    const currentWord = words.length > 0 ? words[currentWordIndex] : "";
 
     if (isDeleting) {
       // Remove a character

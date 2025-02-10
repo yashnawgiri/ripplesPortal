@@ -22,6 +22,7 @@ import Transactions from "@/pages/user-portal/Transactions";
 import NotFound from "@/pages/notFound";
 import AuthPage from "@/pages/auth-page/AuthPage";
 import ShopperHomePage from "./pages/ShopperHome";
+import UGCLanding from "./pages/ugcLanding";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
            element={<ShopperHomePage/>} 
            path={siteConfig.path.shopperHome} 
         />
+        <Route element={<UGCLanding/>} path={siteConfig.path.ugcHome}/>
         <Route element={<GetDemo />} path={siteConfig.path.getDemo} />
         <Route element={<AboutPage />} path={siteConfig.path.about} />
         <Route
