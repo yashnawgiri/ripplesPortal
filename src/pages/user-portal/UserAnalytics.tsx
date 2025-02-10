@@ -10,6 +10,7 @@ import { BrandCard } from "@/components/BrandCard";
 import { formatRewardString } from "@/utils/utils";
 import { BrandStats, getUserStatistics } from "@/services/apiService";
 import { WalletBalanceType } from "@/recoil/walletBalanceState";
+import toast from "react-hot-toast";
 
 interface UserStatistics {
   totalReferredUsers: number;
@@ -68,18 +69,23 @@ export function UserAnalytics({ wallet }: Props) {
 
   // Handlers
   const handleModalOpen = (brand: BrandStats) => {
-    setModalData({
-      rewardStr: formatRewardString(
-        brand.referred_user_rewards.type,
-        brand.referred_user_rewards.amount,
-        brand.referring_user_commission.type,
-        brand.referring_user_commission.amount,
-      ),
-      link: brand.link,
-      brandId: brand.brand_id,
-      referredUsers: brand.users,
-    });
-    onOpen();
+    if(brand.referral_program_state!="DELETED"){
+
+      setModalData({
+        rewardStr: formatRewardString(
+          brand.referred_user_rewards.type,
+          brand.referred_user_rewards.amount,
+          brand.referring_user_commission.type,
+          brand.referring_user_commission.amount,
+        ),
+        link: brand.link,
+        brandId: brand.brand_id,
+        referredUsers: brand.users,
+      });
+      onOpen();
+    }else{
+      toast.error("Program is deleted")
+    }
   };
 
   // Data fetching
