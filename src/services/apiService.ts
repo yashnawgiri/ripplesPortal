@@ -268,6 +268,7 @@ export interface BrandStats {
   link: string;
   referred_user_rewards: RewardDetails;
   referring_user_commission: RewardDetails;
+  referral_program_state:"ACTIVE" | "DELETED" | "INACTIVE"
 }
 
 export interface UserStatisticsResponse {
