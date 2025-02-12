@@ -218,7 +218,7 @@ export default function UGCLanding() {
                         <img
                             src={coinImg}
                             alt="ROI Growth"
-                            className="w-24 h-24 md:w-40 md:h-40 fixed bottom-10 right-10 hidden md:block"
+                            className="w-24 h-24 md:w-40 md:h-40 absolute bottom-10 right-10 hidden md:block"
                         />
                         <div className="container px-4 md:px-6 relative flex flex-col items-center text-center">
                             {/* Title & Subtitle */}
@@ -575,7 +575,7 @@ export default function UGCLanding() {
                     {/* Right Image - Hidden on Mobile */}
                     <img
                         src={promoImg}
-                        alt="Right Illustration"
+                        alt="Promotional illustration showcasing UGC strategy benefits"
                         className="hidden lg:block max-w-xl object-contain"
                     />
                 </div>
