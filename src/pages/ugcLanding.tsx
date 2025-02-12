@@ -32,8 +32,11 @@ import { Suspense } from "react"
 import { Spinner } from "@/components/ugc-landing/ui/spinner"
 import { ScrollReveal } from "@/components/ugc-landing/scroll-reveal"
 import { StaggerReveal } from "@/components/ugc-landing/stagger-reveal"
-import { Image } from '@nextui-org/image';
-import flyer from "@/assets/images/shopperPageFlayer.png";
+import flyer from "@/assets/images/flayer2.png"; 
+import promoImg from "@/assets/images/promoImg.png";
+import rupeeImg from "@/assets/images/rupees.webp"
+import goldCoinImg from "@/assets/images/benefitsSectionImage.png";
+import coinImg from "@/assets/images/coins.webp";
 
 const getImpactColor = (impact: string) => {
     switch (impact) {
@@ -71,14 +74,14 @@ export default function UGCLanding() {
             <Suspense fallback={<LoadingSection className="min-h-screen" />}>
                 {/* Hero Section */}
                 <ScrollReveal>
-                    <section className="relative overflow-hidden min-h-screen flex items-center">
+                    <section className="relative overflow-hidden min-h-screen flex items-center justify-center">
                         <div className="absolute inset-0">
                             <HolographicGradient className="w-full h-full transform -skew-y-6" />
                         </div>
                         <div className="container px-4 md:px-6 relative z-10">
-                            <div className="grid gap-4 lg:grid-cols-2 lg:gap-16 items-center">
-                                <div className="flex flex-col justify-center space-y-4">
-                                    <div className="space-y-2">
+                            <div className="grid gap-4 lg:grid-cols-2 lg:gap-16 items-center justify-center">
+                                <div className="flex flex-col justify-center space-y-4 items-center">
+                                    <div className="space-y-2 pt-24">
                                         <h1 className="text-4xl font-bold tracking-tighter sm:text-6xl xl:text-7xl/none">
                                             <Typewriter
                                                 words={[
@@ -104,35 +107,18 @@ export default function UGCLanding() {
                                         Book Demo Today
                                         <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
                                     </EnhancedButton>
-                                    <p className="text-white/80 text-lg mt-4 max-w-[600px]">
-                                        The Ripples Tech Stack & Influencer Network expands your customer base and drives attributable
-                                        sales.
+                                    <p className="text-white/80 text-lg mt-4 max-w-[600px] self-start">
+                                        The Ripples Tech Stack & Influencer Network expands your customer base and drives attributable sales.
                                     </p>
                                 </div>
                                 <div className="flex justify-center items-center">
-                                    <div className="relative w-full max-w-sm sm:max-w-md md:max-w-lg aspect-square">
-                                        <Image
-                                            isBlurred={false}
+                                    <div className="relative w-full max-w-sm sm:max-w-md md:max-w-lg aspect-square flex justify-center">
+                                        <img
                                             alt="GoRipples dashboard interface showcasing analytics and features - mobile view"
-                                            className="blur-load transition-transform duration-300 ease-in-out transform hover:scale-110 rounded-2xl"
-                                            height={600}
-                                            width={600}
+                                            className="transition-transform duration-300 ease-in-out transform rounded-2xl scale-110 object-contain"
                                             loading="eager"
                                             src={flyer}
-                                            disableSkeleton={true}
-                                            style={{
-                                                objectFit: "contain",
-                                                objectPosition: "center",
-                                                width: "100%",
-                                                height: "100%",
-                                                backgroundColor: "rgba(255, 255, 255, 0.02)",
-                                                backdropFilter: "blur(10px)",
-                                                borderRadius: "16px",
-                                                border: "2px solid rgba(255, 255, 255, 0.2)",
-                                                boxShadow: "0px 4px 20px rgba(255, 255, 255, 0.15)",
-                                            }}
                                         />
-                                        <div className="absolute inset-0 rounded-2xl border-2 border-white/30 opacity-70 blur-lg"></div>
                                     </div>
                                 </div>
                             </div>
@@ -143,8 +129,8 @@ export default function UGCLanding() {
 
             <Suspense fallback={<LoadingSection />}>
                 {/* How It Works Section */}
-                <section id="how-it-works" className="py-24 md:py-32 relative overflow-hidden">
-                    <div className="container px-4 md:px-6">
+                <section id="how-it-works" className="py-24 md:py-32 relative overflow-hidden flex justify-center">
+                    <div className="container px-4 md:px-6 flex flex-col items-center">
                         <ScrollReveal>
                             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
                                 <span className="px-3 py-1 text-sm font-medium text-white/60 border border-white/10 rounded-full">
@@ -158,7 +144,7 @@ export default function UGCLanding() {
                                 </p>
                             </div>
                         </ScrollReveal>
-                        <StaggerReveal className="grid gap-8 mt-12 md:grid-cols-2 lg:grid-cols-5" stagger={100}>
+                        <StaggerReveal className="grid gap-8 mt-12 md:grid-cols-2 lg:grid-cols-5 justify-center" stagger={100}>
                             {[
                                 {
                                     title: "Shopper Purchases",
@@ -197,7 +183,7 @@ export default function UGCLanding() {
                                     className="relative overflow-hidden bg-black/50 border-white/10 backdrop-blur-sm group hover:border-white/20 transition-all duration-300 hover:scale-105"
                                 >
                                     <HolographicGradient className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity" />
-                                    <CardContent className="p-8 relative">
+                                    <CardContent className="p-8 relative text-center">
                                         <h3 className="font-semibold text-xl mb-3 text-white group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-600 transition-all duration-300">
                                             {item.title}
                                         </h3>
@@ -212,13 +198,31 @@ export default function UGCLanding() {
                 </section>
             </Suspense>
 
+
             <Suspense fallback={<LoadingSection />}>
                 {/* ROI Calculator Section */}
                 <ScrollReveal>
-                    <section id="calculator" className="py-24 md:py-32 relative overflow-hidden">
+                    <section
+                        id="calculator"
+                        className="py-24 md:py-32 relative overflow-hidden flex items-center justify-center min-h-screen"
+                    >
                         <HolographicGradient className="absolute inset-0 opacity-20" />
-                        <div className="container px-4 md:px-6 relative">
-                            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+
+                        {/* Fixed Image */}
+                        <img
+                            src={rupeeImg}
+                            alt="Icon"
+                            className="w-24 h-24 md:w-40 md:h-40 fixed left-10 top- -translate-y-1/2"
+                        />
+                        {/* Fixed Image (Bottom Right) */}
+                        <img
+                            src={coinImg}
+                            alt="ROI Growth"
+                            className="w-24 h-24 md:w-40 md:h-40 fixed bottom-10 right-10 hidden md:block"
+                        />
+                        <div className="container px-4 md:px-6 relative flex flex-col items-center text-center">
+                            {/* Title & Subtitle */}
+                            <div className="mb-12">
                                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
                                     Calculate Your ROI
                                 </h2>
@@ -226,30 +230,50 @@ export default function UGCLanding() {
                                     See how Ripples can transform your UGC strategy and boost your sales
                                 </p>
                             </div>
+
                             <ROICalculator />
                         </div>
                     </section>
                 </ScrollReveal>
             </Suspense>
+
+
+
             <Suspense fallback={<LoadingSection />}>
                 {/* Rewards Simulator Section */}
                 <ScrollReveal>
-                    <section className="py-24 md:py-32 relative overflow-hidden">
+                    <section className="py-24 md:py-32 relative overflow-hidden flex items-center justify-center min-h-screen">
                         <HolographicGradient className="absolute inset-0 opacity-20" />
-                        <div className="container px-4 md:px-6 relative">
-                            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+
+                        <div className="container px-4 md:px-6 relative flex items-center justify-center w-full max-w-7xl">
+                            {/* Left Side - Text and Simulator */}
+                            <div className="relative z-10 flex flex-col items-center text-center max-w-4xl bg-black/50 p-6 rounded-lg backdrop-blur-lg">
                                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
                                     Simulate Your Rewards Strategy
                                 </h2>
                                 <p className="max-w-[600px] text-white/80 md:text-xl">
                                     Find the perfect reward mix for your UGC campaign
                                 </p>
+                                <div className="mt-6 w-full">
+                                    <RewardsSimulator />
+                                </div>
                             </div>
-                            <RewardsSimulator />
+
+                            {/* Fixed Image (Right Side, Hidden on Mobile) */}
+                            <div className="absolute right-[-150px] top-1/2 transform -translate-y-1/2 hidden md:block">
+                                <img
+                                    src={goldCoinImg}
+                                    alt="Rewards Simulation"
+                                    className="w-[600px] h-auto object-cover"
+                                />
+                            </div>
+
                         </div>
                     </section>
                 </ScrollReveal>
             </Suspense>
+
+
             <Suspense fallback={<LoadingSection />}>
                 {/* Features Section */}
                 <section id="features" className="py-24 md:py-32 relative">
@@ -331,57 +355,57 @@ export default function UGCLanding() {
             </Suspense>
 
             {/* <Suspense fallback={<LoadingSection />}> */}
-                {/* Brands Section */}
-                {/* <ScrollReveal> */}
-                    {/* <section id="brands" className="py-24 md:py-32 relative overflow-hidden"> */}
-                        {/* <HolographicGradient className="absolute inset-0 opacity-20" /> */}
-                        {/* <div className="container px-4 md:px-6 relative"> */}
-                            {/* <BrandsSection /> */}
-                        {/* </div> */}
-                    {/* </section> */}
-                {/* </ScrollReveal> */}
+            {/* Brands Section */}
+            {/* <ScrollReveal> */}
+            {/* <section id="brands" className="py-24 md:py-32 relative overflow-hidden"> */}
+            {/* <HolographicGradient className="absolute inset-0 opacity-20" /> */}
+            {/* <div className="container px-4 md:px-6 relative"> */}
+            {/* <BrandsSection /> */}
+            {/* </div> */}
+            {/* </section> */}
+            {/* </ScrollReveal> */}
             {/* </Suspense>  */}
 
             {/* <Suspense fallback={<LoadingSection />}> */}
-                {/* Testimonials Section */}
-                {/* <ScrollReveal> */}
-                    {/* <section id="testimonials" className="py-24 md:py-32 relative overflow-hidden"> */}
-                        {/* <div className="container px-4 sm:px-6 md:px-8 relative"> */}
-                            {/* {" "} */}
-                            {/* Update 1 */}
-                            {/* <ScrollReveal> */}
-                                {/* <div className="text-center space-y-3 sm:space-y-4 sm:mb-4"> */}
-                                    {/* {" "} */}
-                                    {/* Update 2 */}
-                                    {/* <span className="px-3 py-1 text-sm font-medium text-white/60 border border-white/10 rounded-full"> */}
-                                        {/* Client Testimonials */}
-                                    {/* </span> */}
-                                    {/* <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600"> */}
-                                        {/* What Our Clients Say */}
-                                    {/* </h2><p className="text-center mx-auto text-white/60 text-lg"> */}
-                                        {/* Hear from our satisfied clients and see how Ripples has helped them achieve their goals. */}
-                                    {/* </p> */}
-                                {/* </div> */}
-                            {/* </ScrollReveal> */}
-                            {/* <StaggerReveal */}
-                                {/* className="w-full min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8" */}
-                                {/* stagger={100} */}
-                            {/* > */}
-                                {/* <Testimonials /> */}
-                            {/* </StaggerReveal> */}
+            {/* Testimonials Section */}
+            {/* <ScrollReveal> */}
+            {/* <section id="testimonials" className="py-24 md:py-32 relative overflow-hidden"> */}
+            {/* <div className="container px-4 sm:px-6 md:px-8 relative"> */}
+            {/* {" "} */}
+            {/* Update 1 */}
+            {/* <ScrollReveal> */}
+            {/* <div className="text-center space-y-3 sm:space-y-4 sm:mb-4"> */}
+            {/* {" "} */}
+            {/* Update 2 */}
+            {/* <span className="px-3 py-1 text-sm font-medium text-white/60 border border-white/10 rounded-full"> */}
+            {/* Client Testimonials */}
+            {/* </span> */}
+            {/* <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600"> */}
+            {/* What Our Clients Say */}
+            {/* </h2><p className="text-center mx-auto text-white/60 text-lg"> */}
+            {/* Hear from our satisfied clients and see how Ripples has helped them achieve their goals. */}
+            {/* </p> */}
+            {/* </div> */}
+            {/* </ScrollReveal> */}
+            {/* <StaggerReveal */}
+            {/* className="w-full min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8" */}
+            {/* stagger={100} */}
+            {/* > */}
+            {/* <Testimonials /> */}
+            {/* </StaggerReveal> */}
 
-                        {/* </div> */}
-                    {/* </section> */}
-                {/* </ScrollReveal> */}
+            {/* </div> */}
+            {/* </section> */}
+            {/* </ScrollReveal> */}
             {/* </Suspense> */}
 
             <Suspense fallback={<LoadingSection />}>
                 {/* Rewards Strategy Comparison Section */}
                 <ScrollReveal>
-                    <section className="py-24 md:py-32 relative overflow-hidden">
+                    <section className="py-24 md:py-32 relative overflow-hidden flex items-center justify-center min-h-screen">
                         <HolographicGradient className="absolute inset-0 opacity-20" />
-                        <div className="container px-4 md:px-6 relative">
-                            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                        <div className="container px-4 md:px-6 relative flex flex-col items-center text-center">
+                            <div className="flex flex-col items-center justify-center space-y-4 mb-12">
                                 <span className="px-3 py-1 text-sm font-medium text-white/60 border border-white/10 rounded-full">
                                     Reward Types
                                 </span>
@@ -392,10 +416,10 @@ export default function UGCLanding() {
                                     Choose the perfect mix of rewards to maximize engagement and ROI
                                 </p>
                             </div>
-                            <Card className="bg-black/50 border-white/10 backdrop-blur-sm">
+                            <Card className="bg-black/50 border-white/10 backdrop-blur-sm w-full max-w-6xl">
                                 <CardContent className="p-6">
                                     <div className="overflow-x-auto">
-                                        <Table>
+                                        <Table className="w-full">
                                             <TableHeader>
                                                 <TableRow>
                                                     <TableHead className="text-white">Features</TableHead>
@@ -524,32 +548,39 @@ export default function UGCLanding() {
                 </ScrollReveal>
             </Suspense>
 
-            <Suspense fallback={<LoadingSection />}>
-                {/* CTA Section */}
-                <ScrollReveal>
-                    <section className="py-24 md:py-32 relative overflow-hidden">
-                        <HolographicGradient className="absolute inset-0 opacity-20" />
-                        <div className="container px-4 md:px-6 relative">
-                            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-                                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                                    Revolutionize Your UGC Strategy Today!
-                                </h2>
-                                <p className="max-w-[600px] text-white/80 md:text-xl">
-                                    Book a Demo Now and discover how Ripples transforms your UGC & social media marketing efforts into a
-                                    seamless, authentic growth engine.
-                                </p>
-                                <EnhancedButton
-                                    size="lg"
-                                    className="mt-8 bg-white text-black hover:bg-white/90"
-                                    glowColor="rgba(255, 255, 255, 0.3)"
-                                >
-                                    Book Demo Now
-                                </EnhancedButton>
-                            </div>
-                        </div>
-                    </section>
-                </ScrollReveal>
-            </Suspense>
+
+            <section className="py-24 md:py-32 relative overflow-hidden flex items-center justify-center text-center">
+                <HolographicGradient className="absolute inset-0 opacity-20" />
+
+                <div className="container px-4 md:px-6 relative flex items-center justify-between w-full max-w-7xl">
+
+                    {/* Centered Content */}
+                    <div className="flex flex-col items-center justify-center text-center max-w-lg">
+                        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                            Revolutionize Your UGC Strategy Today!
+                        </h2>
+                        <p className="max-w-[600px] text-white/80 md:text-xl">
+                            Book a Demo Now and discover how Ripples transforms your UGC & social media marketing efforts into a
+                            seamless, authentic growth engine.
+                        </p>
+                        <EnhancedButton
+                            size="lg"
+                            className="mt-8 bg-white text-black hover:bg-white/90"
+                            glowColor="rgba(255, 255, 255, 0.3)"
+                        >
+                            Book Demo Now
+                        </EnhancedButton>
+                    </div>
+
+                    {/* Right Image - Hidden on Mobile */}
+                    <img
+                        src={promoImg}
+                        alt="Right Illustration"
+                        className="hidden lg:block max-w-xl object-contain"
+                    />
+                </div>
+            </section>
+
         </div>
     )
 }
