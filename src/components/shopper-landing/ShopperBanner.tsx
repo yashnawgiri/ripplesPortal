@@ -16,7 +16,9 @@ export default function ShoppersBanner() {
                             <img
                                 src={pic}
                                 alt={`Shopper ${i + 1}`}
+                                aria-label={`Profile picture of Shopper ${i + 1}`}
                                 className="w-full h-full object-cover"
+                                loading="lazy"
                             />
                         </div>
                     ))}

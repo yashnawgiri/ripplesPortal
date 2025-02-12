@@ -98,8 +98,9 @@ function BottomSection() {
                             className="blur-load"
                             height={300}
                             width={300}
-                            loading="eager"
+                            loading="lazy"
                             src={bottomSectionImage}
+                            srcSet={`${bottomSectionImage} 1x, ${bottomSectionImage.replace(".png", ".webp")} 2x`}
                             disableSkeleton={true}
                             style={{
                                 objectFit: "contain",
@@ -108,6 +109,7 @@ function BottomSection() {
                                 height: "auto",
                             }}
                             radius="lg"
+                            aria-label="GoRipples dashboard interface showcasing analytics and features - mobile view"
                         />
                     </div>
                 </motion.div>
@@ -156,6 +158,7 @@ function BottomSection() {
                         }}
                         radius="lg"
                         src={bottomSectionImage}
+                        aria-label="GoRipples dashboard interface showcasing analytics and features"
                     />
                 </div>
             </motion.div>
