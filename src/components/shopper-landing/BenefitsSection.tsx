@@ -59,7 +59,7 @@ const BenefitsSection = () => {
 
                 {/* Image Section */}
                 <motion.div
-                    className="flex-1 home-img  w-full md:w-full flex justify-center"
+                    className="flex-1 home-img w-full md:w-full flex justify-center"
                     initial={{ opacity: 0, scale: 0.8 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true, amount: 0.2 }}
@@ -71,6 +71,8 @@ const BenefitsSection = () => {
                         height="fit"
                         src={dashboardImage}
                         width="w-1/2"
+                        loading="lazy"
+                        alt="GoRipples dashboard interface showcasing analytics and features"
                     />
                 </motion.div>
             </div>
@@ -99,7 +101,7 @@ function Card({ item }: CardProps) {
             whileTap={{ scale: 0.95 }}
         >
             <div className="flex flex-col items-center md:items-start mb-4">
-                <BenefitSectionIcons icon={item.icon}/>
+                <BenefitSectionIcons icon={item.icon} aria-label={`Benefit Icon ${item.icon}`} />
                 <h1 className="text-lg md:text-xl font-semibold md:text-start text-white mt-2">
                     {item.title}
                 </h1>

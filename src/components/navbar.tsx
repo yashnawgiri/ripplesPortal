@@ -69,7 +69,7 @@ export default function Navbar() {
         <div className="hidden md:block space-x-4">
           {location.pathname === "/shopper" && (
             <CustomButton
-              className="bg-pink-500 mx-auto"
+              className="bg-pink-700 mx-auto"
               onClick={() => navigate(siteConfig.path.home)}
               ariaLabel="For Brands">
               For Brands
@@ -134,7 +134,7 @@ export default function Navbar() {
           )}
           {location.pathname === "/shopper" &&
             <CustomButton
-              className="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 mx-auto max-w-36"
+              className="bg-gradient-to-r from-pink-700 via-purple-500 to-indigo-500 mx-auto max-w-36"
               onClick={() => navigate(siteConfig.path.home)}
               ariaLabel="For Brands"
             >
