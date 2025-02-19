@@ -59,7 +59,8 @@ const Typewriter = ({
   // Existing typing effect logic
   useEffect(() => {
     let typingTimeout;
-    const currentWord = words[currentWordIndex];
+
+    const currentWord = words.length > 0 ? words[currentWordIndex] : "";
 
     if (isDeleting) {
       typingTimeout = setTimeout(() => {

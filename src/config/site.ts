@@ -16,6 +16,7 @@ export const siteConfig = {
   path: {
     home: "/",
     shopperHome: "/shopper",
+    ugcHome: "/ugc-home",
     getDemo: "/get-demo",
     about: "/about",
     features: "/features",
