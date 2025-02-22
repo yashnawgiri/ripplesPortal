@@ -289,7 +289,7 @@ export default function UGCLanding() {
             <div className="container px-4 md:px-6 relative flex items-center justify-center w-full max-w-7xl">
               {/* Left Side - Text and Simulator */}
               <div className="relative z-10 flex flex-col items-center text-center max-w-4xl bg-black/50 p-6 rounded-lg backdrop-blur-lg">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+                <h2 className="text-3xl p-2 font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
                   Simulate Your Rewards Strategy
                 </h2>
                 <p className="max-w-[600px] text-white/80 md:text-xl">
