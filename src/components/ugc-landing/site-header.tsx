@@ -67,7 +67,7 @@ export function SiteHeader() {
               className="text-white/80 hover:text-white transition-colors"
               href="#reward-strategy"
             >
-              Reward Strategy
+              Simulate Strategy
             </a>
             <Button
               className="bg-white text-black hover:bg-white/90"
