@@ -64,7 +64,7 @@ export function ROICalculator() {
   }
 
   return (
-    <Card className="bg-black/50 border-white/10 backdrop-blur-sm transform transition-transform duration-300 hover:scale-[1.01]">
+    <Card className="bg-black/50 border-white/10 backdrop-blur-sm transform transition-transform duration-300 md:w-[50%] w-full hover:scale-[1.01]">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-white">
           <Calculator className="h-6 w-6" />
