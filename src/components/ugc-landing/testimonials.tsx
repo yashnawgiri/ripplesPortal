@@ -1,5 +1,6 @@
-import { Card, CardContent } from "@/components/ugc-landing/ui/card"
-import { Quote } from "lucide-react"
+import { Quote } from "lucide-react";
+
+import { Card, CardContent } from "@/components/ugc-landing/ui/card";
 
 const testimonials = [
   {
@@ -23,13 +24,12 @@ const testimonials = [
     role: "Social Media Lead",
     company: "Beauty Brand Inc.",
   },
-]
+];
 
 export function Testimonials() {
   return (
     <div className="w-full flex flex-col justify-center items-center bg-black px-4 sm:px-6 lg:px-8">
-      <div className="text-center space-y-4 mb-8">
-      </div>
+      <div className="text-center space-y-4 mb-8" />
       <div className="grid w-full max-w-[1600px] gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {testimonials.map((testimonial, i) => (
           <Card
@@ -39,16 +39,24 @@ export function Testimonials() {
           >
             <CardContent className="p-6 relative h-full flex flex-col">
               <Quote className="h-6 w-6 sm:h-8 sm:w-8 mb-3 sm:mb-4 text-blue-400 opacity-70" />
-              <p className="text-sm sm:text-base text-white/80 mb-3 sm:mb-4 leading-relaxed">{testimonial.quote}</p>
+              <p className="text-sm sm:text-base text-white/80 mb-3 sm:mb-4 leading-relaxed">
+                {testimonial.quote}
+              </p>
               <div className="mt-auto border-t border-gray-700 pt-4">
-                <p className="font-semibold text-sm sm:text-base text-white">{testimonial.author}</p>
-                <p className="text-xs sm:text-sm text-white/60">{testimonial.role}</p>
-                <p className="text-xs sm:text-sm text-white/60">{testimonial.company}</p>
+                <p className="font-semibold text-sm sm:text-base text-white">
+                  {testimonial.author}
+                </p>
+                <p className="text-xs sm:text-sm text-white/60">
+                  {testimonial.role}
+                </p>
+                <p className="text-xs sm:text-sm text-white/60">
+                  {testimonial.company}
+                </p>
               </div>
             </CardContent>
           </Card>
         ))}
       </div>
     </div>
-  )
+  );
 }

@@ -201,10 +201,10 @@ export default function ReferralPopup({
                       <Tooltip content={copied ? "Copied!" : "Copy link"}>
                         <Button
                           isIconOnly
+                          aria-label="Copy referral link"
                           color="secondary"
                           variant="flat"
                           onClick={handleCopy}
-                          aria-label="Copy referral link"
                         >
                           <CopyIcon />
                         </Button>
@@ -214,28 +214,28 @@ export default function ReferralPopup({
                     <div className="flex justify-center gap-2">
                       <Button
                         isIconOnly
+                        aria-label="Share on Facebook"
                         className="bg-blue-600 text-white"
                         variant="flat"
                         onClick={() => shareOnSocial("facebook")}
-                        aria-label="Share on Facebook"
                       >
                         <FaFacebook size={20} />
                       </Button>
                       <Button
                         isIconOnly
+                        aria-label="Share on Twitter"
                         className="bg-sky-500 text-white"
                         variant="flat"
                         onClick={() => shareOnSocial("twitter")}
-                        aria-label="Share on Twitter"
                       >
                         <TwitterIcon size={20} />
                       </Button>
                       <Button
                         isIconOnly
+                        aria-label="Share on LinkedIn"
                         className="bg-blue-700 text-white"
                         variant="flat"
                         onClick={() => shareOnSocial("linkedin")}
-                        aria-label="Share on LinkedIn"
                       >
                         <FaLinkedin size={20} />
                       </Button>

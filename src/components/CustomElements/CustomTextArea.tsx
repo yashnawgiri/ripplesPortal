@@ -15,18 +15,20 @@ const CustomTextArea: React.FC<InputProps> = ({
   className,
   onChange,
 }) => {
-  const textareaId = title.toLowerCase().replace(/\s+/g, '-');
-  
+  const textareaId = title.toLowerCase().replace(/\s+/g, "-");
+
   return (
     <div className="w-full">
-      <label htmlFor={textareaId} className="inputTitle heading-color text-md">{title}</label>
+      <label className="inputTitle heading-color text-md" htmlFor={textareaId}>
+        {title}
+      </label>
       <textarea
-        id={textareaId}
+        aria-label={title}
         className={`${className} h-32 p-4 inputClass text-color text-md`}
+        id={textareaId}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        aria-label={title}
       />
     </div>
   );

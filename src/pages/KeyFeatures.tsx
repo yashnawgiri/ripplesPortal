@@ -17,8 +17,8 @@ function KeyFeatures() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: shouldReduceMotion ? 0.3 : 1 }
-    }
+      transition: { duration: shouldReduceMotion ? 0.3 : 1 },
+    },
   };
 
   return (
@@ -54,31 +54,33 @@ const Card = ({ title, index }: CardProps) => {
   // Define the widths for the images in descending order
   const widths = {
     mobile: [200, 180, 200],
-    desktop: [300, 260, 310]
+    desktop: [300, 260, 310],
   };
 
   const isMobile = window.innerWidth < 768;
   const currentWidths = isMobile ? widths.mobile : widths.desktop;
 
   const cardVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: shouldReduceMotion ? 20 : 50 
+    hidden: {
+      opacity: 0,
+      y: shouldReduceMotion ? 20 : 50,
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { 
-        duration: shouldReduceMotion ? 0.3 : 0.5, 
-        delay: shouldReduceMotion ? 0 : index * 0.2 
-      }
-    }
+      transition: {
+        duration: shouldReduceMotion ? 0.3 : 0.5,
+        delay: shouldReduceMotion ? 0 : index * 0.2,
+      },
+    },
   };
 
-  const imageHoverVariants = shouldReduceMotion ? {} : {
-    hover: { scale: 1.05 },
-    tap: { scale: 0.95 }
-  };
+  const imageHoverVariants = shouldReduceMotion
+    ? {}
+    : {
+        hover: { scale: 1.05 },
+        tap: { scale: 0.95 },
+      };
 
   return (
     <motion.li
@@ -99,14 +101,14 @@ const Card = ({ title, index }: CardProps) => {
         disableSkeleton
         alt={`Step ${index + 1}`}
         className="transition-transform duration-300"
-        src={steps[index]}
-        width={currentWidths[index]}
         loading={index === 0 ? "eager" : "lazy"}
+        src={steps[index]}
         style={{
           objectFit: "contain",
           maxWidth: "100%",
-          height: "auto"
+          height: "auto",
         }}
+        width={currentWidths[index]}
       />
     </motion.li>
   );

@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ugc-landing/ui/button";
+
 // import Link from "next/link"
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+
+import { Button } from "@/components/ugc-landing/ui/button";
 import { siteConfig } from "@/config/site";
 
 export function SiteHeader() {
@@ -16,6 +18,7 @@ export function SiteHeader() {
 
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", handleScroll);
+
       return () => window.removeEventListener("scroll", handleScroll);
     }
   }, []);
@@ -30,45 +33,45 @@ export function SiteHeader() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="text-white font-bold text-xl">
+          <Link className="text-white font-bold text-xl" to="/">
             Ripples
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <a
-              href="#how-it-works"
               className="text-white/80 hover:text-white transition-colors"
+              href="#how-it-works"
             >
               How It Works
             </a>
             <a
-              href="#features"
               className="text-white/80 hover:text-white transition-colors"
+              href="#features"
             >
               Features
             </a>
             <a
-              href="#calculator"
               className="text-white/80 hover:text-white transition-colors"
+              href="#calculator"
             >
               ROI Calculator
             </a>
             <a
-              href="#testimonials"
               className="text-white/80 hover:text-white transition-colors"
+              href="#testimonials"
             >
               Testimonials
             </a>
             <a
-              href="#reward-strategy"
               className="text-white/80 hover:text-white transition-colors"
+              href="#reward-strategy"
             >
               Reward Strategy
             </a>
             <Button
-              variant="outline"
               className="bg-white text-black hover:bg-white/90"
+              variant="outline"
               onClick={() => (window.location.href = siteConfig.links.calendly)}
             >
               Book Demo
@@ -77,9 +80,9 @@ export function SiteHeader() {
 
           {/* Mobile Menu Button */}
           <button
+            aria-label="Toggle menu"
             className="md:hidden text-white p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X /> : <Menu />}
           </button>
@@ -89,44 +92,45 @@ export function SiteHeader() {
         {isMobileMenuOpen && (
           <nav className="md:hidden py-4 space-y-4">
             <a
-              href="#how-it-works"
               className="block text-white/80 hover:text-white transition-colors"
+              href="#how-it-works"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               How It Works
             </a>
             <a
-              href="#features"
               className="block text-white/80 hover:text-white transition-colors"
+              href="#features"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Features
             </a>
             <a
-              href="#calculator"
               className="block text-white/80 hover:text-white transition-colors"
+              href="#calculator"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               ROI Calculator
             </a>
             <a
-              href="#testimonials"
               className="block text-white/80 hover:text-white transition-colors"
+              href="#testimonials"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Testimonials
             </a>
             <a
-              href="#reward-strategy"
               className="block text-white/80 hover:text-white transition-colors"
+              href="#reward-strategy"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Reward Strategy
             </a>
-            
+
             <Button
+              className="w-full bg-white text-black hover:bg-white/90"
               variant="outline"
-              className="w-full bg-white text-black hover:bg-white/90" onClick={()=>window.location.href = siteConfig.links.calendly}
+              onClick={() => (window.location.href = siteConfig.links.calendly)}
             >
               Book Demo
             </Button>

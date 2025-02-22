@@ -1,9 +1,10 @@
-import { Button } from "@/components/ugc-landing/ui/button"
-import { cn } from "@/utils/utils"
-import { useState } from "react"
+import { useState } from "react";
+
+import { Button } from "@/components/ugc-landing/ui/button";
+import { cn } from "@/utils/utils";
 
 interface EnhancedButtonProps extends React.ComponentProps<typeof Button> {
-  glowColor?: string
+  glowColor?: string;
 }
 
 export default function EnhancedButton({
@@ -12,7 +13,7 @@ export default function EnhancedButton({
   children,
   ...props
 }: EnhancedButtonProps) {
-  const [isHovered, setIsHovered] = useState(false)
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div className="relative">
@@ -27,7 +28,11 @@ export default function EnhancedButton({
         }}
       />
       <Button
-        className={cn("relative transform transition-all duration-300", isHovered && "scale-105", className)}
+        className={cn(
+          "relative transform transition-all duration-300",
+          isHovered && "scale-105",
+          className,
+        )}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         {...props}
@@ -35,6 +40,5 @@ export default function EnhancedButton({
         {children}
       </Button>
     </div>
-  )
+  );
 }
-

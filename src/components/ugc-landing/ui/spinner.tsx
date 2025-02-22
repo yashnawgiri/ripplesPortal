@@ -8,6 +8,5 @@ export function Spinner({ className }: { className?: string }) {
         Loading...
       </span>
     </div>
-  )
+  );
 }
-

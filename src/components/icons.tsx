@@ -1388,14 +1388,14 @@ export function userStatsIcons(icon: number) {
 }
 
 export const BenefitSectionIcons: React.FC<{ icon: number }> = ({ icon }) => {
-  const icons = [bicon1,bicon2,bicon3,bicon4];
+  const icons = [bicon1, bicon2, bicon3, bicon4];
 
   return (
     <img
-      src={icons[icon]}
       alt={`Benefit Icon ${icon + 1}`}
-      width="45"
       height="45"
+      src={icons[icon]}
+      width="45"
     />
   );
 };

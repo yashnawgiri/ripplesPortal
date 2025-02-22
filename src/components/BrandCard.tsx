@@ -23,7 +23,7 @@ export function BrandCard({ brand }: BrandCardProps) {
     brand.referred_user_rewards.type,
     brand.referred_user_rewards.amount,
     brand.referring_user_commission.type,
-    brand.referring_user_commission.amount
+    brand.referring_user_commission.amount,
   );
 
   const statusColors: Record<string, "green" | "grey" | "grey"> = {
@@ -31,7 +31,9 @@ export function BrandCard({ brand }: BrandCardProps) {
     INACTIVE: "grey",
     DELETED: "grey",
   };
+
   console.log(brand, "from brandcard.tsx");
+
   return (
     <MotionCard
       animate={{ opacity: 1, y: 0 }}
@@ -57,14 +59,16 @@ export function BrandCard({ brand }: BrandCardProps) {
               >
                 {brand.brand_name}
               </motion.h3>
-            <span
-              className="rounded-full text-xs font-semibold text-white p-2 py-0.5 capitalize"
-              style={{
-                backgroundColor: statusColors[brand.referral_program_state],
-              }}
-            >
-             {brand.referral_program_state=="ACTIVE"?"Active":"Inactive"}
-            </span>
+              <span
+                className="rounded-full text-xs font-semibold text-white p-2 py-0.5 capitalize"
+                style={{
+                  backgroundColor: statusColors[brand.referral_program_state],
+                }}
+              >
+                {brand.referral_program_state == "ACTIVE"
+                  ? "Active"
+                  : "Inactive"}
+              </span>
             </div>
 
             <div className="space-y-6">
@@ -157,16 +161,16 @@ export function BrandCard({ brand }: BrandCardProps) {
                 <p className="font-bold text-wrap w-[90%]">{rewardString}</p>
               </div>
             </div>
-            
-            {brand.referral_program_state=="ACTIVE" && 
-            <Button
-            className=" bg-secondary text-white hover:bg-secondary/90 w-60"
-            onClick={() => copyToClipboard(brand.link)}
-            >
-              Share Referral Link
-              {BrandIcon && <BrandIcon />}
-            </Button>
-            }
+
+            {brand.referral_program_state == "ACTIVE" && (
+              <Button
+                className=" bg-secondary text-white hover:bg-secondary/90 w-60"
+                onClick={() => copyToClipboard(brand.link)}
+              >
+                Share Referral Link
+                {BrandIcon && <BrandIcon />}
+              </Button>
+            )}
           </motion.div>
         </div>
       </div>

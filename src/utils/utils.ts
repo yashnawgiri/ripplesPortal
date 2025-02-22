@@ -1,4 +1,6 @@
 import toast from "react-hot-toast";
+import { clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 import {
   ReferralEligible,
@@ -6,9 +8,6 @@ import {
   RewardType,
   Transaction,
 } from "@/services/apiService";
-
-import { clsx } from "clsx"
-import { twMerge } from "tailwind-merge"
 
 // TODO: Replace all any
 export function toCamelCase(str: string) {

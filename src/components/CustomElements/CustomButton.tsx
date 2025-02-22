@@ -17,10 +17,12 @@ const CustomButton: React.FC<CustomButtonProps> = ({
 }) => {
   return (
     <button
+      aria-label={
+        ariaLabel || (typeof children === "string" ? children : undefined)
+      }
       className={`rounded-[36px] text-white px-7 py-3 ${className}`}
       disabled={disabled}
       onClick={onClick}
-      aria-label={ariaLabel || (typeof children === 'string' ? children : undefined)}
     >
       {children}
     </button>

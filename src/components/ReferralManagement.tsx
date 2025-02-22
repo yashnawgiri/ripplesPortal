@@ -9,32 +9,32 @@ function ReferralManagement() {
   const isMobile = window.innerWidth < 768;
 
   const imageVariants = {
-    hidden: { 
-      opacity: 0, 
-      scale: shouldReduceMotion ? 1 : 0.9 
+    hidden: {
+      opacity: 0,
+      scale: shouldReduceMotion ? 1 : 0.9,
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       scale: 1,
-      transition: { 
-        duration: shouldReduceMotion ? 0.3 : 0.8, 
-        delay: shouldReduceMotion ? 0 : 0.3 
-      }
-    }
+      transition: {
+        duration: shouldReduceMotion ? 0.3 : 0.8,
+        delay: shouldReduceMotion ? 0 : 0.3,
+      },
+    },
   };
 
   const textVariants = {
-    hidden: { 
-      opacity: 0, 
-      x: shouldReduceMotion ? 0 : -50 
+    hidden: {
+      opacity: 0,
+      x: shouldReduceMotion ? 0 : -50,
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       x: 0,
-      transition: { 
-        duration: shouldReduceMotion ? 0.3 : 0.8 
-      }
-    }
+      transition: {
+        duration: shouldReduceMotion ? 0.3 : 0.8,
+      },
+    },
   };
 
   return (
@@ -77,14 +77,14 @@ function ReferralManagement() {
           disableSkeleton
           alt="Referral Campaigns"
           className="max-w-full rounded-lg shadow-lg"
-          src={campaignImg}
-          width={isMobile ? 400 : 900}
           loading={isMobile ? "eager" : "lazy"}
+          src={campaignImg}
           style={{
             objectFit: "contain",
             maxWidth: "100%",
-            height: "auto"
+            height: "auto",
           }}
+          width={isMobile ? 400 : 900}
         />
       </motion.div>
     </div>

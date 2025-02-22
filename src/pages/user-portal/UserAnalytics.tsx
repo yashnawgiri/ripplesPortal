@@ -2,6 +2,7 @@ import { Card, Skeleton, useDisclosure } from "@nextui-org/react";
 import { Tooltip } from "@nextui-org/tooltip";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 import ReferralPopup from "./ReferralPopup";
 
@@ -10,7 +11,6 @@ import { BrandCard } from "@/components/BrandCard";
 import { formatRewardString } from "@/utils/utils";
 import { BrandStats, getUserStatistics } from "@/services/apiService";
 import { WalletBalanceType } from "@/recoil/walletBalanceState";
-import toast from "react-hot-toast";
 
 interface UserStatistics {
   totalReferredUsers: number;
@@ -69,8 +69,7 @@ export function UserAnalytics({ wallet }: Props) {
 
   // Handlers
   const handleModalOpen = (brand: BrandStats) => {
-    if(brand.referral_program_state!="DELETED"){
-
+    if (brand.referral_program_state != "DELETED") {
       setModalData({
         rewardStr: formatRewardString(
           brand.referred_user_rewards.type,
@@ -83,8 +82,8 @@ export function UserAnalytics({ wallet }: Props) {
         referredUsers: brand.users,
       });
       onOpen();
-    }else{
-      toast.error("Program is deleted")
+    } else {
+      toast.error("Program is deleted");
     }
   };
 

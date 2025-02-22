@@ -6,7 +6,7 @@ export function BrandsSection() {
     { name: "Brand 4", logo: "/placeholder.svg" },
     { name: "Brand 5", logo: "/placeholder.svg" },
     { name: "Brand 6", logo: "/placeholder.svg" },
-  ]
+  ];
 
   return (
     <div className="grid gap-8">
@@ -15,7 +15,8 @@ export function BrandsSection() {
           Trusted by Leading Brands
         </h2>
         <p className="text-white/60 max-w-[600px] mx-auto">
-          Join the community of innovative brands transforming their UGC strategy
+          Join the community of innovative brands transforming their UGC
+          strategy
         </p>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
@@ -27,15 +28,14 @@ export function BrandsSection() {
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="absolute inset-0 flex items-center justify-center p-4">
               <img
-                src={brand.logo || "/placeholder.svg"}
                 alt={brand.name}
                 className="w-full h-full object-contain filter brightness-0 invert opacity-50 group-hover:opacity-80 transition-opacity"
+                src={brand.logo || "/placeholder.svg"}
               />
             </div>
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }
-

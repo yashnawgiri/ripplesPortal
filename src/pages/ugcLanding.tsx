@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-import { Card, CardContent } from "@/components/ugc-landing/ui/card";
 import {
   ArrowRight,
   Gift,
@@ -15,6 +14,9 @@ import {
   Percent,
   CreditCard,
 } from "lucide-react";
+import { Suspense } from "react";
+
+import { Card, CardContent } from "@/components/ugc-landing/ui/card";
 import { HolographicGradient } from "@/components/ugc-landing/holographic-gradient";
 import { ROICalculator } from "@/components/ugc-landing/roi-calculator";
 // import { BrandsSection } from "@/components/ugc-landing/brands-section"
@@ -22,7 +24,6 @@ import { ParticleBackground } from "@/components/ugc-landing/particle-background
 import { SiteHeader } from "@/components/ugc-landing/site-header";
 // import { Testimonials } from "@/components/ugc-landing/testimonials"
 import { Typewriter } from "@/components/ugc-landing/typewriter";
-import { FloatingButtons } from "@/components/ugc-landing/floating-buttons";
 import { ScrollProgress } from "@/components/ugc-landing/scroll-progress";
 import EnhancedButton from "@/components/ugc-landing/enhanced-button";
 import { RewardsSimulator } from "@/components/ugc-landing/rewards-simulator"; // Import the RewardsSimulator component
@@ -35,7 +36,6 @@ import {
   TableRow,
 } from "@/components/ugc-landing/ui/table";
 import { MobileCTA } from "@/components/ugc-landing/mobile-cta";
-import { Suspense } from "react";
 import { Spinner } from "@/components/ugc-landing/ui/spinner";
 import { ScrollReveal } from "@/components/ugc-landing/scroll-reveal";
 import { StaggerReveal } from "@/components/ugc-landing/stagger-reveal";
@@ -96,13 +96,13 @@ export default function UGCLanding() {
                   <div className="space-y-2 pt-24">
                     <h1 className="text-4xl font-bold tracking-tighter sm:text-6xl xl:text-7xl/none">
                       <Typewriter
+                        className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/50"
                         words={[
                           "The New Marketing & Sales Channel for Ambitious Brands",
                           "Give Cash in Bank to Shoppers for UGC",
                           "Give Cashback to Shoppers for UGC",
                           "Give Credit in Your E-commerce Store for UGC",
                         ]}
-                        className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/50"
                       />
                     </h1>
                     <p className="max-w-[600px] text-white/90 md:text-xl leading-relaxed drop-shadow-sm">
@@ -117,9 +117,9 @@ export default function UGCLanding() {
                     </p>
                   </div>
                   <EnhancedButton
-                    size="lg"
                     className="w-fit bg-white text-black hover:bg-white/90 group"
                     glowColor="rgba(255, 255, 255, 0.3)"
+                    size="lg"
                     onClick={openCalendly}
                   >
                     Book Demo Today
@@ -149,8 +149,8 @@ export default function UGCLanding() {
       <Suspense fallback={<LoadingSection />}>
         {/* How It Works Section */}
         <section
-          id="how-it-works"
           className="py-24 md:py-32 relative overflow-hidden flex justify-center"
+          id="how-it-works"
         >
           <div className="container px-4 md:px-6 flex flex-col items-center">
             <ScrollReveal>
@@ -242,22 +242,22 @@ export default function UGCLanding() {
         {/* ROI Calculator Section */}
         <ScrollReveal>
           <section
-            id="calculator"
             className="py-24 md:py-32 relative overflow-hidden flex items-center justify-center min-h-screen"
+            id="calculator"
           >
             <HolographicGradient className="absolute inset-0 opacity-20" />
 
             {/* Fixed Image */}
             <img
-              src={rupeeImg}
               alt="Icon"
               className="w-24 h-24 md:w-40 md:h-40 fixed left-10 top- -translate-y-1/2"
+              src={rupeeImg}
             />
             {/* Fixed Image (Bottom Right) */}
             <img
-              src={coinImg}
               alt="ROI Growth"
               className="w-24 h-24 md:w-40 md:h-40 absolute bottom-10 right-10 hidden md:block"
+              src={coinImg}
             />
             <div className="container px-4 md:px-6 relative flex flex-col items-center text-center">
               {/* Title & Subtitle */}
@@ -303,9 +303,9 @@ export default function UGCLanding() {
               {/* Fixed Image (Right Side, Hidden on Mobile) */}
               <div className="absolute right-[-150px] top-1/2 transform -translate-y-1/2 hidden md:block">
                 <img
-                  src={goldCoinImg}
                   alt="Rewards Simulation"
                   className="w-[600px] h-auto object-cover"
+                  src={goldCoinImg}
                 />
               </div>
             </div>
@@ -315,7 +315,7 @@ export default function UGCLanding() {
 
       <Suspense fallback={<LoadingSection />}>
         {/* Features Section */}
-        <section id="features" className="py-24 md:py-32 relative">
+        <section className="py-24 md:py-32 relative" id="features">
           <div className="container relative max-w-7xl mx-auto px-4 md:px-6">
             <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-purple-500/5 rounded-3xl blur-3xl" />
             <div className="relative">
@@ -652,9 +652,9 @@ export default function UGCLanding() {
               engine.
             </p>
             <EnhancedButton
-              size="lg"
               className="mt-8 bg-white text-black hover:bg-white/90"
               glowColor="rgba(255, 255, 255, 0.3)"
+              size="lg"
               onClick={openCalendly}
             >
               Book Demo Now
@@ -663,9 +663,9 @@ export default function UGCLanding() {
 
           {/* Right Image - Hidden on Mobile */}
           <img
-            src={promoImg}
             alt="Promotional illustration showcasing UGC strategy benefits"
             className="hidden lg:block max-w-xl object-contain"
+            src={promoImg}
           />
         </div>
       </section>

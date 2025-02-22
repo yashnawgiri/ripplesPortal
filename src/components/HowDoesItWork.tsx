@@ -25,12 +25,8 @@ const HowDoesItWork: React.FC<HowDoesItWorkProps> = ({ howDoesItWorkData }) => {
     <>
       <div className="outerContainer" id="features">
         <div className="p-4 text-center">
-          <h2 className="title">
-            {howDoesItWorkData.title}
-          </h2>
-          <p className="description">
-            {howDoesItWorkData.description}
-          </p>
+          <h2 className="title">{howDoesItWorkData.title}</h2>
+          <p className="description">{howDoesItWorkData.description}</p>
         </div>
         <div className="relative">
           <div className="innerContainer">
@@ -52,12 +48,8 @@ const HowDoesItWork: React.FC<HowDoesItWorkProps> = ({ howDoesItWorkData }) => {
       </div>
       <div className="sm:hidden w-full mt-8" id="features2">
         <div className="p-4 text-center w-full">
-          <h2 className="title">
-            {howDoesItWorkData.title}
-          </h2>
-          <p className="description">
-            {howDoesItWorkData.description}
-          </p>
+          <h2 className="title">{howDoesItWorkData.title}</h2>
+          <p className="description">{howDoesItWorkData.description}</p>
         </div>
         <Swiper
           className="how-does-it-work"
@@ -89,6 +81,6 @@ const HowDoesItWork: React.FC<HowDoesItWorkProps> = ({ howDoesItWorkData }) => {
       </div>
     </>
   );
-}
+};
 
 export default HowDoesItWork;

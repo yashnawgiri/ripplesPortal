@@ -1,24 +1,38 @@
 import { useState } from "react";
+
 import { Input } from "@/components/ugc-landing/ui/input";
 import { Label } from "@/components/ugc-landing/ui/label";
-import { cn } from "@/utils/utils"
+import { cn } from "@/utils/utils";
 
-interface EnhancedInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label: string
-  className?: string
-  containerClassName?: string
+interface EnhancedInputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+  className?: string;
+  containerClassName?: string;
 }
 
-export default function EnhancedInput({ label, className, containerClassName, ...props }: EnhancedInputProps) {
-  const [isFocused, setIsFocused] = useState(false)
+export default function EnhancedInput({
+  label,
+  className,
+  containerClassName,
+  ...props
+}: EnhancedInputProps) {
+  const [isFocused, setIsFocused] = useState(false);
 
   return (
     <div
-      className={cn("space-y-2 transition-all duration-200", isFocused && "transform scale-[1.02]", containerClassName)}
+      className={cn(
+        "space-y-2 transition-all duration-200",
+        isFocused && "transform scale-[1.02]",
+        containerClassName,
+      )}
     >
       <Label
+        className={cn(
+          "text-white transition-colors duration-200",
+          isFocused && "text-blue-400",
+        )}
         htmlFor={props.id}
-        className={cn("text-white transition-colors duration-200", isFocused && "text-blue-400")}
       >
         {label === "Cashback Percentage (%)" ? "Avg Cashback %" : label}
       </Label>
@@ -30,13 +44,13 @@ export default function EnhancedInput({ label, className, containerClassName, ..
             isFocused && "border-blue-400 bg-white/10 ring-1 ring-blue-400/20",
             className,
           )}
-          onFocus={(e) => {
-            setIsFocused(true)
-            props.onFocus?.(e)
-          }}
           onBlur={(e) => {
-            setIsFocused(false)
-            props.onBlur?.(e)
+            setIsFocused(false);
+            props.onBlur?.(e);
+          }}
+          onFocus={(e) => {
+            setIsFocused(true);
+            props.onFocus?.(e);
           }}
         />
         <div
@@ -48,6 +62,5 @@ export default function EnhancedInput({ label, className, containerClassName, ..
         />
       </div>
     </div>
-  )
+  );
 }
-
