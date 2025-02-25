@@ -92,7 +92,7 @@ export default function UGCLanding() {
             </div>
             <div className="container px-4 md:px-6 relative z-10">
               <div className="grid gap-4 lg:grid-cols-2 lg:gap-16 items-center justify-center">
-                <div className="flex flex-col justify-start space-y-4 items-center">
+                <div className="flex flex-col justify-start space-y-4 items-start">
                   <div className="space-y-2 pt-24">
                     <h1 className="text-4xl font-bold tracking-tighter sm:text-6xl xl:text-7xl/none">
                       <Typewriter
