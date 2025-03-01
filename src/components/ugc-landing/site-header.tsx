@@ -34,7 +34,7 @@ export function SiteHeader() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link className="text-white font-bold text-xl" to="/">
-            Ripples
+            Ripples<span className="text-purple-500 text-2xl">.</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -57,12 +57,12 @@ export function SiteHeader() {
             >
               ROI Calculator
             </a>
-            <a
+            {/* <a
               className="text-white/80 hover:text-white transition-colors"
               href="#testimonials"
             >
               Testimonials
-            </a>
+            </a> */}
             <a
               className="text-white/80 hover:text-white transition-colors"
               href="#reward-strategy"
@@ -112,13 +112,13 @@ export function SiteHeader() {
             >
               ROI Calculator
             </a>
-            <a
+            {/* <a
               className="block text-white/80 hover:text-white transition-colors"
               href="#testimonials"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Testimonials
-            </a>
+            </a> */}
             <a
               className="block text-white/80 hover:text-white transition-colors"
               href="#reward-strategy"
