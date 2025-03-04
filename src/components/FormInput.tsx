@@ -61,17 +61,17 @@ const FormInput: React.FC<FormInputProps> = ({
   };
 
   return (
-    <form 
+    <form
+      aria-label="Registration form"
       className={`form-wrapper ${loader ? "opacity-50" : ""}`}
+      role="form"
       onSubmit={(e) => {
         e.preventDefault();
         onFormSubmit();
       }}
-      role="form"
-      aria-label="Registration form"
     >
       {loader ? (
-        <div className="loader-comp" role="status" aria-label="Loading">
+        <div aria-label="Loading" className="loader-comp" role="status">
           <Spinner color="default" labelColor="foreground" />
         </div>
       ) : null}
@@ -79,11 +79,16 @@ const FormInput: React.FC<FormInputProps> = ({
         <div key={toCamelCase(key)} className="form-element">
           <label className="text-title" htmlFor={toCamelCase(key)}>
             {key}
-            <span className="text-red-500" aria-hidden="true">* </span>
+            <span aria-hidden="true" className="text-red-500">
+              *{" "}
+            </span>
             <span className="sr-only">Required</span>
           </label>
           <input
             required
+            aria-describedby={error ? `${toCamelCase(key)}-error` : undefined}
+            aria-invalid={!checkValueByType(toCamelCase(key), values[key])}
+            aria-required="true"
             className="input-box"
             disabled={loader}
             id={toCamelCase(key)}
@@ -93,27 +98,25 @@ const FormInput: React.FC<FormInputProps> = ({
             onChange={(e) => {
               setError("");
               const val = e.target.value;
+
               setValue(key, val);
             }}
-            aria-required="true"
-            aria-invalid={!checkValueByType(toCamelCase(key), values[key])}
-            aria-describedby={error ? `${toCamelCase(key)}-error` : undefined}
           />
         </div>
       ))}
       {error ? (
-        <div 
-          className="text-red-500 text-lg text-center" 
-          role="alert"
+        <div
           aria-live="polite"
+          className="text-red-500 text-lg text-center"
+          role="alert"
         >
           {error}
         </div>
       ) : null}
       <CustomButton
+        ariaLabel="Submit registration form"
         className="bg-secondary w-50p mx-auto mt-4 justify-center"
         onClick={onFormSubmit}
-        ariaLabel="Submit registration form"
       >
         Submit
       </CustomButton>

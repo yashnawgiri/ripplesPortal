@@ -54,57 +54,60 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   isActive
                     ? "text-white"
-                    : `${item.href === "/shopper"
-                      ? "bg-secondary px-6 py-3 rounded-3xl text-white"
-                      : "text-color"
-                    }`
+                    : `${
+                        item.href === "/shopper"
+                          ? "bg-secondary px-6 py-3 rounded-3xl text-white"
+                          : "text-color"
+                      }`
                 }
                 to={item.href}
               >
                 {item.label}
               </NavLink>
-            )
+            ),
           )}
         </div>
         <div className="hidden md:block space-x-4">
           {location.pathname === "/shopper" && (
             <CustomButton
-              className="bg-pink-500 mx-auto"
+              ariaLabel="For Brands"
+              className="bg-pink-700 mx-auto"
               onClick={() => navigate(siteConfig.path.home)}
-              ariaLabel="For Brands">
+            >
               For Brands
             </CustomButton>
           )}
           <CustomButton
+            ariaLabel={btn.label}
             className="bg-secondary"
             onClick={() => navigate(btn.href)}
-            ariaLabel={btn.label}
           >
             {btn.label}
           </CustomButton>
         </div>
         <div className="md:hidden">
           <button
+            aria-label={isOpen ? "Close menu" : "Open menu"}
             className="text-white focus:outline-none"
             onClick={() => {
               setIsOpen(!isOpen);
             }}
-            aria-label={isOpen ? "Close menu" : "Open menu"}
           >
             {isOpen ? <CrossIcon /> : <HamburgerButton />}
           </button>
         </div>
       </div>
       <div
-        className={`fixed top-20 left-0 h-full w-3/4 bg-primary p-6 z-50 transform ${isOpen ? "translate-x-0" : "-translate-x-full"
-          } transition-transform duration-300 ease-in-out md:hidden`}
+        className={`fixed top-20 left-0 h-full w-3/4 bg-primary p-6 z-50 transform ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300 ease-in-out md:hidden`}
       >
         <button
+          aria-label="Close mobile menu"
           className="text-white mb-6"
           onClick={() => {
             setIsOpen(false);
           }}
-          aria-label="Close mobile menu"
         >
           {/* <CrossIcon /> */}
         </button>
@@ -130,21 +133,21 @@ export default function Navbar() {
               >
                 {item.label}
               </NavLink>
-            )
+            ),
           )}
-          {location.pathname === "/shopper" &&
+          {location.pathname === "/shopper" && (
             <CustomButton
-              className="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 mx-auto max-w-36"
-              onClick={() => navigate(siteConfig.path.home)}
               ariaLabel="For Brands"
+              className="bg-gradient-to-r from-pink-700 via-purple-500 to-indigo-500 mx-auto max-w-36"
+              onClick={() => navigate(siteConfig.path.home)}
             >
               For Brands
             </CustomButton>
-          }
+          )}
           <CustomButton
+            ariaLabel={btn.label}
             className="bg-secondary mx-auto max-w-36"
             onClick={() => navigate(btn.href)}
-            ariaLabel={btn.label}
           >
             {btn.label}
           </CustomButton>

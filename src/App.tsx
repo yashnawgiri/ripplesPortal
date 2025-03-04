@@ -5,6 +5,8 @@ import PrivateRoute from "./pages/auth-page/authComponents/PrivateRoute";
 import Logout from "./pages/auth-page/Logout";
 import Fallback from "./components/Fallback";
 import Withdraw from "./components/Withdraw";
+import ShopperHomePage from "./pages/ShopperHome";
+import UGCLanding from "./pages/ugcLanding";
 
 import { siteConfig } from "@/config/site";
 import HomePage from "@/pages/home";
@@ -21,17 +23,17 @@ import MyAccount from "@/pages/user-portal/myAccount";
 import Transactions from "@/pages/user-portal/Transactions";
 import NotFound from "@/pages/notFound";
 import AuthPage from "@/pages/auth-page/AuthPage";
-import ShopperHomePage from "./pages/ShopperHome";
 
 function App() {
   return (
     <Suspense fallback={<Fallback />}>
       <Routes>
         <Route element={<HomePage />} path={siteConfig.path.home} />
-        <Route 
-           element={<ShopperHomePage/>} 
-           path={siteConfig.path.shopperHome} 
+        <Route
+          element={<ShopperHomePage />}
+          path={siteConfig.path.shopperHome}
         />
+        <Route element={<UGCLanding />} path={siteConfig.path.ugcHome} />
         <Route element={<GetDemo />} path={siteConfig.path.getDemo} />
         <Route element={<AboutPage />} path={siteConfig.path.about} />
         <Route

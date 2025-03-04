@@ -5,6 +5,7 @@ import { useEffect, useRef, Suspense, lazy } from "react";
 import { useNavigate } from "react-router-dom";
 
 import dashboardData from "./../data/landing.json";
+
 import CustomButton from "@/components/CustomElements/CustomButton";
 import { siteConfig } from "@/config/site";
 import flyer from "@/assets/images/flayer.webp";
@@ -15,9 +16,10 @@ const BrandsJoined = lazy(() => import("./BrandsJoined"));
 
 // Preload LCP image
 const preloadImage = () => {
-  const link = document.createElement('link');
-  link.rel = 'preload';
-  link.as = 'image';
+  const link = document.createElement("link");
+
+  link.rel = "preload";
+  link.as = "image";
   link.href = flyer;
   document.head.appendChild(link);
 };
@@ -25,9 +27,9 @@ const preloadImage = () => {
 function HeroSection() {
   const navigate = useNavigate();
   const ref = useRef(null);
-  const isInView = useInView(ref, { 
-    once: true, 
-    amount: 0.05
+  const isInView = useInView(ref, {
+    once: true,
+    amount: 0.05,
   });
   const controls = useAnimation();
 
@@ -46,19 +48,19 @@ function HeroSection() {
 
   const headingVariants = {
     hidden: { opacity: 0, y: -20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { duration: 0.2 }
+      transition: { duration: 0.2 },
     },
   };
 
   const descriptionVariants = {
     hidden: { opacity: 0, y: 10 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { duration: 0.2, delay: 0.1 }
+      transition: { duration: 0.2, delay: 0.1 },
     },
   };
 
@@ -66,7 +68,7 @@ function HeroSection() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { duration: 0.3 }
+      transition: { duration: 0.3 },
     },
   };
 
@@ -94,23 +96,23 @@ function HeroSection() {
           animate={controls}
           className="home-img-mob md:hidden"
           initial="hidden"
-          variants={imageVariants}
           style={{
             overflow: "hidden",
             borderRadius: "24px",
-            boxShadow: "0 20px 70px rgba(0, 0, 0, 0.2)"
+            boxShadow: "0 20px 70px rgba(0, 0, 0, 0.2)",
           }}
+          variants={imageVariants}
         >
           <div className="transition-transform duration-300 ease-in-out hover:scale-110 origin-center mt-8">
             <Image
-              isBlurred={false}
               alt="GoRipples dashboard interface showcasing analytics and features - mobile view"
               className="blur-load"
-              height={300}
-              width={300}
-              loading="eager"
-              src={flyer}
               disableSkeleton={true}
+              height={300}
+              isBlurred={false}
+              loading="eager"
+              radius="lg"
+              src={flyer}
               style={{
                 objectFit: "contain",
                 objectPosition: "center",
@@ -118,9 +120,9 @@ function HeroSection() {
                 height: "auto",
                 transform: "scale(1.1)",
                 transformOrigin: "center",
-                backgroundColor: "transparent" // Add this
+                backgroundColor: "transparent", // Add this
               }}
-              radius="lg"
+              width={300}
             />
           </div>
         </motion.div>
@@ -132,16 +134,20 @@ function HeroSection() {
             whileTap="tap"
           >
             <CustomButton
+              ariaLabel="Book a demo"
               className="font-bold bg-custom-gradient md:text-2xl text-xl"
               onClick={() => navigate(siteConfig.path.getDemo)}
-              ariaLabel="Book a demo"
             >
               {dashboardData.home.demoButton}
             </CustomButton>
           </motion.div>
         </motion.div>
 
-        <Suspense fallback={<div className="h-20" aria-label="Loading brands section" />}>
+        <Suspense
+          fallback={
+            <div aria-label="Loading brands section" className="h-20" />
+          }
+        >
           <BrandsJoined />
         </Suspense>
       </motion.div>
@@ -150,21 +156,22 @@ function HeroSection() {
         animate={controls}
         className="home-img hidden md:block"
         initial="hidden"
-        variants={imageVariants}
         style={{
           overflow: "hidden",
           borderRadius: "32px",
-          boxShadow: "0 25px 80px rgba(0, 0, 0, 0.35)"
+          boxShadow: "0 25px 80px rgba(0, 0, 0, 0.35)",
         }}
+        variants={imageVariants}
       >
         <div className="transition-transform duration-300 ease-in-out hover:scale-125 origin-center mt-8">
           <Image
-            isBlurred={false}
             alt="GoRipples dashboard interface showcasing analytics and features"
             className="my-4"
             height={1200}
-            width={1200}
+            isBlurred={false}
             loading="eager"
+            radius="lg"
+            src={flyer}
             style={{
               objectFit: "contain",
               objectPosition: "center",
@@ -173,10 +180,9 @@ function HeroSection() {
               transform: "scale(1.15)",
               transformOrigin: "center",
               willChange: "transform",
-              backgroundColor: "transparent"
+              backgroundColor: "transparent",
             }}
-            radius="lg"
-            src={flyer}
+            width={1200}
           />
         </div>
       </motion.div>

@@ -31,11 +31,11 @@ function TestimonialCard({ id }: TestimonialCardProps) {
       <div className="singleTestimonialInnerContainer">
         <div className="flex justify-between">
           <div className="flex items-center space-x-2">
-            <Image 
-              height={40} 
-              src={Avatars[id]} 
-              width={40} 
+            <Image
               alt={`${testimonial.name}'s profile picture`}
+              height={40}
+              src={Avatars[id]}
+              width={40}
             />
             <div className="items-center space-y-1">
               <h3 className="text-md text-white">{testimonial.name}</h3>
@@ -55,7 +55,7 @@ export default function Testimonials() {
   const testimonialsLength = dashboardData.testimonialsData.length;
 
   useEffect(() => {
-    setCurrentIndex(0)
+    setCurrentIndex(0);
   }, []);
 
   const handleNext = () => {
@@ -109,20 +109,20 @@ export default function Testimonials() {
       <div className="content-center">
         <div className="flex justify-center space-x-2">
           <motion.button
+            aria-label="Previous testimonial"
             className="bg-primary p-2 rounded-xl"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={handlePrevious}
-            aria-label="Previous testimonial"
           >
             <BackwardArrowIcon />
           </motion.button>
           <motion.button
+            aria-label="Next testimonial"
             className="bg-primary p-2 rounded-xl"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleNext}
-            aria-label="Next testimonial"
           >
             <ForwardArrowIcon />
           </motion.button>

@@ -242,8 +242,19 @@ const Withdraw: React.FC = () => {
             )}
 
             {step === 2 && (
-              <div className="flex flex-col gap-4" role="region" aria-label="Select withdrawal method">
+              <div
+                aria-label="Select withdrawal method"
+                className="flex flex-col gap-4"
+                role="region"
+              >
                 <Select
+                  aria-describedby={
+                    errors.withdrawalMethod
+                      ? "withdrawal-method-error"
+                      : undefined
+                  }
+                  aria-invalid={!!errors.withdrawalMethod}
+                  aria-required="true"
                   classNames={{
                     label: "text-zinc-200",
                     trigger: "bg-default-100/50 text-zinc-100",
@@ -263,9 +274,6 @@ const Withdraw: React.FC = () => {
                       ),
                     }));
                   }}
-                  aria-required="true"
-                  aria-invalid={!!errors.withdrawalMethod}
-                  aria-describedby={errors.withdrawalMethod ? "withdrawal-method-error" : undefined}
                 >
                   <SelectItem key="bank" className="text-zinc-800">
                     Bank Transfer
@@ -275,11 +283,11 @@ const Withdraw: React.FC = () => {
             )}
 
             {step === 3 && (
-              <form 
-                className="flex flex-col gap-4" 
-                onSubmit={handleSubmit}
-                role="form"
+              <form
                 aria-label="Bank account details form"
+                className="flex flex-col gap-4"
+                role="form"
+                onSubmit={handleSubmit}
               >
                 {[
                   {
@@ -357,6 +365,14 @@ const Withdraw: React.FC = () => {
                 ].map((field, index) => (
                   <Input
                     key={index}
+                    aria-describedby={
+                      field.error
+                        ? `${field.label.toLowerCase().replace(/\s+/g, "-")}-error`
+                        : undefined
+                    }
+                    aria-invalid={!!field.error}
+                    aria-label={field.ariaLabel}
+                    aria-required="true"
                     classNames={{
                       label: "text-white",
                       input: "text-black",
@@ -371,25 +387,21 @@ const Withdraw: React.FC = () => {
                     placeholder={field.placeholder}
                     value={field.value}
                     onChange={field.onChange}
-                    aria-label={field.ariaLabel}
-                    aria-required="true"
-                    aria-invalid={!!field.error}
-                    aria-describedby={field.error ? `${field.label.toLowerCase().replace(/\s+/g, '-')}-error` : undefined}
                   />
                 ))}
                 <div className="flex justify-between mt-4">
                   <Button
+                    aria-label="Go back to previous step"
                     color="primary"
                     variant="bordered"
                     onPress={handleBack}
-                    aria-label="Go back to previous step"
                   >
                     Back
                   </Button>
-                  <Button 
-                    color="secondary" 
-                    type="submit"
+                  <Button
                     aria-label="Submit withdrawal request"
+                    color="secondary"
+                    type="submit"
                   >
                     Submit Withdrawal
                   </Button>
@@ -398,25 +410,25 @@ const Withdraw: React.FC = () => {
             )}
 
             {step === 4 && (
-              <div 
+              <div
+                aria-label="Withdrawal request confirmation"
                 className="flex flex-col gap-6 items-center text-zinc-100"
                 role="region"
-                aria-label="Withdrawal request confirmation"
               >
-                <Chip 
-                  color="success" 
-                  size="lg" 
-                  variant="flat"
-                  role="status"
+                <Chip
                   aria-label="Success status"
+                  color="success"
+                  role="status"
+                  size="lg"
+                  variant="flat"
                 >
                   Withdrawal Request Successful!
                 </Chip>
 
-                <div 
+                <div
+                  aria-label="Withdrawal details"
                   className="w-full space-y-4"
                   role="list"
-                  aria-label="Withdrawal details"
                 >
                   {[
                     { label: "Amount", value: `₹${amount}` },
@@ -426,8 +438,8 @@ const Withdraw: React.FC = () => {
                     { label: "IFSC Code", value: ifscCode },
                     { label: "Phone Number", value: phone },
                   ].map((item, index) => (
-                    <div 
-                      key={index} 
+                    <div
+                      key={index}
                       className="flex justify-between"
                       role="listitem"
                     >
@@ -437,10 +449,10 @@ const Withdraw: React.FC = () => {
                   ))}
                 </div>
 
-                <p 
+                <p
+                  aria-label="Processing time information"
                   className="text-center text-zinc-300 mt-4"
                   role="note"
-                  aria-label="Processing time information"
                 >
                   You will receive the funds in your account within{" "}
                   <span className="font-medium text-zinc-100">

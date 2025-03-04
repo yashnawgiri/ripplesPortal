@@ -46,7 +46,7 @@ export default function HomePage() {
     <DefaultLayout>
       <section className="main-section">
         <HeroSection />
-        <StatsSection statsData={dashboardData.stats}/>
+        <StatsSection statsData={dashboardData.stats} />
         <PromoSection />
         <RevenueBoostCalculator />
         <DashboardCard />
@@ -55,7 +55,7 @@ export default function HomePage() {
         <LinkCodeSection />
         <KeyFeatures />
         <DemoButton />
-        <HowDoesItWork 
+        <HowDoesItWork
           howDoesItWorkData={dashboardData.ComponentsData.HowDoesItWorks}
         />
         <Testimonials />

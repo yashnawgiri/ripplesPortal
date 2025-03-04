@@ -27,7 +27,12 @@ export default function ComingSoon() {
                 size="lg"
                 type="email"
               />
-              <Button className="font-semibold" color="secondary" size="lg" aria-label="Get notified when we launch">
+              <Button
+                aria-label="Get notified when we launch"
+                className="font-semibold"
+                color="secondary"
+                size="lg"
+              >
                 Notify Me
               </Button>
             </form>

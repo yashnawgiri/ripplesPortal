@@ -19,20 +19,22 @@ const CustomInput: React.FC<InputProps> = ({
   className,
   onChange,
 }) => {
-  const inputId = title.toLowerCase().replace(/\s+/g, '-');
-  
+  const inputId = title.toLowerCase().replace(/\s+/g, "-");
+
   return (
     <div className="w-full">
-      <label htmlFor={inputId} className="inputTitle heading-color text-md">{title}</label>
+      <label className="inputTitle heading-color text-md" htmlFor={inputId}>
+        {title}
+      </label>
       <input
-        id={inputId}
+        aria-label={title}
         className={`${className} h-12 px-4 inputClass text-color text-md`}
+        id={inputId}
         placeholder={placeholder}
         readOnly={readonly}
         type={type}
         value={value}
         onChange={onChange}
-        aria-label={title}
       />
     </div>
   );

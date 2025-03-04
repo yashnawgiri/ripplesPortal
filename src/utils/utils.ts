@@ -1,4 +1,6 @@
 import toast from "react-hot-toast";
+import { clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 import {
   ReferralEligible,
@@ -141,4 +143,8 @@ export function organizeRewardData(
   organizedData.sort((a, b) => a.milestone - b.milestone);
 
   return organizedData;
+}
+
+export function cn(...inputs: Array<string | undefined | null | boolean>) {
+  return twMerge(clsx(inputs));
 }

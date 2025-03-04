@@ -3,6 +3,7 @@ import { Image } from "@nextui-org/react";
 import { motion, useReducedMotion } from "framer-motion"; // Import useReducedMotion
 
 import promoImg from "./../assets/images/promoImg.png";
+
 import promoData from "@/data/landing.json";
 
 const PromoSection: React.FC = () => {
@@ -14,26 +15,31 @@ const PromoSection: React.FC = () => {
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: shouldReduceMotion ? 0.3 : 1, staggerChildren: shouldReduceMotion ? 0 : 0.2 },
+      transition: {
+        duration: shouldReduceMotion ? 0.3 : 1,
+        staggerChildren: shouldReduceMotion ? 0 : 0.2,
+      },
     },
   };
 
   const imageVariants = {
     hidden: { opacity: 0, scale: shouldReduceMotion ? 1 : 0.8 },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
-      transition: { duration: shouldReduceMotion ? 0.3 : 1 } 
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: shouldReduceMotion ? 0.3 : 1 },
     },
   };
 
-  const hoverEffect = shouldReduceMotion ? {} : {
-    hover: {
-      scale: 1.05,
-      rotate: 2,
-      boxShadow: "0px 4px 20px rgba(0,0,0,0.2)",
-    },
-  };
+  const hoverEffect = shouldReduceMotion
+    ? {}
+    : {
+        hover: {
+          scale: 1.05,
+          rotate: 2,
+          boxShadow: "0px 4px 20px rgba(0,0,0,0.2)",
+        },
+      };
 
   return (
     <motion.div
@@ -65,14 +71,14 @@ const PromoSection: React.FC = () => {
             disableSkeleton
             alt="GoRipples promotional features showcase"
             height={300}
-            src={promoImg}
-            width={300}
             loading="eager"
+            src={promoImg}
             style={{
               objectFit: "contain",
               maxWidth: "100%",
-              height: "auto"
+              height: "auto",
             }}
+            width={300}
           />
         </motion.div>
       </motion.div>
@@ -86,14 +92,14 @@ const PromoSection: React.FC = () => {
           <Image
             disableSkeleton
             alt="GoRipples promotional features and benefits showcase"
+            loading="lazy"
             src={promoImg}
             width={900}
-            loading="lazy"
           />
         </motion.div>
       </motion.div>
     </motion.div>
   );
-}
+};
 
 export default PromoSection;

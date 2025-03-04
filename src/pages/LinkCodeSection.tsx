@@ -33,8 +33,8 @@ function LinkCodeSection() {
 
   return (
     <div
-      className="flex flex-col lg:flex-row items-center justify-between gap-8 relative"
       ref={ref}
+      className="flex flex-col lg:flex-row items-center justify-between gap-8 relative"
     >
       {/* Text Content */}
       <motion.div
@@ -65,18 +65,18 @@ function LinkCodeSection() {
             disableSkeleton
             alt="Edit and share options interface"
             className="object-contain"
+            loading="lazy"
             src={editShareImg}
-            width={200}
-            loading="lazy"
             style={{ willChange: "transform" }}
+            width={200}
           />
-          <Image 
-            disableSkeleton 
-            alt="Link sharing interface" 
-            src={linkImg} 
-            width={200}
+          <Image
+            disableSkeleton
+            alt="Link sharing interface"
             loading="lazy"
+            src={linkImg}
             style={{ willChange: "transform" }}
+            width={200}
           />
         </div>
       </motion.div>
@@ -95,10 +95,10 @@ function LinkCodeSection() {
           disableSkeleton
           alt="Link sharing modal with customization options"
           className="max-w-full rounded-lg shadow-lg"
-          src={linkModalImg}
-          width={600}
           loading="lazy"
+          src={linkModalImg}
           style={{ willChange: "transform" }}
+          width={600}
         />
       </motion.div>
     </div>
