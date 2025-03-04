@@ -148,3 +148,18 @@ export function organizeRewardData(
 export function cn(...inputs: Array<string | undefined | null | boolean>) {
   return twMerge(clsx(inputs));
 }
+
+export const brandsJoinedLogos = [
+  {
+    name: "Foramour",
+    image: "https://ripples1static.blob.core.windows.net/images/foramour.png",
+  },
+  {
+    name: "Mayin Clothing",
+    image: "https://ripples1static.blob.core.windows.net/images/mayin.png",
+  },
+  {
+    name: "Gokwik",
+    image: "https://ripples1static.blob.core.windows.net/images/GoKwik.jpg",
+  },
+];
