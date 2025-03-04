@@ -22,7 +22,7 @@ export const validateEmail = (email: string) => {
   return String(email)
     .toLowerCase()
     .match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     );
 };
 
@@ -55,7 +55,7 @@ interface ApiOptions extends RequestInit {
 
 export const apiCall = async <T>(
   url: string,
-  options: ApiOptions = {}
+  options: ApiOptions = {},
 ): Promise<T> => {
   try {
     const response = await fetch(url, options);
@@ -78,7 +78,7 @@ export interface GroupedTransactions {
 }
 
 export const groupTransactionsByDate = (
-  transactions: Transaction[]
+  transactions: Transaction[],
 ): GroupedTransactions[] => {
   const grouped: { [date: string]: Transaction[] } = {};
 
@@ -107,7 +107,7 @@ export function copyToClipboard(link: string) {
     },
     function () {
       toast.error("Failed to copy to clipboard");
-    }
+    },
   );
 }
 
@@ -115,7 +115,7 @@ export function formatRewardString(
   rewardType: "FIXED_INR" | "PERCENTAGE",
   rewardAmount: number,
   commissionType: "FIXED_INR" | "PERCENTAGE",
-  commissionAmount: number
+  commissionAmount: number,
 ) {
   return `Give ${rewardType === "FIXED_INR" ? `Rs.${rewardAmount}` : `${rewardAmount}%`} off, Get ${commissionType === "FIXED_INR" ? `Rs.${commissionAmount}` : `${commissionAmount}%`} cash`;
 }
@@ -128,7 +128,7 @@ export type OrganizeRewards = {
 };
 
 export function organizeRewardData(
-  data: RewardProgramDetail[]
+  data: RewardProgramDetail[],
 ): OrganizeRewards[] {
   const organizedData = data.map((reward) => {
     return {

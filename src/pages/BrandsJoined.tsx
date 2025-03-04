@@ -10,7 +10,7 @@ export default function BrandsJoined() {
       <div className="flex items-center gap-2 text-gray-300 text-large lg:justify-start md:justify-center justify-center flex-wrap">
         <div className="flex items-center space-x-[-8px]">
           {brandsJoinedLogos.map((brand) => (
-            <Tooltip content={brand.name}>
+            <Tooltip key={brand.name} content={brand.name}>
               <Avatar size="sm" src={brand.image} />
             </Tooltip>
           ))}
