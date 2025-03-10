@@ -135,7 +135,7 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/company/goripples/",
     signupForm:
       "https://script.google.com/macros/s/AKfycbxZ92NLEumTJMw8wkV5NEwBkFHDegtdtFy63kzlH2xJBOCLcN6XfFi-4J9wpfMDW8pX/exec",
-    calendly: "https://calendly.com/hello-ripples/30min",
+    calendly: "https://calendly.com/helloripples/30min",
   },
   footerItems: [
     {
