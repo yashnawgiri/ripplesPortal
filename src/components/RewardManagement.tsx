@@ -5,9 +5,9 @@ import { Image } from "@nextui-org/image";
 
 import data from "@/data/landing.json";
 import ruppes from "@/assets/images/rupees.webp";
-import rewardmanage from "@/assets/images/rewardmanage.png";
-import cashbackImg from "@/assets/images/cashback.webp";
-import wallet from "@/assets/images/wallet.png";
+import rewardmanage from "@/assets/images/rewardmanage.svg";
+import cashbackImg from "@/assets/images/cashback.png";
+import wallet from "@/assets/images/wallet.svg";
 import milestone from "@/assets/images/milestone.png";
 
 function RewardManagement() {
@@ -117,17 +117,17 @@ const CashbackAndMileStone = () => {
         </div>
 
         <motion.div
-          className="flex flex-col md:flex-row md:gap-4 items-center justify-center md:justify-start"
+          className="flex flex-col md:flex-row md:gap-4 gap-10 items-center justify-center md:justify-start"
           whileHover={{ rotate: 10 }}
         >
           <Image
             disableSkeleton
-            className="w-full max-w-[400px] md:max-w-[600px] mx-auto"
+            className="w-[200px] max-w-[400px] md:max-w-[600px] mx-auto"
             src={cashbackImg}
           />
           <Image
             disableSkeleton
-            className="w-full max-w-[300px] md:max-w-[500px]"
+            className="w-[200px] max-w-[300px] md:max-w-[500px]"
             src={wallet}
           />
         </motion.div>
