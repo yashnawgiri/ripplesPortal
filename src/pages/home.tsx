@@ -26,6 +26,7 @@ import HeroSection from "./HeroSection";
 
 import RevenueBoostCalculator from "@/components/RevenueBoostCalculator";
 import DataPrivacyComponent from "@/components/DataPrivacyComponent";
+import IntegrationSlider from "@/components/IntegrationSlider";
 
 function DemoButton() {
   const navigate = useNavigate();
@@ -42,12 +43,14 @@ function DemoButton() {
 
 export default function HomePage() {
   // const navigate = useNavigate();
+  
   return (
     <DefaultLayout>
       <section className="main-section">
         <HeroSection />
         <StatsSection statsData={dashboardData.stats} />
         <PromoSection />
+        <IntegrationSlider />
         <RevenueBoostCalculator />
         <DashboardCard />
         <RewardManagement />
