@@ -20,6 +20,7 @@ export const siteConfig = {
     getDemo: "/get-demo",
     about: "/about",
     features: "/features",
+    referralCommissionCalculator: "/referral-commission-calculator",
     privacyPolicy: "/privacy-policy",
     terms: "/terms-and-conditions",
     docs: "/docs",
@@ -54,6 +55,15 @@ export const siteConfig = {
     {
       label: "Early Bird",
       href: "/get-demo",
+    },
+    {
+      label: "Resources",
+      resources: [
+        {
+          label: "Referral Commission Calculator",
+          href: "/referral-commission-calculator",
+        }
+      ],
     },
     {
       label: "Shoppers: Access Rewards",
