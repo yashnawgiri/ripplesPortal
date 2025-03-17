@@ -62,7 +62,7 @@ export const siteConfig = {
         {
           label: "Referral Commission Calculator",
           href: "/referral-commission-calculator",
-        }
+        },
       ],
     },
     {

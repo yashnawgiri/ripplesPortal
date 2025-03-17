@@ -7,6 +7,7 @@ import Fallback from "./components/Fallback";
 import Withdraw from "./components/Withdraw";
 import ShopperHomePage from "./pages/ShopperHome";
 import UGCLanding from "./pages/ugcLanding";
+import ReferralCommissionCalculatorPage from "./pages/ReferralCommissionCalculatorPage";
 
 import { siteConfig } from "@/config/site";
 import HomePage from "@/pages/home";
@@ -23,7 +24,6 @@ import MyAccount from "@/pages/user-portal/myAccount";
 import Transactions from "@/pages/user-portal/Transactions";
 import NotFound from "@/pages/notFound";
 import AuthPage from "@/pages/auth-page/AuthPage";
-import ReferralCommissionCalculatorPage from "./pages/ReferralCommissionCalculatorPage";
 
 function App() {
   return (

@@ -1,4 +1,5 @@
 import type React from "react";
+
 import { useState, useCallback, useMemo } from "react";
 import {
   Card,
@@ -53,124 +54,148 @@ const DEFAULT_CALCULATION_RESULT: CalculationResult = {
 export default function ReferralCommissionCalculator() {
   const [currency, setCurrency] = useState<"USD" | "INR">("INR");
   const [formData, setFormData] = useState<FormData>(DEFAULT_FORM_DATA);
-  const [calculationResult, setCalculationResult] = useState<CalculationResult>(DEFAULT_CALCULATION_RESULT);
+  const [calculationResult, setCalculationResult] = useState<CalculationResult>(
+    DEFAULT_CALCULATION_RESULT,
+  );
 
-  const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }));
-  }, []);
+  const handleInputChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = e.target;
+
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    },
+    [],
+  );
 
   const handleSliderChange = useCallback((value: number) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       optimizeValue: value,
     }));
   }, []);
 
   const handleCurrencyToggle = useCallback(() => {
-    setCurrency(prev => (prev === "USD" ? "INR" : "USD"));
+    setCurrency((prev) => (prev === "USD" ? "INR" : "USD"));
   }, []);
 
-  const formatCurrency = useCallback((amount: number): string => {
-    return currency === "USD" 
-      ? `$${amount.toFixed(2)}`
-      : `₹${amount.toFixed(0)}`;
-  }, [currency]);
+  const formatCurrency = useCallback(
+    (amount: number): string => {
+      return currency === "USD"
+        ? `$${amount.toFixed(2)}`
+        : `₹${amount.toFixed(0)}`;
+    },
+    [currency],
+  );
 
-  const formatCurrencyWhole = useCallback((amount: number): string => {
-    return currency === "USD"
-      ? `$${amount.toFixed(0)}`
-      : `₹${amount.toFixed(0)}`;
-  }, [currency]);
+  const formatCurrencyWhole = useCallback(
+    (amount: number): string => {
+      return currency === "USD"
+        ? `$${amount.toFixed(0)}`
+        : `₹${amount.toFixed(0)}`;
+    },
+    [currency],
+  );
 
-  const calculateResults = useCallback((
-    aov: number,
-    profitMargin: number,
-    cac: number,
-    discountValue: number,
-    discountType: string,
-    optimizeValue: number
-  ) => {
-    const grossProfit = aov * (profitMargin / 100);
-    const discountAmount = discountType === "percentage" 
-      ? aov * (discountValue / 100)
-      : discountValue;
+  const calculateResults = useCallback(
+    (
+      aov: number,
+      profitMargin: number,
+      cac: number,
+      discountValue: number,
+      discountType: string,
+      optimizeValue: number,
+    ) => {
+      const grossProfit = aov * (profitMargin / 100);
+      const discountAmount =
+        discountType === "percentage"
+          ? aov * (discountValue / 100)
+          : discountValue;
 
-    const discountPercentage = discountType === "percentage"
-      ? discountValue
-      : (discountAmount / aov) * 100;
+      const discountPercentage =
+        discountType === "percentage"
+          ? discountValue
+          : (discountAmount / aov) * 100;
 
-    const projectedNetProfit = grossProfit - discountAmount - cac;
-    const scaleFactor = optimizeValue / 100;
-    const recommendedRate = Math.min(
-      ((grossProfit * scaleFactor) / aov) * 100,
-      profitMargin / 2
-    );
+      const projectedNetProfit = grossProfit - discountAmount - cac;
+      const scaleFactor = optimizeValue / 100;
+      const recommendedRate = Math.min(
+        ((grossProfit * scaleFactor) / aov) * 100,
+        profitMargin / 2,
+      );
 
-    const effectiveProfitMargin = profitMargin - recommendedRate - discountPercentage;
-    const commissionPerSale = (recommendedRate / 100) * aov;
+      const effectiveProfitMargin =
+        profitMargin - recommendedRate - discountPercentage;
+      const commissionPerSale = (recommendedRate / 100) * aov;
 
-    return {
-      recommendedRate: Number(recommendedRate.toFixed(2)),
-      projectedNetProfit,
-      effectiveProfitMargin,
-      commissionPerSale,
-      fixedCommission: Math.round(commissionPerSale)
-    };
-  }, []);
+      return {
+        recommendedRate: Number(recommendedRate.toFixed(2)),
+        projectedNetProfit,
+        effectiveProfitMargin,
+        commissionPerSale,
+        fixedCommission: Math.round(commissionPerSale),
+      };
+    },
+    [],
+  );
 
-  const handleSubmit = useCallback((e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = useCallback(
+    (e: React.FormEvent) => {
+      e.preventDefault();
 
-    const aov = Number.parseFloat(formData.aov) || 0;
-    const profitMargin = Number.parseFloat(formData.profitMargin) || 0;
-    const cac = Number.parseFloat(formData.cac) || 0;
-    const discountValue = Number.parseFloat(formData.discountValue) || 0;
+      const aov = Number.parseFloat(formData.aov) || 0;
+      const profitMargin = Number.parseFloat(formData.profitMargin) || 0;
+      const cac = Number.parseFloat(formData.cac) || 0;
+      const discountValue = Number.parseFloat(formData.discountValue) || 0;
 
-    const results = calculateResults(
-      aov,
-      profitMargin, 
-      cac,
-      discountValue,
-      formData.discountType,
-      formData.optimizeValue
-    );
+      const results = calculateResults(
+        aov,
+        profitMargin,
+        cac,
+        discountValue,
+        formData.discountType,
+        formData.optimizeValue,
+      );
 
-    setCalculationResult(results);
-  }, [formData, calculateResults]);
+      setCalculationResult(results);
+    },
+    [formData, calculateResults],
+  );
 
-  const currencySymbol = useMemo(() => currency === "USD" ? "$" : "₹", [currency]);
+  const currencySymbol = useMemo(
+    () => (currency === "USD" ? "$" : "₹"),
+    [currency],
+  );
 
   return (
     <Card className="bg-transparent text-white" shadow="none">
       <CardHeader className="flex flex-col items-center gap-2">
-        <div className="flex justify-between items-center w-full mb-4"></div>
+        <div className="flex justify-between items-center w-full mb-4" />
         <h2 className="text-3xl md:text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-secondary to-secondary-300">
-        Referral Reward Calculator
+          Referral Reward Calculator
         </h2>
         <p className="text-sm md:text-xl text-center text-white">
-          Calculate the optimal referral reward rate for your referral program based
-          on your business metrics and referral reward offerings.
+          Calculate the optimal referral reward rate for your referral program
+          based on your business metrics and referral reward offerings.
         </p>
         <div className="flex items-center gap-2 text-white">
           <span className="text-sm md:text-xl">Currency:</span>
           <div className="flex items-center gap-2">
             <span className={currency === "USD" ? "font-bold" : ""}>USD</span>
             <Switch
-              isSelected={currency === "INR"}
               color="secondary"
-              onValueChange={handleCurrencyToggle}
+              isSelected={currency === "INR"}
               size="sm"
+              onValueChange={handleCurrencyToggle}
             />
             <span className={currency === "INR" ? "font-bold" : ""}>INR</span>
           </div>
         </div>
       </CardHeader>
       <CardBody>
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form className="space-y-6" onSubmit={handleSubmit}>
           <div className="space-y-4">
             <div className="space-y-2">
               <div className="flex items-center gap-2">
@@ -182,18 +207,18 @@ export default function ReferralCommissionCalculator() {
                 </Tooltip>
               </div>
               <Input
+                required
+                color="primary"
                 id="aov"
                 name="aov"
-                color="primary"
-                type="number"
                 placeholder={`Enter average order value (${currency})`}
-                value={formData.aov}
-                variant="flat"
-                required
-                onChange={handleInputChange}
                 startContent={
                   <span className="text-secondary">{currencySymbol}</span>
                 }
+                type="number"
+                value={formData.aov}
+                variant="flat"
+                onChange={handleInputChange}
               />
             </div>
 
@@ -207,18 +232,18 @@ export default function ReferralCommissionCalculator() {
                 </Tooltip>
               </div>
               <Input
+                required
+                color="primary"
                 id="ltv"
                 name="ltv"
                 placeholder={`Enter customer lifetime value (${currency})`}
-                value={formData.ltv}
-                color="primary"
-                variant="flat"
-                required
-                type="number"
-                onChange={handleInputChange}
                 startContent={
                   <span className="text-secondary">{currencySymbol}</span>
                 }
+                type="number"
+                value={formData.ltv}
+                variant="flat"
+                onChange={handleInputChange}
               />
             </div>
 
@@ -232,16 +257,16 @@ export default function ReferralCommissionCalculator() {
                 </Tooltip>
               </div>
               <Input
+                required
+                color="primary"
+                endContent={<span className="text-secondary">%</span>}
                 id="profitMargin"
                 name="profitMargin"
                 placeholder="Enter gross profit margin (%)"
-                value={formData.profitMargin}
-                onChange={handleInputChange}
                 type="number"
-                color="primary"
+                value={formData.profitMargin}
                 variant="flat"
-                required
-                endContent={<span className="text-secondary">%</span>}
+                onChange={handleInputChange}
               />
             </div>
 
@@ -255,18 +280,18 @@ export default function ReferralCommissionCalculator() {
                 </Tooltip>
               </div>
               <Input
+                required
+                color="primary"
                 id="cac"
                 name="cac"
                 placeholder={`Enter target customer acquisition cost (${currency})`}
-                value={formData.cac}
-                onChange={handleInputChange}
-                type="number"
-                color="primary"
-                variant="flat"
-                required
                 startContent={
                   <span className="text-secondary">{currencySymbol}</span>
                 }
+                type="number"
+                value={formData.cac}
+                variant="flat"
+                onChange={handleInputChange}
               />
             </div>
 
@@ -279,21 +304,21 @@ export default function ReferralCommissionCalculator() {
               </div>
               <div className="space-y-4">
                 <Slider
-                  value={formData.optimizeValue}
-                  color="secondary"
-                  onChange={(value: number | number[]) =>
-                    handleSliderChange(Array.isArray(value) ? value[0] : value)
-                  }
-                  defaultValue={50}
-                  minValue={0}
-                  maxValue={100}
-                  step={1}
-                  className="max-w-full"
                   aria-label="Optimize slider"
+                  className="max-w-full"
+                  color="secondary"
+                  defaultValue={50}
                   marks={[
                     { value: 0, label: "0" },
                     { value: 100, label: "100" },
                   ]}
+                  maxValue={100}
+                  minValue={0}
+                  step={1}
+                  value={formData.optimizeValue}
+                  onChange={(value: number | number[]) =>
+                    handleSliderChange(Array.isArray(value) ? value[0] : value)
+                  }
                 />
                 <div className="flex justify-between text-lg text-white">
                   <span>Profit</span>
@@ -312,31 +337,31 @@ export default function ReferralCommissionCalculator() {
                 <Tab key="percentage" title="Percentage (%)">
                   <div className="pt-2">
                     <Input
+                      required
+                      color="primary"
+                      endContent={<span className="text-secondary">%</span>}
                       name="discountValue"
                       placeholder="Enter referral discount percentage"
                       value={formData.discountValue}
-                      onChange={handleInputChange}
-                      color="primary"
                       variant="flat"
-                      required
-                      endContent={<span className="text-secondary">%</span>}
+                      onChange={handleInputChange}
                     />
                   </div>
                 </Tab>
                 <Tab key="fixed" title="Fixed Amount">
                   <div className="pt-2">
                     <Input
+                      required
+                      color="primary"
                       name="discountValue"
                       placeholder={`Enter fixed discount amount (${currency})`}
-                      value={formData.discountValue}
-                      onChange={handleInputChange}
-                      color="primary"
-                      required
-                      variant="flat"
-                      type="number"
                       startContent={
                         <span className="text-secondary">{currencySymbol}</span>
                       }
+                      type="number"
+                      value={formData.discountValue}
+                      variant="flat"
+                      onChange={handleInputChange}
                     />
                   </div>
                 </Tab>
@@ -344,7 +369,11 @@ export default function ReferralCommissionCalculator() {
             </div>
           </div>
 
-          <Button type="submit" color="secondary" className="w-full text-lg font-bold">
+          <Button
+            className="w-full text-lg font-bold"
+            color="secondary"
+            type="submit"
+          >
             Calculate Recommended Rate
           </Button>
 
@@ -371,7 +400,9 @@ export default function ReferralCommissionCalculator() {
                 <h3 className="text-sm text-gray-600">Fixed Commission</h3>
                 <div className="space-y-1">
                   <p className="text-4xl font-bold text-green-600">
-                    {formatCurrencyWhole(calculationResult.fixedCommission || 0)}
+                    {formatCurrencyWhole(
+                      calculationResult.fixedCommission || 0,
+                    )}
                   </p>
                   <p className="text-sm text-gray-600">Fixed amount per sale</p>
                 </div>

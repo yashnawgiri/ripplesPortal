@@ -43,7 +43,7 @@ function DemoButton() {
 
 export default function HomePage() {
   // const navigate = useNavigate();
-  
+
   return (
     <DefaultLayout>
       <section className="main-section">

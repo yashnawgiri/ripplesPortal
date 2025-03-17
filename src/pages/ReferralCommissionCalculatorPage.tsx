@@ -5,7 +5,7 @@ export default function ReferralCommissionCalculatorPage() {
   return (
     <DefaultLayout>
       <section className="main-section shadow-none">
-       <ReferralCommissionCalculator/>
+        <ReferralCommissionCalculator />
       </section>
     </DefaultLayout>
   );

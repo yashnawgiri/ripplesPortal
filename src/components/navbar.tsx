@@ -56,8 +56,8 @@ export default function Navbar() {
                 <div className="absolute left-0 mt-2 w-48 bg-primary rounded-md shadow-lg py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible hover:opacity-100 hover:visible transition-all duration-300">
                   {item.resources?.map((resource) => (
                     <NavLink
-                      to={resource.href}
                       className="block px-4 py-2 text-sm text-white hover:bg-secondary rounded-md"
+                      to={resource.href}
                     >
                       {resource.label}
                     </NavLink>
@@ -80,7 +80,7 @@ export default function Navbar() {
               >
                 {item.label}
               </NavLink>
-            )
+            ),
           )}
         </div>
         <div className="hidden md:block space-x-4">
@@ -146,8 +146,8 @@ export default function Navbar() {
                 <div className="absolute left-0 mt-2 w-48 bg-primary rounded-md shadow-lg py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible hover:opacity-100 hover:visible transition-all duration-300">
                   {item.resources?.map((resource) => (
                     <NavLink
-                      to={resource.href}
                       className="block px-4 py-2 text-sm text-white hover:bg-secondary rounded-md"
+                      to={resource.href}
                     >
                       {resource.label}
                     </NavLink>
@@ -165,7 +165,7 @@ export default function Navbar() {
               >
                 {item.label}
               </NavLink>
-            )
+            ),
           )}
           {location.pathname === "/shopper" && (
             <CustomButton
