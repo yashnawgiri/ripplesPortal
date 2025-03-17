@@ -18,7 +18,7 @@ export default function IntegrationSlider() {
       brands: [
         { name: "Razorpay", logo: "https://ripples1static.blob.core.windows.net/images/razorpay_logo.png" },
         { name: "Gokwik Checkout", logo: "https://ripples1static.blob.core.windows.net/images/gokwik_logo.png" },
-        { name: "Razorpay Magic Checkout", logo: "https://ripples1static.blob.core.windows.net/images/razorpay_checkout_magic_logo.png" },
+        { name: "Razorpay Magic Checkout", logo: "https://ripples1static.blob.core.windows.net/images/razorpay_checkout_magic_logo.jpg" },
         { name: "Shopflo Checkout", logo: "https://ripples1static.blob.core.windows.net/images/shopflo_logo.svg" },
         { name: "Klaviyo", logo: "https://ripples1static.blob.core.windows.net/images/klaviyo_logo.svg" },
         { name: "Razorpay", logo: "https://ripples1static.blob.core.windows.net/images/razorpay_logo.png" },
@@ -38,7 +38,7 @@ export default function IntegrationSlider() {
   ];
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 py-16 overflow-hidden relative">
+    <div className="w-full max-w-7xl mx-auto px-4 py-8 overflow-hidden relative">
       {/* Header */}
       <div className="text-center mb-4">
         <h2 className="md:text-6xl text-4xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent whitespace-pre-wrap pb-4">
@@ -66,7 +66,7 @@ export default function IntegrationSlider() {
                               bg-white shadow-md hover:shadow-xl border transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 mx-2 sm:mx-4"
                   >
                     <div className="w-full h-12 flex items-center justify-center mb-2">
-                      <img src={brand.logo} alt={`${brand.name} logo`} className="max-h-full object-contain" />
+                      <img src={brand.logo} alt={`${brand.name} logo`} className="max-h-full object-contain " />
                     </div>
                   </div>
                 ))}
