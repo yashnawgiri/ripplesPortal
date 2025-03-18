@@ -70,6 +70,7 @@ jobs:
         with:
           payload: |
             {
+              "text": "Deployment Notification for ${{ github.repository }}",
               "attachments": [
                 {
                   "color": "${{ job.status == 'success' && '#36a64f' || '#ff0000' }}",
