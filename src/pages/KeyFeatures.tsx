@@ -31,7 +31,7 @@ function KeyFeatures() {
       >
         Key Features
       </motion.h1>
-      <ol className="flex flex-col md:flex-row items-center md:items-end gap-8 justify-center mt-8">
+      <ol className="flex flex-col md:flex-row items-center md:items-end gap-2 justify-center mt-8">
         {keyFeaturesData.steps.map((ele, index) => (
           <Card key={index} index={index} title={ele.title} />
         ))}

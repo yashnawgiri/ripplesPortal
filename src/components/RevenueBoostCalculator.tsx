@@ -16,7 +16,7 @@ const RevenueBoostCalculator = () => {
       step: 10,
       maxValue: 2500,
       minValue: 0,
-      formatOptions: { style: "currency" as const, currency: "USD" as const },
+      formatOptions: { style: "currency" as const, currency: "INR" as const },
       onChange: (value: any) => setSpend(Number(value)),
     },
     {
@@ -51,7 +51,11 @@ const RevenueBoostCalculator = () => {
     const annualBoost =
       spend * ordersPerWeek * 52 * referralRate * conversionRate || 0;
 
-    return annualBoost.toFixed(2);
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      maximumFractionDigits: 0
+    }).format(annualBoost);
   };
 
   // Re-trigger animation when component mounts
@@ -135,10 +139,10 @@ const RevenueBoostCalculator = () => {
             <div className="flex flex-col md:flex-row items-center md:items-start md:justify-between max-w-4xl w-full space-y-6 md:space-y-0 md:space-x-12">
               {/* Left Section - Projected Boost */}
               <div className="flex flex-col items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-500 rounded-lg p-6 w-full md:w-1/2 text-center">
-                <p className="md:text-5xl text-3xl font-bold text-white md:mb-2">
-                  ${calculateBoost()}
+                <p className="md:text-5xl text-2xl font-bold text-white md:mb-2">
+                {calculateBoost()}
                 </p>
-                <p className="md:text-lg text-medium font-medium text-white">
+                <p className="md:text-medium text-medium font-medium text-white">
                   Projected annual revenue boost
                 </p>
               </div>
@@ -146,7 +150,7 @@ const RevenueBoostCalculator = () => {
               {/* Right Section - CTA */}
               <div className="flex flex-col space-y-4 text-left md:w-1/2">
                 <p className="text-lg">
-                  That’s what your customers could be driving with{" "}
+                  That's what your customers could be driving with{" "}
                   <span className="font-semibold text-secondary">Ripples</span>.
                   Want to see the full impact?{" "}
                   <Link
@@ -159,7 +163,7 @@ const RevenueBoostCalculator = () => {
                 </p>
                 <p className="text-sm text-gray-400">
                   Many merchants see even greater gains through consistent
-                  customer engagement. Let’s make those numbers work for you.
+                  customer engagement. Let's make those numbers work for you.
                 </p>
               </div>
             </div>
