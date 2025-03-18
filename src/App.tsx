@@ -7,6 +7,7 @@ import Fallback from "./components/Fallback";
 import Withdraw from "./components/Withdraw";
 import ShopperHomePage from "./pages/ShopperHome";
 import UGCLanding from "./pages/ugcLanding";
+import ReferralCommissionCalculatorPage from "./pages/ReferralCommissionCalculatorPage";
 
 import { siteConfig } from "@/config/site";
 import HomePage from "@/pages/home";
@@ -29,6 +30,10 @@ function App() {
     <Suspense fallback={<Fallback />}>
       <Routes>
         <Route element={<HomePage />} path={siteConfig.path.home} />
+        <Route
+          element={<ReferralCommissionCalculatorPage />}
+          path={siteConfig.path.referralCommissionCalculator}
+        />
         <Route
           element={<ShopperHomePage />}
           path={siteConfig.path.shopperHome}
