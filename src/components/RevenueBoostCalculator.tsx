@@ -14,7 +14,7 @@ const RevenueBoostCalculator = () => {
       label: "Average customer spend",
       value: spend,
       step: 10,
-      maxValue: 2500,
+      maxValue: 10000,
       minValue: 0,
       formatOptions: { style: "currency" as const, currency: "INR" as const },
       onChange: (value: any) => setSpend(Number(value)),
@@ -23,7 +23,7 @@ const RevenueBoostCalculator = () => {
       label: "Weekly Orders",
       value: ordersPerWeek,
       step: 10,
-      maxValue: 25000,
+      maxValue: 10000,
       minValue: 0,
       onChange: (value: any) => setOrdersPerWeek(Number(value)),
     },
@@ -51,10 +51,10 @@ const RevenueBoostCalculator = () => {
     const annualBoost =
       spend * ordersPerWeek * 52 * referralRate * conversionRate || 0;
 
-    return new Intl.NumberFormat('en-IN', {
-      style: 'currency',
-      currency: 'INR',
-      maximumFractionDigits: 0
+    return new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 0,
     }).format(annualBoost);
   };
 
@@ -140,7 +140,7 @@ const RevenueBoostCalculator = () => {
               {/* Left Section - Projected Boost */}
               <div className="flex flex-col items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-500 rounded-lg p-6 w-full md:w-1/2 text-center">
                 <p className="md:text-5xl text-2xl font-bold text-white md:mb-2">
-                {calculateBoost()}
+                  {calculateBoost()}
                 </p>
                 <p className="md:text-medium text-medium font-medium text-white">
                   Projected annual revenue boost
