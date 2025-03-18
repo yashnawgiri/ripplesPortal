@@ -63,14 +63,15 @@ jobs:
           slot-name: 'Production'
           package: .
 
-
       - name: Send Slack Notification
         if: always() # Runs regardless of success or failure
-        uses: slackapi/slack-github-action@v1.24.0
+        uses: slackapi/slack-github-action@v2.0.0
         with:
+          webhook: ${{ secrets.SLACK_RELEASE_WEBHOOK_URL }}
+          webhook-type: incoming-webhook
           payload: |
             {
-              "text": "Deployment Notification for ${{ github.repository }}",
+              "text": "Deployment Status for ${{ github.repository }}",
               "attachments": [
                 {
                   "color": "${{ job.status == 'success' && '#36a64f' || '#ff0000' }}",
@@ -102,5 +103,3 @@ jobs:
                 }
               ]
             }
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_RELEASE_WEBHOOK_URL }}
