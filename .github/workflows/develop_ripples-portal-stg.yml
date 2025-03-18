@@ -97,7 +97,7 @@ jobs:
                     }
                   ],
                   "footer": "GitHub Actions | Azure Deployment",
-                  "ts": $(date +%s)
+                  "ts": "${{ github.event.repository.pushed_at }}"
                 }
               ]
             }
