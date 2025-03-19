@@ -44,10 +44,10 @@ function LinkCodeSection() {
         transition={{ duration: 0.3 }}
         variants={variants}
       >
-        <h2 className="text-4xl sm:text-6xl font-bold home-heading">
+        <h2 className="text-4xl sm:text-6xl text-center md:text-start font-bold bg-gradient-to-r text-white">
           {linkCode.heading}
         </h2>
-        <p className="text-gray-300 py-6 sm:py-8 text-lg sm:text-xl">
+        <p className="text-gray-300 py-6 sm:py-8 text-lg sm:text-xl text-center md:text-start">
           {linkCode.description}
         </p>
       </motion.div>
