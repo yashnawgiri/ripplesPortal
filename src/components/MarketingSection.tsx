@@ -7,8 +7,8 @@ import referralScreenshot from "./../assets/images/referralApp.svg";
 import ugcScreenshot from "./../assets/images/ugcContent.svg";
 
 import analyticsPerformanceCardSvg from "./../assets/images/analyticsPerformanceCard.png";
-import ugcPopupCard from "./../assets/images/UgcPopup.png";
-import ugcContentCardSvg from "./../assets/images/UgcContentCard.png";
+import ugcPopupCard from "./../assets/images/ugcPopup.png";
+import ugcContentCardSvg from "./../assets/images/ugcContentCard.png";
 import { Link } from "react-router-dom";
 import { siteConfig } from "@/config/site";
 
