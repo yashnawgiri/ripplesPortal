@@ -4,7 +4,6 @@ import { Image } from "@nextui-org/react";
 import { motion, useReducedMotion } from "framer-motion";
 
 import referralScreenshot from "./../assets/images/referralApp.svg";
-import ugcScreenshot from "./../assets/images/ugcContent.svg";
 
 import analyticsPerformanceCardSvg from "./../assets/images/analyticsPerformanceCard.png";
 import ugcPopupCard from "./../assets/images/ugcPopup.png";
@@ -51,10 +50,13 @@ const MarketingSection: React.FC = () => {
         },
   };
 
+  const ugcContentManagementCard =
+    "https://ripples1static.blob.core.windows.net/images/ugcContentManagement.png";
+
   return (
     <div className="w-full text-white py-16">
       <motion.div
-        className="container mx-auto px-4"
+        className="container mx-auto"
         initial="hidden"
         variants={containerVariants}
         viewport={{ once: true, amount: 0.2 }}
@@ -82,7 +84,7 @@ const MarketingSection: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-4 justify-center items-center">
           {/* Left Card */}
           <motion.div
-            className="bg-[#0a0e2e] p-6 rounded-xl"
+            className="bg-primary p-4 py-[1.27rem] rounded-xl"
             variants={cardVariants}
             whileHover="hover"
           >
@@ -122,7 +124,7 @@ const MarketingSection: React.FC = () => {
 
           {/* Right Card */}
           <motion.div
-            className="bg-[#0a0e2e] p-6 rounded-xl"
+            className="bg-primary p-4 rounded-xl"
             variants={cardVariants}
             whileHover="hover"
           >
@@ -155,8 +157,8 @@ const MarketingSection: React.FC = () => {
                 alt="UGC content management dashboard"
                 className="mx-auto"
                 loading="lazy"
-                src={ugcScreenshot}
-                width={1500}
+                src={ugcContentManagementCard}
+                width={2000}
               />
             </motion.div>
             <motion.div
