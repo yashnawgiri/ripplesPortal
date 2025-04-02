@@ -1,5 +1,3 @@
-"use client";
-
 import type React from "react";
 
 import { Image } from "@nextui-org/react";
@@ -7,6 +5,12 @@ import { motion, useReducedMotion } from "framer-motion";
 
 import referralScreenshot from "./../assets/images/referralApp.svg";
 import ugcScreenshot from "./../assets/images/ugcContent.svg";
+
+import analyticsPerformanceCardSvg from "./../assets/images/analyticsPerformanceCard.png";
+import ugcPopupCard from "./../assets/images/UgcPopup.png";
+import ugcContentCardSvg from "./../assets/images/ugcContentCard.png";
+import { Link } from "react-router-dom";
+import { siteConfig } from "@/config/site";
 
 const MarketingSection: React.FC = () => {
   const shouldReduceMotion = useReducedMotion();
@@ -101,7 +105,7 @@ const MarketingSection: React.FC = () => {
               className="bg-secondary text-white font-medium py-2 px-6 rounded-full flex items-center justify-center mx-auto"
               variants={itemVariants}
             >
-              Learn more
+              <Link to={siteConfig.path.referrals}>Learn more</Link>
             </motion.button>
 
             <motion.div className="mt-8 relative" variants={itemVariants}>
@@ -139,17 +143,49 @@ const MarketingSection: React.FC = () => {
               className="bg-secondary text-white font-medium py-2 px-6 rounded-full flex items-center justify-center mx-auto"
               variants={itemVariants}
             >
-              Learn more
+              <Link to={siteConfig.path.ugcHome}>Learn more</Link>
             </motion.button>
 
-            <motion.div className="mt-8 relative" variants={itemVariants}>
+            <motion.div
+              className="mt-8 relative hidden md:block"
+              variants={itemVariants}
+            >
               <Image
                 disableSkeleton
                 alt="UGC content management dashboard"
                 className="mx-auto"
                 loading="lazy"
-                src={ugcScreenshot || "/placeholder.svg"}
+                src={ugcScreenshot}
                 width={1500}
+              />
+            </motion.div>
+            <motion.div
+              className="mt-8 relative block md:hidden"
+              variants={itemVariants}
+            >
+              <Image
+                disableSkeleton
+                alt="UGC content management dashboard"
+                className="mx-auto py-2"
+                loading="lazy"
+                src={ugcPopupCard}
+                width={500}
+              />
+              <Image
+                disableSkeleton
+                alt="UGC content management dashboard"
+                className="mx-auto py-2"
+                loading="lazy"
+                src={ugcContentCardSvg}
+                width={500}
+              />
+              <Image
+                disableSkeleton
+                alt="UGC content management dashboard"
+                className="mx-auto py-2"
+                loading="lazy"
+                src={analyticsPerformanceCardSvg}
+                width={500}
               />
             </motion.div>
           </motion.div>
