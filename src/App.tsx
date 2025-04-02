@@ -1,5 +1,5 @@
-import { Route, Routes } from "react-router-dom";
-import { Suspense } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { Suspense, useEffect } from "react";
 
 import PrivateRoute from "./pages/auth-page/authComponents/PrivateRoute";
 import Logout from "./pages/auth-page/Logout";
@@ -8,6 +8,7 @@ import Withdraw from "./components/Withdraw";
 import ShopperHomePage from "./pages/ShopperHome";
 import UGCLanding from "./pages/ugcLanding";
 import ReferralCommissionCalculatorPage from "./pages/ReferralCommissionCalculatorPage";
+import Referrals from "./pages/referrals";
 
 import { siteConfig } from "@/config/site";
 import HomePage from "@/pages/home";
@@ -26,13 +27,18 @@ import NotFound from "@/pages/notFound";
 import AuthPage from "@/pages/auth-page/AuthPage";
 
 function App() {
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
   return (
     <Suspense fallback={<Fallback />}>
       <Routes>
         <Route element={<HomePage />} path={siteConfig.path.home} />
+        <Route element={<Referrals />} path={siteConfig.path.referrals} />
         <Route
           element={<ReferralCommissionCalculatorPage />}
-          path={siteConfig.path.referralCommissionCalculator}
+          path={siteConfig.path.resources}
         />
         <Route
           element={<ShopperHomePage />}
