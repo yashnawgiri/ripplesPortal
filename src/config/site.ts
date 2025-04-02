@@ -6,6 +6,8 @@ import {
   VideoIcon,
   WalletIcon,
 } from "@/components/icons";
+import UgcIcon from "@/assets/images/ugc-icon.svg";
+import referralIcon from "@/assets/images/referral-icon.svg";
 
 export type SiteConfig = typeof siteConfig;
 
@@ -15,6 +17,8 @@ export const siteConfig = {
     "Turn customers into influencers, advocates, and UGC creators - your RIPPLERS!",
   path: {
     home: "/",
+    resources: "/resources",
+    referrals: "/referrals",
     shopperHome: "/shopper",
     ugcHome: "/ugc-home",
     getDemo: "/get-demo",
@@ -48,22 +52,24 @@ export const siteConfig = {
       label: "About",
       href: "/about",
     },
-    // {
-    //   label: "Features",
-    //   href: "/#features",
-    // },
     {
-      label: "Early Bird",
-      href: "/get-demo",
+      label: "Products",
+      resources: [
+        {
+          label: "Referrals",
+          icon: referralIcon,
+          href: "/referrals",
+        },
+        {
+          label: "UGC from Shoppers & influencers",
+          icon: UgcIcon,
+          href: "/ugc-home",
+        },
+      ],
     },
     {
       label: "Resources",
-      resources: [
-        {
-          label: "Referral Commission Calculator",
-          href: "/referral-commission-calculator",
-        },
-      ],
+      href: "/resources",
     },
     {
       label: "Shoppers: Access Rewards",

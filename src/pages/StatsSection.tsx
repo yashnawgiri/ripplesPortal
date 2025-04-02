@@ -35,7 +35,7 @@ const StatsSection: React.FC<StatsSectionProps> = ({ statsData }) => {
     <motion.div
       ref={ref}
       animate={isInView ? "visible" : "hidden"}
-      className="flex justify-center gap-4 px-4 py-8 md:flex-nowrap md:gap-8"
+      className="grid grid-cols-2 md:flex md:flex-row justify-center gap-4 px-4 py-8 md:gap-8"
       initial="hidden"
       variants={{
         hidden: { opacity: 0 },

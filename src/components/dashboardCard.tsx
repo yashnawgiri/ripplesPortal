@@ -28,7 +28,7 @@ export default function DashboardCard() {
   return (
     <>
       <motion.div
-        className="home-div2 md:py-8 py-2 px-4"
+        className="md:w-10/12 md:p-8 p-4"
         id="about"
         initial={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.5 }}
@@ -103,9 +103,6 @@ function Card({ item }: CardProps) {
           {item.title}
         </h1>
       </div>
-      <p className="cardDescription text-sm md:text-base text-gray-300 md:text-start">
-        {item.description}
-      </p>
     </motion.div>
   );
 }
