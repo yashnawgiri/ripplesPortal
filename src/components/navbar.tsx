@@ -200,7 +200,7 @@ export default function Navbar() {
                           className="w-5 h-5 flex-shrink-0"
                           src={resource.icon}
                         />
-                        <span className="truncate">{resource.label}</span>
+                        <span>{resource.label}</span>
                       </NavLink>
                     ))}
                   </div>
