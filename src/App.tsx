@@ -24,15 +24,17 @@ import MyAccount from "@/pages/user-portal/myAccount";
 import Transactions from "@/pages/user-portal/Transactions";
 import NotFound from "@/pages/notFound";
 import AuthPage from "@/pages/auth-page/AuthPage";
+import Referrals from "./pages/referrals";
 
 function App() {
   return (
     <Suspense fallback={<Fallback />}>
       <Routes>
         <Route element={<HomePage />} path={siteConfig.path.home} />
+        <Route element={<Referrals />} path={siteConfig.path.referrals} />
         <Route
           element={<ReferralCommissionCalculatorPage />}
-          path={siteConfig.path.referralCommissionCalculator}
+          path={siteConfig.path.resources}
         />
         <Route
           element={<ShopperHomePage />}
