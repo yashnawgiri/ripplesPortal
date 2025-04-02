@@ -8,7 +8,7 @@ import ugcScreenshot from "./../assets/images/ugcContent.svg";
 
 import analyticsPerformanceCardSvg from "./../assets/images/analyticsPerformanceCard.png";
 import ugcPopupCard from "./../assets/images/ugcPopup.png";
-import ugcContentCardSvg from "./../assets/images/ugcContentCard.png";
+import ugcContentCardSvg from "./../assets/images/ugcContentManagementCard.png";
 import { Link } from "react-router-dom";
 import { siteConfig } from "@/config/site";
 
