@@ -11,22 +11,19 @@ import { siteConfig } from "@/config/site";
 import dashboardData from "@/data/landing.json";
 
 import StatsSection from "./StatsSection";
-import PromoSection from "./PromoSection";
-
-import RewardManagement from "@/components/RewardManagement";
-import ReferralManagement from "@/components/ReferralManagement";
-
-import LinkCodeSection from "./LinkCodeSection";
-import KeyFeatures from "./KeyFeatures";
 
 import Testimonials from "@/components/Testimonials";
 
 import ResponsibilitySection from "./ResponsibilitySection";
 import HeroSection from "./HeroSection";
 
-import RevenueBoostCalculator from "@/components/RevenueBoostCalculator";
 import DataPrivacyComponent from "@/components/DataPrivacyComponent";
 import IntegrationSlider from "@/components/IntegrationSlider";
+import CashbackHeroSection from "@/components/CashbackHeroSection";
+import MarketingSection from "@/components/MarketingSection";
+import AdvantagesSection from "@/components/AdvantageSection";
+import HowItWorksSection from "@/components/UgcHowItWorks";
+import CTASection from "@/components/CtaSection";
 
 function DemoButton() {
   const navigate = useNavigate();
@@ -49,18 +46,13 @@ export default function HomePage() {
       <section className="main-section">
         <HeroSection />
         <StatsSection statsData={dashboardData.stats} />
-        <PromoSection />
+        <CashbackHeroSection />
+        <MarketingSection />
+        <HowItWorksSection />
+        <AdvantagesSection />
+        <CTASection />
         <IntegrationSlider />
-        <RevenueBoostCalculator />
         <DashboardCard />
-        <RewardManagement />
-        <ReferralManagement />
-        <LinkCodeSection />
-        <KeyFeatures />
-        <DemoButton />
-        <HowDoesItWork
-          howDoesItWorkData={dashboardData.ComponentsData.HowDoesItWorks}
-        />
         <Testimonials />
         <GradiantCards />
         <DemoButton />
