@@ -21,7 +21,6 @@ import { HolographicGradient } from "@/components/ugc-landing/holographic-gradie
 import { ROICalculator } from "@/components/ugc-landing/roi-calculator";
 // import { BrandsSection } from "@/components/ugc-landing/brands-section"
 import { ParticleBackground } from "@/components/ugc-landing/particle-background";
-import { SiteHeader } from "@/components/ugc-landing/site-header";
 // import { Testimonials } from "@/components/ugc-landing/testimonials"
 import { Typewriter } from "@/components/ugc-landing/typewriter";
 import { ScrollProgress } from "@/components/ugc-landing/scroll-progress";
@@ -81,7 +80,7 @@ export default function UGCLanding() {
       <ParticleBackground />
       <ScrollProgress />
       {/* <SiteHeader /> */}
-      <Navbar/>
+      <Navbar />
       {/* <FloatingButtons /> */}
       <MobileCTA />
 

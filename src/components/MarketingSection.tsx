@@ -1,8 +1,10 @@
 "use client";
 
 import type React from "react";
+
 import { Image } from "@nextui-org/react";
 import { motion, useReducedMotion } from "framer-motion";
+
 import referralScreenshot from "./../assets/images/referralApp.svg";
 import ugcScreenshot from "./../assets/images/ugcContent.svg";
 
@@ -50,9 +52,9 @@ const MarketingSection: React.FC = () => {
       <motion.div
         className="container mx-auto px-4"
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
+        viewport={{ once: true, amount: 0.2 }}
+        whileInView="visible"
       >
         {/* Main Headline */}
         <motion.div className="text-center mb-12" variants={itemVariants}>
@@ -106,9 +108,9 @@ const MarketingSection: React.FC = () => {
               <Image
                 disableSkeleton
                 alt="Referral program mobile app screenshot"
+                className="mx-auto"
                 loading="lazy"
                 src={referralScreenshot || "/placeholder.svg"}
-                className="mx-auto"
                 width={1500}
               />
             </motion.div>
@@ -144,9 +146,9 @@ const MarketingSection: React.FC = () => {
               <Image
                 disableSkeleton
                 alt="UGC content management dashboard"
+                className="mx-auto"
                 loading="lazy"
                 src={ugcScreenshot || "/placeholder.svg"}
-                className="mx-auto"
                 width={1500}
               />
             </motion.div>

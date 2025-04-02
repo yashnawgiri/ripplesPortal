@@ -208,6 +208,9 @@ export default function ReferralCommissionCalculator() {
               </div>
               <Input
                 required
+                classNames={{
+                  input: "bg-white",
+                }}
                 color="default"
                 id="aov"
                 name="aov"
@@ -218,9 +221,6 @@ export default function ReferralCommissionCalculator() {
                 type="number"
                 value={formData.aov}
                 variant="flat"
-                classNames={{
-                  input: "bg-white",
-                }}
                 onChange={handleInputChange}
               />
             </div>
@@ -236,6 +236,9 @@ export default function ReferralCommissionCalculator() {
               </div>
               <Input
                 required
+                classNames={{
+                  input: "bg-white",
+                }}
                 color="default"
                 id="ltv"
                 name="ltv"
@@ -246,9 +249,6 @@ export default function ReferralCommissionCalculator() {
                 type="number"
                 value={formData.ltv}
                 variant="flat"
-                classNames={{
-                  input: "bg-white",
-                }}
                 onChange={handleInputChange}
               />
             </div>
@@ -264,6 +264,9 @@ export default function ReferralCommissionCalculator() {
               </div>
               <Input
                 required
+                classNames={{
+                  input: "bg-white",
+                }}
                 color="default"
                 endContent={<span className="text-secondary">%</span>}
                 id="profitMargin"
@@ -272,9 +275,6 @@ export default function ReferralCommissionCalculator() {
                 type="number"
                 value={formData.profitMargin}
                 variant="flat"
-                classNames={{
-                  input: "bg-white",
-                }}
                 onChange={handleInputChange}
               />
             </div>

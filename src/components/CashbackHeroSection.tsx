@@ -45,8 +45,14 @@ const PromoSection: React.FC = () => {
       viewport={{ once: true, amount: 0.2 }}
       whileInView="visible"
     >
-      <motion.div className="text-center md:text-left w-full md:w-2/5 px-4" variants={textVariants}>
-        <motion.h1 className="text-white text-xl md:text-4xl font-bold relative" variants={textVariants}>
+      <motion.div
+        className="text-center md:text-left w-full md:w-2/5 px-4"
+        variants={textVariants}
+      >
+        <motion.h1
+          className="text-white text-xl md:text-4xl font-bold relative"
+          variants={textVariants}
+        >
           Give cashback in Store Wallet or cash in the bank to your Shoppers for
           creating Authentic Content on Social Media & Referring their network
         </motion.h1>
@@ -60,10 +66,10 @@ const PromoSection: React.FC = () => {
           <Image
             disableSkeleton
             alt="GoRipples promotional features and benefits showcase"
+            className="max-w-full h-auto"
             loading="lazy"
             src={cashbackHeroImage}
             width={1200}
-            className="max-w-full h-auto"
           />
         </motion.div>
       </motion.div>

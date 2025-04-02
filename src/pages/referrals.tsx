@@ -3,29 +3,17 @@ import { useNavigate } from "react-router-dom";
 import DefaultLayout from "@/layouts/default";
 import HowDoesItWork from "@/components/HowDoesItWork";
 import CustomButton from "@/components/CustomElements/CustomButton";
-import GradiantCards from "@/components/GradiantCards";
-import FAQ from "@/components/FAQ";
 import DashboardCard from "@/components/dashboardCard";
 import "@/styles/home/home.css";
 import { siteConfig } from "@/config/site";
 import dashboardData from "@/data/landing.json";
-
-
 import RewardManagement from "@/components/RewardManagement";
 import ReferralManagement from "@/components/ReferralManagement";
-
-
-
-import Testimonials from "@/components/Testimonials";
-
-
 import RevenueBoostCalculator from "@/components/RevenueBoostCalculator";
-import DataPrivacyComponent from "@/components/DataPrivacyComponent";
+
 import PromoSection from "./PromoSection";
 import LinkCodeSection from "./LinkCodeSection";
 import KeyFeatures from "./KeyFeatures";
-import ResponsibilitySection from "./ResponsibilitySection";
-
 
 function DemoButton() {
   const navigate = useNavigate();

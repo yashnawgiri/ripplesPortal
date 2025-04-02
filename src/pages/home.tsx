@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
 import DefaultLayout from "@/layouts/default";
-import HowDoesItWork from "@/components/HowDoesItWork";
 import CustomButton from "@/components/CustomElements/CustomButton";
 import GradiantCards from "@/components/GradiantCards";
 import FAQ from "@/components/FAQ";

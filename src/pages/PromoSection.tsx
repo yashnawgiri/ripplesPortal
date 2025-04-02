@@ -1,14 +1,14 @@
 import React from "react";
 import { Image } from "@nextui-org/react";
 import { motion, useReducedMotion } from "framer-motion"; // Import useReducedMotion
+import { useNavigate } from "react-router-dom";
 
 import promoImg from "./../assets/images/promoImg.png";
-import dashboardData from "@/data/landing.json";
 
+import dashboardData from "@/data/landing.json";
 import promoData from "@/data/landing.json";
 import CustomButton from "@/components/CustomElements/CustomButton";
 import { siteConfig } from "@/config/site";
-import { useNavigate } from "react-router-dom";
 
 function DemoButton() {
   const navigate = useNavigate();

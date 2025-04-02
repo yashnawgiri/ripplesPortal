@@ -1,8 +1,10 @@
 "use client";
 
 import type React from "react";
+
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+
 import { siteConfig } from "@/config/site";
 
 const CTASection: React.FC = () => {
@@ -12,16 +14,16 @@ const CTASection: React.FC = () => {
         <motion.div
           className="mx-auto bg-[#0a0e2e] rounded-2xl p-4 md:p-16 text-center"
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
           <motion.h2
             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-10"
             initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            whileInView={{ opacity: 1, y: 0 }}
           >
             Scale word of mouth marketing and convert customers into Brand
             Advocates & SuperFans
@@ -30,13 +32,13 @@ const CTASection: React.FC = () => {
           <motion.div
             className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6"
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            whileInView={{ opacity: 1, y: 0 }}
           >
             <Link
-              to={siteConfig.path.getDemo}
               className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-8 rounded-full transition-colors duration-300"
+              to={siteConfig.path.getDemo}
             >
               Book a Demo Call
             </Link>

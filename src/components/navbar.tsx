@@ -19,6 +19,7 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -72,10 +73,10 @@ export default function Navbar() {
                     viewBox="0 0 24 24"
                   >
                     <path
+                      d="M19 9l-7 7-7-7"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
                     />
                   </svg>
                 </button>
@@ -87,9 +88,9 @@ export default function Navbar() {
                       to={resource.href}
                     >
                       <img
-                        src={resource.icon}
                         alt={resource.label}
                         className="w-5 h-5"
+                        src={resource.icon}
                       />
                       {resource.label}
                     </NavLink>
@@ -112,7 +113,7 @@ export default function Navbar() {
               >
                 {item.label}
               </NavLink>
-            )
+            ),
           )}
         </div>
         <div className="hidden md:block space-x-4">
@@ -163,7 +164,9 @@ export default function Navbar() {
               <div key={item.href} className="relative">
                 <button
                   className="flex items-center justify-center gap-4 w-full px-4 py-3 text-white text-base md:text-lg hover:bg-secondary/20 rounded-lg transition-colors duration-200"
-                  onClick={() => setActiveItem(activeItem === item.label ? null : item.label)}
+                  onClick={() =>
+                    setActiveItem(activeItem === item.label ? null : item.label)
+                  }
                 >
                   <span>{item.label}</span>
                   <svg
@@ -173,10 +176,10 @@ export default function Navbar() {
                     viewBox="0 0 24 24"
                   >
                     <path
+                      d="M19 9l-7 7-7-7"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
                     />
                   </svg>
                 </button>
@@ -193,9 +196,9 @@ export default function Navbar() {
                         }}
                       >
                         <img
-                          src={resource.icon}
                           alt={resource.label}
                           className="w-5 h-5 flex-shrink-0"
+                          src={resource.icon}
                         />
                         <span className="truncate">{resource.label}</span>
                       </NavLink>
@@ -207,14 +210,16 @@ export default function Navbar() {
               <NavLink
                 key={item.href}
                 className={({ isActive }) =>
-                  isActive ? "text-white text-lg" : "text-color text-lg hover:text-white transition-colors"
+                  isActive
+                    ? "text-white text-lg"
+                    : "text-color text-lg hover:text-white transition-colors"
                 }
                 to={item.href || ""}
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
               </NavLink>
-            )
+            ),
           )}
           {location.pathname === "/shopper" && (
             <CustomButton

@@ -1,4 +1,5 @@
 import type React from "react";
+
 import { motion } from "framer-motion";
 import {
   Bot,
@@ -80,9 +81,9 @@ const AdvantagesSection: React.FC = () => {
         <motion.div
           className="text-center mb-12"
           initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-center text-white">
             The Ripples Advantage
@@ -91,10 +92,10 @@ const AdvantagesSection: React.FC = () => {
 
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
-          variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
+          variants={containerVariants}
           viewport={{ once: true, amount: 0.1 }}
+          whileInView="visible"
         >
           {advantages.slice(0, 6).map((advantage, index) => (
             <motion.div
@@ -104,7 +105,9 @@ const AdvantagesSection: React.FC = () => {
               whileHover="hover"
             >
               <div className="mb-4 text-white">{advantage.icon}</div>
-              <h3 className="text-xl font-semibold text-white">{advantage.title}</h3>
+              <h3 className="text-xl font-semibold text-white">
+                {advantage.title}
+              </h3>
             </motion.div>
           ))}
         </motion.div>
@@ -112,10 +115,10 @@ const AdvantagesSection: React.FC = () => {
         {/* Last row with 2 cards centered */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mt-6"
-          variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
+          variants={containerVariants}
           viewport={{ once: true, amount: 0.1 }}
+          whileInView="visible"
         >
           {advantages.slice(6, 8).map((advantage, index) => (
             <motion.div

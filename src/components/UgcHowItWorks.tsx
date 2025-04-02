@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { motion } from "framer-motion"
+import type React from "react";
+
+import { motion } from "framer-motion";
 
 const HowItWorksSection: React.FC = () => {
   const containerVariants = {
@@ -13,7 +14,7 @@ const HowItWorksSection: React.FC = () => {
         delayChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -22,13 +23,14 @@ const HowItWorksSection: React.FC = () => {
       y: 0,
       transition: { duration: 0.6 },
     },
-  }
+  };
 
   const steps = [
     {
       number: 1,
       title: "We Integrate With Purchase & Post-Purchase User Journey",
-      description: "Use our Shopify app to set up the rewards program & activate shoppers at POS",
+      description:
+        "Use our Shopify app to set up the rewards program & activate shoppers at POS",
     },
     {
       number: 2,
@@ -43,7 +45,7 @@ const HowItWorksSection: React.FC = () => {
         "Track sales and traffic from shared links. Reward your customers with cash rewards or perks for each successful referral and reel on IG.",
       badge: true,
     },
-  ]
+  ];
 
   return (
     <div className="w-full bg-primary text-white py-16">
@@ -51,24 +53,24 @@ const HowItWorksSection: React.FC = () => {
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold">How does it work?</h2>
         </motion.div>
 
         <motion.div
           className="relative"
-          variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
+          variants={containerVariants}
           viewport={{ once: true, amount: 0.1 }}
+          whileInView="visible"
         >
           {/* Timeline connector - Desktop only */}
           <div className="hidden md:block absolute top-[30px] left-0 right-0 h-0.5">
             <div className="w-full h-full flex justify-between items-center px-16">
-              <div className="w-full border-t-3 border-dashed border-gray-600"></div>
+              <div className="w-full border-t-3 border-dashed border-gray-600" />
             </div>
           </div>
 
@@ -91,7 +93,7 @@ const HowItWorksSection: React.FC = () => {
 
                 {/* Mobile connector line */}
                 {index < steps.length - 1 && (
-                  <div className="md:hidden w-0.5 h-8 border-l-2 border-dashed border-gray-600 my-4 mx-auto"></div>
+                  <div className="md:hidden w-0.5 h-8 border-l-2 border-dashed border-gray-600 my-4 mx-auto" />
                 )}
               </motion.div>
             ))}
@@ -99,7 +101,7 @@ const HowItWorksSection: React.FC = () => {
         </motion.div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HowItWorksSection
+export default HowItWorksSection;
