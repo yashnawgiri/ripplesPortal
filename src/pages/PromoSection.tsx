@@ -3,8 +3,25 @@ import { Image } from "@nextui-org/react";
 import { motion, useReducedMotion } from "framer-motion"; // Import useReducedMotion
 
 import promoImg from "./../assets/images/promoImg.png";
+import dashboardData from "@/data/landing.json";
 
 import promoData from "@/data/landing.json";
+import CustomButton from "@/components/CustomElements/CustomButton";
+import { siteConfig } from "@/config/site";
+import { useNavigate } from "react-router-dom";
+
+function DemoButton() {
+  const navigate = useNavigate();
+
+  return (
+    <CustomButton
+      className="w-fit font-bold bg-custom-gradient self-center md:self-start m-0 p-0"
+      onClick={() => navigate(siteConfig.path.getDemo)}
+    >
+      {dashboardData.home.demoButton}
+    </CustomButton>
+  );
+}
 
 const PromoSection: React.FC = () => {
   const shouldReduceMotion = useReducedMotion();
@@ -43,7 +60,7 @@ const PromoSection: React.FC = () => {
 
   return (
     <motion.div
-      className="flex flex-col lg:flex-row items-center justify-between px-4 md:py-4 py-0"
+      className="flex flex-col-reverse lg:flex-row items-center justify-between px-4"
       initial="hidden"
       viewport={{ once: true, amount: 0.2 }}
       whileInView="visible"
@@ -62,11 +79,12 @@ const PromoSection: React.FC = () => {
         <motion.p className="home-p" variants={textVariants}>
           {promoData.promo.description}
         </motion.p>
+        <DemoButton />
       </motion.div>
 
       {/* Mobile Image Section */}
       <motion.div className="home-img-mob lg:hidden" variants={imageVariants}>
-        <motion.div className="my-4 w-full">
+        <motion.div className="mb-4 w-full">
           <Image
             disableSkeleton
             alt="GoRipples promotional features showcase"
