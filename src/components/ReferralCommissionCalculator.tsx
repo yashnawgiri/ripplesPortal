@@ -208,7 +208,7 @@ export default function ReferralCommissionCalculator() {
               </div>
               <Input
                 required
-                color="primary"
+                color="default"
                 id="aov"
                 name="aov"
                 placeholder={`Enter average order value (${currency})`}
@@ -218,6 +218,9 @@ export default function ReferralCommissionCalculator() {
                 type="number"
                 value={formData.aov}
                 variant="flat"
+                classNames={{
+                  input: "bg-white",
+                }}
                 onChange={handleInputChange}
               />
             </div>
@@ -233,7 +236,7 @@ export default function ReferralCommissionCalculator() {
               </div>
               <Input
                 required
-                color="primary"
+                color="default"
                 id="ltv"
                 name="ltv"
                 placeholder={`Enter customer lifetime value (${currency})`}
@@ -243,6 +246,9 @@ export default function ReferralCommissionCalculator() {
                 type="number"
                 value={formData.ltv}
                 variant="flat"
+                classNames={{
+                  input: "bg-white",
+                }}
                 onChange={handleInputChange}
               />
             </div>
@@ -258,7 +264,7 @@ export default function ReferralCommissionCalculator() {
               </div>
               <Input
                 required
-                color="primary"
+                color="default"
                 endContent={<span className="text-secondary">%</span>}
                 id="profitMargin"
                 name="profitMargin"
@@ -266,6 +272,9 @@ export default function ReferralCommissionCalculator() {
                 type="number"
                 value={formData.profitMargin}
                 variant="flat"
+                classNames={{
+                  input: "bg-white",
+                }}
                 onChange={handleInputChange}
               />
             </div>
@@ -281,7 +290,7 @@ export default function ReferralCommissionCalculator() {
               </div>
               <Input
                 required
-                color="primary"
+                color="default"
                 id="cac"
                 name="cac"
                 placeholder={`Enter target customer acquisition cost (${currency})`}
@@ -338,7 +347,7 @@ export default function ReferralCommissionCalculator() {
                   <div className="pt-2">
                     <Input
                       required
-                      color="primary"
+                      color="default"
                       endContent={<span className="text-secondary">%</span>}
                       name="discountValue"
                       placeholder="Enter referral discount percentage"
@@ -352,7 +361,7 @@ export default function ReferralCommissionCalculator() {
                   <div className="pt-2">
                     <Input
                       required
-                      color="primary"
+                      color="default"
                       name="discountValue"
                       placeholder={`Enter fixed discount amount (${currency})`}
                       startContent={

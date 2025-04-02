@@ -45,6 +45,7 @@ import rupeeImg from "@/assets/images/rupees.webp";
 import goldCoinImg from "@/assets/images/benefitsSectionImage.png";
 import coinImg from "@/assets/images/coins.webp";
 import { siteConfig } from "@/config/site";
+import Navbar from "@/components/navbar";
 
 const getImpactColor = (impact: string) => {
   switch (impact) {
@@ -79,7 +80,8 @@ export default function UGCLanding() {
     <div className="min-h-screen bg-black text-white">
       <ParticleBackground />
       <ScrollProgress />
-      <SiteHeader />
+      {/* <SiteHeader /> */}
+      <Navbar/>
       {/* <FloatingButtons /> */}
       <MobileCTA />
 
@@ -642,7 +644,7 @@ export default function UGCLanding() {
 
         <div className="container px-4 md:px-6 relative flex items-center justify-between w-full max-w-7xl">
           {/* Centered Content */}
-          <div className="flex flex-col items-center justify-center text-center max-w-lg">
+          <div className="flex flex-col items-center gap-4 justify-center text-center max-w-lg">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
               Revolutionize Your UGC Strategy Today!
             </h2>
