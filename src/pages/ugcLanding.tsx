@@ -298,13 +298,16 @@ export default function UGCLanding() {
                 </p>
                 <ol className="text-white/80 md:text-xl list-decimal list-inside text-start text-[12px] md:text-[16px] mt-4">
                   <li>
-                    Use this interactive calculator to plan your reward strategy.
+                    Use this interactive calculator to plan your reward
+                    strategy.
                   </li>
                   <li>
                     Start by selecting the type of creators you want to engage.
                   </li>
                   <li>
-                    Click on the “Rewards Strategy” button to see your recommended payout mix based on content quality and follower count.
+                    Click on the “Rewards Strategy” button to see your
+                    recommended payout mix based on content quality and follower
+                    count.
                   </li>
                 </ol>
                 <div className="mt-6 w-full">

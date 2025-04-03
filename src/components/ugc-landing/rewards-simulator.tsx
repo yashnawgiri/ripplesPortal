@@ -1,36 +1,75 @@
-import { useState } from "react"
-import { Gift, CreditCard, Wallet, Trophy, TrendingUp, Info, DollarSign, IndianRupee } from "lucide-react"
+import { useState } from "react";
+import {
+  Gift,
+  CreditCard,
+  Wallet,
+  Trophy,
+  TrendingUp,
+  Info,
+  DollarSign,
+  IndianRupee,
+} from "lucide-react";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ugc-landing/ui/card"
-import { Label } from "@/components/ugc-landing/ui/label"
-import { Slider } from "@/components/ugc-landing/ui/slider"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ugc-landing/ui/tabs"
-import { Switch } from "@/components/ugc-landing/ui/switch"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ugc-landing/ui/select"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ugc-landing/ui/table"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ugc-landing/ui/tooltip"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ugc-landing/ui/card";
+import { Label } from "@/components/ugc-landing/ui/label";
+import { Slider } from "@/components/ugc-landing/ui/slider";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ugc-landing/ui/tabs";
+import { Switch } from "@/components/ugc-landing/ui/switch";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ugc-landing/ui/select";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ugc-landing/ui/table";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ugc-landing/ui/tooltip";
 
 interface SimulationState {
-  contentQuality: "basic" | "premium" | "viral"
-  followerCount: number
-  engagementRate: number
-  purchaseAmount: number
-  showCashRewards: boolean
-  showStoreCredit: boolean
-  showProductRewards: boolean
-  currency: "USD" | "INR"
+  contentQuality: "basic" | "premium" | "viral";
+  followerCount: number;
+  engagementRate: number;
+  purchaseAmount: number;
+  showCashRewards: boolean;
+  showStoreCredit: boolean;
+  showProductRewards: boolean;
+  currency: "USD" | "INR";
 }
 
 const CURRENCY_CONVERSION = {
   USD: 1,
   INR: 80,
-}
+};
 
 const formatCurrency = (amount: number, currency: "USD" | "INR") => {
-  const value = amount * CURRENCY_CONVERSION[currency]
+  const value = amount * CURRENCY_CONVERSION[currency];
 
-  return currency === "USD" ? `$${value.toLocaleString()}` : `₹${value.toLocaleString()}`
-}
+  return currency === "USD"
+    ? `$${value.toLocaleString()}`
+    : `₹${value.toLocaleString()}`;
+};
 
 const CASHBACK_TIERS = [
   { min: 0, max: 4999, percentage: 5 },
@@ -39,7 +78,7 @@ const CASHBACK_TIERS = [
   { min: 25000, max: 49999, percentage: 30 },
   { min: 50000, max: 99999, percentage: 50 },
   { min: 100000, max: Number.POSITIVE_INFINITY, percentage: 80 },
-]
+];
 
 const responsiveStyles = `
   @media (max-width: 400px) {
@@ -47,7 +86,7 @@ const responsiveStyles = `
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
-`
+`;
 
 export function RewardsSimulator() {
   const [state, setState] = useState<SimulationState>({
@@ -59,25 +98,37 @@ export function RewardsSimulator() {
     showStoreCredit: false,
     showProductRewards: false,
     currency: "INR",
-  })
+  });
 
   const calculateRewards = () => {
     const baseRewards = {
       basic: { cash: 2.5, credit: 3.5, product: 5 },
       premium: { cash: 6, credit: 8.5, product: 10 },
       viral: { cash: 12.5, credit: 17.5, product: 20 },
-    }
+    };
 
     const cashbackTier =
-      CASHBACK_TIERS.find((tier) => state.followerCount >= tier.min && state.followerCount <= tier.max) ||
-      CASHBACK_TIERS[0]
-    const cashbackAmount = (state.purchaseAmount * cashbackTier.percentage) / 100
+      CASHBACK_TIERS.find(
+        (tier) =>
+          state.followerCount >= tier.min && state.followerCount <= tier.max,
+      ) || CASHBACK_TIERS[0];
+    const cashbackAmount =
+      (state.purchaseAmount * cashbackTier.percentage) / 100;
 
-    const followerMultiplier = Math.min(Math.max((state.followerCount - 5000) / 5000 + 1, 1), 8)
-    const engagementMultiplier = Math.min(Math.max(state.engagementRate / 2, 1), 3)
-    const totalMultiplier = Math.min(followerMultiplier * engagementMultiplier, 15)
+    const followerMultiplier = Math.min(
+      Math.max((state.followerCount - 5000) / 5000 + 1, 1),
+      8,
+    );
+    const engagementMultiplier = Math.min(
+      Math.max(state.engagementRate / 2, 1),
+      3,
+    );
+    const totalMultiplier = Math.min(
+      followerMultiplier * engagementMultiplier,
+      15,
+    );
 
-    const rewards = baseRewards[state.contentQuality]
+    const rewards = baseRewards[state.contentQuality];
 
     return {
       cashback: cashbackAmount,
@@ -85,10 +136,10 @@ export function RewardsSimulator() {
       cash: Math.round(rewards.cash * totalMultiplier),
       credit: Math.round(rewards.credit * totalMultiplier),
       product: Math.round(rewards.product * totalMultiplier),
-    }
-  }
+    };
+  };
 
-  const rewards = calculateRewards()
+  const rewards = calculateRewards();
 
   return (
     <TooltipProvider>
@@ -97,14 +148,17 @@ export function RewardsSimulator() {
         <CardHeader>
           <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:items-center sm:justify-between w-full">
             <div className="flex items-center gap-2">
-              <CardTitle className="text-white text-xl sm:text-2xl">Discover your rewards strategy</CardTitle>
+              <CardTitle className="text-white text-xl sm:text-2xl">
+                Discover your rewards strategy
+              </CardTitle>
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Info className="h-4 w-4 text-white/60" />
                 </TooltipTrigger>
                 <TooltipContent className="max-w-[300px]">
                   <p>
-                    Simulate different reward strategies based on content quality, audience size, and engagement rates
+                    Simulate different reward strategies based on content
+                    quality, audience size, and engagement rates
                   </p>
                 </TooltipContent>
               </Tooltip>
@@ -114,18 +168,26 @@ export function RewardsSimulator() {
               <div className="flex border border-white/10 rounded-lg flex-1 sm:flex-initial">
                 <button
                   className={`flex items-center justify-center gap-1 px-2 sm:px-3 py-1.5 rounded-l-md transition-colors flex-1 sm:flex-initial ${
-                    state.currency === "USD" ? "bg-white/10 text-white" : "text-white/60 hover:text-white"
+                    state.currency === "USD"
+                      ? "bg-white/10 text-white"
+                      : "text-white/60 hover:text-white"
                   }`}
-                  onClick={() => setState((prev) => ({ ...prev, currency: "USD" }))}
+                  onClick={() =>
+                    setState((prev) => ({ ...prev, currency: "USD" }))
+                  }
                 >
                   <DollarSign className="h-4 w-4" />
                   <span className="inline">USD</span>
                 </button>
                 <button
                   className={`flex items-center justify-center gap-1 px-2 sm:px-3 py-1.5 rounded-r-md transition-colors flex-1 sm:flex-initial ${
-                    state.currency === "INR" ? "bg-white/10 text-white" : "text-white/60 hover:text-white"
+                    state.currency === "INR"
+                      ? "bg-white/10 text-white"
+                      : "text-white/60 hover:text-white"
                   }`}
-                  onClick={() => setState((prev) => ({ ...prev, currency: "INR" }))}
+                  onClick={() =>
+                    setState((prev) => ({ ...prev, currency: "INR" }))
+                  }
                 >
                   <IndianRupee className="h-4 w-4" />
                   <span className="inline">INR</span>
@@ -164,7 +226,9 @@ export function RewardsSimulator() {
                       <TooltipContent className="max-w-[300px]">
                         <p>Basic: Simple photos or short reviews</p>
                         <p>Premium: High-quality photos or detailed reviews</p>
-                        <p>Viral: Professional content with high share potential</p>
+                        <p>
+                          Viral: Professional content with high share potential
+                        </p>
                       </TooltipContent>
                     </Tooltip>
                   </div>
@@ -194,8 +258,8 @@ export function RewardsSimulator() {
                       </TooltipTrigger>
                       <TooltipContent>
                         <p>
-                          Average number of followers per creator. Higher follower counts lead to increased cashback
-                          percentages
+                          Average number of followers per creator. Higher
+                          follower counts lead to increased cashback percentages
                         </p>
                       </TooltipContent>
                     </Tooltip>
@@ -207,10 +271,14 @@ export function RewardsSimulator() {
                       min={1000}
                       step={100}
                       value={[state.followerCount]}
-                      onValueChange={([value]) => setState((prev) => ({ ...prev, followerCount: value }))}
+                      onValueChange={([value]) =>
+                        setState((prev) => ({ ...prev, followerCount: value }))
+                      }
                     />
                   </div>
-                  <p className="text-sm text-white/60">{state.followerCount.toLocaleString()} followers</p>
+                  <p className="text-sm text-white/60">
+                    {state.followerCount.toLocaleString()} followers
+                  </p>
                 </div>
 
                 <div className="space-y-4">
@@ -221,7 +289,10 @@ export function RewardsSimulator() {
                         <Info className="h-4 w-4 text-white/60" />
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>Average purchase amount for calculating cashback rewards</p>
+                        <p>
+                          Average purchase amount for calculating cashback
+                          rewards
+                        </p>
                       </TooltipContent>
                     </Tooltip>
                   </div>
@@ -232,23 +303,30 @@ export function RewardsSimulator() {
                       min={6.25}
                       step={1}
                       value={[state.purchaseAmount]}
-                      onValueChange={([value]) => setState((prev) => ({ ...prev, purchaseAmount: value }))}
+                      onValueChange={([value]) =>
+                        setState((prev) => ({ ...prev, purchaseAmount: value }))
+                      }
                     />
                   </div>
-                  <p className="text-sm text-white/60">{formatCurrency(state.purchaseAmount, state.currency)}</p>
+                  <p className="text-sm text-white/60">
+                    {formatCurrency(state.purchaseAmount, state.currency)}
+                  </p>
                 </div>
 
                 <div className="space-y-4">
                   <div className="flex items-center gap-2">
-                    <Label className="text-white">Average Engagement Rate (%)</Label>
+                    <Label className="text-white">
+                      Average Engagement Rate (%)
+                    </Label>
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <Info className="h-4 w-4 text-white/60" />
                       </TooltipTrigger>
                       <TooltipContent>
                         <p>
-                          Percentage of followers who interact with content. Industry average is 1-3%. Higher rates
-                          indicate more active audiences
+                          Percentage of followers who interact with content.
+                          Industry average is 1-3%. Higher rates indicate more
+                          active audiences
                         </p>
                       </TooltipContent>
                     </Tooltip>
@@ -260,10 +338,14 @@ export function RewardsSimulator() {
                       min={1}
                       step={0.5}
                       value={[state.engagementRate]}
-                      onValueChange={([value]) => setState((prev) => ({ ...prev, engagementRate: value }))}
+                      onValueChange={([value]) =>
+                        setState((prev) => ({ ...prev, engagementRate: value }))
+                      }
                     />
                   </div>
-                  <p className="text-sm text-white/60">{state.engagementRate}% engagement</p>
+                  <p className="text-sm text-white/60">
+                    {state.engagementRate}% engagement
+                  </p>
                 </div>
               </div>
             </TabsContent>
@@ -272,21 +354,26 @@ export function RewardsSimulator() {
               <div className="space-y-6">
                 <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:items-center sm:justify-between w-full">
                   <div className="flex items-center gap-2">
-                    <h3 className="text-white font-semibold">Reward Strategy Breakdown</h3>
+                    <h3 className="text-white font-semibold">
+                      Reward Strategy Breakdown
+                    </h3>
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <Info className="h-4 w-4 text-white/60" />
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>Toggle different reward types and see their estimated values</p>
+                        <p>
+                          Toggle different reward types and see their estimated
+                          values
+                        </p>
                       </TooltipContent>
                     </Tooltip>
                   </div>
                   <div className="grid grid-cols-1 xs:grid-cols-2 sm:flex sm:items-center gap-2 sm:gap-4 w-full sm:w-auto">
                     <div className="flex items-center gap-2">
                       <Switch
-                        className={`${state.showCashRewards ? "bg-primary" : "bg-gray-500"}`}
                         checked={state.showCashRewards}
+                        className={`${state.showCashRewards ? "bg-primary" : "bg-gray-500"}`}
                         id="cash-rewards"
                         onCheckedChange={(checked) =>
                           setState((prev) => ({
@@ -295,7 +382,10 @@ export function RewardsSimulator() {
                           }))
                         }
                       />
-                      <Label className="text-white whitespace-nowrap" htmlFor="cash-rewards">
+                      <Label
+                        className="text-white whitespace-nowrap"
+                        htmlFor="cash-rewards"
+                      >
                         Cash Rewards
                       </Label>
                     </div>
@@ -310,7 +400,10 @@ export function RewardsSimulator() {
                           }))
                         }
                       />
-                      <Label className="text-white whitespace-nowrap" htmlFor="store-credit">
+                      <Label
+                        className="text-white whitespace-nowrap"
+                        htmlFor="store-credit"
+                      >
                         Store Credit
                       </Label>
                     </div>
@@ -325,7 +418,10 @@ export function RewardsSimulator() {
                           }))
                         }
                       />
-                      <Label className="text-white whitespace-nowrap" htmlFor="product-rewards">
+                      <Label
+                        className="text-white whitespace-nowrap"
+                        htmlFor="product-rewards"
+                      >
                         Product Rewards
                       </Label>
                     </div>
@@ -337,9 +433,15 @@ export function RewardsSimulator() {
                     <Table>
                       <TableHeader>
                         <TableRow>
-                          <TableHead className="text-white">Reward Type</TableHead>
-                          <TableHead className="text-right text-white">Value</TableHead>
-                          <TableHead className="text-right text-white">Benefits</TableHead>
+                          <TableHead className="text-white">
+                            Reward Type
+                          </TableHead>
+                          <TableHead className="text-right text-white">
+                            Value
+                          </TableHead>
+                          <TableHead className="text-right text-white">
+                            Benefits
+                          </TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
@@ -347,13 +449,18 @@ export function RewardsSimulator() {
                           <TableCell className="font-medium text-white">
                             <div className="flex items-center gap-2">
                               <DollarSign className="h-4 w-4 text-green-400" />
-                              <span>Cashback ({rewards.cashbackPercentage}%)</span>
+                              <span>
+                                Cashback ({rewards.cashbackPercentage}%)
+                              </span>
                               <Tooltip>
                                 <TooltipTrigger asChild>
                                   <Info className="h-4 w-4 text-white/40 hover:text-white/60 transition-colors cursor-help" />
                                 </TooltipTrigger>
                                 <TooltipContent>
-                                  <p>Percentage-based cashback that scales with follower count</p>
+                                  <p>
+                                    Percentage-based cashback that scales with
+                                    follower count
+                                  </p>
                                 </TooltipContent>
                               </Tooltip>
                             </div>
@@ -361,7 +468,9 @@ export function RewardsSimulator() {
                           <TableCell className="text-right text-white">
                             {formatCurrency(rewards.cashback, state.currency)}
                           </TableCell>
-                          <TableCell className="text-right text-white/60">Scales with purchase value</TableCell>
+                          <TableCell className="text-right text-white/60">
+                            Scales with purchase value
+                          </TableCell>
                         </TableRow>
                         {state.showCashRewards && (
                           <TableRow>
@@ -382,7 +491,9 @@ export function RewardsSimulator() {
                             <TableCell className="text-right text-white">
                               {formatCurrency(rewards.cash, state.currency)}
                             </TableCell>
-                            <TableCell className="text-right text-white/60">Instant gratification</TableCell>
+                            <TableCell className="text-right text-white/60">
+                              Instant gratification
+                            </TableCell>
                           </TableRow>
                         )}
                         {state.showStoreCredit && (
@@ -396,7 +507,10 @@ export function RewardsSimulator() {
                                     <Info className="h-4 w-4 text-white/40 hover:text-white/60 transition-colors cursor-help" />
                                   </TooltipTrigger>
                                   <TooltipContent>
-                                    <p>Store credit offers higher value than cash and encourages repeat purchases</p>
+                                    <p>
+                                      Store credit offers higher value than cash
+                                      and encourages repeat purchases
+                                    </p>
                                   </TooltipContent>
                                 </Tooltip>
                               </div>
@@ -404,7 +518,9 @@ export function RewardsSimulator() {
                             <TableCell className="text-right text-white">
                               {formatCurrency(rewards.credit, state.currency)}
                             </TableCell>
-                            <TableCell className="text-right text-white/60">Higher value, drives retention</TableCell>
+                            <TableCell className="text-right text-white/60">
+                              Higher value, drives retention
+                            </TableCell>
                           </TableRow>
                         )}
                         {state.showProductRewards && (
@@ -418,15 +534,21 @@ export function RewardsSimulator() {
                                     <Info className="h-4 w-4 text-white/40 hover:text-white/60 transition-colors cursor-help" />
                                   </TooltipTrigger>
                                   <TooltipContent>
-                                    <p>Physical products can create authentic brand advocates</p>
+                                    <p>
+                                      Physical products can create authentic
+                                      brand advocates
+                                    </p>
                                   </TooltipContent>
                                 </Tooltip>
                               </div>
                             </TableCell>
                             <TableCell className="text-right text-white">
-                              {formatCurrency(rewards.product, state.currency)} value
+                              {formatCurrency(rewards.product, state.currency)}{" "}
+                              value
                             </TableCell>
-                            <TableCell className="text-right text-white/60">Creates product advocates</TableCell>
+                            <TableCell className="text-right text-white/60">
+                              Creates product advocates
+                            </TableCell>
                           </TableRow>
                         )}
                       </TableBody>
@@ -438,7 +560,9 @@ export function RewardsSimulator() {
                   <Card className="bg-white/5 border-white/10 transition-colors hover:bg-white/10">
                     <CardContent className="pt-6 flex flex-col items-center">
                       <Trophy className="h-8 w-8 mb-2 text-blue-400" />
-                      <h3 className="font-semibold text-white mb-1">Recommended Strategy</h3>
+                      <h3 className="font-semibold text-white mb-1">
+                        Recommended Strategy
+                      </h3>
                       <p className="text-sm text-white/60">
                         {state.followerCount >= 50000
                           ? "High cashback for maximum impact"
@@ -452,9 +576,12 @@ export function RewardsSimulator() {
                   <Card className="bg-white/5 border-white/10 transition-colors hover:bg-white/10">
                     <CardContent className="pt-6 flex flex-col items-center">
                       <DollarSign className="h-8 w-8 mb-2 text-purple-400" />
-                      <h3 className="font-semibold text-white mb-1">Cashback Tier</h3>
+                      <h3 className="font-semibold text-white mb-1">
+                        Cashback Tier
+                      </h3>
                       <p className="text-sm text-white/60">
-                        {rewards.cashbackPercentage}% cashback for {state.followerCount.toLocaleString()} followers
+                        {rewards.cashbackPercentage}% cashback for{" "}
+                        {state.followerCount.toLocaleString()} followers
                       </p>
                     </CardContent>
                   </Card>
@@ -462,7 +589,9 @@ export function RewardsSimulator() {
                   <Card className="bg-white/5 border-white/10 transition-colors hover:bg-white/10">
                     <CardContent className="pt-6 flex flex-col items-center">
                       <TrendingUp className="h-8 w-8 mb-2 text-pink-400" />
-                      <h3 className="font-semibold text-white mb-1">Expected ROI</h3>
+                      <h3 className="font-semibold text-white mb-1">
+                        Expected ROI
+                      </h3>
                       <p className="text-sm text-white/60">High ROI</p>
                     </CardContent>
                   </Card>
@@ -473,6 +602,5 @@ export function RewardsSimulator() {
         </CardContent>
       </Card>
     </TooltipProvider>
-  )
+  );
 }
-

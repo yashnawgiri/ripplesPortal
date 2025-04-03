@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { ArrowRight, X } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import { Button } from "@/components/ugc-landing/ui/button";
 // import {
@@ -12,7 +12,6 @@ import { Button } from "@/components/ugc-landing/ui/button";
 // import { Input } from "@/components/ugc-landing/ui/input";
 // import { Label } from "@/components/ugc-landing/ui/label";
 // import { Spinner } from "@/components/ugc-landing/ui/spinner";
-import { Link } from "react-router-dom";
 import { siteConfig } from "@/config/site";
 
 export function MobileCTA() {
@@ -82,8 +81,11 @@ export function MobileCTA() {
             </form>
           </SheetContent>
         </Sheet> */}
-        <Link to={siteConfig.links.calendly} className="w-full">
-          <Button className="w-full bg-white text-black hover:bg-white/90" size="lg">
+        <Link className="w-full" to={siteConfig.links.calendly}>
+          <Button
+            className="w-full bg-white text-black hover:bg-white/90"
+            size="lg"
+          >
             Book Demo
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
