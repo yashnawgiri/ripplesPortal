@@ -89,11 +89,7 @@ export default function Testimonials() {
         viewport={{ once: true }}
         whileInView={{ opacity: 1 }}
       >
-        <h2
-          className={`${title({ size: "lg", color: "foreground", weight: "bold" })} h-20`}
-        >
-          {dashboardData.ComponentsData.Testimonials.title}
-        </h2>
+        <h2 className="text-transparent bg-clip-text bg-gradient-to-br from-white to-slate-500 py-4 text-center text-3xl md:text-5xl font-bold">{dashboardData.ComponentsData.Testimonials.title}</h2>
         <p className="text-base max-w-2xl py-4 text-color mx-auto">
           {dashboardData.ComponentsData.Testimonials.description}
         </p>
