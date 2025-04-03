@@ -28,21 +28,21 @@ const HowItWorksSection: React.FC = () => {
   const steps = [
     {
       number: 1,
-      title: "We Integrate With Purchase & Post-Purchase User Journey",
+      title: "Seamless Integration Across the Customer Journey",
       description:
-        "Use our Shopify app to set up the rewards program & activate shoppers at POS",
+        "Engage customers at every stage—from point of sale (online or in-store) to post-purchase. Activate sharing through multiple touchpoints like WhatsApp, SMS, email, and a gamified rewards hub.",
     },
     {
       number: 2,
-      title: "Customers Share & Drive Traffic",
+      title: " Shoppers Share. Your Brand Grows.",
       description:
-        "After purchasing, customers get a prompt (via pop-up, email, or SMS) to share their unique link & post on social media",
+        "Once they buy, shoppers are prompted to share their unique referral link or post on social media—turning every customer into a brand advocate.",
     },
     {
       number: 3,
-      title: "Track Sales & Auto-Payout",
+      title: "Track Results. Reward Automatically.",
       description:
-        "Track sales and traffic from shared links. Reward your customers with cash rewards or perks for each successful referral and reel on IG.",
+        "Monitor traffic and sales from shared links in real time. Automatically reward customers with cash or perks for every successful referral or reel posted on Instagram.",
       badge: true,
     },
   ];
