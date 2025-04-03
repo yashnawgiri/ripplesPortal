@@ -28,9 +28,11 @@ import AuthPage from "@/pages/auth-page/AuthPage";
 
 function App() {
   const location = useLocation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
+
   return (
     <Suspense fallback={<Fallback />}>
       <Routes>

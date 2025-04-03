@@ -80,6 +80,14 @@ const CASHBACK_TIERS = [
   { min: 100000, max: Number.POSITIVE_INFINITY, percentage: 80 },
 ];
 
+const responsiveStyles = `
+  @media (max-width: 400px) {
+    .xs\\:grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+`;
+
 export function RewardsSimulator() {
   const [state, setState] = useState<SimulationState>({
     contentQuality: "basic",
@@ -135,9 +143,10 @@ export function RewardsSimulator() {
 
   return (
     <TooltipProvider>
-      <Card className="bg-black/50 border-white/10 backdrop-blur-sm">
+      <style dangerouslySetInnerHTML={{ __html: responsiveStyles }} />
+      <Card className="bg-black/50 border-white/10 backdrop-blur-sm w-full md:w-[800px] p-0">
         <CardHeader>
-          <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:items-center sm:justify-between w-full">
             <div className="flex items-center gap-2">
               <CardTitle className="text-white text-xl sm:text-2xl">
                 Discover your rewards strategy
@@ -154,11 +163,11 @@ export function RewardsSimulator() {
                 </TooltipContent>
               </Tooltip>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 w-full sm:w-auto">
               <Label className="text-white whitespace-nowrap">Currency:</Label>
-              <div className="flex border border-white/10 rounded-lg">
+              <div className="flex border border-white/10 rounded-lg flex-1 sm:flex-initial">
                 <button
-                  className={`flex items-center gap-1 px-3 py-1.5 rounded-l-md transition-colors ${
+                  className={`flex items-center justify-center gap-1 px-2 sm:px-3 py-1.5 rounded-l-md transition-colors flex-1 sm:flex-initial ${
                     state.currency === "USD"
                       ? "bg-white/10 text-white"
                       : "text-white/60 hover:text-white"
@@ -171,7 +180,7 @@ export function RewardsSimulator() {
                   <span className="inline">USD</span>
                 </button>
                 <button
-                  className={`flex items-center gap-1 px-3 py-1.5 rounded-r-md transition-colors ${
+                  className={`flex items-center justify-center gap-1 px-2 sm:px-3 py-1.5 rounded-r-md transition-colors flex-1 sm:flex-initial ${
                     state.currency === "INR"
                       ? "bg-white/10 text-white"
                       : "text-white/60 hover:text-white"
@@ -187,9 +196,9 @@ export function RewardsSimulator() {
             </div>
           </div>
         </CardHeader>
-        <CardContent className="space-y-6">
+        <CardContent className="space-y-6 pb-6 w-[90vw] md:w-auto">
           <Tabs className="space-y-4" defaultValue="settings">
-            <TabsList className="grid w-full grid-cols-1 sm:grid-cols-2 gap-4 bg-transparent">
+            <TabsList className="grid w-full grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 bg-transparent">
               <TabsTrigger
                 className="data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:border-white/20 hover:bg-white/5 transition-all px-2 py-2 sm:py-3 rounded-lg border border-white/10 hover:border-white/20 text-sm"
                 value="settings"
@@ -343,7 +352,7 @@ export function RewardsSimulator() {
 
             <TabsContent value="comparison">
               <div className="space-y-6">
-                <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:items-center sm:justify-between w-full">
                   <div className="flex items-center gap-2">
                     <h3 className="text-white font-semibold">
                       Reward Strategy Breakdown
@@ -360,10 +369,11 @@ export function RewardsSimulator() {
                       </TooltipContent>
                     </Tooltip>
                   </div>
-                  <div className="grid grid-cols-2 sm:flex sm:items-center gap-4">
+                  <div className="grid grid-cols-1 xs:grid-cols-2 sm:flex sm:items-center gap-2 sm:gap-4 w-full sm:w-auto">
                     <div className="flex items-center gap-2">
                       <Switch
                         checked={state.showCashRewards}
+                        className={`${state.showCashRewards ? "bg-primary" : "bg-gray-500"}`}
                         id="cash-rewards"
                         onCheckedChange={(checked) =>
                           setState((prev) => ({
@@ -418,8 +428,8 @@ export function RewardsSimulator() {
                   </div>
                 </div>
 
-                <div className="overflow-x-auto -mx-6 px-6">
-                  <div className="min-w-full sm:min-w-[600px]">
+                <div className="overflow-x-auto -mx-4 sm:-mx-6 px-4 sm:px-6">
+                  <div className="min-w-[500px] sm:min-w-[600px]">
                     <Table>
                       <TableHeader>
                         <TableRow>
@@ -546,9 +556,9 @@ export function RewardsSimulator() {
                   </div>
                 </div>
 
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                   <Card className="bg-white/5 border-white/10 transition-colors hover:bg-white/10">
-                    <CardContent className="pt-6">
+                    <CardContent className="pt-6 flex flex-col items-center">
                       <Trophy className="h-8 w-8 mb-2 text-blue-400" />
                       <h3 className="font-semibold text-white mb-1">
                         Recommended Strategy
@@ -564,7 +574,7 @@ export function RewardsSimulator() {
                   </Card>
 
                   <Card className="bg-white/5 border-white/10 transition-colors hover:bg-white/10">
-                    <CardContent className="pt-6">
+                    <CardContent className="pt-6 flex flex-col items-center">
                       <DollarSign className="h-8 w-8 mb-2 text-purple-400" />
                       <h3 className="font-semibold text-white mb-1">
                         Cashback Tier
@@ -577,7 +587,7 @@ export function RewardsSimulator() {
                   </Card>
 
                   <Card className="bg-white/5 border-white/10 transition-colors hover:bg-white/10">
-                    <CardContent className="pt-6">
+                    <CardContent className="pt-6 flex flex-col items-center">
                       <TrendingUp className="h-8 w-8 mb-2 text-pink-400" />
                       <h3 className="font-semibold text-white mb-1">
                         Expected ROI
