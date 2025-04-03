@@ -1,4 +1,3 @@
-import { title } from "./primitives";
 import "./../styles/home/gradiantCards.css";
 
 import dashboardData from "@/data/landing.json";
