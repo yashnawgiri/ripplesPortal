@@ -287,15 +287,29 @@ export default function UGCLanding() {
           >
             <HolographicGradient className="absolute inset-0 opacity-20" />
 
-            <div className="container px-4 md:px-6 relative flex items-center justify-center w-full max-w-7xl">
+            <div className="px-0 md:px-6 relative flex items-center justify-center w-full max-w-7xl">
               {/* Left Side - Text and Simulator */}
               <div className="relative z-10 flex flex-col items-center text-center max-w-4xl bg-black/50 p-6 rounded-lg backdrop-blur-lg">
                 <h2 className="text-3xl p-2 font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
                   Simulate Your Rewards Strategy
                 </h2>
                 <p className="max-w-[600px] text-white/80 md:text-xl">
-                  Find the perfect reward mix for your UGC campaign
+                  Find the ideal reward mix tailored to your UGC campaign goals
                 </p>
+                <ol className="text-white/80 md:text-xl list-decimal list-inside text-start text-[12px] md:text-[16px] mt-4">
+                  <li>
+                    Use this interactive calculator to plan your reward
+                    strategy.
+                  </li>
+                  <li>
+                    Start by selecting the type of creators you want to engage.
+                  </li>
+                  <li>
+                    Click on the “Rewards Strategy” button to see your
+                    recommended payout mix based on content quality and follower
+                    count.
+                  </li>
+                </ol>
                 <div className="mt-6 w-full">
                   <RewardsSimulator />
                 </div>
@@ -388,7 +402,7 @@ export default function UGCLanding() {
                   className="relative overflow-hidden bg-black/50 border-white/10 backdrop-blur-sm group hover:border-white/20 transition-all duration-300"
                 >
                   <HolographicGradient className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-                  <CardContent className="p-8 relative">
+                  <CardContent className="p-8 relative flex flex-col items-center">
                     <div
                       className={`
               inline-flex p-3 rounded-xl bg-gradient-to-br ${feature.gradient}
@@ -400,7 +414,7 @@ export default function UGCLanding() {
                     <h3 className="font-semibold text-xl mb-3 text-white group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-600 transition-all duration-300">
                       {feature.title}
                     </h3>
-                    <p className="text-white/60 group-hover:text-white/70 transition-colors duration-300">
+                    <p className="text-white/60 group-hover:text-white/70 transition-colors duration-300 text-center">
                       {feature.description}
                     </p>
                   </CardContent>
