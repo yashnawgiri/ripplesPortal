@@ -97,7 +97,7 @@ export default function UGCLanding() {
                   <div className="space-y-2 pt-24">
                     <h1 className="text-4xl font-bold sm:text-6xl xl:text-7xl/none">
                       <Typewriter
-                        className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/50"
+                        className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/50 min-h-[100px]"
                         words={[
                           "The New Marketing & Sales Channel for Ambitious Brands",
                           "Give Cash in Bank to Shoppers for UGC",
