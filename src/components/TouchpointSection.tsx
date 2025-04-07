@@ -13,6 +13,7 @@ import {
   QrCode,
 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function TouchpointSection() {
   const [activeTab, setActiveTab] = useState("whatsapp");
@@ -37,7 +38,7 @@ export default function TouchpointSection() {
     {
       id: "whatsapp",
       name: "WhatsApp",
-      icon: <MessageSquare className="w-5 h-5" />,
+      icon: <FaWhatsapp className="w-5 h-5" />,
       color: "bg-green-500",
     },
     {
@@ -60,7 +61,7 @@ export default function TouchpointSection() {
     },
     {
       id: "order",
-      name: "Order Page",
+      name: "Thank You Page",
       icon: <FileText className="w-5 h-5" />,
       color: "bg-purple-500",
     },
@@ -123,21 +124,20 @@ export default function TouchpointSection() {
       features: [
         "Short, compelling messages",
         "Trackable short links",
-        "Two-way messaging",
         "Scheduled reminders",
       ],
       cta: "Configure SMS Channel",
       preview:
-        "https://ripples1static.blob.core.windows.net/images/retail_image.png",
+        "https://ripples1static.blob.core.windows.net/images/sms_template.png",
     },
     retail: {
       title: "In-Store QR Experience",
       description:
         "Bridge the gap between physical and digital with QR codes that turn in-store customers into online advocates and content creators.",
       features: [
-        "Dynamic QR codes on receipts and packaging",
+        "Dynamic QR codes on display in the store, receipts, and packaging",
         "Instant referral program enrollment",
-        "In-store exclusive referral bonuses",
+        "In-store exclusive bonuses for creating content online",
         "Seamless mobile experience",
       ],
       cta: "Set Up Retail Integration",
@@ -145,7 +145,7 @@ export default function TouchpointSection() {
         "https://ripples1static.blob.core.windows.net/images/retail_image.png",
     },
     order: {
-      title: "Order Page Integration",
+      title: "Thank You Page Integration",
       description:
         "Embed referral opportunities directly in the purchase flow to capture customers at their peak satisfaction.",
       features: [
@@ -154,9 +154,9 @@ export default function TouchpointSection() {
         "Incentive highlights",
         "Frictionless experience",
       ],
-      cta: "Customize Order Pages",
+      cta: "Customize Thank You Pages",
       preview:
-        "https://ripples1static.blob.core.windows.net/images/shopiry_orders_page.png",
+        "https://ripples1static.blob.core.windows.net/images/shopify_thank_you_page.png",
     },
     status: {
       title: "Order Status Updates",
@@ -165,17 +165,15 @@ export default function TouchpointSection() {
       features: [
         "Contextual referral prompts",
         "Progress-based incentives",
-        "Delivery celebration messages",
-        "Review and refer combinations",
       ],
       cta: "Enhance Status Updates",
       preview:
         "https://ripples1static.blob.core.windows.net/images/shopiry_orders_page.png",
     },
     referral: {
-      title: "Customer Referral Hub",
+      title: "Customer Referral Hub on Your Website",
       description:
-        "Give customers a dedicated dashboard to track their referrals, rewards, and access sharing tools.",
+        "Give customers a dedicated dashboard to track their referrals, rewards, and access sharing tools on your ecommerce store.",
       features: [
         "Real-time referral tracking",
         "Reward status visualization",
@@ -184,12 +182,12 @@ export default function TouchpointSection() {
       ],
       cta: "Launch Referral Hub",
       preview:
-        "https://ripples1static.blob.core.windows.net/images/referral_dashboard.png",
+        "https://ripples1static.blob.core.windows.net/images/referral_tracking.png",
     },
   };
 
   return (
-    <section className="w-full py-16 md:py-24 text-white bg-primary">
+    <section className="w-full flex flex-col justify-center items-center py-16 md:py-24 text-white bg-primary">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center space-y-10 max-w-6xl mx-auto">
           {/* Header */}
@@ -383,27 +381,25 @@ export default function TouchpointSection() {
           </div>
 
           {/* Stats */}
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12">
+          <div className="w-full flex flex-row flex-wrap md:flex-nowrap gap-6 mt-12 text-center justify-center items-stretch">
             <div className="bg-primary rounded-xl p-6 border shadow-sm">
               <div className="text-4xl font-bold text-secondary mb-2">
-                +127%
+                65%
               </div>
               <p className="text-muted-foreground">
-                Increase in referral & UGC activation with multi-channel
-                approach
+              Lower customer acquisition cost through referrals & UGC driven sales
               </p>
             </div>
             <div className="bg-primary rounded-xl p-6 border shadow-sm">
-              <div className="text-4xl font-bold text-secondary mb-2">5.3x</div>
+              <div className="text-4xl font-bold text-secondary mb-2">10X</div>
               <p className="text-muted-foreground">
-                Higher engagement compared to single-channel campaigns
+              Increase in referral & UGC activation with multi-channel approach
               </p>
             </div>
             <div className="bg-primary rounded-xl p-6 border shadow-sm">
-              <div className="text-4xl font-bold text-secondary mb-2">50%</div>
+              <div className="text-4xl font-bold text-secondary mb-2">5X</div>
               <p className="text-muted-foreground">
-                Lower customer acquisition cost through referrals & UGC driven
-                sales
+              Higher engagement compared to single-channel campaigns
               </p>
             </div>
           </div>
