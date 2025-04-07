@@ -13,7 +13,6 @@ import {
   QrCode,
 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
-import { Button } from "@nextui-org/button";
 
 export default function TouchpointSection() {
   const [activeTab, setActiveTab] = useState("whatsapp");
@@ -218,12 +217,12 @@ export default function TouchpointSection() {
                 <div key={channel.id} className="space-y-4">
                   {/* Tab Trigger */}
                   <button
-                    onClick={() => setActiveTab(channel.id)}
                     className={`flex items-center justify-between w-full p-3 rounded-lg text-left ${
                       activeTab === channel.id
                         ? "bg-background shadow-sm"
                         : "hover:bg-background/50"
                     }`}
+                    onClick={() => setActiveTab(channel.id)}
                   >
                     <div className="flex items-center">
                       <div
@@ -268,10 +267,10 @@ export default function TouchpointSection() {
                                 >
                                   <div
                                     className={`mt-1 w-3 h-3 rounded-full ${channel.color} mr-2 flex-shrink-0`}
-                                  ></div>
+                                  />
                                   <span>{feature}</span>
                                 </li>
-                              )
+                              ),
                             )}
                           </ul>
                         </div>
@@ -280,9 +279,9 @@ export default function TouchpointSection() {
                           <div className="">
                             <div className="">
                               <img
-                                src={channelContent[channel.id].preview}
                                 alt={channelContent[channel.id].title}
                                 className=""
+                                src={channelContent[channel.id].preview}
                               />
                             </div>
                           </div>
@@ -300,8 +299,8 @@ export default function TouchpointSection() {
 
             {/* Desktop View - Side by side layout */}
             <Tabs
-              defaultValue="whatsapp"
               className="hidden md:block w-full"
+              defaultValue="whatsapp"
               onValueChange={setActiveTab}
             >
               <div className="flex flex-row gap-8">
@@ -310,12 +309,12 @@ export default function TouchpointSection() {
                     {channels.map((channel) => (
                       <TabsTrigger
                         key={channel.id}
-                        value={channel.id}
                         className={`flex items-center justify-between w-full p-3 rounded-lg text-left ${
                           activeTab === channel.id
                             ? "bg-background shadow-sm"
                             : "hover:bg-background/50"
                         }`}
+                        value={channel.id}
                       >
                         <div className="flex items-center">
                           <div
@@ -339,7 +338,7 @@ export default function TouchpointSection() {
 
                 <div className="md:w-2/3">
                   {Object.entries(channelContent).map(([id, content]) => (
-                    <TabsContent key={id} value={id} className="mt-0">
+                    <TabsContent key={id} className="mt-0" value={id}>
                       <div className="space-y-6">
                         <div>
                           <h3 className="text-2xl font-bold">
@@ -358,7 +357,7 @@ export default function TouchpointSection() {
                                 <li key={index} className="flex items-start">
                                   <div
                                     className={`mt-1 w-4 h-4 rounded-full ${channels.find((c) => c.id === id)?.color} mr-2 flex-shrink-0`}
-                                  ></div>
+                                  />
                                   <span>{feature}</span>
                                 </li>
                               ))}
@@ -369,9 +368,9 @@ export default function TouchpointSection() {
                           </div>
                           <div className="bg-white rounded-lg overflow-hidden  shadow-sm max-h-[300px]">
                             <img
-                              src={content.preview}
                               alt={content.title}
                               className="w-full h-full object-contain border border-dashed border-muted-foreground/20 rounded-lg"
+                              src={content.preview}
                             />
                           </div>
                         </div>
