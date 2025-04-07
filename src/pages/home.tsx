@@ -23,6 +23,7 @@ import MarketingSection from "@/components/MarketingSection";
 import AdvantagesSection from "@/components/AdvantageSection";
 import HowItWorksSection from "@/components/UgcHowItWorks";
 import CTASection from "@/components/CtaSection";
+import TouchpointSection from "@/components/TouchpointSection";
 
 function DemoButton() {
   const navigate = useNavigate();
@@ -48,6 +49,7 @@ export default function HomePage() {
         <CashbackHeroSection />
         <MarketingSection />
         <HowItWorksSection />
+        <TouchpointSection />
         <AdvantagesSection />
         <CTASection />
         <IntegrationSlider />
