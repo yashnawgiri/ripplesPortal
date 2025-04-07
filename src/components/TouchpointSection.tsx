@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { useState } from "react"
+import { useState } from "react";
 import {
   MessageSquare,
   Mail,
@@ -11,21 +11,28 @@ import {
   ChevronRight,
   Users,
   QrCode,
-} from "lucide-react"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs"
-import { Button } from "@nextui-org/button"
+} from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
+import { Button } from "@nextui-org/button";
 
 export default function TouchpointSection() {
-  const [activeTab, setActiveTab] = useState("whatsapp")
+  const [activeTab, setActiveTab] = useState("whatsapp");
 
-  type ChannelId = "whatsapp" | "email" | "sms" | "retail" | "order" | "status" | "referral"
-  
+  type ChannelId =
+    | "whatsapp"
+    | "email"
+    | "sms"
+    | "retail"
+    | "order"
+    | "status"
+    | "referral";
+
   type Channel = {
-    id: ChannelId
-    name: string
-    icon: React.ReactNode
-    color: string
-  }
+    id: ChannelId;
+    name: string;
+    icon: React.ReactNode;
+    color: string;
+  };
 
   const channels: Channel[] = [
     {
@@ -70,15 +77,18 @@ export default function TouchpointSection() {
       icon: <ClipboardList className="w-5 h-5" />,
       color: "bg-red-500",
     },
-  ]
+  ];
 
-  const channelContent: Record<ChannelId, {
-    title: string
-    description: string
-    features: string[]
-    cta: string
-    preview: string
-  }> = {
+  const channelContent: Record<
+    ChannelId,
+    {
+      title: string;
+      description: string;
+      features: string[];
+      cta: string;
+      preview: string;
+    }
+  > = {
     whatsapp: {
       title: "Direct Messaging with WhatsApp",
       description:
@@ -90,7 +100,8 @@ export default function TouchpointSection() {
         "Custom branded messages",
       ],
       cta: "Enable WhatsApp Channel",
-      preview: "/placeholder.svg?height=400&width=600",
+      preview:
+        "https://ripples1static.blob.core.windows.net/images/whatsapp_image.png",
     },
     email: {
       title: "Strategic Email Campaigns",
@@ -103,14 +114,22 @@ export default function TouchpointSection() {
         "Rich media support",
       ],
       cta: "Set Up Email Sequences",
-      preview: "/placeholder.svg?height=400&width=600",
+      preview:
+        "https://ripples1static.blob.core.windows.net/images/email_template.png",
     },
     sms: {
       title: "Instant SMS Notifications",
-      description: "Reach customers instantly with SMS messages that have high open rates and drive immediate action.",
-      features: ["Short, compelling messages", "Trackable short links", "Two-way messaging", "Scheduled reminders"],
+      description:
+        "Reach customers instantly with SMS messages that have high open rates and drive immediate action.",
+      features: [
+        "Short, compelling messages",
+        "Trackable short links",
+        "Two-way messaging",
+        "Scheduled reminders",
+      ],
       cta: "Configure SMS Channel",
-      preview: "/placeholder.svg?height=400&width=600",
+      preview:
+        "https://ripples1static.blob.core.windows.net/images/retail_image.png",
     },
     retail: {
       title: "In-Store QR Experience",
@@ -123,7 +142,8 @@ export default function TouchpointSection() {
         "Seamless mobile experience",
       ],
       cta: "Set Up Retail Integration",
-      preview: "/placeholder.svg?height=400&width=600",
+      preview:
+        "https://ripples1static.blob.core.windows.net/images/retail_image.png",
     },
     order: {
       title: "Order Page Integration",
@@ -136,7 +156,8 @@ export default function TouchpointSection() {
         "Frictionless experience",
       ],
       cta: "Customize Order Pages",
-      preview: "/placeholder.svg?height=400&width=600",
+      preview:
+        "https://ripples1static.blob.core.windows.net/images/shopiry_orders_page.png",
     },
     status: {
       title: "Order Status Updates",
@@ -149,11 +170,13 @@ export default function TouchpointSection() {
         "Review and refer combinations",
       ],
       cta: "Enhance Status Updates",
-      preview: "/placeholder.svg?height=400&width=600",
+      preview:
+        "https://ripples1static.blob.core.windows.net/images/shopiry_orders_page.png",
     },
     referral: {
       title: "Customer Referral Hub",
-      description: "Give customers a dedicated dashboard to track their referrals, rewards, and access sharing tools.",
+      description:
+        "Give customers a dedicated dashboard to track their referrals, rewards, and access sharing tools.",
       features: [
         "Real-time referral tracking",
         "Reward status visualization",
@@ -161,9 +184,10 @@ export default function TouchpointSection() {
         "Gamification elements",
       ],
       cta: "Launch Referral Hub",
-      preview: "/placeholder.svg?height=400&width=600",
+      preview:
+        "https://ripples1static.blob.core.windows.net/images/referral_dashboard.png",
     },
-  }
+  };
 
   return (
     <section className="w-full py-16 md:py-24 text-white bg-primary">
@@ -179,7 +203,8 @@ export default function TouchpointSection() {
               Activate Users Across Every Touchpoint
             </h2>
             <p className="text-lg text-muted-foreground">
-              Create a seamless rewards journey engaging customers at key moments throughout their journey.
+              Create a seamless rewards journey engaging customers at key
+              moments throughout their journey.
             </p>
           </div>
 
@@ -195,7 +220,9 @@ export default function TouchpointSection() {
                   <button
                     onClick={() => setActiveTab(channel.id)}
                     className={`flex items-center justify-between w-full p-3 rounded-lg text-left ${
-                      activeTab === channel.id ? "bg-background shadow-sm" : "hover:bg-background/50"
+                      activeTab === channel.id
+                        ? "bg-background shadow-sm"
+                        : "hover:bg-background/50"
                     }`}
                   >
                     <div className="flex items-center">
@@ -204,7 +231,9 @@ export default function TouchpointSection() {
                       >
                         {channel.icon}
                       </div>
-                      <span className={`${activeTab === channel.id ? "text-secondary font-medium" : ""}`}>
+                      <span
+                        className={`${activeTab === channel.id ? "text-secondary font-medium" : ""}`}
+                      >
                         {channel.name}
                       </span>
                     </div>
@@ -218,39 +247,45 @@ export default function TouchpointSection() {
                     <div className="bg-background rounded-lg p-4 shadow-sm text-black">
                       <div className="space-y-4">
                         <div>
-                          <h3 className="text-xl font-bold text-primary">{channelContent[channel.id].title}</h3>
-                          <p className="text-muted-foreground mt-2 text-sm">{channelContent[channel.id].description}</p>
+                          <h3 className="text-xl font-bold text-primary">
+                            {channelContent[channel.id].title}
+                          </h3>
+                          <p className="text-muted-foreground mt-2 text-sm">
+                            {channelContent[channel.id].description}
+                          </p>
                         </div>
 
                         <div>
-                          <h4 className="font-medium mb-2 text-primary">Key Features</h4>
+                          <h4 className="font-medium mb-2 text-primary">
+                            Key Features
+                          </h4>
                           <ul className="space-y-2">
-                            {channelContent[channel.id].features.map((feature: string, index: number) => (
-                              <li key={index} className="flex items-start text-sm">
-                                <div className={`mt-1 w-3 h-3 rounded-full ${channel.color} mr-2 flex-shrink-0`}></div>
-                                <span>{feature}</span>
-                              </li>
-                            ))}
+                            {channelContent[channel.id].features.map(
+                              (feature: string, index: number) => (
+                                <li
+                                  key={index}
+                                  className="flex items-start text-sm"
+                                >
+                                  <div
+                                    className={`mt-1 w-3 h-3 rounded-full ${channel.color} mr-2 flex-shrink-0`}
+                                  ></div>
+                                  <span>{feature}</span>
+                                </li>
+                              )
+                            )}
                           </ul>
                         </div>
 
                         <div className="bg-muted/30 rounded-lg overflow-hidden border">
-                          {channel.id === "retail" ? (
-                            <div className="aspect-video w-full bg-background relative p-4 flex flex-col items-center justify-center">
-                              <div className="border-2 border-dashed border-muted-foreground/20 rounded-lg p-4 flex flex-col items-center justify-center w-full h-full">
-                                <QrCode className="w-16 h-16 text-teal-500 mb-2" />
-                                <p className="text-center text-xs text-muted-foreground">
-                                  Scan this QR code in-store to join our referral program and earn rewards
-                                </p>
-                              </div>
+                          <div className="">
+                            <div className="">
+                              <img
+                                src={channelContent[channel.id].preview}
+                                alt={channelContent[channel.id].title}
+                                className=""
+                              />
                             </div>
-                          ) : (
-                            <div className="aspect-video w-full bg-muted/50 relative">
-                              <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-sm">
-                                Channel Preview
-                              </div>
-                            </div>
-                          )}
+                          </div>
                         </div>
 
                         {/* <Button className="w-full" color="primary">
@@ -264,7 +299,11 @@ export default function TouchpointSection() {
             </div>
 
             {/* Desktop View - Side by side layout */}
-            <Tabs defaultValue="whatsapp" className="hidden md:block w-full" onValueChange={setActiveTab}>
+            <Tabs
+              defaultValue="whatsapp"
+              className="hidden md:block w-full"
+              onValueChange={setActiveTab}
+            >
               <div className="flex flex-row gap-8">
                 <div className="md:w-1/3">
                   <TabsList className="flex flex-col h-auto bg-transparent space-y-1">
@@ -273,7 +312,9 @@ export default function TouchpointSection() {
                         key={channel.id}
                         value={channel.id}
                         className={`flex items-center justify-between w-full p-3 rounded-lg text-left ${
-                          activeTab === channel.id ? "bg-background shadow-sm" : "hover:bg-background/50"
+                          activeTab === channel.id
+                            ? "bg-background shadow-sm"
+                            : "hover:bg-background/50"
                         }`}
                       >
                         <div className="flex items-center">
@@ -282,7 +323,11 @@ export default function TouchpointSection() {
                           >
                             {channel.icon}
                           </div>
-                          <span className={`${activeTab === channel.id ? "text-secondary" : ""}`}>{channel.name}</span>
+                          <span
+                            className={`${activeTab === channel.id ? "text-secondary" : ""}`}
+                          >
+                            {channel.name}
+                          </span>
                         </div>
                         <ChevronRight
                           className={`h-4 w-4 transition-transform ${activeTab === channel.id ? "rotate-90" : ""}`}
@@ -297,8 +342,12 @@ export default function TouchpointSection() {
                     <TabsContent key={id} value={id} className="mt-0">
                       <div className="space-y-6">
                         <div>
-                          <h3 className="text-2xl font-bold">{content.title}</h3>
-                          <p className="text-muted-foreground mt-2">{content.description}</p>
+                          <h3 className="text-2xl font-bold">
+                            {content.title}
+                          </h3>
+                          <p className="text-muted-foreground mt-2">
+                            {content.description}
+                          </p>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -318,23 +367,12 @@ export default function TouchpointSection() {
                               {content.cta}
                             </Button> */}
                           </div>
-                          <div className="bg-background rounded-lg overflow-hidden border shadow-sm">
-                            {id === "retail" ? (
-                              <div className="aspect-video w-full bg-background relative p-4 flex flex-col items-center justify-center">
-                                <div className="border-2 border-dashed border-muted-foreground/20 rounded-lg p-6 flex flex-col items-center justify-center w-full h-full">
-                                  <QrCode className="w-24 h-24 text-teal-500 mb-4" />
-                                  <p className="text-center text-sm text-muted-foreground">
-                                    Scan this QR code in-store to join our referral program and earn rewards
-                                  </p>
-                                </div>
-                              </div>
-                            ) : (
-                              <div className="aspect-video w-full bg-muted relative">
-                                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                                  Channel Preview
-                                </div>
-                              </div>
-                            )}
+                          <div className="bg-white rounded-lg overflow-hidden  shadow-sm max-h-[300px]">
+                            <img
+                              src={content.preview}
+                              alt={content.title}
+                              className="w-full h-full object-contain border border-dashed border-muted-foreground/20 rounded-lg"
+                            />
                           </div>
                         </div>
                       </div>
@@ -348,23 +386,30 @@ export default function TouchpointSection() {
           {/* Stats */}
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12">
             <div className="bg-primary rounded-xl p-6 border shadow-sm">
-              <div className="text-4xl font-bold text-secondary mb-2">+127%</div>
-              <p className="text-muted-foreground">Increase in referral & UGC activation with multi-channel approach</p>
+              <div className="text-4xl font-bold text-secondary mb-2">
+                +127%
+              </div>
+              <p className="text-muted-foreground">
+                Increase in referral & UGC activation with multi-channel
+                approach
+              </p>
             </div>
             <div className="bg-primary rounded-xl p-6 border shadow-sm">
               <div className="text-4xl font-bold text-secondary mb-2">5.3x</div>
-              <p className="text-muted-foreground">Higher engagement compared to single-channel campaigns</p>
+              <p className="text-muted-foreground">
+                Higher engagement compared to single-channel campaigns
+              </p>
             </div>
             <div className="bg-primary rounded-xl p-6 border shadow-sm">
               <div className="text-4xl font-bold text-secondary mb-2">50%</div>
               <p className="text-muted-foreground">
-                Lower customer acquisition cost through referrals & UGC driven sales
+                Lower customer acquisition cost through referrals & UGC driven
+                sales
               </p>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
-
