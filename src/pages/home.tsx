@@ -50,17 +50,17 @@ export default function HomePage() {
         <MarketingSection />
         <HowItWorksSection />
         <TouchpointSection />
-        <AdvantagesSection />
         <CTASection />
         <IntegrationSlider />
+        <AdvantagesSection />
         <DashboardCard />
         <Testimonials />
         <GradiantCards />
         <DemoButton />
-        <FAQ />
         <ResponsibilitySection />
         <DemoButton />
         <DataPrivacyComponent />
+        <FAQ />
       </section>
     </DefaultLayout>
   );

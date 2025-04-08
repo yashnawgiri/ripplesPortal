@@ -159,7 +159,7 @@ export const brandsJoinedLogos = [
     image: "https://ripples1static.blob.core.windows.net/images/mayin.png",
   },
   {
-    name: "Str8bat",
-    image: "https://ripples1static.blob.core.windows.net/images/str8bat.svg",
+    name: "sleekandpeek",
+    image: "https://ripples1static.blob.core.windows.net/images/sleekandpeek.png",
   },
 ];
