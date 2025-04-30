@@ -18,6 +18,7 @@ export const siteConfig = {
     shopperHome: "/shopper",
     ugcHome: "/ugc-home",
     getDemo: "/get-demo",
+    affiliateLink: "/affiliate-link/:brand_id/:referral_program_id",
     about: "/about",
     features: "/features",
     privacyPolicy: "/privacy-policy",
