@@ -9,12 +9,8 @@ import {
   AlertCircle,
   RefreshCw,
 } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
 import { Card } from "@nextui-org/react";
-import { CardContent } from "@/components/ugc-landing/ui/card";
 import { Label } from "@radix-ui/react-label";
-import { Input } from "@/components/ugc-landing/ui/input";
-import { Button } from "@/components/ugc-landing/ui/button";
 import {
   FaEnvelope,
   FaFacebookF,
@@ -26,11 +22,16 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { useParams } from "react-router-dom";
+
+import { useToast } from "@/hooks/use-toast";
+import { CardContent } from "@/components/ugc-landing/ui/card";
+import { Input } from "@/components/ugc-landing/ui/input";
+import { Button } from "@/components/ugc-landing/ui/button";
 import {
   generateAffiliateLink,
   getAffiliateRewardsService,
 } from "@/services/apiService";
-import { useParams } from "react-router-dom";
 import { Spinner } from "@/components/ugc-landing/ui/spinner";
 
 interface MilestoneReward {
@@ -61,6 +62,7 @@ interface MilestoneReward {
 const getOrdinalSuffix = (n: number) => {
   const s = ["th", "st", "nd", "rd"];
   const v = n % 100;
+
   return n + (s[(v - 20) % 10] || s[v] || s[0]);
 };
 
@@ -73,9 +75,9 @@ const MilestoneRewards = ({
 }) => {
   return (
     <motion.div
+      animate={{ opacity: 1, y: 0 }}
       className="mt-8 space-y-6"
       initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
       <h3 className="text-2xl font-bold text-center">Milestone Rewards</h3>
@@ -84,21 +86,22 @@ const MilestoneRewards = ({
           if (reward.reward_details.product) {
             const product = reward.reward_details.product;
             const nth = reward.milestone_details?.nth || 0;
+
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
+                className="border rounded-lg p-4 hover:shadow-lg transition-all duration-300 bg-white"
+                initial={{ opacity: 0, y: 20 }}
                 transition={{ delay: index * 0.2 }}
                 whileHover={{ scale: 1.02 }}
-                className="border rounded-lg p-4 hover:shadow-lg transition-all duration-300 bg-white"
               >
                 <div className="flex items-start gap-4">
                   <div className="w-24 h-24 flex-shrink-0">
                     <img
-                      src={product.images[0]?.originalSrc}
                       alt={product.images[0]?.altText || product.title}
                       className="w-full h-full object-cover rounded-lg"
+                      src={product.images[0]?.originalSrc}
                     />
                   </div>
                   <div className="flex-1">
@@ -110,10 +113,10 @@ const MilestoneRewards = ({
                       Value: ₹{product.variants[0]?.price}
                     </p>
                     <a
-                      href={`https://${brandIdentifier}.myshopify.com/products/${product.handle}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="text-sm text-blue-600 hover:underline mt-2 inline-block"
+                      href={`https://${brandIdentifier}.myshopify.com/products/${product.handle}`}
+                      rel="noopener noreferrer"
+                      target="_blank"
                     >
                       View Product
                     </a>
@@ -122,15 +125,19 @@ const MilestoneRewards = ({
               </motion.div>
             );
           } else if (reward.reward_details.giftType === "bonus") {
-            const rewardAmount = reward.reward_details.type === "FIXED_INR" ? "₹" + reward.reward_details.amount : reward.reward_details.amount + "%";
+            const rewardAmount =
+              reward.reward_details.type === "FIXED_INR"
+                ? "₹" + reward.reward_details.amount
+                : reward.reward_details.amount + "%";
+
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
+                className="border rounded-lg p-4 hover:shadow-lg transition-all duration-300 bg-white"
+                initial={{ opacity: 0, y: 20 }}
                 transition={{ delay: index * 0.2 }}
                 whileHover={{ scale: 1.02 }}
-                className="border rounded-lg p-4 hover:shadow-lg transition-all duration-300 bg-white"
               >
                 <div className="flex items-start gap-4">
                   <div className="w-24 h-24 flex-shrink-0 flex items-center justify-center bg-gray-100 rounded-lg">
@@ -168,7 +175,7 @@ export interface AffiliateRewards {
     reward_details: {
       type: string;
       amount: number;
-    }
+    };
   };
   referring_user_commission: MilestoneReward[];
   name: string;
@@ -179,7 +186,8 @@ export interface AffiliateRewards {
 
 export function AffiliateGenerator() {
   const { brand_id, referral_program_id } = useParams();
-  const [affiliateRewards, setAffiliateRewards] = useState<AffiliateRewards | null>(null);
+  const [affiliateRewards, setAffiliateRewards] =
+    useState<AffiliateRewards | null>(null);
   const [affiliateLink, setAffiliateLink] = useState("");
   const { toast } = useToast();
   const [step, setStep] = useState<"form" | "success">("form");
@@ -194,6 +202,7 @@ export function AffiliateGenerator() {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -209,20 +218,24 @@ export function AffiliateGenerator() {
           name: formData.firstName,
           email: formData.email,
           contact_number: formData.phoneNumber,
-        }
+        },
       );
+
       console.log(affiliateLinkResponse, "from the affiliateLinkResponse");
       setAffiliateLink(affiliateLinkResponse.data.link);
       setIsLoading(false);
       setStep("success");
     } catch (error: any) {
       console.error("Error generating affiliate link:", error);
-      setError(error.response?.data?.message || "Failed to generate affiliate link");
+      setError(
+        error.response?.data?.message || "Failed to generate affiliate link",
+      );
       setIsLoading(false);
 
       toast({
         title: "Error",
-        description: error.response?.data?.message || "Failed to generate affiliate link",
+        description:
+          error.response?.data?.message || "Failed to generate affiliate link",
         variant: "destructive",
       });
     }
@@ -261,42 +274,42 @@ export function AffiliateGenerator() {
     twitter: () =>
       window.open(
         `https://twitter.com/intent/tweet?text=Get ${referralAmount} off. Use my link! ${encodeURIComponent(affiliateLink)}`,
-        "_blank"
+        "_blank",
       ),
     facebook: () =>
       window.open(
         `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(affiliateLink)}&quote=Get ${referralAmount} off. Use my link!`,
-        "_blank"
+        "_blank",
       ),
     linkedin: () =>
       window.open(
         `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(affiliateLink)}`,
-        "_blank"
+        "_blank",
       ),
     whatsapp: () =>
       window.open(
         `https://wa.me/?text=Get ${referralAmount} off. Use my link! ${encodeURIComponent(affiliateLink)}`,
-        "_blank"
+        "_blank",
       ),
     telegram: () =>
       window.open(
         `https://t.me/share/url?url=${encodeURIComponent(affiliateLink)}&text=Get ${referralAmount} off. Use my link!`,
-        "_blank"
+        "_blank",
       ),
     reddit: () =>
       window.open(
         `https://www.reddit.com/submit?url=${encodeURIComponent(affiliateLink)}&title=Get ${referralAmount} off. Use my link!`,
-        "_blank"
+        "_blank",
       ),
     email: () =>
       window.open(
         `mailto:?subject=Get ${referralAmount} off. Use my link!&body=Use my link: ${encodeURIComponent(affiliateLink)}`,
-        "_blank"
+        "_blank",
       ),
     sms: () =>
       window.open(
         `sms:?body=Get ${referralAmount} off. Use my link: ${encodeURIComponent(affiliateLink)}`,
-        "_blank"
+        "_blank",
       ),
     instagram: () => {
       copyToClipboard();
@@ -379,9 +392,10 @@ export function AffiliateGenerator() {
         affiliateRewards?.referring_user_commission[0]?.reward_details?.amount
       : affiliateRewards?.referring_user_commission[0].reward_details?.amount +
         "%";
+
   console.log(
     affiliateRewards?.referring_user_commission[0]?.reward_details?.type,
-    "from the affiliateRewards"
+    "from the affiliateRewards",
   );
 
   useEffect(() => {
@@ -390,19 +404,23 @@ export function AffiliateGenerator() {
         setIsLoading(true);
         const affiliateRewards = await getAffiliateRewardsService(
           String(brand_id),
-          String(referral_program_id)
+          String(referral_program_id),
         );
+
         console.log(affiliateRewards, "from the affiliateRewards");
         if (affiliateRewards.data) {
           setAffiliateRewards(affiliateRewards.data as any);
         }
       } catch (error: any) {
         console.error("Error fetching affiliate rewards:", error);
-        setError(error.response?.data?.message || "Failed to load referral program");
+        setError(
+          error.response?.data?.message || "Failed to load referral program",
+        );
       } finally {
         setIsLoading(false);
       }
     };
+
     fetchAffiliateRewards();
   }, []);
 
@@ -410,10 +428,10 @@ export function AffiliateGenerator() {
     return (
       <div className="flex items-center justify-center min-h-screen p-4 bg-gray-50">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
           className="w-full max-w-md"
+          initial={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.5 }}
         >
           <Card className="overflow-hidden border-none shadow-2xl">
             <div className="bg-red-500 text-white p-6">
@@ -434,16 +452,16 @@ export function AffiliateGenerator() {
               </p>
               <div className="flex flex-col gap-4">
                 <Button
-                  onClick={() => window.location.reload()}
                   className="w-full flex items-center justify-center gap-2"
+                  onClick={() => window.location.reload()}
                 >
                   <RefreshCw className="h-4 w-4" />
                   Try Again
                 </Button>
                 <Button
+                  className="w-full"
                   variant="outline"
                   onClick={() => window.history.back()}
-                  className="w-full"
                 >
                   Go Back
                 </Button>
@@ -459,9 +477,9 @@ export function AffiliateGenerator() {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-50">
         <motion.div
-          initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           className="text-center"
+          initial={{ opacity: 0 }}
         >
           <Spinner className="h-12 w-12 mb-4" />
           <h2 className="text-xl font-semibold mb-2">
@@ -481,30 +499,30 @@ export function AffiliateGenerator() {
         {step === "form" ? (
           <motion.div
             key="form"
-            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
           >
             <Card className="overflow-hidden border-none shadow-2xl">
               <motion.div
+                animate={{ opacity: 1 }}
                 className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 py-8 text-white"
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
                 transition={{ duration: 0.6 }}
               >
                 <motion.div
-                  className="absolute inset-0 bg-grid-white/[0.05] bg-grid text-white"
-                  style={{ backgroundSize: "30px 30px" }}
-                  initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
+                  className="absolute inset-0 bg-grid-white/[0.05] bg-grid text-white"
+                  initial={{ opacity: 0 }}
+                  style={{ backgroundSize: "30px 30px" }}
                   transition={{ delay: 0.2 }}
                 />
 
                 <motion.div
+                  animate={{ y: 0, opacity: 1 }}
                   className="text-center relative z-10 px-6 py-4"
                   initial={{ y: -20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
                   transition={{
                     delay: 0.3,
                     type: "spring",
@@ -513,11 +531,11 @@ export function AffiliateGenerator() {
                   }}
                 >
                   <motion.div
+                    animate={{ y: 0, opacity: 1 }}
                     className="capitalize mb-1"
                     initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.5 }}
                     style={{ fontSize: "2.5rem" }}
+                    transition={{ delay: 0.5 }}
                   >
                     <div className="font-bold">
                       {affiliateRewards?.brand_name}
@@ -525,10 +543,10 @@ export function AffiliateGenerator() {
                   </motion.div>
 
                   <motion.div
-                    initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 0.4, duration: 0.5 }}
                     className="mb-3"
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
                   >
                     <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full  text-xl font-medium">
                       Referral Program
@@ -536,9 +554,9 @@ export function AffiliateGenerator() {
                   </motion.div>
 
                   <motion.div
+                    animate={{ y: 0, opacity: 1 }}
                     className="flex flex-col items-center justify-center gap-2 max-w-2xl mx-auto"
                     initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.6 }}
                   >
                     <p className="text-xl font-medium">
@@ -562,32 +580,32 @@ export function AffiliateGenerator() {
 
               <CardContent className="p-8 pt-6 bg-white">
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
                   className="space-y-8"
+                  initial={{ opacity: 0, y: 10 }}
+                  transition={{ delay: 0.1 }}
                 >
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form className="space-y-6" onSubmit={handleSubmit}>
                     <motion.div
+                      animate={{ opacity: 1, x: 0 }}
                       className="space-y-2"
                       initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.4 }}
                     >
                       <Label
-                        htmlFor="firstName"
                         className="text-sm font-medium"
+                        htmlFor="firstName"
                       >
                         Your First Name
                       </Label>
                       <Input
-                        id="firstName"
-                        name="firstName"
-                        value={formData.firstName}
-                        onChange={handleInputChange}
-                        placeholder="Enter your name"
                         required
                         className="h-12 text-lg"
+                        id="firstName"
+                        name="firstName"
+                        placeholder="Enter your name"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
                       />
                       <p className="text-sm text-gray-500">
                         Friends will be able to see this when you share links
@@ -595,23 +613,23 @@ export function AffiliateGenerator() {
                     </motion.div>
 
                     <motion.div
+                      animate={{ opacity: 1, x: 0 }}
                       className="space-y-2"
                       initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.5 }}
                     >
-                      <Label htmlFor="email" className="text-sm font-medium">
+                      <Label className="text-sm font-medium" htmlFor="email">
                         Email Address
                       </Label>
                       <Input
+                        required
+                        className="h-12 text-lg"
                         id="email"
                         name="email"
+                        placeholder="you@example.com"
                         type="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        placeholder="you@example.com"
-                        required
-                        className="h-12 text-lg"
                       />
                       <p className="text-sm text-gray-500">
                         We will send your notifications here
@@ -619,37 +637,37 @@ export function AffiliateGenerator() {
                     </motion.div>
 
                     <motion.div
+                      animate={{ opacity: 1, x: 0 }}
                       className="space-y-2"
                       initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.6 }}
                     >
                       <Label
-                        htmlFor="phoneNumber"
                         className="text-sm font-medium"
+                        htmlFor="phoneNumber"
                       >
                         Phone Number (Optional)
                       </Label>
                       <Input
+                        className="h-12 text-lg"
                         id="phoneNumber"
                         name="phoneNumber"
+                        placeholder="Your phone number"
                         type="tel"
                         value={formData.phoneNumber}
                         onChange={handleInputChange}
-                        placeholder="Your phone number"
-                        className="h-12 text-lg"
                       />
                     </motion.div>
 
                     <motion.div
-                      initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
+                      initial={{ opacity: 0, y: 10 }}
                       transition={{ delay: 0.7 }}
                     >
                       <Button
-                        type="submit"
                         className="w-full h-14 text-lg font-medium"
                         disabled={isLoading}
+                        type="submit"
                       >
                         {isLoading ? (
                           <div className="flex items-center justify-center gap-3">
@@ -667,39 +685,51 @@ export function AffiliateGenerator() {
                   </form>
 
                   <motion.div
+                    animate={{ opacity: 1 }}
                     className="mt-8 border-t pt-6"
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
                     transition={{ delay: 0.8 }}
                   >
-                    <h3 className="text-lg font-semibold text-center mb-4">How It Works</h3>
+                    <h3 className="text-lg font-semibold text-center mb-4">
+                      How It Works
+                    </h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                       <div className="text-center p-3">
                         <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
                           <span className="font-bold text-blue-600">1</span>
                         </div>
                         <h4 className="font-medium mb-1">Get your link</h4>
-                        <p className="text-sm text-gray-600">Your referral link will appear after activation.</p>
+                        <p className="text-sm text-gray-600">
+                          Your referral link will appear after activation.
+                        </p>
                       </div>
                       <div className="text-center p-3">
                         <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
                           <span className="font-bold text-blue-600">2</span>
                         </div>
                         <h4 className="font-medium mb-1">Share the link</h4>
-                        <p className="text-sm text-gray-600">Send it via text or share on your social media.</p>
+                        <p className="text-sm text-gray-600">
+                          Send it via text or share on your social media.
+                        </p>
                       </div>
                       <div className="text-center p-3">
                         <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
                           <span className="font-bold text-blue-600">3</span>
                         </div>
-                        <h4 className="font-medium mb-1">Get paid for referrals</h4>
-                        <p className="text-sm text-gray-600">Receive your earnings when friends make purchases.</p>
+                        <h4 className="font-medium mb-1">
+                          Get paid for referrals
+                        </h4>
+                        <p className="text-sm text-gray-600">
+                          Receive your earnings when friends make purchases.
+                        </p>
                       </div>
                     </div>
-                    
+
                     <div className="mt-6 bg-blue-50 p-4 rounded-lg text-center">
                       <p className="text-sm text-blue-700">
-                        <span className="font-semibold">Note:</span> You'll receive rewards after referred friends make a purchase and the return period is over.
+                        <span className="font-semibold">Note:</span> You'll
+                        receive rewards after referred friends make a purchase
+                        and the return period is over.
                       </p>
                     </div>
                   </motion.div>
@@ -710,30 +740,30 @@ export function AffiliateGenerator() {
         ) : (
           <motion.div
             key="success"
-            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
           >
             <Card className="overflow-hidden border-none shadow-2xl">
               <motion.div
+                animate={{ opacity: 1 }}
                 className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 py-8 text-white"
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
                 transition={{ duration: 0.6 }}
               >
                 <motion.div
-                  className="absolute inset-0 bg-grid-white/[0.05] bg-grid text-white   "
-                  style={{ backgroundSize: "30px 30px" }}
-                  initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
+                  className="absolute inset-0 bg-grid-white/[0.05] bg-grid text-white   "
+                  initial={{ opacity: 0 }}
+                  style={{ backgroundSize: "30px 30px" }}
                   transition={{ delay: 0.2 }}
                 />
 
                 <motion.div
+                  animate={{ y: 0, opacity: 1 }}
                   className="text-center relative z-10 px-6 py-4"
                   initial={{ y: -20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
                   transition={{
                     delay: 0.3,
                     type: "spring",
@@ -742,21 +772,21 @@ export function AffiliateGenerator() {
                   }}
                 >
                   <motion.div
+                    animate={{ y: 0, opacity: 1 }}
                     className="capitalize mb-1"
                     initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.5 }}
                     style={{ fontSize: "2.5rem" }}
+                    transition={{ delay: 0.5 }}
                   >
                     <div className="font-bold">
                       {affiliateRewards?.brand_name}
                     </div>
                   </motion.div>
                   <motion.div
-                    initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 0.4, duration: 0.5 }}
                     className="mb-3"
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
                   >
                     <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium text-white">
                       Referral Program
@@ -764,9 +794,9 @@ export function AffiliateGenerator() {
                   </motion.div>
 
                   <motion.div
+                    animate={{ y: 0, opacity: 1 }}
                     className="flex flex-col items-center justify-center gap-2 max-w-2xl mx-auto"
                     initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.6 }}
                   >
                     <p className="text-xl font-medium">
@@ -790,15 +820,15 @@ export function AffiliateGenerator() {
 
               <CardContent className="p-8 pt-6 bg-white">
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
                   className="space-y-8"
+                  initial={{ opacity: 0, y: 10 }}
+                  transition={{ delay: 0.1 }}
                 >
                   <motion.div
+                    animate={{ opacity: 1, scale: 1 }}
                     className="space-y-6"
                     initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
                     transition={{
                       delay: 0.4,
                       type: "spring",
@@ -816,9 +846,9 @@ export function AffiliateGenerator() {
                         {affiliateLink}
                       </div>
                       <Button
-                        onClick={copyToClipboard}
-                        variant="secondary"
                         className="rounded-l-none h-auto px-6"
+                        variant="secondary"
+                        onClick={copyToClipboard}
                       >
                         {isCopied ? "Copied!" : "Copy"}
                       </Button>
@@ -826,8 +856,8 @@ export function AffiliateGenerator() {
 
                     <div className="flex gap-3">
                       <Button
-                        onClick={shareLink}
                         className="flex-1 h-14 text-lg font-medium"
+                        onClick={shareLink}
                       >
                         <div className="flex items-center justify-center gap-3">
                           <span>Share Now</span>
@@ -837,18 +867,18 @@ export function AffiliateGenerator() {
                     </div>
 
                     <motion.div
+                      animate={{ opacity: 1 }}
                       className="mt-8 space-y-6 mx-2"
                       initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
                       transition={{ delay: 0.6 }}
                     >
                       <div className="flex flex-wrap justify-center items-center gap-4">
                         {socialPlatforms.map((platform) => (
                           <button
                             key={platform.name}
-                            onClick={platform.action}
                             className="flex flex-col items-center gap-2 p-2 rounded-lg hover:bg-gray-50 transition-colors"
                             title={`Share via ${platform.name}`}
+                            onClick={platform.action}
                           >
                             <span
                               className="flex items-center justify-center w-10 h-10 rounded-full text-white"
@@ -863,41 +893,53 @@ export function AffiliateGenerator() {
                         ))}
                       </div>
                     </motion.div>
-                    
+
                     <motion.div
+                      animate={{ opacity: 1 }}
                       className="mt-8 border-t pt-6"
                       initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
                       transition={{ delay: 0.8 }}
                     >
-                      <h3 className="text-lg font-semibold text-center mb-4">How It Works</h3>
+                      <h3 className="text-lg font-semibold text-center mb-4">
+                        How It Works
+                      </h3>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div className="text-center p-3">
                           <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
                             <span className="font-bold text-blue-600">1</span>
                           </div>
                           <h4 className="font-medium mb-1">Get your link</h4>
-                          <p className="text-sm text-gray-600">Your referral link will appear after activation.</p>
+                          <p className="text-sm text-gray-600">
+                            Your referral link will appear after activation.
+                          </p>
                         </div>
                         <div className="text-center p-3">
                           <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
                             <span className="font-bold text-blue-600">2</span>
                           </div>
                           <h4 className="font-medium mb-1">Share the link</h4>
-                          <p className="text-sm text-gray-600">Send it via text or share on your social media.</p>
+                          <p className="text-sm text-gray-600">
+                            Send it via text or share on your social media.
+                          </p>
                         </div>
                         <div className="text-center p-3">
                           <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
                             <span className="font-bold text-blue-600">3</span>
                           </div>
-                          <h4 className="font-medium mb-1">Get paid for referrals</h4>
-                          <p className="text-sm text-gray-600">Receive your earnings when friends make purchases.</p>
+                          <h4 className="font-medium mb-1">
+                            Get paid for referrals
+                          </h4>
+                          <p className="text-sm text-gray-600">
+                            Receive your earnings when friends make purchases.
+                          </p>
                         </div>
                       </div>
-                      
+
                       <div className="mt-6 bg-blue-50 p-4 rounded-lg text-center">
                         <p className="text-sm text-blue-700">
-                          <span className="font-semibold">Note:</span> You'll receive rewards after referred friends make a purchase and the return period is over.
+                          <span className="font-semibold">Note:</span> You'll
+                          receive rewards after referred friends make a purchase
+                          and the return period is over.
                         </p>
                       </div>
                     </motion.div>
@@ -909,8 +951,8 @@ export function AffiliateGenerator() {
         )}
         {affiliateRewards?.referring_user_commission && (
           <MilestoneRewards
-            rewards={affiliateRewards.referring_user_commission}
             brandIdentifier={affiliateRewards.brand_identifier}
+            rewards={affiliateRewards.referring_user_commission}
           />
         )}
       </AnimatePresence>

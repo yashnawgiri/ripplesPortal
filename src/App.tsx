@@ -7,6 +7,7 @@ import Fallback from "./components/Fallback";
 import Withdraw from "./components/Withdraw";
 import ShopperHomePage from "./pages/ShopperHome";
 import UGCLanding from "./pages/ugcLanding";
+import { AffiliateGenerator } from "./pages/affiliateForm";
 
 import { siteConfig } from "@/config/site";
 import HomePage from "@/pages/home";
@@ -23,13 +24,15 @@ import MyAccount from "@/pages/user-portal/myAccount";
 import Transactions from "@/pages/user-portal/Transactions";
 import NotFound from "@/pages/notFound";
 import AuthPage from "@/pages/auth-page/AuthPage";
-import { AffiliateGenerator } from "./pages/affiliateForm";
 
 function App() {
   return (
     <Suspense fallback={<Fallback />}>
       <Routes>
-        <Route element={<AffiliateGenerator />} path={siteConfig.path.affiliateLink} />
+        <Route
+          element={<AffiliateGenerator />}
+          path={siteConfig.path.affiliateLink}
+        />
         <Route element={<HomePage />} path={siteConfig.path.home} />
         <Route
           element={<ShopperHomePage />}
