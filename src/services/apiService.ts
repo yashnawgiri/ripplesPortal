@@ -325,6 +325,27 @@ export interface ReferralProgramDetailResponse {
   data: RewardProgramDetail[];
 }
 
+export interface AffiliateRewardsResponse {
+  message: string;
+  data: AffiliateRewards;
+}
+
+export interface AffiliateRewards {
+  brand_identifier: string;
+  brand_name: string;
+  referral_program_id: number;
+  program_name: string;
+  referring_user_commission: [
+    {
+      reward_details: RewardDetails;
+    },
+  ];
+  referred_user_rewards: {
+    reward_details: RewardDetails;
+  };
+  min_amount: number;
+}
+
 export const fetchRewardProgramDetailService = async (
   linkCode: string,
   brandId: string,
@@ -370,6 +391,56 @@ export const withdrawRequestService = async (
       body: JSON.stringify(details),
       headers: {
         Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    },
+  );
+};
+
+export const getAffiliateRewardsService = async (
+  brandId: string,
+  referralProgramId: string,
+): Promise<AffiliateRewardsResponse> => {
+  return apiCall<AffiliateRewardsResponse>(
+    endpoints.AFFILIATE_REWARDS.replace(":brand_id", brandId).replace(
+      ":referral_program_id",
+      referralProgramId,
+    ),
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "ngrok-skip-browser-warning": "true",
+      },
+    },
+  );
+};
+
+export interface AffiliateLinkResponse {
+  message: string;
+  data: {
+    link: string;
+  };
+}
+
+export const generateAffiliateLink = async (
+  brandId: string,
+  referralProgramId: string,
+  userDetails: {
+    name: string;
+    email: string;
+    contact_number: string;
+  },
+): Promise<AffiliateLinkResponse> => {
+  return apiCall(
+    endpoints.GENERATE_AFFILIATE_LINK.replace(":brand_id", brandId).replace(
+      ":referral_program_id",
+      referralProgramId,
+    ) + `?expire_date=2025-05-01&session_code=RPLS_SESS_vmmma2g9mtjXfd63f060`,
+    {
+      method: "POST",
+      body: JSON.stringify(userDetails),
+      headers: {
         "Content-Type": "application/json",
       },
     },
