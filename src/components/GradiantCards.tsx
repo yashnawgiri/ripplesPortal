@@ -1,4 +1,3 @@
-import { title } from "./primitives";
 import "./../styles/home/gradiantCards.css";
 
 import dashboardData from "@/data/landing.json";
@@ -7,9 +6,7 @@ export default function GradiantCards() {
   return (
     <div className="max-w-7xl w-full space-y-6 mt-14">
       <div className="text-center">
-        <h1
-          className={`${title({ size: "lg", color: "foreground", weight: "bold" })} h-20`}
-        >
+        <h1 className="text-transparent bg-clip-text bg-gradient-to-br from-white to-slate-500 py-4 text-center text-3xl md:text-5xl font-bold">
           Great Outcomes
         </h1>
       </div>

@@ -6,18 +6,20 @@
       "Influencers",
       "Advocates",
       "UGC Creators",
-      "Referrers"
+      "Referrers",
+      "Ripplers"
     ],
     "heading2": "Your Customer is Your Next Ripple for Sales",
     "subHeading": "Increase Your Customer Referrals by 3X.",
     "description": "Ripples is an OS that helps you automate and scale influencer-style rewards for your customers, unlocking virality.",
     "description2": "Give cash rewards for referrals and UGC creation—transferred directly to shopper's bank account!",
-    "demoButton": "Start 30 Days free trial"
+    "demoButton": "Start 14 Days free trial"
   },
   "stats": [
     { "value": "10%", "description": "Increase in Sales" },
     { "value": "5X", "description": "Your Referrals" },
-    { "value": "65%", "description": "Reduction in CAC" }
+    { "value": "65%", "description": "Reduction in CAC" },
+    { "value": "10X", "description": "UGC on Social Media" }
   ],
   "promo": {
     "heading1": "Move away from boring old referral programs by giving",
@@ -95,7 +97,7 @@
     ]
   },
   "linkCode": {
-    "heading": ["Link and", "Code Management"],
+    "heading": ["Link and", " Code Management"],
     "description": "Every customer is given their own vanity URL and code that is easy to remember and share. Our “one-time use codes” make sure there’s no code leakage across any discount site."
   },
   "faqData": [
@@ -184,7 +186,7 @@
     }
   ],
   "responsibility": {
-    "heading": "We take ownership of your referral outcomes",
-    "description": "With our 24*7 dedicated customer service and complete involvement in setup and running your referral programs, we ensure you get the necessary outcomes."
+    "heading": "We take ownership of your referral and UGC program outcomes",
+    "description": "With our 24*7 dedicated customer service and complete involvement in setup and running your referral and UGC programs, we ensure you get the necessary outcomes."
   }
 }

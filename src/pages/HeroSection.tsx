@@ -88,7 +88,10 @@ function HeroSection() {
           <Typewriter words={dashboardData.home.heading1Array} />
         </motion.h1>
 
-        <motion.p className="home-p" variants={descriptionVariants}>
+        <motion.p
+          className="home-p text-[1rem] md:text-xl"
+          variants={descriptionVariants}
+        >
           {dashboardData.home.description}
         </motion.p>
 

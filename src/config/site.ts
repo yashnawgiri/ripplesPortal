@@ -6,6 +6,8 @@ import {
   VideoIcon,
   WalletIcon,
 } from "@/components/icons";
+import UgcIcon from "@/assets/images/ugc-icon.svg";
+import referralIcon from "@/assets/images/referral-icon.svg";
 
 export type SiteConfig = typeof siteConfig;
 
@@ -15,12 +17,15 @@ export const siteConfig = {
     "Turn customers into influencers, advocates, and UGC creators - your RIPPLERS!",
   path: {
     home: "/",
+    resources: "/resources",
+    referrals: "/referrals",
     shopperHome: "/shopper",
     ugcHome: "/ugc-home",
     getDemo: "/get-demo",
     affiliateLink: "/affiliate-link/:brand_id/:referral_program_id",
     about: "/about",
     features: "/features",
+    referralCommissionCalculator: "/referral-commission-calculator",
     privacyPolicy: "/privacy-policy",
     terms: "/terms-and-conditions",
     docs: "/docs",
@@ -48,13 +53,24 @@ export const siteConfig = {
       label: "About",
       href: "/about",
     },
-    // {
-    //   label: "Features",
-    //   href: "/#features",
-    // },
     {
-      label: "Early Bird",
-      href: "/get-demo",
+      label: "Products",
+      resources: [
+        {
+          label: "Referrals",
+          icon: referralIcon,
+          href: "/referrals",
+        },
+        {
+          label: "UGC from Shoppers & influencers",
+          icon: UgcIcon,
+          href: "/ugc-home",
+        },
+      ],
+    },
+    {
+      label: "Resources",
+      href: "/resources",
     },
     {
       label: "Shoppers: Access Rewards",
@@ -136,7 +152,7 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/company/goripples/",
     signupForm:
       "https://script.google.com/macros/s/AKfycbxZ92NLEumTJMw8wkV5NEwBkFHDegtdtFy63kzlH2xJBOCLcN6XfFi-4J9wpfMDW8pX/exec",
-    calendly: "https://calendly.com/hello-ripples/30min",
+    calendly: "https://calendly.com/helloripples/30min",
   },
   footerItems: [
     {

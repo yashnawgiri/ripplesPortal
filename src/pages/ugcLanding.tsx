@@ -21,7 +21,6 @@ import { HolographicGradient } from "@/components/ugc-landing/holographic-gradie
 import { ROICalculator } from "@/components/ugc-landing/roi-calculator";
 // import { BrandsSection } from "@/components/ugc-landing/brands-section"
 import { ParticleBackground } from "@/components/ugc-landing/particle-background";
-import { SiteHeader } from "@/components/ugc-landing/site-header";
 // import { Testimonials } from "@/components/ugc-landing/testimonials"
 import { Typewriter } from "@/components/ugc-landing/typewriter";
 import { ScrollProgress } from "@/components/ugc-landing/scroll-progress";
@@ -45,6 +44,7 @@ import rupeeImg from "@/assets/images/rupees.webp";
 import goldCoinImg from "@/assets/images/benefitsSectionImage.png";
 import coinImg from "@/assets/images/coins.webp";
 import { siteConfig } from "@/config/site";
+import Navbar from "@/components/navbar";
 
 const getImpactColor = (impact: string) => {
   switch (impact) {
@@ -76,10 +76,11 @@ export default function UGCLanding() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen mt-5 bg-black text-white">
       <ParticleBackground />
       <ScrollProgress />
-      <SiteHeader />
+      {/* <SiteHeader /> */}
+      <Navbar />
       {/* <FloatingButtons /> */}
       <MobileCTA />
 
@@ -94,9 +95,9 @@ export default function UGCLanding() {
               <div className="grid gap-4 lg:grid-cols-2 lg:gap-16 items-center justify-center">
                 <div className="flex flex-col justify-start space-y-4 items-start">
                   <div className="space-y-2 pt-24">
-                    <h1 className="text-4xl font-bold tracking-tighter sm:text-6xl xl:text-7xl/none">
+                    <h1 className="text-4xl font-bold sm:text-6xl xl:text-7xl/none">
                       <Typewriter
-                        className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/50"
+                        className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/50 min-h-[100px]"
                         words={[
                           "The New Marketing & Sales Channel for Ambitious Brands",
                           "Give Cash in Bank to Shoppers for UGC",
@@ -286,15 +287,29 @@ export default function UGCLanding() {
           >
             <HolographicGradient className="absolute inset-0 opacity-20" />
 
-            <div className="container px-4 md:px-6 relative flex items-center justify-center w-full max-w-7xl">
+            <div className="px-0 md:px-6 relative flex items-center justify-center w-full max-w-7xl">
               {/* Left Side - Text and Simulator */}
               <div className="relative z-10 flex flex-col items-center text-center max-w-4xl bg-black/50 p-6 rounded-lg backdrop-blur-lg">
                 <h2 className="text-3xl p-2 font-bold tracking-tighter sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
                   Simulate Your Rewards Strategy
                 </h2>
                 <p className="max-w-[600px] text-white/80 md:text-xl">
-                  Find the perfect reward mix for your UGC campaign
+                  Find the ideal reward mix tailored to your UGC campaign goals
                 </p>
+                <ol className="text-white/80 md:text-xl list-decimal list-inside text-start text-[12px] md:text-[16px] mt-4">
+                  <li>
+                    Use this interactive calculator to plan your reward
+                    strategy.
+                  </li>
+                  <li>
+                    Start by selecting the type of creators you want to engage.
+                  </li>
+                  <li>
+                    Click on the “Rewards Strategy” button to see your
+                    recommended payout mix based on content quality and follower
+                    count.
+                  </li>
+                </ol>
                 <div className="mt-6 w-full">
                   <RewardsSimulator />
                 </div>
@@ -387,7 +402,7 @@ export default function UGCLanding() {
                   className="relative overflow-hidden bg-black/50 border-white/10 backdrop-blur-sm group hover:border-white/20 transition-all duration-300"
                 >
                   <HolographicGradient className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-                  <CardContent className="p-8 relative">
+                  <CardContent className="p-8 relative flex flex-col items-center">
                     <div
                       className={`
               inline-flex p-3 rounded-xl bg-gradient-to-br ${feature.gradient}
@@ -399,7 +414,7 @@ export default function UGCLanding() {
                     <h3 className="font-semibold text-xl mb-3 text-white group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-600 transition-all duration-300">
                       {feature.title}
                     </h3>
-                    <p className="text-white/60 group-hover:text-white/70 transition-colors duration-300">
+                    <p className="text-white/60 group-hover:text-white/70 transition-colors duration-300 text-center">
                       {feature.description}
                     </p>
                   </CardContent>
@@ -642,7 +657,7 @@ export default function UGCLanding() {
 
         <div className="container px-4 md:px-6 relative flex items-center justify-between w-full max-w-7xl">
           {/* Centered Content */}
-          <div className="flex flex-col items-center justify-center text-center max-w-lg">
+          <div className="flex flex-col items-center gap-4 justify-center text-center max-w-lg">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
               Revolutionize Your UGC Strategy Today!
             </h2>

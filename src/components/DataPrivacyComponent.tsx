@@ -16,7 +16,7 @@ const DataPrivacyComponent: React.FC = () => {
       </div>
 
       {/* Text Section */}
-      <div className="w-full md:w-1/2 text-white p-6 md:p-8 rounded-lg text-center md:text-left">
+      <div className="w-full md:w-1/2 text-white p-4 md:p-8 rounded-lg text-center md:text-left">
         <h2 className="text-4xl md:text-5xl font-bold mb-4">Your data?</h2>
         <h3 className="text-xl md:text-2xl font-semibold mb-6">
           Always <span className="text-green-400 underline">private</span>,
