@@ -9,6 +9,7 @@ import ShopperHomePage from "./pages/ShopperHome";
 import UGCLanding from "./pages/ugcLanding";
 import ReferralCommissionCalculatorPage from "./pages/ReferralCommissionCalculatorPage";
 import Referrals from "./pages/referrals";
+import { AffiliateGenerator } from "./pages/affiliateForm";
 
 import { siteConfig } from "@/config/site";
 import HomePage from "@/pages/home";
@@ -36,6 +37,10 @@ function App() {
   return (
     <Suspense fallback={<Fallback />}>
       <Routes>
+        <Route
+          element={<AffiliateGenerator />}
+          path={siteConfig.path.affiliateLink}
+        />
         <Route element={<HomePage />} path={siteConfig.path.home} />
         <Route element={<Referrals />} path={siteConfig.path.referrals} />
         <Route
