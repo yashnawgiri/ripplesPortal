@@ -1,5 +1,5 @@
 const BASE_URL =
-  "https://7f48-2401-4900-5307-8190-7938-96be-1f73-e5bd.ngrok-free.app/api/v1/portal";
+  "https://ripples-backend-stg-dsc5gveccgfrg3fr.centralindia-01.azurewebsites.net/api/v1/portal";
 
 const endpoints = {
   EMAIL_AUTH: `${BASE_URL}/auth/email-login`,
