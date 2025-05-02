@@ -23,23 +23,6 @@ jobs:
         node-version: '20.x'
         cache: 'npm'
 
-    - name: Check for new environment variables process.env
-      run: |
-        git fetch origin ${{ github.base_ref }}  # Ensure the base ref is fetched
-        new_env_vars=$(git diff origin/${{ github.base_ref }} -- . ':!.env-template' | grep -E '^\+.*process\.env\.' | sed -E 's/.*process\.env\.([A-Z_]+).*/\1/' | sort -u)
-        if [ -n "$new_env_vars" ]; then
-          echo "New environment variables found:"
-          echo "$new_env_vars"
-          for var in $new_env_vars; do
-            if ! grep -q "$var" .env-template; then
-              echo "::error::Environment variable $var is not present in .env-template"
-              exit 1
-            fi
-          done
-        else
-          echo "No new environment variables found."
-        fi
-
     - name: Check for new Vite environment variables
       run: |
         git fetch origin ${{ github.base_ref }}  # Ensure the base ref is fetched
@@ -49,7 +32,7 @@ jobs:
           echo "$new_vite_vars"
           for var in $new_vite_vars; do
             if ! grep -q "$var" .env-template; then
-              echo "::error::Vite environment variable $var is not present in .env-template"
+              echo "::error::Environment variable $var is not present in .env-template"
               exit 1
             fi
           done
@@ -93,42 +76,6 @@ jobs:
         
         echo "All Vite variables from .env-template are present in both GitHub Actions workflows."
 
-    - name: Verify process.env variables in GitHub Actions
-      run: |
-        # Extract all non-VITE_ variables from .env-template
-        process_vars=$(grep -v -E '^VITE_' .env-template | grep -v '^#' | grep -v '^$' | cut -d'=' -f1 | sort -u)
-        
-        # Check in staging workflow
-        missing_in_stage=()
-        for var in $process_vars; do
-          if ! grep -q "$var" .github/workflows/develop_ripples-portal-stg.yml; then
-            missing_in_stage+=("$var")
-          fi
-        done
-        
-        # Check in production workflow
-        missing_in_prod=()
-        for var in $process_vars; do
-          if ! grep -q "$var" .github/workflows/master_ripples-portal-prod.yml; then
-            missing_in_prod+=("$var")
-          fi
-        done
-        
-        # Report findings
-        if [ ${#missing_in_stage[@]} -gt 0 ]; then
-          echo "::error::The following process.env variables from .env-template are missing in develop_ripples-portal-stg.yml:"
-          printf "  - %s\n" "${missing_in_stage[@]}"
-          exit 1
-        fi
-        
-        if [ ${#missing_in_prod[@]} -gt 0 ]; then
-          echo "::error::The following process.env variables from .env-template are missing in master_ripples-portal-prod.yml:"
-          printf "  - %s\n" "${missing_in_prod[@]}"
-          exit 1
-        fi
-        
-        echo "All process.env variables from .env-template are present in both GitHub Actions workflows."
-
     - name: Install dependencies
       run: npm ci
 
@@ -150,14 +97,6 @@ jobs:
           // Extract new environment variables from the diff
           const { execSync } = require('child_process');
           
-          // Get new process.env variables
-          let newEnvVars = '';
-          try {
-            newEnvVars = execSync('git diff origin/${{ github.base_ref }} -- . \':!.env-template\' | grep -E \'^\\+.*process\\.env\\.\' | sed -E \'s/.*process\\.env\\.([A-Z_]+).*/\\1/\' | sort -u').toString().trim();
-          } catch (error) {
-            console.log('No new process.env variables found');
-          }
-          
           // Get new Vite variables
           let newViteVars = '';
           try {
@@ -169,24 +108,14 @@ jobs:
           // Create comment body
           let commentBody = '## Environment Variable Reminder\n\n';
           
-          if (newEnvVars || newViteVars) {
+          if (newViteVars) {
             commentBody += '### 🚨 Please ensure the following environment variables are added to GitHub Environments:\n\n';
             
-            if (newEnvVars) {
-              commentBody += '**Process Environment Variables:**\n';
-              newEnvVars.split('\n').forEach(varName => {
-                commentBody += `- \`${varName}\` (add to secrets in both Production and Stage environments)\n`;
-              });
-              commentBody += '\n';
-            }
-            
-            if (newViteVars) {
-              commentBody += '**Vite Environment Variables:**\n';
-              newViteVars.split('\n').forEach(varName => {
-                commentBody += `- \`${varName}\` (add to variables in both Production and Stage environments)\n`;
-              });
-              commentBody += '\n';
-            }
+            commentBody += '**Vite Environment Variables:**\n';
+            newViteVars.split('\n').forEach(varName => {
+              commentBody += `- \`${varName}\` (add to variables in both Production and Stage environments)\n`;
+            });
+            commentBody += '\n';
             
             commentBody += '*This comment is automatically generated and updated by the pre-merge workflow.*';
           } else {
@@ -215,7 +144,7 @@ jobs:
               body: commentBody
             });
             console.log('Updated existing environment variable reminder comment');
-          } else if (newEnvVars || newViteVars) {
+          } else if (newViteVars) {
             // Create new comment only if we have variables to report
             await github.rest.issues.createComment({
               owner: context.repo.owner,
