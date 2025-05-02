@@ -1,5 +1,4 @@
-const BASE_URL =
-  "https://ripples-backend-stg-dsc5gveccgfrg3fr.centralindia-01.azurewebsites.net/api/v1/portal";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const endpoints = {
   EMAIL_AUTH: `${BASE_URL}/auth/email-login`,
