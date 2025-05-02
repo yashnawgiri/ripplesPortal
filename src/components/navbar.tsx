@@ -53,17 +53,17 @@ export default function Navbar() {
           </span>
         </Link>
         <div className="hidden md:flex md:items-center space-x-10">
-          {navItems.map((item) =>
+          {navItems.map((item, index) =>
             item.label === "Features" ? (
               <a
-                key={item.href}
+                key={`nav-feature-${index}`}
                 className="cursor-pointer text-color hover:text-white transition-colors"
                 href="#features"
               >
                 {item.label}
               </a>
             ) : item.label === "Products" ? (
-              <div key={item.href} className="relative group">
+              <div key={`nav-product-${index}`} className="relative group">
                 <button className="text-color cursor-pointer flex items-center gap-1 hover:text-white transition-colors">
                   {item.label}
                   <svg
@@ -81,9 +81,9 @@ export default function Navbar() {
                   </svg>
                 </button>
                 <div className="absolute left-0 mt-2 w-48 bg-primary rounded-md shadow-lg py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                  {item.resources?.map((resource) => (
+                  {item.resources?.map((resource, resourceIndex) => (
                     <NavLink
-                      key={resource.href}
+                      key={`resource-${resourceIndex}-${resource.href}`}
                       className="flex items-center gap-2 px-4 py-2 text-sm text-white rounded-md hover:bg-secondary/20 transition-colors"
                       to={resource.href}
                     >
@@ -99,7 +99,7 @@ export default function Navbar() {
               </div>
             ) : (
               <NavLink
-                key={item.href}
+                key={`nav-item-${index}-${item.href}`}
                 className={({ isActive }) =>
                   isActive
                     ? "text-white"
@@ -150,10 +150,10 @@ export default function Navbar() {
         } transition-transform duration-300 ease-in-out md:hidden overflow-y-auto`}
       >
         <div className="flex flex-col space-y-8 text-center">
-          {navItems.map((item) =>
+          {navItems.map((item, index) =>
             item.label === "Features" ? (
               <a
-                key={item.href}
+                key={`mobile-feature-${index}`}
                 className="cursor-pointer text-color text-lg hover:text-white transition-colors"
                 href="#features2"
                 onClick={() => setIsOpen(false)}
@@ -161,7 +161,7 @@ export default function Navbar() {
                 {item.label}
               </a>
             ) : item.label === "Products" ? (
-              <div key={item.href} className="relative">
+              <div key={`mobile-product-${index}`} className="relative">
                 <button
                   className="flex items-center justify-center gap-4 w-full px-4 py-3 text-white text-base md:text-lg hover:bg-secondary/20 rounded-lg transition-colors duration-200"
                   onClick={() =>
@@ -185,9 +185,9 @@ export default function Navbar() {
                 </button>
                 {activeItem === item.label && (
                   <div className="pl-4 mt-2 space-y-2">
-                    {item.resources?.map((resource) => (
+                    {item.resources?.map((resource, resourceIndex) => (
                       <NavLink
-                        key={resource.href}
+                        key={`mobile-resource-${resourceIndex}-${resource.href}`}
                         className="flex items-center gap-2 px-4 py-3 text-white text-base md:text-lg hover:bg-secondary/20 rounded-lg transition-colors duration-200"
                         to={resource.href}
                         onClick={() => {
@@ -208,7 +208,7 @@ export default function Navbar() {
               </div>
             ) : (
               <NavLink
-                key={item.href}
+                key={`mobile-nav-item-${index}-${item.href}`}
                 className={({ isActive }) =>
                   isActive
                     ? "text-white text-lg"

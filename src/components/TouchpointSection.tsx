@@ -11,7 +11,7 @@ import {
   Users,
   QrCode,
 } from "lucide-react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FaWhatsapp } from "react-icons/fa";
 
 export default function TouchpointSection() {
