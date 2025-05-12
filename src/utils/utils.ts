@@ -151,8 +151,8 @@ export function cn(...inputs: Array<string | undefined | null | boolean>) {
 
 export const brandsJoinedLogos = [
   {
-    name: "Foramour",
-    image: "https://ripples1static.blob.core.windows.net/images/foramour.png",
+    name: "Kaftanize",
+    image: "https://ripples1static.blob.core.windows.net/images/kaftanize.png",
   },
   {
     name: "Mayin Clothing",
