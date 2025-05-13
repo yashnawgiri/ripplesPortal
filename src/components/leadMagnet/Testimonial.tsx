@@ -15,7 +15,7 @@ export default function Testimonial({
     <Card className="overflow-hidden">
       <CardContent className="p-6">
         <div className="flex space-x-1 mb-4">
-          {Array.from({ length: 5 }).map((_, i) => (
+          {Array.from({ length: rating }).map((_, i) => (
             <span key={i} className="text-yellow-400">
               ⭐
             </span>
