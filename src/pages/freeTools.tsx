@@ -77,7 +77,7 @@ export default function FreeTools() {
       {/* Hero Section with Ripples Branding */}
       <div className="bg-ripples-dark text-white pt-10 pb-20 relative z-0">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between">
+          <div className="flex flex-col-reverse md:flex-row items-center justify-between">
             <div className="md:w-1/2 mb-10 md:mb-0">
               <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight text-center md:text-left">
                 Free Marketing &nbsp;
@@ -109,8 +109,8 @@ export default function FreeTools() {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <img
                     alt="Marketing Tools Illustration"
-                    className="w-full h-auto"
-                    src="/placeholder.svg?height=300&width=300"
+                    className="w-10/12 md:w-[100rem] h-auto rounded-lg"
+                    src="https://ripples1static.blob.core.windows.net/images/Free Marketing Image.png"
                   />
                 </div>
               </div>
@@ -123,7 +123,7 @@ export default function FreeTools() {
       <div className="bg-primary py-16 relative z-0">
         <div className="container mx-auto px-4">
           <div className="bg-ripples-dark rounded-2xl p-8 md:p-12 text-white overflow-hidden relative">
-            <div className="flex flex-col md:flex-row items-center">
+            <div className="flex flex-col-reverse md:flex-row items-center justify-center">
               <div className="md:w-2/3 mb-8 md:mb-0 relative z-10">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center md:text-left">
                   Turn customers into Advocates
@@ -148,10 +148,11 @@ export default function FreeTools() {
                   </div>
                 </div>
                 <Link
-                  className="inline-block px-6 py-3 bg-secondary hover:bg-secondary-dark text-white font-medium rounded-lg transition-all duration-300"
+                  className="inline-block w-full md:w-10/12 px-6 py-3 bg-secondary hover:bg-secondary-dark text-white font-medium rounded-lg transition-all duration-300  justify-center items-center md:justify-start text-center"
                   rel="noopener noreferrer"
                   target="_blank"
                   to={siteConfig.path.getDemo}
+                  style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
                 >
                   Start 14 Days free trial
                 </Link>
@@ -178,7 +179,7 @@ export default function FreeTools() {
                     <img
                       alt="Ripples App Screenshot"
                       className="w-full h-auto rounded"
-                      src="/placeholder.svg?height=200&width=150"
+                      src="https://ripples1static.blob.core.windows.net/images/customers into advocates.png"
                     />
                   </div>
                 </div>
