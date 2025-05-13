@@ -26,6 +26,9 @@ import MyAccount from "@/pages/user-portal/myAccount";
 import Transactions from "@/pages/user-portal/Transactions";
 import NotFound from "@/pages/notFound";
 import AuthPage from "@/pages/auth-page/AuthPage";
+import FreeTools from "./pages/freeTools";
+import InstagramEngagementPage from "./pages/instagramEngagementPage";
+import LeadMagnetPage from "./components/leadMagnet/LeadMagnetSection";
 
 function App() {
   const location = useLocation();
@@ -43,9 +46,12 @@ function App() {
         />
         <Route element={<HomePage />} path={siteConfig.path.home} />
         <Route element={<Referrals />} path={siteConfig.path.referrals} />
+        <Route element={<FreeTools />} path={siteConfig.path.freeTools} />
+        <Route element={<InstagramEngagementPage />} path={siteConfig.path.instagramCalculator} />
+        <Route element={<LeadMagnetPage />} path={siteConfig.path.leadMagnet} />
         <Route
           element={<ReferralCommissionCalculatorPage />}
-          path={siteConfig.path.resources}
+          path={siteConfig.path.referralCalculator}
         />
         <Route
           element={<ShopperHomePage />}
