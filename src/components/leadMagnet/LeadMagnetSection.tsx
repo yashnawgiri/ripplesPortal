@@ -77,7 +77,7 @@ export default function LeadMagnetPage() {
                   Download our proven 300-point optimization checklist instantly
                 </p>
               </div>
-              <LeadForm />
+              <LeadForm buttonText="Download CRO Checklist" />
             </motion.div>
           </motion.div>
         </div>
@@ -178,7 +178,7 @@ export default function LeadMagnetPage() {
       </section>
 
       <section className="w-full p-12 md:pt-24 lg:pt-32 bg-primary text-white">
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="flex flex-col-reverse md:flex-row gap-8">
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center md:text-left">
@@ -208,25 +208,23 @@ export default function LeadMagnetPage() {
               This isn&apos;t a generic audit. It&apos;s{" "}
               <strong>custom-built for your brand</strong>.
             </p>
-            <div className="flex flex-col gap-2 min-[400px]:flex-row">
+            <div className="flex flex-col gap-2 md:flex-row">
               <Link
-                className="bg-secondary text-white text-center py-2 px-4 rounded-lg"
+                className="bg-secondary block text-white text-center py-2 px-4 rounded-lg"
                 to={siteConfig.links.calendly}
               >
                 Book My Free Audit Call
               </Link>
-              <p className="text-sm text-gray-500 mt-2">
+              <p className="text-sm text-center md:text-left text-gray-500 mt-2">
                 No credit card required. No spam.
               </p>
             </div>
           </div>
-          <div className="flex items-center justify-center">
-            <Image
+          <div className="flex items-center justify-center ">
+            <img
               alt="Funnel audit illustration"
-              className="rounded-lg object-cover"
-              height={400}
-              src="/placeholder.svg?key=3hqzv"
-              width={600}
+              className="rounded-lg object-contain w-full h-2/3 md:w-2/3 bg-white"
+              src="https://ripples1static.blob.core.windows.net/images/funnel audit.png"
             />
           </div>
         </div>
@@ -259,29 +257,29 @@ export default function LeadMagnetPage() {
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center md:text-left">
                   🎁 Why Are We Giving This Away Free?
                 </h2>
               </div>
               <div className="space-y-4">
-                <p className="text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                <p className="text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed text-center md:text-left">
                   At Ripples, we&apos;re confident in the results our platform
                   delivers. This checklist and audit are your{" "}
                   <strong>free introduction to how we think and work</strong>.
                 </p>
-                <p className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                <p className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed text-center md:text-left">
                   If you love the insights — you&apos;ll love Ripples.
                 </p>
               </div>
             </div>
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
-                <h3 className="text-2xl font-bold tracking-tighter md:text-3xl">
+                <h3 className="text-2xl font-bold tracking-tighter md:text-3xl text-center md:text-left">
                   ✨ Bonus: 30-Day Free Trial of Ripples
                 </h3>
               </div>
               <div className="space-y-4">
-                <p className="text-gray-500">
+                <p className="text-gray-500 text-center md:text-left">
                   When you claim your free checklist and audit, you&apos;ll also
                   get:
                 </p>

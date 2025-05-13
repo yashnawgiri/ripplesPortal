@@ -17,6 +17,7 @@ export default function LeadForm({
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [website, setWebsite] = useState("");
+  const [organisation, setOrganisation] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -36,7 +37,7 @@ export default function LeadForm({
   };
 
   return (
-    <div className="w-full md:w-10/12">
+    <div className="w-full">
       {isSubmitted ? (
         <div className="rounded-lg bg-green-50 p-6 text-center">
           <h3 className="text-lg font-medium text-green-800">Thank you!</h3>
@@ -68,6 +69,17 @@ export default function LeadForm({
             />
           </div>
           <div className="space-y-2">
+            <Label htmlFor="website">Organisation</Label>
+            <Input
+              required
+              id="website"
+              placeholder="Your organisation"
+              type="text"
+              value={organisation}
+              onChange={(e) => setOrganisation(e.target.value)}
+            />
+          </div>
+          <div className="space-y-2">
             <Label htmlFor="website">Website URL</Label>
             <Input
               required
@@ -84,7 +96,7 @@ export default function LeadForm({
             size="lg"
             type="submit"
           >
-            {isSubmitting ? "Submitting..." : "Download CRO Checklist Now"}
+            {isSubmitting ? "Submitting..." : buttonText}
             <Download className="ml-2 h-4 w-4" />
           </Button>
           <p className="text-center text-xs text-gray-500">
