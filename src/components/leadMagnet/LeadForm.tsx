@@ -1,56 +1,67 @@
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Button } from "../ugc-landing/ui/button"
-import { Input } from "../ugc-landing/ui/input"
-import { Label } from "../ugc-landing/ui/label"
-import { Download } from "lucide-react"
+import { useState } from "react";
+import { Download } from "lucide-react";
+
+import { Button } from "../ugc-landing/ui/button";
+import { Input } from "../ugc-landing/ui/input";
+import { Label } from "../ugc-landing/ui/label";
 
 interface LeadFormProps {
-  buttonText?: string
+  buttonText?: string;
 }
 
-export default function LeadForm({ buttonText = "Yes, I Want My Free Audit" }: LeadFormProps) {
-  const [email, setEmail] = useState("")
-  const [name, setName] = useState("")
-  const [website, setWebsite] = useState("")
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+export default function LeadForm({
+  buttonText = "Yes, I Want My Free Audit",
+}: LeadFormProps) {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [website, setWebsite] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
     // Simulate form submission
     setTimeout(() => {
-      setIsSubmitting(false)
-      setIsSubmitted(true)
+      setIsSubmitting(false);
+      setIsSubmitted(true);
       // Reset form after submission
-      setEmail("")
-      setName("")
-      setWebsite("")
-    }, 1500)
-  }
+      setEmail("");
+      setName("");
+      setWebsite("");
+    }, 1500);
+  };
 
   return (
     <div className="w-full md:w-10/12">
       {isSubmitted ? (
         <div className="rounded-lg bg-green-50 p-6 text-center">
           <h3 className="text-lg font-medium text-green-800">Thank you!</h3>
-          <p className="mt-2 text-sm text-green-700">Check your email for your free CRO checklist and audit details.</p>
+          <p className="mt-2 text-sm text-green-700">
+            Check your email for your free CRO checklist and audit details.
+          </p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <div className="space-y-2">
             <Label htmlFor="name">Full Name</Label>
-            <Input id="name" placeholder="Your name" required value={name} onChange={(e) => setName(e.target.value)} />
+            <Input
+              required
+              id="name"
+              placeholder="Your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
           </div>
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
             <Input
+              required
               id="email"
               placeholder="you@company.com"
-              required
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -59,21 +70,28 @@ export default function LeadForm({ buttonText = "Yes, I Want My Free Audit" }: L
           <div className="space-y-2">
             <Label htmlFor="website">Website URL</Label>
             <Input
+              required
               id="website"
               placeholder="https://yourwebsite.com"
-              required
               type="url"
               value={website}
               onChange={(e) => setWebsite(e.target.value)}
             />
           </div>
-          <Button className="w-full bg-secondary hover:bg-secondary-600 text-white text-lg px-8 py-6 rounded-xl transition-all duration-200 shadow-lg transform truncate" size="lg" type="submit" disabled={isSubmitting}>
+          <Button
+            className="w-full bg-secondary hover:bg-secondary-600 text-white text-lg px-8 py-6 rounded-xl transition-all duration-200 shadow-lg transform truncate"
+            disabled={isSubmitting}
+            size="lg"
+            type="submit"
+          >
             {isSubmitting ? "Submitting..." : "Download CRO Checklist Now"}
             <Download className="ml-2 h-4 w-4" />
           </Button>
-          <p className="text-center text-xs text-gray-500">No credit card required. No spam.</p>
+          <p className="text-center text-xs text-gray-500">
+            No credit card required. No spam.
+          </p>
         </form>
       )}
     </div>
-  )
+  );
 }

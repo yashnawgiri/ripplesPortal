@@ -1,6 +1,8 @@
 import type React from "react";
 
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+
 import {
   Card,
   CardContent,
@@ -10,7 +12,6 @@ import {
   CardTitle,
 } from "../ugc-landing/ui/card";
 import { Button } from "../ugc-landing/ui/button";
-import { Link } from "react-router-dom";
 
 interface ToolCardProps {
   title: string;
@@ -86,7 +87,7 @@ export function ToolCard({
               }
               hover:scale-[1.02] hover:shadow-lg`}
           >
-            <Link to={href} className="flex items-center justify-center">
+            <Link className="flex items-center justify-center" to={href}>
               Try Now
             </Link>
           </Button>

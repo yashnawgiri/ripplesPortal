@@ -1,11 +1,12 @@
+import { Accordion, AccordionItem } from "@nextui-org/react";
+import { CheckCircle, TrendingUp, BarChart2, Users } from "lucide-react";
+
 import { InstagramEngagementCalculator } from "@/components/freeTools/InstagramEngagementCalculator";
 import {
   InstagramCalculatorStructuredData,
   OrganizationStructuredData,
 } from "@/components/freeTools/StructuredData";
 import DefaultLayout from "@/layouts/default";
-import { Accordion, AccordionItem } from "@nextui-org/react";
-import { CheckCircle, TrendingUp, BarChart2, Users } from "lucide-react";
 
 export const metadata = {
   title: "Instagram Engagement Rate Calculator | Ripples Free Tools",
@@ -43,7 +44,7 @@ export default function InstagramEngagementPage() {
       <div className="text-center mt-10">
         <h1 className="text-4xl md:text-6xl font-bold mb-6 relative inline-block text-white">
           <span className=" text-white ">
-          Free Instagram Engagement
+            Free Instagram Engagement
             <br />
             Rate Calculator
           </span>
@@ -117,12 +118,12 @@ export default function InstagramEngagementPage() {
 
           <Accordion className="space-y-6 text-white">
             <AccordionItem
-              title="What is engagement rate?"
               className="text-gray-200"
               classNames={{
                 title: "text-white text-2xl",
                 content: "text-gray-200",
               }}
+              title="What is engagement rate?"
             >
               Engagement rate measures how actively involved your audience is
               with your content. It's calculated by dividing the average number
@@ -130,12 +131,12 @@ export default function InstagramEngagementPage() {
               multiplying by 100 to get a percentage.
             </AccordionItem>
             <AccordionItem
-              title="What's a good engagement rate?"
               className="text-gray-200"
               classNames={{
                 title: "text-white",
                 content: "text-gray-200",
               }}
+              title="What's a good engagement rate?"
             >
               For Instagram, an engagement rate between 1-3% is considered
               average, 3-5% is good, and above 5% is excellent. However, rates
@@ -143,12 +144,12 @@ export default function InstagramEngagementPage() {
             </AccordionItem>
 
             <AccordionItem
-              title="How can I improve my engagement rate?"
               className="text-gray-200"
               classNames={{
                 title: "text-white",
                 content: "text-gray-200",
               }}
+              title="How can I improve my engagement rate?"
             >
               Improve your engagement rate by posting high-quality content
               consistently, using relevant hashtags, engaging with your audience

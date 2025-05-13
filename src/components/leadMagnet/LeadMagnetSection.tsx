@@ -1,20 +1,14 @@
-import {
-  ArrowRight,
-  Check,
-  Clock,
-  FileCheck,
-  Mail,
-  MessageSquare,
-  Star,
-} from "lucide-react";
-import { Button } from "../ugc-landing/ui/button";
-import LeadForm from "./LeadForm";
-import { Card, CardContent } from "../ugc-landing/ui/card";
+import { ArrowRight, Check, Clock, FileCheck, Mail, Star } from "lucide-react";
 import { Image } from "@nextui-org/image";
-import Testimonial from "./Testimonial";
-import DefaultLayout from "@/layouts/default";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+
+import { Card, CardContent } from "../ugc-landing/ui/card";
+
+import LeadForm from "./LeadForm";
+import Testimonial from "./Testimonial";
+
+import DefaultLayout from "@/layouts/default";
 import { siteConfig } from "@/config/site";
 
 const fadeIn = {
@@ -29,9 +23,9 @@ export default function LeadMagnetPage() {
       <section className=" py-20 md:py-32 lg:py-40/ text-white">
         <div className=" px-4 md:px-6">
           <motion.div
+            animate="animate"
             className="flex flex-wrap gap-4 "
             initial="initial"
-            animate="animate"
             variants={fadeIn}
           >
             <div className="flex-1 flex flex-col justify-center space-y-6">
@@ -65,9 +59,9 @@ export default function LeadMagnetPage() {
               </div>
             </div>
             <motion.div
+              animate={{ opacity: 1, x: 0 }}
               className="flex-1 flex flex-col justify-center w-10/12 space-y-6 rounded-2xl bg-primary p-8 shadow-2xl border border-gray-700 text-white"
               initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
               <div className="space-y-3">
@@ -92,9 +86,9 @@ export default function LeadMagnetPage() {
       <section className="flex-1 py-16 md:py-20 lg:py-24 bg-primary text-white">
         <div className="container px-4 md:px-6 text-center">
           <motion.div
+            animate={{ opacity: 1, y: 0 }}
             className="flex flex-col items-center space-y-6"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             <div className="space-y-3">
@@ -121,9 +115,9 @@ export default function LeadMagnetPage() {
       <section className="w-full py-20 md:py-32 lg:py-40">
         <div className="container px-4 md:px-6">
           <motion.div
+            animate={{ opacity: 1, y: 0 }}
             className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-6 text-center"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-white">
@@ -156,8 +150,8 @@ export default function LeadMagnetPage() {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 20 }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
               >
                 <Card className="group hover:shadow-xl transition-all duration-200 border-1 border-gray-800 shadow-lg">
@@ -184,55 +178,58 @@ export default function LeadMagnetPage() {
       </section>
 
       <section className="w-full p-12 md:pt-24 lg:pt-32 bg-primary text-white">
-          <div className="flex flex-col md:flex-row gap-8">
-            <div className="flex flex-col justify-center space-y-4">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center md:text-left">
-                  📞 Your Free Funnel Audit Report
-                </h2>
-                <p className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed text-center md:text-left">
-                  Work 1-on-1 with a CRO expert from Ripples to:
-                </p>
-              </div>
-              <ul className="grid gap-3">
-                <li className="flex items-center gap-2">
-                  <Check className="h-5 w-5 text-blue-600" />
-                  <span>Analyze your marketing funnel performance</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-5 w-5 text-blue-600" />
-                  <span>Identify key drop-off points</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-5 w-5 text-blue-600" />
-                  <span>
-                    Get a prioritized action plan to improve conversions
-                  </span>
-                </li>
-              </ul>
-              <p className="text-gray-300 text-center md:text-left">
-                This isn&apos;t a generic audit. It&apos;s{" "}
-                <strong>custom-built for your brand</strong>.
+        <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex flex-col justify-center space-y-4">
+            <div className="space-y-2">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center md:text-left">
+                📞 Your Free Funnel Audit Report
+              </h2>
+              <p className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed text-center md:text-left">
+                Work 1-on-1 with a CRO expert from Ripples to:
               </p>
-              <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Link className="bg-secondary text-white text-center py-2 px-4 rounded-lg" to={siteConfig.links.calendly}>
-                  Book My Free Audit Call
-                </Link>
-                <p className="text-sm text-gray-500 mt-2">
-                  No credit card required. No spam.
-                </p>
-              </div>
             </div>
-            <div className="flex items-center justify-center">
-              <Image
-                src="/placeholder.svg?key=3hqzv"
-                width={600}
-                height={400}
-                alt="Funnel audit illustration"
-                className="rounded-lg object-cover"
-              />
+            <ul className="grid gap-3">
+              <li className="flex items-center gap-2">
+                <Check className="h-5 w-5 text-blue-600" />
+                <span>Analyze your marketing funnel performance</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="h-5 w-5 text-blue-600" />
+                <span>Identify key drop-off points</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="h-5 w-5 text-blue-600" />
+                <span>
+                  Get a prioritized action plan to improve conversions
+                </span>
+              </li>
+            </ul>
+            <p className="text-gray-300 text-center md:text-left">
+              This isn&apos;t a generic audit. It&apos;s{" "}
+              <strong>custom-built for your brand</strong>.
+            </p>
+            <div className="flex flex-col gap-2 min-[400px]:flex-row">
+              <Link
+                className="bg-secondary text-white text-center py-2 px-4 rounded-lg"
+                to={siteConfig.links.calendly}
+              >
+                Book My Free Audit Call
+              </Link>
+              <p className="text-sm text-gray-500 mt-2">
+                No credit card required. No spam.
+              </p>
             </div>
           </div>
+          <div className="flex items-center justify-center">
+            <Image
+              alt="Funnel audit illustration"
+              className="rounded-lg object-cover"
+              height={400}
+              src="/placeholder.svg?key=3hqzv"
+              width={600}
+            />
+          </div>
+        </div>
       </section>
 
       <section className="w-full py-12 md:py-24 lg:py-32 text-white">
@@ -244,13 +241,13 @@ export default function LeadMagnetPage() {
           </div>
           <div className="mx-auto grid max-w-5xl gap-6 py-12 lg:grid-cols-2">
             <Testimonial
-              quote="Ripples' CRO audit helped us identify 3 critical friction points. Fixing them increased conversions by 28% in 3 weeks."
               author="Aarav, Growth Head at D2C Skincare Brand"
+              quote="Ripples' CRO audit helped us identify 3 critical friction points. Fixing them increased conversions by 28% in 3 weeks."
               rating={5}
             />
             <Testimonial
-              quote="The checklist alone is worth paying for. Super actionable!"
               author="Shreya, Founder, Wellness Startup"
+              quote="The checklist alone is worth paying for. Super actionable!"
               rating={5}
             />
           </div>

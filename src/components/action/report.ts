@@ -1,10 +1,10 @@
-import axios from "axios"
+import axios from "axios";
 
 interface ReportFormData {
-  name: string
-  email: string
-  organisation: string
-  username: string
+  name: string;
+  email: string;
+  organisation: string;
+  username: string;
 }
 
 export async function submitReportRequest(formData: ReportFormData) {
@@ -25,9 +25,9 @@ export async function submitReportRequest(formData: ReportFormData) {
         },
         timeout: 10000, // 10 second timeout
       },
-    )
+    );
 
-    const result = response.data
+    const result = response.data;
 
     // Return the result to the client
     return {
@@ -35,9 +35,9 @@ export async function submitReportRequest(formData: ReportFormData) {
       message: result.message || "Report request submitted successfully!",
       email_id: result.email_id,
       lead_id: result.lead_id,
-    }
+    };
   } catch (error) {
-    console.error("Error submitting report request:", error)
+    console.error("Error submitting report request:", error);
 
     // Handle different types of errors
     if (axios.isAxiosError(error)) {
@@ -46,20 +46,23 @@ export async function submitReportRequest(formData: ReportFormData) {
         // that falls out of the range of 2xx
         return {
           success: false,
-          message: error.response.data?.message || "Server error. Please try again later.",
-        }
+          message:
+            error.response.data?.message ||
+            "Server error. Please try again later.",
+        };
       } else if (error.request) {
         // The request was made but no response was received
         return {
           success: false,
-          message: "No response from server. Please check your internet connection and try again.",
-        }
+          message:
+            "No response from server. Please check your internet connection and try again.",
+        };
       } else {
         // Something happened in setting up the request
         return {
           success: false,
           message: `Request error: ${error.message}`,
-        }
+        };
       }
     }
 
@@ -67,6 +70,6 @@ export async function submitReportRequest(formData: ReportFormData) {
     return {
       success: false,
       message: "An unexpected error occurred. Please try again later.",
-    }
+    };
   }
 }

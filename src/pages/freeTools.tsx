@@ -1,10 +1,17 @@
+import {
+  BarChart2,
+  Search,
+  ShoppingBag,
+  NotebookPen,
+  MagnetIcon,
+} from "lucide-react";
+import { Link } from "react-router-dom";
+
 import { ToolCard } from "@/components/freeTools/ToolCard";
-import { Instagram, BarChart2, Search, ShoppingBag, NotebookPen, MagnetIcon } from "lucide-react";
 import {
   HomePageStructuredData,
   OrganizationStructuredData,
 } from "@/components/freeTools/StructuredData";
-import { Link } from "react-router-dom";
 import DefaultLayout from "@/layouts/default";
 import { InstagramIcon } from "@/components/icons";
 import { siteConfig } from "@/config/site";
@@ -82,14 +89,14 @@ export default function FreeTools() {
               </p>
               <div className="flex flex-col md:flex-row justify-center md:justify-start text-center md:text-left space-y-4 md:space-y-0 md:space-x-4">
                 <a
-                  href="#tools"
                   className="px-6 py-3 bg-secondary text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                  href="#tools"
                 >
                   Explore Tools
                 </a>
                 <Link
-                  to={siteConfig.path.instagramCalculator}
                   className="px-6 py-3 bg-primary border-1 border-gray-800 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                  to={siteConfig.path.instagramCalculator}
                 >
                   Try Instagram Tool
                 </Link>
@@ -97,13 +104,13 @@ export default function FreeTools() {
             </div>
             <div className="md:w-1/2 flex justify-center">
               <div className="relative w-80 h-80">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full"></div>
-                <div className="absolute bottom-0 left-0 w-48 h-48 bg-secondary/30 rounded-full"></div>
+                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-secondary/30 rounded-full" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <img
-                    src="/placeholder.svg?height=300&width=300"
                     alt="Marketing Tools Illustration"
                     className="w-full h-auto"
+                    src="/placeholder.svg?height=300&width=300"
                   />
                 </div>
               </div>
@@ -141,10 +148,10 @@ export default function FreeTools() {
                   </div>
                 </div>
                 <Link
-                  to={siteConfig.path.getDemo}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="inline-block px-6 py-3 bg-secondary hover:bg-secondary-dark text-white font-medium rounded-lg transition-all duration-300"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  to={siteConfig.path.getDemo}
                 >
                   Start 14 Days free trial
                 </Link>
@@ -153,46 +160,46 @@ export default function FreeTools() {
                 <div className="relative">
                   <div className="absolute -top-4 -right-4 w-12 h-12 bg-secondary/80 rounded-full flex items-center justify-center">
                     <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
+                      className="text-white"
                       fill="none"
+                      height="24"
                       stroke="currentColor"
-                      strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="text-white"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                     </svg>
                   </div>
                   <div className="bg-white p-4 rounded-lg shadow-lg">
                     <img
-                      src="/placeholder.svg?height=200&width=150"
                       alt="Ripples App Screenshot"
                       className="w-full h-auto rounded"
+                      src="/placeholder.svg?height=200&width=150"
                     />
                   </div>
                 </div>
               </div>
             </div>
-            <div className="absolute bottom-0 right-0 w-64 h-64 bg-primary/10 rounded-full -mr-20 -mb-20 z-0"></div>
-            <div className="absolute top-0 left-0 w-40 h-40 bg-secondary/10 rounded-full -ml-20 -mt-20 z-0"></div>
+            <div className="absolute bottom-0 right-0 w-64 h-64 bg-primary/10 rounded-full -mr-20 -mb-20 z-0" />
+            <div className="absolute top-0 left-0 w-40 h-40 bg-secondary/10 rounded-full -ml-20 -mt-20 z-0" />
           </div>
         </div>
       </div>
 
       {/* Tools Section */}
-      <div id="tools" className="container mx-auto py-20 px-4 text-white">
+      <div className="container mx-auto py-20 px-4 text-white" id="tools">
         <div className="text-center mb-16 relative">
           <div className="absolute inset-0 flex items-center justify-center opacity-5">
-            <div className="w-40 h-40 rounded-full bg-primary"></div>
+            <div className="w-40 h-40 rounded-full bg-primary" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 relative">
             Our Free Marketing Tools
           </h2>
-          <div className="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+          <div className="w-24 h-1 bg-secondary mx-auto mb-6" />
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Powerful tools to analyze, optimize, and grow your online presence
           </p>
@@ -202,12 +209,12 @@ export default function FreeTools() {
           {tools.map((tool, index) => (
             <ToolCard
               key={index}
-              title={tool.title}
-              description={tool.description}
-              icon={tool.icon}
-              href={tool.href}
-              featured={tool.featured}
               comingSoon={tool.comingSoon}
+              description={tool.description}
+              featured={tool.featured}
+              href={tool.href}
+              icon={tool.icon}
+              title={tool.title}
             />
           ))}
         </div>
@@ -223,8 +230,8 @@ export default function FreeTools() {
             Try our Instagram Engagement Calculator today and see the difference
           </p>
           <Link
-            to={siteConfig.path.instagramCalculator}
             className="inline-block px-8 py-4 bg-secondary hover:bg-secondary-dark text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+            to={siteConfig.path.instagramCalculator}
           >
             Get Started Now
           </Link>

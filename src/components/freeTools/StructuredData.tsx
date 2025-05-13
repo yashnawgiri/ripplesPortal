@@ -12,14 +12,14 @@ export function HomePageStructuredData() {
       target: "https://free-tools.goripples.com/search?q={search_term_string}",
       "query-input": "required name=search_term_string",
     },
-  }
+  };
 
   return (
     <script
-      type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      type="application/ld+json"
     />
-  )
+  );
 }
 
 export function InstagramCalculatorStructuredData() {
@@ -36,14 +36,14 @@ export function InstagramCalculatorStructuredData() {
       price: "0",
       priceCurrency: "USD",
     },
-  }
+  };
 
   return (
     <script
-      type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      type="application/ld+json"
     />
-  )
+  );
 }
 
 export function OrganizationStructuredData() {
@@ -62,12 +62,12 @@ export function OrganizationStructuredData() {
       "https://www.linkedin.com/company/ripples",
       "https://www.instagram.com/rippleshq",
     ],
-  }
+  };
 
   return (
     <script
-      type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      type="application/ld+json"
     />
-  )
+  );
 }

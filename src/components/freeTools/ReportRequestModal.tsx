@@ -1,5 +1,10 @@
 import type React from "react";
+
 import { useState } from "react";
+import { X, CheckCircle } from "lucide-react";
+
+import { submitReportRequest } from "../action/report";
+
 import { Label } from "@/components/ugc-landing/ui/label";
 import {
   Dialog,
@@ -9,10 +14,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ugc-landing/ui/dialog";
-import { X, CheckCircle } from "lucide-react";
 import { Input } from "@/components/ugc-landing/ui/input";
 import { Button } from "@/components/ugc-landing/ui/button";
-import { submitReportRequest } from "../action/report";
 
 interface ReportRequestModalProps {
   isOpen: boolean;
@@ -36,12 +39,15 @@ export function ReportRequestModal({
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+
     setFormData((prev) => ({ ...prev, [name]: value }));
     // Clear error when field is edited
     if (formErrors[name]) {
       setFormErrors((prev) => {
         const newErrors = { ...prev };
+
         delete newErrors[name];
+
         return newErrors;
       });
     }
@@ -52,6 +58,7 @@ export function ReportRequestModal({
 
     // Client-side validation
     const errors: Record<string, string> = {};
+
     if (!formData.name.trim()) errors.name = "Name is required";
     if (!formData.email.trim()) errors.email = "Email is required";
     else if (!/^\S+@\S+\.\S+$/.test(formData.email))
@@ -60,6 +67,7 @@ export function ReportRequestModal({
 
     if (Object.keys(errors).length > 0) {
       setFormErrors(errors);
+
       return;
     }
 
@@ -72,7 +80,7 @@ export function ReportRequestModal({
         email: formData.email,
         organisation: formData.company,
         username: username,
-      }
+      };
 
       // Call the server action instead of making the API call directly
       const result = await submitReportRequest(formDataObj);
@@ -129,15 +137,15 @@ export function ReportRequestModal({
         </DialogHeader>
 
         <button
-          onClick={handleClose}
           className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
+          onClick={handleClose}
         >
           <X className="h-4 w-4" />
           <span className="sr-only">Close</span>
         </button>
 
         {!isSubmitted ? (
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
             {formErrors.general && (
               <div className="p-3 bg-red-50 border border-red-200 rounded-md mb-4">
                 <p className="text-sm text-red-600">{formErrors.general}</p>
@@ -146,12 +154,12 @@ export function ReportRequestModal({
             <div className="grid w-full items-center gap-1.5">
               <Label htmlFor="name">Full Name</Label>
               <Input
+                className={formErrors.name ? "border-red-500" : ""}
                 id="name"
                 name="name"
                 placeholder="Your name"
                 value={formData.name}
                 onChange={handleChange}
-                className={formErrors.name ? "border-red-500" : ""}
               />
               {formErrors.name && (
                 <p className="text-sm text-red-500">{formErrors.name}</p>
@@ -161,13 +169,13 @@ export function ReportRequestModal({
             <div className="grid w-full items-center gap-1.5">
               <Label htmlFor="email">Email</Label>
               <Input
+                className={formErrors.email ? "border-red-500" : ""}
                 id="email"
                 name="email"
-                type="email"
                 placeholder="your.email@example.com"
+                type="email"
                 value={formData.email}
                 onChange={handleChange}
-                className={formErrors.email ? "border-red-500" : ""}
               />
               {formErrors.email && (
                 <p className="text-sm text-red-500">{formErrors.email}</p>
@@ -177,12 +185,12 @@ export function ReportRequestModal({
             <div className="grid w-full items-center gap-1.5">
               <Label htmlFor="company">Where do you work?</Label>
               <Input
+                className={formErrors.company ? "border-red-500" : ""}
                 id="company"
                 name="company"
                 placeholder="Company or organization"
                 value={formData.company}
                 onChange={handleChange}
-                className={formErrors.company ? "border-red-500" : ""}
               />
               {formErrors.company && (
                 <p className="text-sm text-red-500">{formErrors.company}</p>
@@ -191,17 +199,17 @@ export function ReportRequestModal({
 
             <DialogFooter className="pt-4">
               <Button
-                type="submit"
                 className="w-full bg-primary hover:bg-primary-dark text-white transition-all duration-300"
                 disabled={isSubmitting}
+                type="submit"
               >
                 {isSubmitting ? (
                   <div className="flex items-center justify-center">
                     <svg
                       className="animate-spin -ml-1 mr-2 h-5 w-5 text-white"
-                      xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <circle
                         className="opacity-25"
@@ -210,12 +218,12 @@ export function ReportRequestModal({
                         r="10"
                         stroke="currentColor"
                         strokeWidth="4"
-                      ></circle>
+                      />
                       <path
                         className="opacity-75"
-                        fill="currentColor"
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                      ></path>
+                        fill="currentColor"
+                      />
                     </svg>
                     Submitting...
                   </div>
@@ -239,8 +247,8 @@ export function ReportRequestModal({
               your email address. Please check your inbox!
             </p>
             <Button
-              onClick={handleClose}
               className="w-full bg-primary hover:bg-primary-dark text-white"
+              onClick={handleClose}
             >
               Close
             </Button>
