@@ -133,7 +133,7 @@ export default function InstagramEngagementPage() {
             <AccordionItem
               className="text-gray-200"
               classNames={{
-                title: "text-white",
+                title: "text-white text-2xl",
                 content: "text-gray-200",
               }}
               title="What's a good engagement rate?"
@@ -146,7 +146,7 @@ export default function InstagramEngagementPage() {
             <AccordionItem
               className="text-gray-200"
               classNames={{
-                title: "text-white",
+                title: "text-white text-2xl",
                 content: "text-gray-200",
               }}
               title="How can I improve my engagement rate?"
