@@ -1,5 +1,4 @@
 import { ArrowRight, Check, Clock, FileCheck, Mail, Star } from "lucide-react";
-import { Image } from "@nextui-org/image";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 

@@ -150,9 +150,13 @@ export default function FreeTools() {
                 <Link
                   className="inline-block w-full md:w-10/12 px-6 py-3 bg-secondary hover:bg-secondary-dark text-white font-medium rounded-lg transition-all duration-300  justify-center items-center md:justify-start text-center"
                   rel="noopener noreferrer"
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
                   target="_blank"
                   to={siteConfig.path.getDemo}
-                  style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
                 >
                   Start 14 Days free trial
                 </Link>
