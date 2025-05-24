@@ -6,6 +6,7 @@ import { Download } from "lucide-react";
 import { Button } from "../ugc-landing/ui/button";
 import { Input } from "../ugc-landing/ui/input";
 import { Label } from "../ugc-landing/ui/label";
+import axios from "axios";
 
 interface LeadFormProps {
   buttonText?: string;
@@ -30,6 +31,15 @@ export default function LeadForm({
       setIsSubmitting(false);
       setIsSubmitted(true);
       // Reset form after submission
+      axios.post(
+        "https://free-tools-function-app.azurewebsites.net/api/captureCROResourceShareLead",
+        {
+          email,
+          name,
+          website,
+          organisation,
+        }
+      );
       setEmail("");
       setName("");
       setWebsite("");
@@ -53,6 +63,7 @@ export default function LeadForm({
               required
               id="name"
               placeholder="Your name"
+              style={{ color: "black" }}
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -63,6 +74,7 @@ export default function LeadForm({
               required
               id="email"
               placeholder="you@company.com"
+              style={{ color: "black" }}
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -75,6 +87,7 @@ export default function LeadForm({
               id="website"
               placeholder="Your organisation"
               type="text"
+              style={{ color: "black" }}
               value={organisation}
               onChange={(e) => setOrganisation(e.target.value)}
             />
@@ -86,6 +99,7 @@ export default function LeadForm({
               id="website"
               placeholder="https://yourwebsite.com"
               type="url"
+              style={{ color: "black" }}
               value={website}
               onChange={(e) => setWebsite(e.target.value)}
             />
