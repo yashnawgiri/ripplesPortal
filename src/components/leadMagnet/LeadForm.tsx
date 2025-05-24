@@ -2,11 +2,11 @@ import type React from "react";
 
 import { useState } from "react";
 import { Download } from "lucide-react";
+import axios from "axios";
 
 import { Button } from "../ugc-landing/ui/button";
 import { Input } from "../ugc-landing/ui/input";
 import { Label } from "../ugc-landing/ui/label";
-import axios from "axios";
 
 interface LeadFormProps {
   buttonText?: string;
@@ -38,7 +38,7 @@ export default function LeadForm({
           name,
           website,
           organisation,
-        }
+        },
       );
       setEmail("");
       setName("");
@@ -86,8 +86,8 @@ export default function LeadForm({
               required
               id="website"
               placeholder="Your organisation"
-              type="text"
               style={{ color: "black" }}
+              type="text"
               value={organisation}
               onChange={(e) => setOrganisation(e.target.value)}
             />
@@ -98,8 +98,8 @@ export default function LeadForm({
               required
               id="website"
               placeholder="https://yourwebsite.com"
-              type="url"
               style={{ color: "black" }}
+              type="url"
               value={website}
               onChange={(e) => setWebsite(e.target.value)}
             />
