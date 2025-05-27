@@ -17,7 +17,6 @@ export const siteConfig = {
     "Turn customers into influencers, advocates, and UGC creators - your RIPPLERS!",
   path: {
     home: "/",
-    resources: "/resources",
     referrals: "/referrals",
     shopperHome: "/shopper",
     ugcHome: "/ugc-home",
@@ -29,6 +28,10 @@ export const siteConfig = {
     privacyPolicy: "/privacy-policy",
     terms: "/terms-and-conditions",
     docs: "/docs",
+    freeTools: "/free-tools",
+    instagramCalculator: "/tools/instagram-engagement",
+    leadMagnet: "/tools/lead-magnet",
+    referralCalculator: "/tools/referral-calculator",
     pricing: "/pricing",
     blog: "/blog",
     myRipples: "my-ripples",
@@ -69,8 +72,8 @@ export const siteConfig = {
       ],
     },
     {
-      label: "Resources",
-      href: "/resources",
+      label: "Tools",
+      href: "/free-tools",
     },
     {
       label: "Shoppers: Access Rewards",

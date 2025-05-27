@@ -11,8 +11,9 @@ import {
   Users,
   QrCode,
 } from "lucide-react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FaWhatsapp } from "react-icons/fa";
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function TouchpointSection() {
   const [activeTab, setActiveTab] = useState("whatsapp");
@@ -161,10 +162,7 @@ export default function TouchpointSection() {
       title: "Order Status Updates",
       description:
         "Turn routine order updates into referral opportunities by including personalized invitations with each status change.",
-      features: [
-        "Contextual referral prompts",
-        "Progress-based incentives",
-      ],
+      features: ["Contextual referral prompts", "Progress-based incentives"],
       cta: "Enhance Status Updates",
       preview:
         "https://ripples1static.blob.core.windows.net/images/shopiry_orders_page.png",
@@ -382,23 +380,23 @@ export default function TouchpointSection() {
           {/* Stats */}
           <div className="w-full flex flex-row flex-wrap md:flex-nowrap gap-6 mt-12 text-center justify-center items-stretch">
             <div className="bg-primary rounded-xl p-6 border shadow-sm">
-              <div className="text-4xl font-bold text-secondary mb-2">
-                65%
-              </div>
+              <div className="text-4xl font-bold text-secondary mb-2">65%</div>
               <p className="text-muted-foreground">
-              Lower customer acquisition cost through referrals & UGC driven sales
+                Lower customer acquisition cost through referrals & UGC driven
+                sales
               </p>
             </div>
             <div className="bg-primary rounded-xl p-6 border shadow-sm">
               <div className="text-4xl font-bold text-secondary mb-2">10X</div>
               <p className="text-muted-foreground">
-              Increase in referral & UGC activation with multi-channel approach
+                Increase in referral & UGC activation with multi-channel
+                approach
               </p>
             </div>
             <div className="bg-primary rounded-xl p-6 border shadow-sm">
               <div className="text-4xl font-bold text-secondary mb-2">5X</div>
               <p className="text-muted-foreground">
-              Higher engagement compared to single-channel campaigns
+                Higher engagement compared to single-channel campaigns
               </p>
             </div>
           </div>
