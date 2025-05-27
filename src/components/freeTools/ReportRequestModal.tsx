@@ -32,6 +32,7 @@ export function ReportRequestModal({
     name: "",
     email: "",
     company: "",
+    website: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -64,6 +65,7 @@ export function ReportRequestModal({
     else if (!/^\S+@\S+\.\S+$/.test(formData.email))
       errors.email = "Please enter a valid email address";
     if (!formData.company.trim()) errors.company = "Company is required";
+    if (!formData.website.trim()) errors.website = "Website is required";
 
     if (Object.keys(errors).length > 0) {
       setFormErrors(errors);
@@ -79,6 +81,7 @@ export function ReportRequestModal({
         name: formData.name,
         email: formData.email,
         organisation: formData.company,
+        website: formData.website,
         username: username,
       };
 
@@ -117,7 +120,7 @@ export function ReportRequestModal({
       // Reset form state after animation completes
       setTimeout(() => {
         setIsSubmitted(false);
-        setFormData({ name: "", email: "", company: "" });
+        setFormData({ name: "", email: "", company: "", website: "" });
         setFormErrors({});
       }, 300);
     }
@@ -194,6 +197,21 @@ export function ReportRequestModal({
               />
               {formErrors.company && (
                 <p className="text-sm text-red-500">{formErrors.company}</p>
+              )}
+            </div>
+
+            <div className="grid w-full items-center gap-1.5">
+              <Label htmlFor="website">Company Website</Label>
+              <Input
+                className={formErrors.website ? "border-red-500" : ""}
+                id="website"
+                name="website"
+                placeholder="https://www.example.com"
+                value={formData.website}
+                onChange={handleChange}
+              />
+              {formErrors.website && (
+                <p className="text-sm text-red-500">{formErrors.website}</p>
               )}
             </div>
 

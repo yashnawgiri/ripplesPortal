@@ -16,7 +16,7 @@ const fadeIn = {
   transition: { duration: 0.6 },
 };
 
-export default function LeadMagnetPage() {
+export default function CROChecklistPage() {
   return (
     <DefaultLayout>
       <section className=" py-20 md:py-32 lg:py-40/ text-white">

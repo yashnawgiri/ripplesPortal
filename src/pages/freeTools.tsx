@@ -26,9 +26,9 @@ const tools = [
     featured: true,
   },
   {
-    title: "Lead Magnet",
+    title: "CRO Checklist & Funnel Audit",
     description:
-      "Calculate the optimal lead magnet reward rate for your lead magnet based on your business metrics and lead magnet reward offerings.",
+      "Get a comprehensive 300-point conversion rate optimization checklist plus a free 1-on-1 funnel audit to identify and fix revenue leaks in your marketing funnel.",
     icon: <MagnetIcon />,
     href: siteConfig.path.leadMagnet,
     featured: true,

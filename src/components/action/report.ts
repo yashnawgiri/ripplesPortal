@@ -4,6 +4,7 @@ interface ReportFormData {
   name: string;
   email: string;
   organisation: string;
+  website: string;
   username: string;
 }
 
@@ -17,6 +18,7 @@ export async function submitReportRequest(formData: ReportFormData) {
         email: formData.email,
         organisation: formData.organisation,
         username: formData.username,
+        website: formData.website,
         action: "both", // Always set to "both" as specified
       },
       {

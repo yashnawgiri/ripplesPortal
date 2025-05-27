@@ -12,7 +12,7 @@ import Referrals from "./pages/referrals";
 import { AffiliateGenerator } from "./pages/affiliateForm";
 import FreeTools from "./pages/freeTools";
 import InstagramEngagementPage from "./pages/instagramEngagementPage";
-import LeadMagnetPage from "./components/leadMagnet/LeadMagnetSection";
+import CROChecklistPage from "./components/leadMagnet/CROChecklistPage";
 
 import { siteConfig } from "@/config/site";
 import HomePage from "@/pages/home";
@@ -51,7 +51,7 @@ function App() {
           element={<InstagramEngagementPage />}
           path={siteConfig.path.instagramCalculator}
         />
-        <Route element={<LeadMagnetPage />} path={siteConfig.path.leadMagnet} />
+        <Route element={<CROChecklistPage />} path={siteConfig.path.leadMagnet} />
         <Route
           element={<ReferralCommissionCalculatorPage />}
           path={siteConfig.path.referralCalculator}
