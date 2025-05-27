@@ -22,28 +22,26 @@ export default function LeadForm({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      // Reset form after submission
-      axios.post(
-        "https://free-tools-function-app.azurewebsites.net/api/captureCROResourceShareLead",
-        {
-          email,
-          name,
-          website,
-          organisation,
-        },
-      );
-      setEmail("");
-      setName("");
-      setWebsite("");
-    }, 1500);
+    setIsSubmitted(true);
+    // Reset form after submission
+    await axios.post(
+      "https://free-tools-function-app.azurewebsites.net/api/captureCROResourceShareLead",
+      {
+        email,
+        name,
+        website,
+        organisation,
+      }
+    );
+    
+    setIsSubmitting(false);
+    setEmail("");
+    setName("");
+    setWebsite("");
   };
 
   return (
