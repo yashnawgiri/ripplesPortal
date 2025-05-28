@@ -51,7 +51,10 @@ function App() {
           element={<InstagramEngagementPage />}
           path={siteConfig.path.instagramCalculator}
         />
-        <Route element={<CROChecklistPage />} path={siteConfig.path.leadMagnet} />
+        <Route
+          element={<CROChecklistPage />}
+          path={siteConfig.path.leadMagnet}
+        />
         <Route
           element={<ReferralCommissionCalculatorPage />}
           path={siteConfig.path.referralCalculator}

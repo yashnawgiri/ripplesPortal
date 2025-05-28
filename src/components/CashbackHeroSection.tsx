@@ -60,7 +60,10 @@ const PromoSection: React.FC = () => {
         className="w-full md:w-1/2 flex justify-center px-4 md:px-0"
         variants={imageVariants}
       >
-        <motion.div whileHover={hoverEffect.hover} className="w-full max-w-[500px] md:max-w-[600px]">
+        <motion.div
+          className="w-full max-w-[500px] md:max-w-[600px]"
+          whileHover={hoverEffect.hover}
+        >
           <Image
             disableSkeleton
             alt="GoRipples promotional features and benefits showcase"
