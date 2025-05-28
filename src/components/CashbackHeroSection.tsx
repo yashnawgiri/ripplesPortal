@@ -2,8 +2,6 @@ import React from "react";
 import { Image } from "@nextui-org/react";
 import { motion, useReducedMotion } from "framer-motion";
 
-import cashbackHeroImage from "./../assets/images/cashbackHero.svg";
-
 const PromoSection: React.FC = () => {
   const shouldReduceMotion = useReducedMotion();
 
@@ -59,17 +57,16 @@ const PromoSection: React.FC = () => {
       </motion.div>
 
       <motion.div
-        className="w-full md:w-1/2 flex justify-center"
+        className="w-full md:w-1/2 flex justify-center px-4 md:px-0"
         variants={imageVariants}
       >
-        <motion.div className="relative" whileHover={hoverEffect.hover}>
+        <motion.div whileHover={hoverEffect.hover} className="w-full max-w-[500px] md:max-w-[600px]">
           <Image
             disableSkeleton
             alt="GoRipples promotional features and benefits showcase"
-            className="max-w-full h-auto"
+            className="w-full md:scale-105"
             loading="lazy"
-            src={cashbackHeroImage}
-            width={1200}
+            src="https://ripples1static.blob.core.windows.net/images/cashbackHero.png"
           />
         </motion.div>
       </motion.div>
