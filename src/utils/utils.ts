@@ -160,6 +160,7 @@ export const brandsJoinedLogos = [
   },
   {
     name: "sleekandpeek",
-    image: "https://ripples1static.blob.core.windows.net/images/sleekandpeek.png",
+    image:
+      "https://ripples1static.blob.core.windows.net/images/sleekandpeek.png",
   },
 ];
