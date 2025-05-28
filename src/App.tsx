@@ -10,6 +10,9 @@ import UGCLanding from "./pages/ugcLanding";
 import ReferralCommissionCalculatorPage from "./pages/ReferralCommissionCalculatorPage";
 import Referrals from "./pages/referrals";
 import { AffiliateGenerator } from "./pages/affiliateForm";
+import FreeTools from "./pages/freeTools";
+import InstagramEngagementPage from "./pages/instagramEngagementPage";
+import CROChecklistPage from "./components/leadMagnet/CROChecklistPage";
 
 import { siteConfig } from "@/config/site";
 import HomePage from "@/pages/home";
@@ -43,9 +46,18 @@ function App() {
         />
         <Route element={<HomePage />} path={siteConfig.path.home} />
         <Route element={<Referrals />} path={siteConfig.path.referrals} />
+        <Route element={<FreeTools />} path={siteConfig.path.freeTools} />
+        <Route
+          element={<InstagramEngagementPage />}
+          path={siteConfig.path.instagramCalculator}
+        />
+        <Route
+          element={<CROChecklistPage />}
+          path={siteConfig.path.leadMagnet}
+        />
         <Route
           element={<ReferralCommissionCalculatorPage />}
-          path={siteConfig.path.resources}
+          path={siteConfig.path.referralCalculator}
         />
         <Route
           element={<ShopperHomePage />}

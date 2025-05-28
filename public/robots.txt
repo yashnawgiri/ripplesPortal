@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and private routes
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://goripples.com/sitemap.xml
+
+# Crawl-delay to prevent server overload
+Crawl-delay: 10 
