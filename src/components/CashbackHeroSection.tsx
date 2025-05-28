@@ -38,7 +38,7 @@ const PromoSection: React.FC = () => {
 
   return (
     <motion.div
-      className="flex flex-wrap-reverse items-center gap-4 justify-center md:h-[500px] my-4"
+      className="flex flex-wrap-reverse items-center gap-8 justify-center md:h-[700px] my-8"
       initial="hidden"
       viewport={{ once: true, amount: 0.2 }}
       whileInView="visible"
@@ -57,17 +57,17 @@ const PromoSection: React.FC = () => {
       </motion.div>
 
       <motion.div
-        className="w-full md:w-1/2 flex justify-center px-4 md:px-0"
+        className="w-full md:w-3/5 flex justify-center px-4 md:px-0 md:ml-[-50px]"
         variants={imageVariants}
       >
         <motion.div
-          className="w-full max-w-[500px] md:max-w-[600px]"
+          className="w-full max-w-[700px] md:max-w-[900px]"
           whileHover={hoverEffect.hover}
         >
           <Image
             disableSkeleton
             alt="GoRipples promotional features and benefits showcase"
-            className="w-full md:scale-105"
+            className="w-full scale-125 pr-16"
             loading="lazy"
             src="https://ripples1static.blob.core.windows.net/images/cashbackHero.png"
           />
