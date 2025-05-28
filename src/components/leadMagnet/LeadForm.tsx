@@ -35,9 +35,9 @@ export default function LeadForm({
         name,
         website,
         organisation,
-      }
+      },
     );
-    
+
     setIsSubmitting(false);
     setEmail("");
     setName("");
