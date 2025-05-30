@@ -412,7 +412,7 @@ Analyze your own profile at: https://free-tools.goripples.com/tools/instagram-en
 
                   {/* Enhanced Call to Action */}
                   <Button
-                    className="w-full mt-8 bg-gradient-to-r from-secondary to-primary hover:from-primary hover:to-secondary text-white h-14 text-lg font-medium shadow-xl hover:shadow-2xl transition-all duration-500 rounded-xl"
+                    className="w-full mt-8 bg-secondary text-white h-14 text-lg font-medium shadow-xl hover:scale-105 transition-all duration-500 rounded-xl"
                     onClick={() => setIsModalOpen(true)}
                   >
                     GET DETAILED REPORT
