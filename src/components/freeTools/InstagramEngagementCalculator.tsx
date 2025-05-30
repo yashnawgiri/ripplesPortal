@@ -12,10 +12,7 @@ import {
   FaLock,
   FaCheckCircle,
   FaExclamationTriangle,
-  FaUsers,
-  FaUserFriends
 } from "react-icons/fa";
-import { MdVerified } from "react-icons/md";
 
 import { fetchInstagramProfile } from "../../components/action/instagram";
 
