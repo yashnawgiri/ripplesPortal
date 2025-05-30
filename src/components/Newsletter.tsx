@@ -6,23 +6,40 @@ import { Link } from "react-router-dom"
 import { siteConfig } from "@/config/site"
 import astronautSvg from "@/assets/images/astronaut.svg"
 import ghostSvg from "@/assets/images/ghost.svg"
+import axios from "axios"
+import endpoints from "@/services/endpoints"
 
 export default function Newsletter() {
   const [email, setEmail] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const [error, setError] = useState("")
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+  }
 
   const handleSubscribe = async () => {
-    if (!email) return
+    if (!email) {
+      setError("Please provide an email address")
+      return
+    }
+
+    if (!validateEmail(email)) {
+      setError("Please provide a valid email address")
+      return
+    }
     
+    setError("")
     setIsLoading(true)
     try {
-      // Mock API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      await axios.post(endpoints.CAPTURE_EMAIL_SEND_NEWSLETTER, { email })
       setIsSuccess(true)
       setEmail("")
     } catch (error) {
       console.error("Error subscribing:", error)
+      setError("Failed to subscribe. Please try again.")
     } finally {
       setIsLoading(false)
     }
@@ -63,31 +80,38 @@ export default function Newsletter() {
                   <span className="block sm:inline">Thank you for subscribing to our newsletter!</span>
                 </div>
               ) : (
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Input
-                    type="email"
-                    placeholder="pat@saturn.dev"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    classNames={{
-                      base: "flex-1",
-                      input: "text-base",
-                      inputWrapper: "h-11 sm:h-12 border-gray-300 data-[hover=true]:border-purple-500 group-data-[focus=true]:border-purple-500",
-                    }}
-                    radius="md"
-                    size="lg"
-                  />
-                  <Button
-                    className="h-11 sm:h-12 px-4 sm:px-6 text-white font-medium w-full sm:w-auto bg-secondary hover:bg-secondary/80 transition-colors"
-                    radius="md"
-                    size="lg"
-                    isLoading={isLoading}
-                    onClick={handleSubscribe}
-                    endContent={!isLoading && <IoArrowForward className="w-4 h-4" />}
-                  >
-                    {isLoading ? "Subscribing..." : "Subscribe"}
-                  </Button>
-                </div>
+                <>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Input
+                      type="email"
+                      placeholder="pat@saturn.dev"
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value)
+                        setError("")
+                      }}
+                      classNames={{
+                        base: "flex-1",
+                        input: "text-base",
+                        inputWrapper: "h-11 sm:h-12 border-gray-300 data-[hover=true]:border-purple-500 group-data-[focus=true]:border-purple-500",
+                      }}
+                      radius="md"
+                      size="lg"
+                      isInvalid={!!error}
+                      errorMessage={error}
+                    />
+                    <Button
+                      className="h-11 sm:h-12 px-4 sm:px-6 text-white font-medium w-full sm:w-auto bg-secondary hover:bg-secondary/80 transition-colors"
+                      radius="md"
+                      size="lg"
+                      isLoading={isLoading}
+                      onClick={handleSubscribe}
+                      endContent={!isLoading && <IoArrowForward className="w-4 h-4" />}
+                    >
+                      {isLoading ? "Subscribing..." : "Subscribe"}
+                    </Button>
+                  </div>
+                </>
               )}
 
               <p className="text-xs sm:text-sm text-white">
