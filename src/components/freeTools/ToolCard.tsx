@@ -37,11 +37,6 @@ export function ToolCard({
         hover:shadow-2xl hover:scale-[1.02] hover:border-secondary/50
         bg-gradient-to-br from-primary/95 to-primary/90`}
     >
-      {featured && (
-        <div className="bg-gradient-to-r from-secondary to-secondary-600 text-white text-xs font-medium py-2 px-4 text-center tracking-wider uppercase">
-          Popular
-        </div>
-      )}
       <CardHeader className="pb-4 relative">
         <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         <div
