@@ -146,7 +146,7 @@ export default function FreeTools() {
               difference
             </p>
             <Link
-              className="inline-block px-10 py-5 bg-gradient-to-r from-secondary to-secondary-dark hover:from-secondary-dark hover:to-secondary text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              className="inline-block px-10 py-5 bg-secondary rounded-lg hover:scale-105 transition-all duration-300"
               to={siteConfig.path.instagramCalculator}
             >
               Get Started Now
