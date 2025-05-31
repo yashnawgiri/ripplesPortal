@@ -32,11 +32,11 @@ export default function Newsletter() {
 
     setError("");
     setIsLoading(true);
-    const currentUrl = window.location.href;
+    const source = `Ripples Home page (${window.location.href})`;
     try {
       await axios.post(
         "https://free-tools-function-app.azurewebsites.net/api/saveNewsletterEmail?",
-        { email, source: currentUrl }
+        { email, source }
       );
       setIsSuccess(true);
       setEmail("");
