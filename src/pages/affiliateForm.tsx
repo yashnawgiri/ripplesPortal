@@ -1,4 +1,4 @@
-import type React from "react";
+import type * as React from "react";
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,8 +9,7 @@ import {
   AlertCircle,
   RefreshCw,
 } from "lucide-react";
-import { Card } from "@nextui-org/react";
-import { Label } from "@radix-ui/react-label";
+import { Label } from "@/components/ui/label";
 import {
   FaEnvelope,
   FaFacebookF,
@@ -25,14 +24,15 @@ import { FaXTwitter } from "react-icons/fa6";
 import { useParams } from "react-router-dom";
 
 import { useToast } from "@/hooks/use-toast";
-import { CardContent } from "@/components/ugc-landing/ui/card";
-import { Input } from "@/components/ugc-landing/ui/input";
-import { Button } from "@/components/ugc-landing/ui/button";
+import { CardContent } from "@/components/ui/Card";
+import { Input } from "@/components/ui/Input";
+import { Button } from "@/components/ui/Button";
 import {
   generateAffiliateLink,
   getAffiliateRewardsService,
 } from "@/services/apiService";
-import { Spinner } from "@/components/ugc-landing/ui/spinner";
+import { Spinner } from "@/components/ui/Spinner";
+import { Card } from "@/components/ui/Card";
 
 interface MilestoneReward {
   reward_details: {
@@ -102,6 +102,7 @@ const MilestoneRewards = ({
                       alt={product.images[0]?.altText || product.title}
                       className="w-full h-full object-cover rounded-lg"
                       src={product.images[0]?.originalSrc}
+                      loading="lazy"
                     />
                   </div>
                   <div className="flex-1">
@@ -459,8 +460,7 @@ export function AffiliateGenerator() {
                   Try Again
                 </Button>
                 <Button
-                  className="w-full"
-                  variant="outline"
+                  className="w-full bg-primary text-white"
                   onClick={() => window.history.back()}
                 >
                   Go Back

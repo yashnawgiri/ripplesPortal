@@ -38,57 +38,57 @@ function App() {
   }, [location.pathname]);
 
   return (
-    <Suspense fallback={<Fallback />}>
-      <Routes>
-        <Route
-          element={<AffiliateGenerator />}
-          path={siteConfig.path.affiliateLink}
-        />
-        <Route element={<HomePage />} path={siteConfig.path.home} />
-        <Route element={<Referrals />} path={siteConfig.path.referrals} />
-        <Route element={<FreeTools />} path={siteConfig.path.freeTools} />
-        <Route
-          element={<InstagramEngagementPage />}
-          path={siteConfig.path.instagramCalculator}
-        />
-        <Route
-          element={<CROChecklistPage />}
-          path={siteConfig.path.leadMagnet}
-        />
-        <Route
-          element={<ReferralCommissionCalculatorPage />}
-          path={siteConfig.path.referralCalculator}
-        />
-        <Route
-          element={<ShopperHomePage />}
-          path={siteConfig.path.shopperHome}
-        />
-        <Route element={<UGCLanding />} path={siteConfig.path.ugcHome} />
-        <Route element={<GetDemo />} path={siteConfig.path.getDemo} />
-        <Route element={<AboutPage />} path={siteConfig.path.about} />
-        <Route
-          element={<PrivacyPolicy />}
-          path={siteConfig.path.privacyPolicy}
-        />
-        <Route element={<TermsAndConditions />} path={siteConfig.path.terms} />
-        <Route element={<PrivateRoute />} path={siteConfig.path.myRipples}>
-          <Route element={<MyRipples />} path={siteConfig.path.userHome} />
-          <Route element={<MyContent />} path={siteConfig.path.userContent} />
-          <Route element={<MyRewards />} path={siteConfig.path.userRewards} />
-          <Route element={<FAQUserPortal />} path={siteConfig.path.userFaq} />
-          <Route element={<Support />} path={siteConfig.path.userSupport} />
-          <Route element={<MyAccount />} path={siteConfig.path.userAccount} />
-          <Route element={<Withdraw />} path={siteConfig.path.withdraw} />
+      <Suspense fallback={<Fallback />}>
+        <Routes>
           <Route
-            element={<Transactions />}
-            path={siteConfig.path.userTransaction}
+            element={<AffiliateGenerator />}
+            path={siteConfig.path.affiliateLink}
           />
-        </Route>
-        <Route element={<Logout />} path={siteConfig.path.logout} />
-        <Route element={<AuthPage />} path={siteConfig.path.signIn} />
-        <Route element={<NotFound />} path={siteConfig.path.default} />
-      </Routes>
-    </Suspense>
+          <Route element={<HomePage />} path={siteConfig.path.home} />
+          <Route element={<Referrals />} path={siteConfig.path.referrals} />
+          <Route element={<FreeTools />} path={siteConfig.path.freeTools} />
+          <Route
+            element={<InstagramEngagementPage />}
+            path={siteConfig.path.instagramCalculator}
+          />
+          <Route
+            element={<CROChecklistPage />}
+            path={siteConfig.path.leadMagnet}
+          />
+          <Route
+            element={<ReferralCommissionCalculatorPage />}
+            path={siteConfig.path.referralCalculator}
+          />
+          <Route
+            element={<ShopperHomePage />}
+            path={siteConfig.path.shopperHome}
+          />
+          <Route element={<UGCLanding />} path={siteConfig.path.ugcHome} />
+          <Route element={<GetDemo />} path={siteConfig.path.getDemo} />
+          <Route element={<AboutPage />} path={siteConfig.path.about} />
+          <Route
+            element={<PrivacyPolicy />}
+            path={siteConfig.path.privacyPolicy}
+          />
+          <Route element={<TermsAndConditions />} path={siteConfig.path.terms} />
+          <Route element={<PrivateRoute />} path={siteConfig.path.myRipples}>
+            <Route element={<MyRipples />} path={siteConfig.path.userHome} />
+            <Route element={<MyContent />} path={siteConfig.path.userContent} />
+            <Route element={<MyRewards />} path={siteConfig.path.userRewards} />
+            <Route element={<FAQUserPortal />} path={siteConfig.path.userFaq} />
+            <Route element={<Support />} path={siteConfig.path.userSupport} />
+            <Route element={<MyAccount />} path={siteConfig.path.userAccount} />
+            <Route element={<Withdraw />} path={siteConfig.path.withdraw} />
+            <Route
+              element={<Transactions />}
+              path={siteConfig.path.userTransaction}
+            />
+          </Route>
+          <Route element={<Logout />} path={siteConfig.path.logout} />
+          <Route element={<AuthPage />} path={siteConfig.path.signIn} />
+          <Route element={<NotFound />} path={siteConfig.path.default} />
+        </Routes>
+      </Suspense>
   );
 }
 
