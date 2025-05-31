@@ -7,7 +7,6 @@ import { siteConfig } from "@/config/site";
 import astronautSvg from "@/assets/images/astronaut.svg";
 import ghostSvg from "@/assets/images/ghost.svg";
 import axios from "axios";
-import { freeToolsEndpoints } from "@/services/endpoints";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
