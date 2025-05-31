@@ -1,5 +1,4 @@
-import { Image } from "@nextui-org/image";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion";
 
 import { responsibility } from "@/data/landing.json";
 import contactUsImg from "@/assets/images/contactus.webp";
@@ -29,8 +28,8 @@ function ResponsibilitySection() {
         initial={{ opacity: 0, x: 50 }}
         transition={{ duration: 0.8 }}
       >
-        <Image
-          disableSkeleton
+        <img
+          loading="lazy"
           alt="Contact us section showing customer support and communication features"
           className="max-w-full h-auto"
           src={contactUsImg}

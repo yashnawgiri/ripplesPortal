@@ -1,55 +1,59 @@
 import { useState, useEffect } from "react";
-import { Slider, Spacer } from "@nextui-org/react";
+import { Slider } from "@/components/ui/Slider";
+import { Spacer } from "@/components/ui/Spacer";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const RevenueBoostCalculator = () => {
   const [spend, setSpend] = useState(500);
   const [ordersPerWeek, setOrdersPerWeek] = useState(100);
-  const [referralRate, setReferralRate] = useState(0.2);
-  const [conversionRate, setConversionRate] = useState(0.5);
+  const [referralRate, setReferralRate] = useState(20);
+  const [conversionRate, setConversionRate] = useState(50);
   const [animationKey, setAnimationKey] = useState(0);
   const inputConfig = [
     {
       label: "Average customer spend",
       value: spend,
       step: 10,
-      maxValue: 10000,
-      minValue: 0,
+      max: 10000,
+      min: 0,
       formatOptions: { style: "currency" as const, currency: "INR" as const },
       onChange: (value: any) => setSpend(Number(value)),
+      prefix: "₹",
     },
     {
       label: "Weekly Orders",
       value: ordersPerWeek,
       step: 10,
-      maxValue: 10000,
-      minValue: 0,
+      max: 10000,
+      min: 0,
       onChange: (value: any) => setOrdersPerWeek(Number(value)),
     },
     {
       label: "Estimated Referral Rate",
       value: referralRate,
       step: 0.01,
-      maxValue: 1,
-      minValue: 0,
+      max: 100,
+      min: 0,
       formatOptions: { style: "percent" as const },
       onChange: (value: any) => setReferralRate(Number(value)),
+      suffix: "%",
     },
     {
       label: "Conversion Rate",
       value: conversionRate,
       step: 0.01,
-      maxValue: 1,
-      minValue: 0,
+      max: 100,
+      min: 0,
       formatOptions: { style: "percent" as const },
       onChange: (value: any) => setConversionRate(Number(value)),
+      suffix: "%",
     },
   ];
 
   const calculateBoost = () => {
     const annualBoost =
-      spend * ordersPerWeek * 52 * referralRate * conversionRate || 0;
+      spend * ordersPerWeek * 52 * (referralRate / 100) * (conversionRate / 100) || 0;
 
     return new Intl.NumberFormat("en-IN", {
       style: "currency",
@@ -122,12 +126,12 @@ const RevenueBoostCalculator = () => {
               className="slider-container"
               variants={fadeIn}
             >
-              <Slider {...slider} color="secondary" />
+              <Slider {...slider} />
             </motion.div>
           ))}
         </motion.div>
 
-        <Spacer y={6} />
+        <Spacer size={6} />
 
         <motion.div
           animate={{ scale: 1, opacity: 1 }}
