@@ -1,4 +1,4 @@
-import type React from "react";
+import type * as React from "react";
 
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -10,8 +10,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "../ugc-landing/ui/card";
-import { Button } from "../ugc-landing/ui/button";
+} from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
 
 interface ToolCardProps {
   title: string;
@@ -79,15 +79,15 @@ export function ToolCard({
         ) : (
           <Button
             asChild
-            className={`w-full h-12 transition-all duration-300 
+            className={`!w-full h-12 transition-all duration-300 
               ${
                 featured
                   ? "bg-gradient-to-r from-secondary to-secondary-600 hover:from-secondary-dark hover:to-secondary"
-                  : "bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary"
+                  : "bg-gradient-to-r from-secondary to-secondary-600 hover:from-secondary-dark hover:to-secondary"
               }
               hover:scale-[1.02] hover:shadow-lg`}
           >
-            <Link className="flex items-center justify-center" to={href}>
+            <Link className="" to={href}>
               Try Now
             </Link>
           </Button>
