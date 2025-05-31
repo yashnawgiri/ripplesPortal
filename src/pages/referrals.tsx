@@ -41,18 +41,10 @@ export default function Referrals() {
         <LinkCodeSection />
         <KeyFeatures />
         <DemoButton />
-        {/* <ReferralCommissionCalculator/> */}
         <HowDoesItWork
           howDoesItWorkData={dashboardData.ComponentsData.HowDoesItWorks}
         />
         <DashboardCard />
-        {/* <Testimonials /> */}
-        {/* <GradiantCards /> */}
-        {/* <DemoButton /> */}
-        {/* <FAQ /> */}
-        {/* <ResponsibilitySection /> */}
-        {/* <DemoButton /> */}
-        {/* <DataPrivacyComponent /> */}
       </section>
     </DefaultLayout>
   );

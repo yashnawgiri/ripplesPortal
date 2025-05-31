@@ -1,5 +1,4 @@
-import React from "react";
-import { Image } from "@nextui-org/react";
+import type { FC } from "react";
 import { motion, useReducedMotion } from "framer-motion"; // Import useReducedMotion
 import { useNavigate } from "react-router-dom";
 
@@ -23,7 +22,7 @@ function DemoButton() {
   );
 }
 
-const PromoSection: React.FC = () => {
+const PromoSection: FC = () => {
   const shouldReduceMotion = useReducedMotion();
 
   // Simplified variants for mobile
@@ -85,8 +84,7 @@ const PromoSection: React.FC = () => {
       {/* Mobile Image Section */}
       <motion.div className="home-img-mob lg:hidden" variants={imageVariants}>
         <motion.div className="mb-4 w-full">
-          <Image
-            disableSkeleton
+          <img
             alt="GoRipples promotional features showcase"
             height={300}
             loading="eager"
@@ -107,8 +105,7 @@ const PromoSection: React.FC = () => {
         variants={imageVariants}
       >
         <motion.div className="my-4" whileHover={hoverEffect.hover}>
-          <Image
-            disableSkeleton
+          <img
             alt="GoRipples promotional features and benefits showcase"
             loading="lazy"
             src={promoImg}
