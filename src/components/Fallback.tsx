@@ -1,4 +1,4 @@
-import { Spinner } from "@nextui-org/react";
+import { Spinner } from "@/components/ui/Spinner";
 
 export default function Fallback() {
   return (
