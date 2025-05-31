@@ -31,5 +31,5 @@
 }
 
 .swiperContainer {
-    @apply flex flex-col items-center mx-auto text-center w-72 border rounded border-[#0E1330] border-solid;
+    @apply flex flex-col items-center mx-auto text-center w-72 rounded ;
 }

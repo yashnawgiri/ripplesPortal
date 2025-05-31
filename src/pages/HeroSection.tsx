@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-import { Image } from "@nextui-org/image";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef, Suspense, lazy } from "react";
 import { useNavigate } from "react-router-dom";
@@ -107,14 +106,11 @@ function HeroSection() {
           variants={imageVariants}
         >
           <div className="transition-transform duration-300 ease-in-out hover:scale-110 origin-center mt-8">
-            <Image
+            <img
               alt="GoRipples dashboard interface showcasing analytics and features - mobile view"
               className="blur-load"
-              disableSkeleton={true}
               height={300}
-              isBlurred={false}
               loading="eager"
-              radius="lg"
               src={flyer}
               style={{
                 objectFit: "contain",
@@ -167,13 +163,11 @@ function HeroSection() {
         variants={imageVariants}
       >
         <div className="transition-transform duration-300 ease-in-out hover:scale-125 origin-center mt-8">
-          <Image
+          <img
             alt="GoRipples dashboard interface showcasing analytics and features"
             className="my-4"
             height={1200}
-            isBlurred={false}
             loading="eager"
-            radius="lg"
             src={flyer}
             style={{
               objectFit: "contain",
