@@ -1,5 +1,8 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, useParams } from "react-router-dom";
 import { Suspense, useEffect } from "react";
+import { HelmetProvider } from "react-helmet-async";
+import { MetaTags } from "./components/SEO/MetaTags";
+import { metaTags } from "./config/metaTags";
 
 import PrivateRoute from "./pages/auth-page/authComponents/PrivateRoute";
 import Logout from "./pages/auth-page/Logout";
@@ -30,65 +33,122 @@ import Transactions from "@/pages/user-portal/Transactions";
 import NotFound from "@/pages/notFound";
 import AuthPage from "@/pages/auth-page/AuthPage";
 
+// Define the type for meta tag entries
+type MetaTagEntry = {
+  title: string;
+  description: string;
+  path: string;
+  noindex?: boolean;
+};
+
 function App() {
   const location = useLocation();
+  const params = useParams();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
+  // Get meta tags based on current path
+  const getMetaTagsForPath = (path: string): MetaTagEntry => {
+    const pathWithoutQuery = path.split("?")[0];
+
+    // Handle case study pages
+    if (pathWithoutQuery.startsWith("/case-study/")) {
+      const brand = params.brand || "";
+      const lift = params.lift || "8%";
+      return metaTags.individualCaseStudy(brand, lift);
+    }
+
+    // Handle other pages
+    const metaTag = Object.values(metaTags).find(
+      (tag) =>
+        typeof tag === "object" &&
+        "path" in tag &&
+        tag.path === pathWithoutQuery
+    ) as MetaTagEntry | undefined;
+
+    return metaTag || metaTags.home;
+  };
+
+  const currentMetaTags = getMetaTagsForPath(location.pathname);
+
   return (
-    <Suspense fallback={<Fallback />}>
-      <Routes>
-        <Route
-          element={<AffiliateGenerator />}
-          path={siteConfig.path.affiliateLink}
-        />
-        <Route element={<HomePage />} path={siteConfig.path.home} />
-        <Route element={<Referrals />} path={siteConfig.path.referrals} />
-        <Route element={<FreeTools />} path={siteConfig.path.freeTools} />
-        <Route
-          element={<InstagramEngagementPage />}
-          path={siteConfig.path.instagramCalculator}
-        />
-        <Route
-          element={<CROChecklistPage />}
-          path={siteConfig.path.leadMagnet}
-        />
-        <Route
-          element={<ReferralCommissionCalculatorPage />}
-          path={siteConfig.path.referralCalculator}
-        />
-        <Route
-          element={<ShopperHomePage />}
-          path={siteConfig.path.shopperHome}
-        />
-        <Route element={<UGCLanding />} path={siteConfig.path.ugcHome} />
-        <Route element={<GetDemo />} path={siteConfig.path.getDemo} />
-        <Route element={<AboutPage />} path={siteConfig.path.about} />
-        <Route
-          element={<PrivacyPolicy />}
-          path={siteConfig.path.privacyPolicy}
-        />
-        <Route element={<TermsAndConditions />} path={siteConfig.path.terms} />
-        <Route element={<PrivateRoute />} path={siteConfig.path.myRipples}>
-          <Route element={<MyRipples />} path={siteConfig.path.userHome} />
-          <Route element={<MyContent />} path={siteConfig.path.userContent} />
-          <Route element={<MyRewards />} path={siteConfig.path.userRewards} />
-          <Route element={<FAQUserPortal />} path={siteConfig.path.userFaq} />
-          <Route element={<Support />} path={siteConfig.path.userSupport} />
-          <Route element={<MyAccount />} path={siteConfig.path.userAccount} />
-          <Route element={<Withdraw />} path={siteConfig.path.withdraw} />
+    <HelmetProvider>
+      <MetaTags
+        title={currentMetaTags.title}
+        description={currentMetaTags.description}
+        canonicalUrl={location.pathname}
+        noindex={currentMetaTags.noindex}
+        type={
+          location.pathname.startsWith("/case-study/") ? "article" : "website"
+        }
+        keywords={[
+          "referral program",
+          "UGC rewards",
+          "loyalty software",
+          "D2C growth tools",
+          "customer loyalty",
+          "brand advocacy",
+          "user generated content",
+          "influencer marketing",
+        ]}
+      />
+      <Suspense fallback={<Fallback />}>
+        <Routes>
           <Route
-            element={<Transactions />}
-            path={siteConfig.path.userTransaction}
+            element={<AffiliateGenerator />}
+            path={siteConfig.path.affiliateLink}
           />
-        </Route>
-        <Route element={<Logout />} path={siteConfig.path.logout} />
-        <Route element={<AuthPage />} path={siteConfig.path.signIn} />
-        <Route element={<NotFound />} path={siteConfig.path.default} />
-      </Routes>
-    </Suspense>
+          <Route element={<HomePage />} path={siteConfig.path.home} />
+          <Route element={<Referrals />} path={siteConfig.path.referrals} />
+          <Route element={<FreeTools />} path={siteConfig.path.freeTools} />
+          <Route
+            element={<InstagramEngagementPage />}
+            path={siteConfig.path.instagramCalculator}
+          />
+          <Route
+            element={<CROChecklistPage />}
+            path={siteConfig.path.leadMagnet}
+          />
+          <Route
+            element={<ReferralCommissionCalculatorPage />}
+            path={siteConfig.path.referralCalculator}
+          />
+          <Route
+            element={<ShopperHomePage />}
+            path={siteConfig.path.shopperHome}
+          />
+          <Route element={<UGCLanding />} path={siteConfig.path.ugcHome} />
+          <Route element={<GetDemo />} path={siteConfig.path.getDemo} />
+          <Route element={<AboutPage />} path={siteConfig.path.about} />
+          <Route
+            element={<PrivacyPolicy />}
+            path={siteConfig.path.privacyPolicy}
+          />
+          <Route
+            element={<TermsAndConditions />}
+            path={siteConfig.path.terms}
+          />
+          <Route element={<PrivateRoute />} path={siteConfig.path.myRipples}>
+            <Route element={<MyRipples />} path={siteConfig.path.userHome} />
+            <Route element={<MyContent />} path={siteConfig.path.userContent} />
+            <Route element={<MyRewards />} path={siteConfig.path.userRewards} />
+            <Route element={<FAQUserPortal />} path={siteConfig.path.userFaq} />
+            <Route element={<Support />} path={siteConfig.path.userSupport} />
+            <Route element={<MyAccount />} path={siteConfig.path.userAccount} />
+            <Route element={<Withdraw />} path={siteConfig.path.withdraw} />
+            <Route
+              element={<Transactions />}
+              path={siteConfig.path.userTransaction}
+            />
+          </Route>
+          <Route element={<Logout />} path={siteConfig.path.logout} />
+          <Route element={<AuthPage />} path={siteConfig.path.signIn} />
+          <Route element={<NotFound />} path={siteConfig.path.default} />
+        </Routes>
+      </Suspense>
+    </HelmetProvider>
   );
 }
 

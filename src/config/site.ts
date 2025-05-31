@@ -60,23 +60,25 @@ export const siteConfig = {
       label: "Products",
       resources: [
         {
-          label: "Referrals",
+          label: "Referral Program Software",
           icon: referralIcon,
           href: "/referrals",
+          description: "Launch a powerful referral program in minutes with instant cashback rewards"
         },
         {
-          label: "UGC from Shoppers & influencers",
+          label: "UGC Rewards Platform",
           icon: UgcIcon,
           href: "/ugc-home",
+          description: "Collect authentic user-generated content and reward creators with cashback"
         },
       ],
     },
     {
-      label: "Tools",
+      label: "Free Marketing Tools",
       href: "/free-tools",
     },
     {
-      label: "Shoppers: Access Rewards",
+      label: "Shopper Rewards Portal",
       href: "/shopper",
     },
   ],
