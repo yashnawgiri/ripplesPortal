@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import {
   Mail,
@@ -188,7 +186,7 @@ export default function TouchpointSection() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center space-y-10 max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center space-y-4 max-w-3xl">
+          <div className="text-center space-y-2 max-w-3xl">
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-white text-secondary text-sm font-medium mb-2">
               <Users className="mr-2 h-4 w-4" />
               <span>Customer Activation</span>
@@ -276,6 +274,7 @@ export default function TouchpointSection() {
                               <img
                                 alt={channelContent[channel.id].title}
                                 className=""
+                                loading="lazy"
                                 src={channelContent[channel.id].preview}
                               />
                             </div>
@@ -365,6 +364,7 @@ export default function TouchpointSection() {
                             <img
                               alt={content.title}
                               className="w-full h-full object-contain border border-dashed border-muted-foreground/20 rounded-lg"
+                              loading="lazy"
                               src={content.preview}
                             />
                           </div>
@@ -380,21 +380,21 @@ export default function TouchpointSection() {
           {/* Stats */}
           <div className="w-full flex flex-row flex-wrap md:flex-nowrap gap-6 mt-12 text-center justify-center items-stretch">
             <div className="bg-primary rounded-xl p-6 border shadow-sm">
-              <div className="text-4xl font-bold text-secondary mb-2">65%</div>
+              <div className="text-4xl font-bold text-white mb-2">65%</div>
               <p className="text-muted-foreground">
                 Lower customer acquisition cost through referrals & UGC driven
                 sales
               </p>
             </div>
             <div className="bg-primary rounded-xl p-6 border shadow-sm">
-              <div className="text-4xl font-bold text-secondary mb-2">10X</div>
+              <div className="text-4xl font-bold text-white mb-2">10X</div>
               <p className="text-muted-foreground">
                 Increase in referral & UGC activation with multi-channel
                 approach
               </p>
             </div>
             <div className="bg-primary rounded-xl p-6 border shadow-sm">
-              <div className="text-4xl font-bold text-secondary mb-2">5X</div>
+              <div className="text-4xl font-bold text-white mb-2">5X</div>
               <p className="text-muted-foreground">
                 Higher engagement compared to single-channel campaigns
               </p>
