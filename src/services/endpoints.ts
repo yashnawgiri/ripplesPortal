@@ -1,5 +1,4 @@
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
-const FREE_TOOLS_BASE_URL = import.meta.env.VITE_FREE_TOOLS_BASE_URL;
 
 const endpoints = {
   EMAIL_AUTH: `${BASE_URL}/auth/email-login`,
@@ -17,8 +16,4 @@ const endpoints = {
   GENERATE_AFFILIATE_LINK: `${BASE_URL}/identifier/:brand_id/program/:referral_program_id/affiliate/create`,
 } as const;
 
-const freeToolsEndpoints = {
-  CAPTURE_EMAIL_SEND_NEWSLETTER: `${FREE_TOOLS_BASE_URL}/api/saveNewsletterEmail`,
-} as const;
-
-export default { ...endpoints, ...freeToolsEndpoints };
+export default { ...endpoints };
