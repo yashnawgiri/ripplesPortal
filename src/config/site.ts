@@ -28,7 +28,7 @@ export const siteConfig = {
     privacyPolicy: "/privacy-policy",
     terms: "/terms-and-conditions",
     docs: "/docs",
-    freeTools: "/free-tools",
+    freeTools: "/tools",
     instagramCalculator: "/tools/instagram-engagement",
     leadMagnet: "/tools/lead-magnet",
     referralCalculator: "/tools/referral-calculator",
@@ -60,25 +60,27 @@ export const siteConfig = {
       label: "Products",
       resources: [
         {
-          label: "Referral Program Software",
+          label: "Referrals",
           icon: referralIcon,
           href: "/referrals",
-          description: "Launch a powerful referral program in minutes with instant cashback rewards"
+          description:
+            "Launch a powerful referral program in minutes with instant cashback rewards",
         },
         {
-          label: "UGC Rewards Platform",
+          label: "UGC from Shoppers & influencers",
           icon: UgcIcon,
           href: "/ugc-home",
-          description: "Collect authentic user-generated content and reward creators with cashback"
+          description:
+            "Collect authentic user-generated content and reward creators with cashback",
         },
       ],
     },
     {
-      label: "Free Marketing Tools",
-      href: "/free-tools",
+      label: "Tools",
+      href: "/tools",
     },
     {
-      label: "Shopper Rewards Portal",
+      label: "Shopper: Access Rewards",
       href: "/shopper",
     },
   ],
