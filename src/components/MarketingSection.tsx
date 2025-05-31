@@ -1,6 +1,5 @@
-import type React from "react";
+import type { FC } from "react";
 
-import { Image } from "@nextui-org/react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -11,7 +10,7 @@ import ugcContentCardSvg from "./../assets/images/ugcContentManagementCard.png";
 
 import { siteConfig } from "@/config/site";
 
-const MarketingSection: React.FC = () => {
+const MarketingSection: FC = () => {
   const shouldReduceMotion = useReducedMotion();
 
   const containerVariants = {
@@ -111,8 +110,7 @@ const MarketingSection: React.FC = () => {
             </motion.button>
 
             <motion.div className="mt-8 relative" variants={itemVariants}>
-              <Image
-                disableSkeleton
+              <img
                 alt="Referral program mobile app screenshot"
                 className="mx-auto"
                 loading="lazy"
@@ -152,8 +150,7 @@ const MarketingSection: React.FC = () => {
               className="mt-8 relative hidden md:block"
               variants={itemVariants}
             >
-              <Image
-                disableSkeleton
+              <img
                 alt="UGC content management dashboard"
                 className="mx-auto"
                 loading="lazy"
@@ -165,24 +162,21 @@ const MarketingSection: React.FC = () => {
               className="mt-8 relative block md:hidden"
               variants={itemVariants}
             >
-              <Image
-                disableSkeleton
+              <img
                 alt="UGC content management dashboard"
                 className="mx-auto py-2"
                 loading="lazy"
                 src={ugcPopupCard}
                 width={500}
               />
-              <Image
-                disableSkeleton
+              <img
                 alt="UGC content management dashboard"
                 className="mx-auto py-2"
                 loading="lazy"
                 src={ugcContentCardSvg}
                 width={500}
               />
-              <Image
-                disableSkeleton
+              <img
                 alt="UGC content management dashboard"
                 className="mx-auto py-2"
                 loading="lazy"

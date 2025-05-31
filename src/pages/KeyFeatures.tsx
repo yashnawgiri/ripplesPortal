@@ -1,4 +1,3 @@
-import { Image } from "@nextui-org/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -87,7 +86,7 @@ const Card = ({ title, index }: CardProps) => {
       key={index}
       ref={ref}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      className="text-white text-2xl font-bold flex flex-col cursor-pointer items-center md:items-start"
+      className="text-white text-2xl font-bold flex flex-col cursor-pointer items-center md:items-start rounded-lg"
       initial="hidden"
       variants={cardVariants}
       viewport={{ once: true, amount: 0.3 }}
@@ -97,10 +96,9 @@ const Card = ({ title, index }: CardProps) => {
       <h1 className="py-8 text-xl md:text-2xl flex gap-1">
         <p>{`${index + 1}. `}</p> <p>{title}</p>
       </h1>
-      <Image
-        disableSkeleton
+      <img
         alt={`Step ${index + 1}`}
-        className="transition-transform duration-300"
+        className="transition-transform duration-300 "
         loading={index === 0 ? "eager" : "lazy"}
         src={steps[index]}
         style={{
