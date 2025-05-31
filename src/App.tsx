@@ -1,5 +1,8 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, useParams } from "react-router-dom";
 import { Suspense, useEffect } from "react";
+import { HelmetProvider } from "react-helmet-async";
+import { MetaTags } from "./components/SEO/MetaTags";
+import { metaTags } from "./config/metaTags";
 
 import PrivateRoute from "./pages/auth-page/authComponents/PrivateRoute";
 import Logout from "./pages/auth-page/Logout";
@@ -30,14 +33,67 @@ import Transactions from "@/pages/user-portal/Transactions";
 import NotFound from "@/pages/notFound";
 import AuthPage from "@/pages/auth-page/AuthPage";
 
+// Define the type for meta tag entries
+type MetaTagEntry = {
+  title: string;
+  description: string;
+  path: string;
+  noindex?: boolean;
+};
+
 function App() {
   const location = useLocation();
+  const params = useParams();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
+  // Get meta tags based on current path
+  const getMetaTagsForPath = (path: string): MetaTagEntry => {
+    const pathWithoutQuery = path.split("?")[0];
+
+    // Handle case study pages
+    if (pathWithoutQuery.startsWith("/case-study/")) {
+      const brand = params.brand || "";
+      const lift = params.lift || "8%";
+      return metaTags.individualCaseStudy(brand, lift);
+    }
+
+    // Handle other pages
+    const metaTag = Object.values(metaTags).find(
+      (tag) =>
+        typeof tag === "object" &&
+        "path" in tag &&
+        tag.path === pathWithoutQuery
+    ) as MetaTagEntry | undefined;
+
+    return metaTag || metaTags.home;
+  };
+
+  const currentMetaTags = getMetaTagsForPath(location.pathname);
+
   return (
+    <HelmetProvider>
+      <MetaTags
+        title={currentMetaTags.title}
+        description={currentMetaTags.description}
+        canonicalUrl={location.pathname}
+        noindex={currentMetaTags.noindex}
+        type={
+          location.pathname.startsWith("/case-study/") ? "article" : "website"
+        }
+        keywords={[
+          "referral program",
+          "UGC rewards",
+          "loyalty software",
+          "D2C growth tools",
+          "customer loyalty",
+          "brand advocacy",
+          "user generated content",
+          "influencer marketing",
+        ]}
+      />
       <Suspense fallback={<Fallback />}>
         <Routes>
           <Route
@@ -70,7 +126,10 @@ function App() {
             element={<PrivacyPolicy />}
             path={siteConfig.path.privacyPolicy}
           />
-          <Route element={<TermsAndConditions />} path={siteConfig.path.terms} />
+          <Route
+            element={<TermsAndConditions />}
+            path={siteConfig.path.terms}
+          />
           <Route element={<PrivateRoute />} path={siteConfig.path.myRipples}>
             <Route element={<MyRipples />} path={siteConfig.path.userHome} />
             <Route element={<MyContent />} path={siteConfig.path.userContent} />
@@ -89,6 +148,7 @@ function App() {
           <Route element={<NotFound />} path={siteConfig.path.default} />
         </Routes>
       </Suspense>
+    </HelmetProvider>
   );
 }
 

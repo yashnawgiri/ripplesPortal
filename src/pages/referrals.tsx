@@ -22,6 +22,7 @@ function DemoButton() {
     <CustomButton
       className="my-14 font-bold bg-custom-gradient"
       onClick={() => navigate(siteConfig.path.getDemo)}
+      aria-label="Get started with Ripples referral program"
     >
       {dashboardData.home.demoButton}
     </CustomButton>
