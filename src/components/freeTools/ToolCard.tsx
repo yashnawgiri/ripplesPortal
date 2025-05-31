@@ -32,38 +32,32 @@ export function ToolCard({
 }: ToolCardProps) {
   return (
     <Card
-      className={`group flex flex-col h-full transition-all text-center md:text-left duration-500  overflow-hidden backdrop-blur-sm
-        ${featured ? "border-primary/30 shadow-xl" : "border-primary/30"}
-        hover:shadow-2xl hover:scale-[1.02] hover:border-primary/50
-         bg-primary`}
+      className={`group flex flex-col h-full transition-all text-center md:text-left duration-500 overflow-hidden backdrop-blur-sm
+        ${featured ? "border-secondary/50 shadow-xl" : "border-primary/30"}
+        hover:shadow-2xl hover:scale-[1.02] hover:border-secondary/50
+        bg-gradient-to-br from-primary/95 to-primary/90`}
     >
-      {featured && (
-        <div className="bg-gradient-to-r from-secondary to-secondary-600 text-white text-xs font-medium py-1.5 px-4 text-center tracking-wider uppercase">
-          Popular
-        </div>
-      )}
       <CardHeader className="pb-4 relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         <div
           className={`w-full flex items-center justify-center rounded-2xl mb-6 transition-all duration-300 
-           
             group-hover:scale-110 group-hover:rotate-3`}
         >
           <div
-            className={`w-20 h-20 flex items-center justify-center rounded-2xl mb-6 transition-all duration-300 
+            className={`w-20 h-20 flex items-center justify-center rounded-2xl transition-all duration-300 
               ${
                 featured
-                  ? "bg-gradient-to-br from-secondary/20 to-secondary/30"
-                  : "bg-gradient-to-br from-zinc-900 to-zinc-800"
+                  ? "bg-gradient-to-br from-secondary/20 to-secondary/30 shadow-lg shadow-secondary/20"
+                  : "bg-gradient-to-br from-primary/20 to-primary/30 shadow-lg shadow-primary/20"
               }`}
           >
             {icon}
           </div>
         </div>
-        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-transparent rounded-full blur-3xl -z-10 transition-all duration-500 opacity-0 group-hover:opacity-100" />
-        <CardTitle className="text-2xl font-bold mb-3 bg-clip-text">
+        <CardTitle className="text-2xl font-bold mb-3 text-white">
           {title}
         </CardTitle>
-        <CardDescription className="text-base leading-relaxed text-white">
+        <CardDescription className="text-base leading-relaxed text-gray-200">
           {description}
         </CardDescription>
       </CardHeader>
@@ -72,7 +66,7 @@ export function ToolCard({
         {comingSoon ? (
           <Button
             disabled
-            className="w-full opacity-70 h-12 bg-gradient-to-r from-primary to-primary-600 text-white cursor-not-allowed"
+            className="w-full opacity-70 h-12 bg-gradient-to-r from-gray-600 to-gray-700 text-white cursor-not-allowed"
           >
             Coming Soon <ArrowRight className="ml-2 h-4 w-4 animate-pulse" />
           </Button>
@@ -82,8 +76,8 @@ export function ToolCard({
             className={`w-full h-12 transition-all duration-300 
               ${
                 featured
-                  ? "bg-gradient-to-r from-secondary to-secondary-600 hover:from-secondary-dark hover:to-secondary"
-                  : "bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary"
+                  ? "bg-gradient-to-r from-secondary to-secondary-600 hover:from-secondary-dark hover:to-secondary text-white font-semibold"
+                  : "bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-semibold"
               }
               hover:scale-[1.02] hover:shadow-lg`}
           >
