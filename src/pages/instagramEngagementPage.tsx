@@ -1,4 +1,3 @@
-import { Accordion, AccordionItem } from "@nextui-org/react";
 import { CheckCircle, TrendingUp, BarChart2, Users } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -7,6 +6,7 @@ import {
   InstagramCalculatorStructuredData,
   OrganizationStructuredData,
 } from "@/components/freeTools/StructuredData";
+import { Accordion, AccordionItem } from "@/components/ui/Accordion";
 import DefaultLayout from "@/layouts/default";
 
 export const metadata = {
@@ -127,13 +127,8 @@ export default function InstagramEngagementPage() {
             Frequently Asked Questions
           </h2>
 
-          <Accordion className="space-y-6">
+          <Accordion className="space-y-6 text-white">
             <AccordionItem
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden px-8"
-              classNames={{
-                title: "text-white text-2xl",
-                content: "text-gray-200",
-              }}
               title="What is engagement rate?"
             >
               Engagement rate measures how actively involved your audience is
@@ -142,11 +137,6 @@ export default function InstagramEngagementPage() {
               multiplying by 100 to get a percentage.
             </AccordionItem>
             <AccordionItem
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden px-8"
-              classNames={{
-                title: "text-white text-2xl",
-                content: "text-gray-200",
-              }}
               title="What's a good engagement rate?"
             >
               For Instagram, an engagement rate between 1-3% is considered
@@ -155,11 +145,6 @@ export default function InstagramEngagementPage() {
             </AccordionItem>
 
             <AccordionItem
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden px-8"
-              classNames={{
-                title: "text-white text-2xl",
-                content: "text-gray-200",
-              }}
               title="How can I improve my engagement rate?"
             >
               Improve your engagement rate by posting high-quality content

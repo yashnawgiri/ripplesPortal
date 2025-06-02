@@ -4,15 +4,16 @@ import { useState, useCallback, useMemo } from "react";
 import {
   Card,
   CardHeader,
-  CardBody,
-  Input,
-  Button,
-  Slider,
-  Switch,
-  Tabs,
-  Tab,
-  Tooltip,
-} from "@nextui-org/react";
+  CardContent,
+} from "@/components/ui/Card";
+
+import { Input } from "@/components/ui/Input";
+import { Button } from "@/components/ui/Button";
+import { Slider } from "@/components/ui/Slider";
+import { Switch } from "@/components/ui/Switch";
+import { Tabs } from "@/components/ui/tabs";
+import { Tooltip } from "@/components/ui/Tooltip";
+
 import { HelpCircle } from "lucide-react";
 
 interface CalculationResult {
@@ -170,7 +171,7 @@ export default function ReferralCommissionCalculator() {
   );
 
   return (
-    <Card className="bg-transparent text-white" shadow="none">
+    <Card className="bg-transparent text-white">
       <CardHeader className="flex flex-col items-center gap-2">
         <div className="flex justify-between items-center w-full mb-4" />
         <h2 className="text-3xl md:text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-secondary to-secondary-300">
@@ -185,16 +186,15 @@ export default function ReferralCommissionCalculator() {
           <div className="flex items-center gap-2">
             <span className={currency === "USD" ? "font-bold" : ""}>USD</span>
             <Switch
-              color="secondary"
-              isSelected={currency === "INR"}
+              checked={currency === "INR"}
+              onCheckedChange={handleCurrencyToggle}
               size="sm"
-              onValueChange={handleCurrencyToggle}
             />
             <span className={currency === "INR" ? "font-bold" : ""}>INR</span>
           </div>
         </div>
       </CardHeader>
-      <CardBody>
+      <CardContent>
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div className="space-y-4">
             <div className="space-y-2">
@@ -202,27 +202,29 @@ export default function ReferralCommissionCalculator() {
                 <span className="text-lg text-white">
                   Average Order Value (AOV)
                 </span>
-                <Tooltip content="The average spend per order">
-                  <HelpCircle className="h-4 w-4 text-white" />
+                <Tooltip 
+                  content="The average spend per order"
+                  position="right"
+                  className="bg-gray-800 text-white"
+                >
+                  <HelpCircle className="h-4 w-4 text-white cursor-help" />
                 </Tooltip>
               </div>
-              <Input
-                required
-                classNames={{
-                  input: "bg-white",
-                }}
-                color="default"
-                id="aov"
-                name="aov"
-                placeholder={`Enter average order value (${currency})`}
-                startContent={
-                  <span className="text-secondary">{currencySymbol}</span>
-                }
-                type="number"
-                value={formData.aov}
-                variant="flat"
-                onChange={handleInputChange}
-              />
+              <div className="relative">
+                <Input
+                  required
+                  className="bg-white pl-8 text-black"
+                  id="aov"
+                  name="aov"
+                  placeholder={`Enter average order value (${currency})`}
+                  type="number"
+                  value={formData.aov}
+                  onChange={handleInputChange}
+                />
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary">
+                  {currencySymbol}
+                </span>
+              </div>
             </div>
 
             <div className="space-y-2">
@@ -230,27 +232,29 @@ export default function ReferralCommissionCalculator() {
                 <span className="text-lg text-white">
                   Customer Lifetime Value (LTV)
                 </span>
-                <Tooltip content="The total expected revenue from a single customer">
-                  <HelpCircle className="h-4 w-4 text-white" />
+                <Tooltip 
+                  content="The total expected revenue from a single customer"
+                  position="right"
+                  className="bg-gray-800 text-white"
+                >
+                  <HelpCircle className="h-4 w-4 text-white cursor-help" />
                 </Tooltip>
               </div>
-              <Input
-                required
-                classNames={{
-                  input: "bg-white",
-                }}
-                color="default"
-                id="ltv"
-                name="ltv"
-                placeholder={`Enter customer lifetime value (${currency})`}
-                startContent={
-                  <span className="text-secondary">{currencySymbol}</span>
-                }
-                type="number"
-                value={formData.ltv}
-                variant="flat"
-                onChange={handleInputChange}
-              />
+              <div className="relative">
+                <Input
+                  required
+                  className="bg-white pl-8 text-black"
+                  id="ltv"
+                  name="ltv"
+                  placeholder={`Enter customer lifetime value (${currency})`}
+                  type="number"
+                  value={formData.ltv}
+                  onChange={handleInputChange}
+                />
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary">
+                  {currencySymbol}
+                </span>
+              </div>
             </div>
 
             <div className="space-y-2">
@@ -258,25 +262,29 @@ export default function ReferralCommissionCalculator() {
                 <span className="text-lg text-white">
                   Gross Profit Margin (%)
                 </span>
-                <Tooltip content="Percentage of revenue left after deducting costs of goods sold">
-                  <HelpCircle className="h-4 w-4 text-white" />
+                <Tooltip 
+                  content="Percentage of revenue left after deducting costs of goods sold"
+                  position="right"
+                  className="bg-gray-800 text-white"
+                >
+                  <HelpCircle className="h-4 w-4 text-white cursor-help" />
                 </Tooltip>
               </div>
-              <Input
-                required
-                classNames={{
-                  input: "bg-white",
-                }}
-                color="default"
-                endContent={<span className="text-secondary">%</span>}
-                id="profitMargin"
-                name="profitMargin"
-                placeholder="Enter gross profit margin (%)"
-                type="number"
-                value={formData.profitMargin}
-                variant="flat"
-                onChange={handleInputChange}
-              />
+              <div className="relative">
+                <Input
+                  required
+                  className="bg-white pr-8 text-black"
+                  id="profitMargin"
+                  name="profitMargin"
+                  placeholder="Enter gross profit margin (%)"
+                  type="number"
+                  value={formData.profitMargin}
+                  onChange={handleInputChange}
+                />
+                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-secondary">
+                  %
+                </span>
+              </div>
             </div>
 
             <div className="space-y-2">
@@ -284,54 +292,58 @@ export default function ReferralCommissionCalculator() {
                 <span className="text-lg text-white">
                   Target Customer Acquisition Cost (CAC)
                 </span>
-                <Tooltip content="Target amount willing to spend to acquire a new customer">
-                  <HelpCircle className="h-4 w-4 text-white" />
+                <Tooltip 
+                  content="Target amount willing to spend to acquire a new customer"
+                  position="right"
+                  className="bg-gray-800 text-white"
+                >
+                  <HelpCircle className="h-4 w-4 text-white cursor-help" />
                 </Tooltip>
               </div>
-              <Input
-                required
-                color="default"
-                id="cac"
-                name="cac"
-                placeholder={`Enter target customer acquisition cost (${currency})`}
-                startContent={
-                  <span className="text-secondary">{currencySymbol}</span>
-                }
-                type="number"
-                value={formData.cac}
-                variant="flat"
-                onChange={handleInputChange}
-              />
+              <div className="relative">
+                <Input
+                  required
+                  className="bg-white pl-8 text-black"
+                  id="cac"
+                  name="cac"
+                  placeholder={`Enter target customer acquisition cost (${currency})`}
+                  type="number"
+                  value={formData.cac}
+                  onChange={handleInputChange}
+                />
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary">
+                  {currencySymbol}
+                </span>
+              </div>
             </div>
 
             <div className="space-y-2">
               <div className="flex items-center gap-2">
                 <span className="text-lg text-white">Optimize for</span>
-                <Tooltip content="Balance between profitability and scaling customer acquisition">
-                  <HelpCircle className="h-4 w-4 text-white" />
+                <Tooltip 
+                  content="Balance between profitability and scaling customer acquisition"
+                  position="right"
+                  className="bg-gray-800 text-white"
+                >
+                  <HelpCircle className="h-4 w-4 text-white cursor-help" />
                 </Tooltip>
               </div>
               <div className="space-y-4">
                 <Slider
                   aria-label="Optimize slider"
                   className="max-w-full"
-                  color="secondary"
                   defaultValue={50}
-                  marks={[
-                    { value: 0, label: "0" },
-                    { value: 100, label: "100" },
-                  ]}
-                  maxValue={100}
-                  minValue={0}
+                  min={0}
+                  max={100}
                   step={1}
                   value={formData.optimizeValue}
                   onChange={(value: number | number[]) =>
                     handleSliderChange(Array.isArray(value) ? value[0] : value)
                   }
                 />
-                <div className="flex justify-between text-lg text-white">
-                  <span>Profit</span>
-                  <span>Scale</span>
+                <div className="flex justify-between text-sm text-gray-500 mt-1">
+                  <span>0</span>
+                  <span>100</span>
                 </div>
               </div>
             </div>
@@ -340,40 +352,72 @@ export default function ReferralCommissionCalculator() {
               <span className="text-lg text-white mr-2">Referral Discount</span>
               <Tabs
                 aria-label="Discount Type"
-                color="secondary"
-                variant="solid"
+                className="w-full"
               >
-                <Tab key="percentage" title="Percentage (%)">
-                  <div className="pt-2">
-                    <Input
-                      required
-                      color="default"
-                      endContent={<span className="text-secondary">%</span>}
-                      name="discountValue"
-                      placeholder="Enter referral discount percentage"
-                      value={formData.discountValue}
-                      variant="flat"
-                      onChange={handleInputChange}
-                    />
-                  </div>
-                </Tab>
-                <Tab key="fixed" title="Fixed Amount">
-                  <div className="pt-2">
-                    <Input
-                      required
-                      color="default"
-                      name="discountValue"
-                      placeholder={`Enter fixed discount amount (${currency})`}
-                      startContent={
-                        <span className="text-secondary">{currencySymbol}</span>
-                      }
-                      type="number"
-                      value={formData.discountValue}
-                      variant="flat"
-                      onChange={handleInputChange}
-                    />
-                  </div>
-                </Tab>
+                <div className="flex border-b border-gray-200">
+                  <button
+                    className={`px-4 py-2 ${
+                      formData.discountType === "percentage"
+                        ? "border-b-2 border-primary"
+                        : ""
+                    }`}
+                    onClick={() =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        discountType: "percentage",
+                      }))
+                    }
+                  >
+                    Percentage (%)
+                  </button>
+                  <button
+                    className={`px-4 py-2 ${
+                      formData.discountType === "fixed"
+                        ? "border-b-2 border-primary"
+                        : ""
+                    }`}
+                    onClick={() =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        discountType: "fixed",
+                      }))
+                    }
+                  >
+                    Fixed Amount
+                  </button>
+                </div>
+                <div className="pt-2">
+                  {formData.discountType === "percentage" ? (
+                    <div className="relative">
+                      <Input
+                        required
+                        className="bg-white pr-8 text-black"
+                        name="discountValue"
+                        placeholder="Enter referral discount percentage"
+                        value={formData.discountValue}
+                        onChange={handleInputChange}
+                      />
+                      <span className="absolute right-3 top-1/2 -translate-y-1/2 text-secondary">
+                        %
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="relative">
+                      <Input
+                        required
+                        className="bg-white pl-8 text-black"
+                        name="discountValue"
+                        placeholder={`Enter fixed discount amount (${currency})`}
+                        type="number"
+                        value={formData.discountValue}
+                        onChange={handleInputChange}
+                      />
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary">
+                        {currencySymbol}
+                      </span>
+                    </div>
+                  )}
+                </div>
               </Tabs>
             </div>
           </div>
@@ -444,7 +488,7 @@ export default function ReferralCommissionCalculator() {
             </ul>
           </div>
         </form>
-      </CardBody>
+      </CardContent>
     </Card>
   );
 }

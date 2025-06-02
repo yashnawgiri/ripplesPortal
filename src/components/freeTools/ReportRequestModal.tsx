@@ -5,7 +5,7 @@ import { X, CheckCircle } from "lucide-react";
 
 import { submitReportRequest } from "../action/report";
 
-import { Label } from "@/components/ugc-landing/ui/label";
+import { Label } from "@/components/ui/label";
 import {
   Dialog,
   DialogContent,
@@ -13,9 +13,9 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ugc-landing/ui/dialog";
-import { Input } from "@/components/ugc-landing/ui/input";
-import { Button } from "@/components/ugc-landing/ui/button";
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/Input";
+import { Button } from "@/components/ui/Button";
 
 interface ReportRequestModalProps {
   isOpen: boolean;
@@ -127,7 +127,7 @@ export function ReportRequestModal({
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={handleClose}>
+    <Dialog isOpen={isOpen} onOpenChange={handleClose}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="text-xl font-bold">

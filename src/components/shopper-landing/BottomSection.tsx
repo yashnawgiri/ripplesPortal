@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-import { Image } from "@nextui-org/image";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
@@ -94,14 +93,12 @@ function BottomSection() {
           variants={imageVariants}
         >
           <div className="mt-8">
-            <Image
+            <img
               alt="GoRipples dashboard interface showcasing analytics and features - mobile view"
               aria-label="GoRipples dashboard interface showcasing analytics and features - mobile view"
               className="blur-load"
-              disableSkeleton={true}
               height={300}
               loading="lazy"
-              radius="lg"
               src={bottomSectionImage}
               srcSet={`${bottomSectionImage} 1x, ${bottomSectionImage.replace(".png", ".webp")} 2x`}
               style={{
@@ -144,13 +141,12 @@ function BottomSection() {
         variants={imageVariants}
       >
         <div className="mt-8">
-          <Image
+          <img
             alt="GoRipples dashboard interface showcasing analytics and features"
             aria-label="GoRipples dashboard interface showcasing analytics and features"
             className="my-4"
             height={1200}
             loading="lazy"
-            radius="lg"
             src={bottomSectionImage}
             style={{
               objectFit: "contain",

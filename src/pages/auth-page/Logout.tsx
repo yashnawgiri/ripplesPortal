@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Spinner } from "@nextui-org/spinner";
+import { Spinner } from "@/components/ui/Spinner";
 
 function Logout() {
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Button } from "@/components/ugc-landing/ui/button";
+import { Button } from "@/components/ui/Button";
 import { cn } from "@/utils/utils";
 
 interface EnhancedButtonProps extends React.ComponentProps<typeof Button> {

@@ -1,7 +1,7 @@
 import React from "react";
 
 import "@/styles/auth/emailSignUp.css";
-import { Button } from "@nextui-org/button";
+import { Button } from "@/components/ui/Button";
 import { Link } from "react-router-dom";
 
 import { siteConfig } from "@/config/site";

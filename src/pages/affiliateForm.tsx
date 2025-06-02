@@ -237,7 +237,7 @@ export function AffiliateGenerator() {
         title: "Error",
         description:
           error.response?.data?.message || "Failed to generate affiliate link",
-        variant: "destructive",
+        type: "error",
       });
     }
   };

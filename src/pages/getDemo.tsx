@@ -1,5 +1,3 @@
-// import FormInput from "@/components/FormInput";
-// import Stepper from "@/components/Stepper";
 import { useState } from "react";
 import { InlineWidget } from "react-calendly";
 

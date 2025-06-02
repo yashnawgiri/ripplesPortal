@@ -1,6 +1,6 @@
-import { Button } from "@nextui-org/button";
-import { Card, CardBody, CardHeader } from "@nextui-org/card";
-import { Input } from "@nextui-org/input";
+import { Button } from "@/components/ui/Button";
+import { Card, CardContent, CardHeader } from "@/components/ui/Card";
+import { Input } from "@/components/ui/Input";
 
 export default function ComingSoon() {
   return (
@@ -14,7 +14,7 @@ export default function ComingSoon() {
             We&apos;re working hard to bring you something amazing
           </p>
         </CardHeader>
-        <CardBody className="flex flex-col gap-2">
+        <CardContent className="flex flex-col gap-2">
           {/* Email Subscription */}
           <div className="flex flex-col gap-4">
             <h2 className="text-xl font-semibold text-center">
@@ -24,7 +24,6 @@ export default function ComingSoon() {
               <Input
                 className="flex-1"
                 placeholder="Enter your email"
-                size="lg"
                 type="email"
               />
               <Button
@@ -37,7 +36,7 @@ export default function ComingSoon() {
               </Button>
             </form>
           </div>
-        </CardBody>
+        </CardContent>
       </Card>
     </div>
   );

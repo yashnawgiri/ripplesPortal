@@ -10,28 +10,12 @@ import {
   IndianRupee,
 } from "lucide-react";
 
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ugc-landing/ui/card";
-import { Label } from "@/components/ugc-landing/ui/label";
-import { Slider } from "@/components/ugc-landing/ui/slider";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ugc-landing/ui/tabs";
-import { Switch } from "@/components/ugc-landing/ui/switch";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ugc-landing/ui/select";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
+import { Label } from "@/components/ui/label";
+import { Slider } from "@/components/ui/Slider";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Switch } from "@/components/ui/Switch";
+import { Select } from "@/components/ui/Select";
 import {
   Table,
   TableBody,
@@ -39,13 +23,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ugc-landing/ui/table";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ugc-landing/ui/tooltip";
+} from "@/components/ui/Table";
+import { Tooltip, TooltipProvider } from "@/components/ui/Tooltip";
 
 interface SimulationState {
   contentQuality: "basic" | "premium" | "viral";
@@ -110,22 +89,22 @@ export function RewardsSimulator() {
     const cashbackTier =
       CASHBACK_TIERS.find(
         (tier) =>
-          state.followerCount >= tier.min && state.followerCount <= tier.max,
+          state.followerCount >= tier.min && state.followerCount <= tier.max
       ) || CASHBACK_TIERS[0];
     const cashbackAmount =
       (state.purchaseAmount * cashbackTier.percentage) / 100;
 
     const followerMultiplier = Math.min(
       Math.max((state.followerCount - 5000) / 5000 + 1, 1),
-      8,
+      8
     );
     const engagementMultiplier = Math.min(
       Math.max(state.engagementRate / 2, 1),
-      3,
+      3
     );
     const totalMultiplier = Math.min(
       followerMultiplier * engagementMultiplier,
-      15,
+      15
     );
 
     const rewards = baseRewards[state.contentQuality];
@@ -151,16 +130,8 @@ export function RewardsSimulator() {
               <CardTitle className="text-white text-xl sm:text-2xl">
                 Discover your rewards strategy
               </CardTitle>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Info className="h-4 w-4 text-white/60" />
-                </TooltipTrigger>
-                <TooltipContent className="max-w-[300px]">
-                  <p>
-                    Simulate different reward strategies based on content
-                    quality, audience size, and engagement rates
-                  </p>
-                </TooltipContent>
+              <Tooltip content="Simulate different reward strategies based on content quality, audience size, and engagement rates">
+                <Info className="h-4 w-4 text-white/60" />
               </Tooltip>
             </div>
             <div className="flex items-center gap-2 w-full sm:w-auto">
@@ -200,13 +171,13 @@ export function RewardsSimulator() {
           <Tabs className="space-y-4" defaultValue="settings">
             <TabsList className="grid w-full grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 bg-transparent">
               <TabsTrigger
-                className="data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:border-white/20 hover:bg-white/5 transition-all px-2 py-2 sm:py-3 rounded-lg border border-white/10 hover:border-white/20 text-sm"
+                className="data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:border-white/20 transition-all px-2 py-2 sm:py-3 rounded-lg border border-white/10 hover:border-white/20 text-sm"
                 value="settings"
               >
                 Type of creators you wish to engage
               </TabsTrigger>
               <TabsTrigger
-                className="data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:border-white/20 hover:bg-white/5 transition-all px-2 py-2 sm:py-3 rounded-lg border border-white/10 hover:border-white/20 text-sm"
+                className="data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:border-white/20 transition-all px-2 py-2 sm:py-3 rounded-lg border border-white/10 hover:border-white/20 text-sm"
                 value="comparison"
               >
                 Rewards Strategy
@@ -219,49 +190,50 @@ export function RewardsSimulator() {
                 <div className="space-y-4">
                   <div className="flex items-center gap-2">
                     <Label className="text-white">Content Quality</Label>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Info className="h-4 w-4 text-white/60" />
-                      </TooltipTrigger>
-                      <TooltipContent className="max-w-[300px]">
-                        <p>Basic: Simple photos or short reviews</p>
-                        <p>Premium: High-quality photos or detailed reviews</p>
-                        <p>
-                          Viral: Professional content with high share potential
-                        </p>
-                      </TooltipContent>
+                    <Tooltip
+                      content={
+                        <>
+                          <p>Basic: Simple photos or short reviews</p>
+                          <p>
+                            Premium: High-quality photos or detailed reviews
+                          </p>
+                          <p>
+                            Viral: Professional content with high share
+                            potential
+                          </p>
+                        </>
+                      }
+                    >
+                      <Info className="h-4 w-4 text-white/60" />
                     </Tooltip>
                   </div>
                   <Select
                     value={state.contentQuality}
-                    onValueChange={(value: "basic" | "premium" | "viral") =>
-                      setState((prev) => ({ ...prev, contentQuality: value }))
-                    }
-                  >
-                    <SelectTrigger className="bg-white/5 border-white/10 text-white w-full">
-                      <SelectValue placeholder="Select quality" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="basic">Basic Content</SelectItem>
-                      <SelectItem value="premium">Premium Content</SelectItem>
-                      <SelectItem value="viral">Viral Potential</SelectItem>
-                    </SelectContent>
-                  </Select>
+                    options={[
+                      { value: "basic", label: "Basic Content" },
+                      { value: "premium", label: "Premium Content" },
+                      { value: "viral", label: "Viral Potential" },
+                    ]}
+                    placeholder="Select quality"
+                    onChange={(e) => {
+                      const value = e.target.value as
+                        | "basic"
+                        | "premium"
+                        | "viral";
+                      setState((prev) => ({
+                        ...prev,
+                        contentQuality: value,
+                      }));
+                    }}
+                    className="bg-white/5 border-white/10 text-white w-full"
+                  />
                 </div>
 
                 <div className="space-y-4">
                   <div className="flex items-center gap-2">
                     <Label className="text-white">Follower Count</Label>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Info className="h-4 w-4 text-white/60" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>
-                          Average number of followers per creator. Higher
-                          follower counts lead to increased cashback percentages
-                        </p>
-                      </TooltipContent>
+                    <Tooltip content="Average number of followers per creator. Higher follower counts lead to increased cashback percentages">
+                      <Info className="h-4 w-4 text-white/60" />
                     </Tooltip>
                   </div>
                   <div className="px-2">
@@ -270,8 +242,8 @@ export function RewardsSimulator() {
                       max={100000}
                       min={1000}
                       step={100}
-                      value={[state.followerCount]}
-                      onValueChange={([value]) =>
+                      value={state.followerCount}
+                      onChange={(value: number) =>
                         setState((prev) => ({ ...prev, followerCount: value }))
                       }
                     />
@@ -284,16 +256,8 @@ export function RewardsSimulator() {
                 <div className="space-y-4">
                   <div className="flex items-center gap-2">
                     <Label className="text-white">Purchase Amount</Label>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Info className="h-4 w-4 text-white/60" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>
-                          Average purchase amount for calculating cashback
-                          rewards
-                        </p>
-                      </TooltipContent>
+                    <Tooltip content="Average purchase amount for calculating cashback rewards">
+                      <Info className="h-4 w-4 text-white/60" />
                     </Tooltip>
                   </div>
                   <div className="px-2">
@@ -302,8 +266,8 @@ export function RewardsSimulator() {
                       max={1000}
                       min={6.25}
                       step={1}
-                      value={[state.purchaseAmount]}
-                      onValueChange={([value]) =>
+                      value={state.purchaseAmount}
+                      onChange={(value: number) =>
                         setState((prev) => ({ ...prev, purchaseAmount: value }))
                       }
                     />
@@ -318,17 +282,8 @@ export function RewardsSimulator() {
                     <Label className="text-white">
                       Average Engagement Rate (%)
                     </Label>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Info className="h-4 w-4 text-white/60" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>
-                          Percentage of followers who interact with content.
-                          Industry average is 1-3%. Higher rates indicate more
-                          active audiences
-                        </p>
-                      </TooltipContent>
+                    <Tooltip content="Percentage of followers who interact with content. Industry average is 1-3%. Higher rates indicate more active audiences">
+                      <Info className="h-4 w-4 text-white/60" />
                     </Tooltip>
                   </div>
                   <div className="px-2">
@@ -337,8 +292,8 @@ export function RewardsSimulator() {
                       max={10}
                       min={1}
                       step={0.5}
-                      value={[state.engagementRate]}
-                      onValueChange={([value]) =>
+                      value={state.engagementRate}
+                      onChange={(value: number) =>
                         setState((prev) => ({ ...prev, engagementRate: value }))
                       }
                     />
@@ -357,25 +312,15 @@ export function RewardsSimulator() {
                     <h3 className="text-white font-semibold">
                       Reward Strategy Breakdown
                     </h3>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Info className="h-4 w-4 text-white/60" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>
-                          Toggle different reward types and see their estimated
-                          values
-                        </p>
-                      </TooltipContent>
+                    <Tooltip content="Toggle different reward types and see their estimated values">
+                      <Info className="h-4 w-4 text-white/60" />
                     </Tooltip>
                   </div>
                   <div className="grid grid-cols-1 xs:grid-cols-2 sm:flex sm:items-center gap-2 sm:gap-4 w-full sm:w-auto">
                     <div className="flex items-center gap-2">
                       <Switch
                         checked={state.showCashRewards}
-                        className={`${state.showCashRewards ? "bg-primary" : "bg-gray-500"}`}
-                        id="cash-rewards"
-                        onCheckedChange={(checked) =>
+                        onCheckedChange={(checked: boolean) =>
                           setState((prev) => ({
                             ...prev,
                             showCashRewards: checked,
@@ -384,7 +329,7 @@ export function RewardsSimulator() {
                       />
                       <Label
                         className="text-white whitespace-nowrap"
-                        htmlFor="cash-rewards"
+                        htmlFor={`cash-rewards-${state.showCashRewards}`}
                       >
                         Cash Rewards
                       </Label>
@@ -392,8 +337,8 @@ export function RewardsSimulator() {
                     <div className="flex items-center gap-2">
                       <Switch
                         checked={state.showStoreCredit}
-                        id="store-credit"
-                        onCheckedChange={(checked) =>
+                        key={`store-credit-${state.showStoreCredit}`}
+                        onCheckedChange={(checked: boolean) =>
                           setState((prev) => ({
                             ...prev,
                             showStoreCredit: checked,
@@ -402,7 +347,7 @@ export function RewardsSimulator() {
                       />
                       <Label
                         className="text-white whitespace-nowrap"
-                        htmlFor="store-credit"
+                        htmlFor={`store-credit-${state.showStoreCredit}`}
                       >
                         Store Credit
                       </Label>
@@ -410,8 +355,8 @@ export function RewardsSimulator() {
                     <div className="flex items-center gap-2">
                       <Switch
                         checked={state.showProductRewards}
-                        id="product-rewards"
-                        onCheckedChange={(checked) =>
+                        key={`product-rewards-${state.showProductRewards}`}
+                        onCheckedChange={(checked: boolean) =>
                           setState((prev) => ({
                             ...prev,
                             showProductRewards: checked,
@@ -420,7 +365,7 @@ export function RewardsSimulator() {
                       />
                       <Label
                         className="text-white whitespace-nowrap"
-                        htmlFor="product-rewards"
+                        htmlFor={`product-rewards-${state.showProductRewards}`}
                       >
                         Product Rewards
                       </Label>
@@ -452,16 +397,8 @@ export function RewardsSimulator() {
                               <span>
                                 Cashback ({rewards.cashbackPercentage}%)
                               </span>
-                              <Tooltip>
-                                <TooltipTrigger asChild>
-                                  <Info className="h-4 w-4 text-white/40 hover:text-white/60 transition-colors cursor-help" />
-                                </TooltipTrigger>
-                                <TooltipContent>
-                                  <p>
-                                    Percentage-based cashback that scales with
-                                    follower count
-                                  </p>
-                                </TooltipContent>
+                              <Tooltip content="Percentage-based cashback that scales with follower count">
+                                <Info className="h-4 w-4 text-white/40 hover:text-white/60 transition-colors cursor-help" />
                               </Tooltip>
                             </div>
                           </TableCell>
@@ -478,13 +415,8 @@ export function RewardsSimulator() {
                               <div className="flex items-center gap-2">
                                 <Wallet className="h-4 w-4 text-blue-400" />
                                 <span>Cash Rewards</span>
-                                <Tooltip>
-                                  <TooltipTrigger asChild>
-                                    <Info className="h-4 w-4 text-white/40 hover:text-white/60 transition-colors cursor-help" />
-                                  </TooltipTrigger>
-                                  <TooltipContent>
-                                    <p>Direct cash payments to creators</p>
-                                  </TooltipContent>
+                                <Tooltip content="Direct cash payments to creators">
+                                  <Info className="h-4 w-4 text-white/40 hover:text-white/60 transition-colors cursor-help" />
                                 </Tooltip>
                               </div>
                             </TableCell>
@@ -502,16 +434,8 @@ export function RewardsSimulator() {
                               <div className="flex items-center gap-2">
                                 <CreditCard className="h-4 w-4 text-purple-400" />
                                 <span>Store Credit</span>
-                                <Tooltip>
-                                  <TooltipTrigger asChild>
-                                    <Info className="h-4 w-4 text-white/40 hover:text-white/60 transition-colors cursor-help" />
-                                  </TooltipTrigger>
-                                  <TooltipContent>
-                                    <p>
-                                      Store credit offers higher value than cash
-                                      and encourages repeat purchases
-                                    </p>
-                                  </TooltipContent>
+                                <Tooltip content="Store credit offers higher value than cash and encourages repeat purchases">
+                                  <Info className="h-4 w-4 text-white/40 hover:text-white/60 transition-colors cursor-help" />
                                 </Tooltip>
                               </div>
                             </TableCell>
@@ -529,16 +453,8 @@ export function RewardsSimulator() {
                               <div className="flex items-center gap-2">
                                 <Gift className="h-4 w-4 text-pink-400" />
                                 <span>Product Rewards</span>
-                                <Tooltip>
-                                  <TooltipTrigger asChild>
-                                    <Info className="h-4 w-4 text-white/40 hover:text-white/60 transition-colors cursor-help" />
-                                  </TooltipTrigger>
-                                  <TooltipContent>
-                                    <p>
-                                      Physical products can create authentic
-                                      brand advocates
-                                    </p>
-                                  </TooltipContent>
+                                <Tooltip content="Physical products can create authentic brand advocates">
+                                  <Info className="h-4 w-4 text-white/40 hover:text-white/60 transition-colors cursor-help" />
                                 </Tooltip>
                               </div>
                             </TableCell>

@@ -1,6 +1,8 @@
 import { SiNike, SiAdidas, SiPuma } from "react-icons/si";
 import { motion } from "framer-motion";
-import { Button, Card, Progress } from "@nextui-org/react";
+import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
+import { Progress } from "@/components/ui/Progress";
 
 import { BrandStats } from "@/services/apiService";
 import { copyToClipboard, formatRewardString } from "@/utils/utils";

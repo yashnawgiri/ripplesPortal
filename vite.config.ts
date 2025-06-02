@@ -39,9 +39,14 @@ export default defineConfig({
       output: {
         manualChunks: {
           "react-vendor": ["react", "react-dom"],
-          "ui-vendor": ["@nextui-org/react"],
-          "motion-vendor": ["framer-motion"],
-          router: ["react-router-dom"],
+          "ui-vendor": ["framer-motion"],
+          "chart-vendor": ["recharts"],
+          "form-vendor": ["react-hook-form", "@hookform/resolvers", "zod"],
+          "date-vendor": ["date-fns"],
+          "router-vendor": ["react-router-dom"],
+          "state-vendor": ["recoil"],
+          "toast-vendor": ["react-hot-toast", "sonner"],
+          "swiper-vendor": ["swiper"],
         },
       },
     },
@@ -66,7 +71,7 @@ export default defineConfig({
     target: ["es2020", "edge88", "firefox78", "chrome87", "safari14"],
   },
   optimizeDeps: {
-    include: ["react", "react-dom", "framer-motion", "@nextui-org/react"],
+    include: ["react", "react-dom", "framer-motion"],
     exclude: [],
   },
   server: {

@@ -1,18 +1,17 @@
-import type {
-  ToastActionElement,
-  ToastProps,
-} from "@/components/ugc-landing/ui/toast";
-
 import * as React from "react";
 
-const TOAST_LIMIT = 1;
-const TOAST_REMOVE_DELAY = 1000000;
+const TOAST_LIMIT = 5;
+const TOAST_REMOVE_DELAY = 5000;
 
-type ToasterToast = ToastProps & {
+type ToastType = "success" | "error" | "info" | "warning";
+
+type ToasterToast = {
   id: string;
-  title?: React.ReactNode;
-  description?: React.ReactNode;
-  action?: ToastActionElement;
+  title?: string;
+  description?: string;
+  type?: ToastType;
+  duration?: number;
+  onClose?: () => void;
 };
 
 const actionTypes = {
@@ -26,7 +25,6 @@ let count = 0;
 
 function genId() {
   count = (count + 1) % Number.MAX_SAFE_INTEGER;
-
   return count.toString();
 }
 
@@ -43,11 +41,11 @@ type Action =
     }
   | {
       type: ActionType["DISMISS_TOAST"];
-      toastId?: ToasterToast["id"];
+      toastId?: string;
     }
   | {
       type: ActionType["REMOVE_TOAST"];
-      toastId?: ToasterToast["id"];
+      toastId?: string;
     };
 
 interface State {
@@ -84,15 +82,13 @@ export const reducer = (state: State, action: Action): State => {
       return {
         ...state,
         toasts: state.toasts.map((t) =>
-          t.id === action.toast.id ? { ...t, ...action.toast } : t,
+          t.id === action.toast.id ? { ...t, ...action.toast } : t
         ),
       };
 
     case "DISMISS_TOAST": {
       const { toastId } = action;
 
-      // ! Side effects ! - This could be extracted into a dismissToast() action,
-      // but I'll keep it here for simplicity
       if (toastId) {
         addToRemoveQueue(toastId);
       } else {
@@ -107,9 +103,12 @@ export const reducer = (state: State, action: Action): State => {
           t.id === toastId || toastId === undefined
             ? {
                 ...t,
-                open: false,
+                onClose: () => {
+                  t.onClose?.();
+                  dispatch({ type: "REMOVE_TOAST", toastId: t.id });
+                },
               }
-            : t,
+            : t
         ),
       };
     }
@@ -120,7 +119,6 @@ export const reducer = (state: State, action: Action): State => {
           toasts: [],
         };
       }
-
       return {
         ...state,
         toasts: state.toasts.filter((t) => t.id !== action.toastId),
@@ -156,9 +154,9 @@ function toast({ ...props }: Toast) {
     toast: {
       ...props,
       id,
-      open: true,
-      onOpenChange: (open) => {
-        if (!open) dismiss();
+      onClose: () => {
+        props.onClose?.();
+        dismiss();
       },
     },
   });
@@ -175,10 +173,8 @@ function useToast() {
 
   React.useEffect(() => {
     listeners.push(setState);
-
     return () => {
       const index = listeners.indexOf(setState);
-
       if (index > -1) {
         listeners.splice(index, 1);
       }

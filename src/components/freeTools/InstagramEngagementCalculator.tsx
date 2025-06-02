@@ -18,10 +18,10 @@ import { fetchInstagramProfile } from "../../components/action/instagram";
 
 import { ReportRequestModal } from "./ReportRequestModal";
 
-import { Input } from "@/components/ugc-landing/ui/input";
-import { Button } from "@/components/ugc-landing/ui/button";
-import { Card, CardContent } from "@/components/ugc-landing/ui/card";
-import { Alert, AlertDescription } from "@/components/ugc-landing/ui/alert";
+import { Input } from "@/components/ui/Input";
+import { Button } from "@/components/ui/Button";
+import { Card, CardContent } from "@/components/ui/Card";
+import { Alert, AlertDescription } from "@/components/ui/Alert";
 
 export function InstagramEngagementCalculator() {
   const [username, setUsername] = useState("");
@@ -223,8 +223,8 @@ Analyze your own profile at: https://free-tools.goripples.com/tools/instagram-en
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <Alert className="mt-6 bg-destructive/20 border border-destructive/30 backdrop-blur-xl text-white">
-                <FaExclamationTriangle className="h-5 w-5 text-destructive" />
+              <Alert variant="destructive" className="mt-6 bg-destructive/20 border border-destructive/30 backdrop-blur-xl text-white">
+                <FaExclamationTriangle className="h-5 w-5" />
                 <AlertDescription className="font-medium">
                   {error}
                 </AlertDescription>

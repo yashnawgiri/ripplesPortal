@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Spinner } from "@nextui-org/spinner";
+import { Spinner } from "@/components/ui/Spinner";
 
 import { checkValueByType, toCamelCase } from "../utils/utils";
 
@@ -72,7 +72,7 @@ const FormInput: React.FC<FormInputProps> = ({
     >
       {loader ? (
         <div aria-label="Loading" className="loader-comp" role="status">
-          <Spinner color="default" labelColor="foreground" />
+          <Spinner color="default" />
         </div>
       ) : null}
       {Object.keys(values).map((key) => (
