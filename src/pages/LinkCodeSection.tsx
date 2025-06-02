@@ -1,12 +1,13 @@
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
-import { Image } from "@nextui-org/image";
 
 import { linkCode } from "@/data/landing.json";
-import linkModalImg from "@/assets/images/linkModal.png";
-import linkImg from "@/assets/images/link.webp";
-import editShareImg from "@/assets/images/editShare.webp";
+// import linkModalImg from "@/assets/images/linkModal.png";
+// import linkImg from "@/assets/images/link.webp";
+// import editShareImg from "@/assets/images/editShare.webp";
+
+import { imageUrls } from "@/utils/imageUrl";
 
 function LinkCodeSection() {
   const [ref, inView] = useInView({
@@ -61,20 +62,18 @@ function LinkCodeSection() {
         variants={variants}
       >
         <div className="flex justify-between w-96">
-          <Image
-            disableSkeleton
+          <img
             alt="Edit and share options interface"
             className="object-contain"
             loading="lazy"
-            src={editShareImg}
+            src={imageUrls.editShare}
             style={{ willChange: "transform" }}
             width={200}
           />
-          <Image
-            disableSkeleton
+          <img
             alt="Link sharing interface"
             loading="lazy"
-            src={linkImg}
+            src={imageUrls.link}
             style={{ willChange: "transform" }}
             width={200}
           />
@@ -91,12 +90,11 @@ function LinkCodeSection() {
           visible: { opacity: 1, scale: 1 },
         }}
       >
-        <Image
-          disableSkeleton
+        <img
           alt="Link sharing modal with customization options"
           className="max-w-full rounded-lg shadow-lg"
           loading="lazy"
-          src={linkModalImg}
+          src={imageUrls.linkModal}
           style={{ willChange: "transform" }}
           width={600}
         />

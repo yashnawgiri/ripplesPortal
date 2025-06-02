@@ -16,12 +16,10 @@ import {
 } from "lucide-react";
 import { Suspense } from "react";
 
-import { Card, CardContent } from "@/components/ugc-landing/ui/card";
+import { Card, CardContent } from "@/components/ui/Card";
 import { HolographicGradient } from "@/components/ugc-landing/holographic-gradient";
 import { ROICalculator } from "@/components/ugc-landing/roi-calculator";
-// import { BrandsSection } from "@/components/ugc-landing/brands-section"
 import { ParticleBackground } from "@/components/ugc-landing/particle-background";
-// import { Testimonials } from "@/components/ugc-landing/testimonials"
 import { Typewriter } from "@/components/ugc-landing/typewriter";
 import { ScrollProgress } from "@/components/ugc-landing/scroll-progress";
 import EnhancedButton from "@/components/ugc-landing/enhanced-button";
@@ -33,18 +31,20 @@ import {
   TableHeader,
   TableHead,
   TableRow,
-} from "@/components/ugc-landing/ui/table";
+} from "@/components/ui/Table";
 import { MobileCTA } from "@/components/ugc-landing/mobile-cta";
-import { Spinner } from "@/components/ugc-landing/ui/spinner";
+import { Spinner } from "@/components/ui/Spinner";
 import { ScrollReveal } from "@/components/ugc-landing/scroll-reveal";
 import { StaggerReveal } from "@/components/ugc-landing/stagger-reveal";
-import flyer from "@/assets/images/flayer2.png";
-import promoImg from "@/assets/images/promoImg.png";
-import rupeeImg from "@/assets/images/rupees.webp";
-import goldCoinImg from "@/assets/images/benefitsSectionImage.png";
-import coinImg from "@/assets/images/coins.webp";
+// import flyer from "@/assets/images/flayer2.png";
+// import promoImg from "@/assets/images/promoImg.png";
+// import rupeeImg from "@/assets/images/rupees.webp";
+// import goldCoinImg from "@/assets/images/benefitsSectionImage.png";
+// import coinImg from "@/assets/images/coins.webp";
 import { siteConfig } from "@/config/site";
 import Navbar from "@/components/navbar";
+import { imageUrls } from "@/utils/imageUrl";
+
 
 const getImpactColor = (impact: string) => {
   switch (impact) {
@@ -79,11 +79,8 @@ export default function UGCLanding() {
     <div className="min-h-screen mt-5 bg-black text-white">
       <ParticleBackground />
       <ScrollProgress />
-      {/* <SiteHeader /> */}
       <Navbar />
-      {/* <FloatingButtons /> */}
       <MobileCTA />
-
       <Suspense fallback={<LoadingSection className="min-h-screen" />}>
         {/* Hero Section */}
         <ScrollReveal>
@@ -118,13 +115,13 @@ export default function UGCLanding() {
                     </p>
                   </div>
                   <EnhancedButton
-                    className="w-fit bg-white text-black hover:bg-white/90 group"
+                    className="w-fit bg-white text-black"
                     glowColor="rgba(255, 255, 255, 0.3)"
                     size="lg"
                     onClick={openCalendly}
                   >
                     Book Demo Today
-                    <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="h-4 w-4 ml-2" />
                   </EnhancedButton>
                   <p className="text-white/80 text-lg mt-4 max-w-[600px] self-start">
                     The Ripples Tech Stack & Influencer Network expands your
@@ -137,7 +134,7 @@ export default function UGCLanding() {
                       alt="GoRipples dashboard interface showcasing analytics and features - mobile view"
                       className="transition-transform duration-300 ease-in-out transform rounded-2xl scale-110 object-contain"
                       loading="eager"
-                      src={flyer}
+                      src={imageUrls.flayer2}
                     />
                   </div>
                 </div>
@@ -252,13 +249,13 @@ export default function UGCLanding() {
             <img
               alt="Icon"
               className="w-24 h-24 md:w-40 md:h-40 fixed left-10 top- -translate-y-1/2"
-              src={rupeeImg}
+              src={imageUrls.rupees}
             />
             {/* Fixed Image (Bottom Right) */}
             <img
               alt="ROI Growth"
               className="w-24 h-24 md:w-40 md:h-40 absolute bottom-10 right-10 hidden md:block"
-              src={coinImg}
+              src={imageUrls.coins}
             />
             <div className="container px-4 md:px-6 relative flex flex-col items-center text-center">
               {/* Title & Subtitle */}
@@ -320,7 +317,7 @@ export default function UGCLanding() {
                 <img
                   alt="Rewards Simulation"
                   className="w-[600px] h-auto object-cover"
-                  src={goldCoinImg}
+                  src={imageUrls.benefitsSectionImage}
                 />
               </div>
             </div>
@@ -424,52 +421,6 @@ export default function UGCLanding() {
           </div>
         </section>
       </Suspense>
-
-      {/* <Suspense fallback={<LoadingSection />}> */}
-      {/* Brands Section */}
-      {/* <ScrollReveal> */}
-      {/* <section id="brands" className="py-24 md:py-32 relative overflow-hidden"> */}
-      {/* <HolographicGradient className="absolute inset-0 opacity-20" /> */}
-      {/* <div className="container px-4 md:px-6 relative"> */}
-      {/* <BrandsSection /> */}
-      {/* </div> */}
-      {/* </section> */}
-      {/* </ScrollReveal> */}
-      {/* </Suspense>  */}
-
-      {/* <Suspense fallback={<LoadingSection />}> */}
-      {/* Testimonials Section */}
-      {/* <ScrollReveal> */}
-      {/* <section id="testimonials" className="py-24 md:py-32 relative overflow-hidden"> */}
-      {/* <div className="container px-4 sm:px-6 md:px-8 relative"> */}
-      {/* {" "} */}
-      {/* Update 1 */}
-      {/* <ScrollReveal> */}
-      {/* <div className="text-center space-y-3 sm:space-y-4 sm:mb-4"> */}
-      {/* {" "} */}
-      {/* Update 2 */}
-      {/* <span className="px-3 py-1 text-sm font-medium text-white/60 border border-white/10 rounded-full"> */}
-      {/* Client Testimonials */}
-      {/* </span> */}
-      {/* <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600"> */}
-      {/* What Our Clients Say */}
-      {/* </h2><p className="text-center mx-auto text-white/60 text-lg"> */}
-      {/* Hear from our satisfied clients and see how Ripples has helped them achieve their goals. */}
-      {/* </p> */}
-      {/* </div> */}
-      {/* </ScrollReveal> */}
-      {/* <StaggerReveal */}
-      {/* className="w-full min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8" */}
-      {/* stagger={100} */}
-      {/* > */}
-      {/* <Testimonials /> */}
-      {/* </StaggerReveal> */}
-
-      {/* </div> */}
-      {/* </section> */}
-      {/* </ScrollReveal> */}
-      {/* </Suspense> */}
-
       <Suspense fallback={<LoadingSection />}>
         {/* Rewards Strategy Comparison Section */}
         <ScrollReveal>
@@ -680,7 +631,7 @@ export default function UGCLanding() {
           <img
             alt="Promotional illustration showcasing UGC strategy benefits"
             className="hidden lg:block max-w-xl object-contain"
-            src={promoImg}
+            src={imageUrls.promoImg}
           />
         </div>
       </section>

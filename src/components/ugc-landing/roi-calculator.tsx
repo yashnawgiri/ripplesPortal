@@ -6,8 +6,9 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from "@/components/ugc-landing/ui/card";
-import EnhancedInput from "@/components/ugc-landing/enhanced-input";
+} from "@/components/ui/Card";
+import { Input } from "@/components/ui/Input";
+import { Label } from "@/components/ui/label";
 
 interface CalculatorState {
   monthlyOrders: number;
@@ -87,47 +88,56 @@ export function ROICalculator() {
       <CardContent>
         <div className="grid gap-6">
           <div className="grid gap-4 md:grid-cols-3">
-            <EnhancedInput
-              id="monthlyOrders"
-              label="Monthly Orders"
-              type="number"
-              value={state.monthlyOrders}
-              onChange={(e) =>
-                handleInputChange("monthlyOrders", e.target.value)
-              }
-            />
-            <EnhancedInput
-              id="avgOrderValue"
-              label="Average Order Value ($)"
-              type="number"
-              value={state.avgOrderValue}
-              onChange={(e) =>
-                handleInputChange("avgOrderValue", e.target.value)
-              }
-            />
-            <EnhancedInput
-              id="cashbackPercent"
-              label="Cashback Percentage (%)"
-              type="number"
-              value={state.cashbackPercent}
-              onChange={(e) =>
-                handleInputChange("cashbackPercent", e.target.value)
-              }
-            />
+            <div className="grid gap-2">
+              <Label htmlFor="monthlyOrders">Monthly Orders</Label>
+              <Input
+                id="monthlyOrders"
+                type="number"
+                className="bg-white/5 border-white/10 text-white"
+                value={state.monthlyOrders}
+                onChange={(e) =>
+                  handleInputChange("monthlyOrders", e.target.value)
+                }
+              />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="avgOrderValue">Average Order Value ($)</Label>
+              <Input
+                id="avgOrderValue"
+                type="number"
+                className="bg-white/5 border-white/10 text-white"
+                value={state.avgOrderValue}
+                onChange={(e) =>
+                  handleInputChange("avgOrderValue", e.target.value)
+                }
+              />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="cashbackPercent">Cashback Percentage (%)</Label>
+              <Input
+                id="cashbackPercent"
+                type="number"
+                className="bg-white/5 border-white/10 text-white"
+                value={state.cashbackPercent}
+                onChange={(e) =>
+                  handleInputChange("cashbackPercent", e.target.value)
+                }
+              />
+            </div>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             <Card className="bg-white/5 border-white/10 transform transition-all duration-300 hover:scale-105 hover:bg-white/10">
               <CardContent className="pt-6">
-                <div className="text-2xl font-bold text-white">
-                  {metrics.monthlyUGCPieces}
+                <div className="text-2xl font-bold text-white break-words">
+                  {metrics.monthlyUGCPieces.toLocaleString()}
                 </div>
                 <p className="text-xs text-white/60">Monthly UGC Pieces</p>
               </CardContent>
             </Card>
             <Card className="bg-white/5 border-white/10 transform transition-all duration-300 hover:scale-105 hover:bg-white/10">
               <CardContent className="pt-6">
-                <div className="text-2xl font-bold text-white">
+                <div className="text-2xl font-bold text-white break-words">
                   ${metrics.cashbackCost.toLocaleString()}
                 </div>
                 <p className="text-xs text-white/60">Monthly Cashback Cost</p>
@@ -135,17 +145,15 @@ export function ROICalculator() {
             </Card>
             <Card className="bg-white/5 border-white/10 transform transition-all duration-300 hover:scale-105 hover:bg-white/10">
               <CardContent className="pt-6">
-                <div className="text-2xl font-bold text-white">
+                <div className="text-2xl font-bold text-white break-words">
                   ${metrics.additionalSales.toLocaleString()}
                 </div>
-                <p className="text-xs text-white/60">
-                  Additional Monthly Sales
-                </p>
+                <p className="text-xs text-white/60">Additional Monthly Sales</p>
               </CardContent>
             </Card>
             <Card className="bg-white/5 border-white/10 transform transition-all duration-300 hover:scale-105 hover:bg-white/10">
               <CardContent className="pt-6">
-                <div className="text-2xl font-bold text-white">
+                <div className="text-2xl font-bold text-white break-words">
                   {metrics.roi}%
                 </div>
                 <p className="text-xs text-white/60">Return on Investment</p>
@@ -153,7 +161,7 @@ export function ROICalculator() {
             </Card>
             <Card className="bg-white/5 border-white/10 transform transition-all duration-300 hover:scale-105 hover:bg-white/10">
               <CardContent className="pt-6">
-                <div className="text-2xl font-bold text-white">
+                <div className="text-2xl font-bold text-white break-words">
                   {metrics.conversionLift}%
                 </div>
                 <p className="text-xs text-white/60">Conversion Lift</p>

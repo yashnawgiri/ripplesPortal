@@ -1,9 +1,9 @@
-import React from "react";
+import type { FC } from "react";
 import { Link } from "react-router-dom";
 
-import privacyImage from "@/assets/images/data_privacy.png";
+import { imageUrls } from "@/utils/imageUrl";
 
-const DataPrivacyComponent: React.FC = () => {
+const DataPrivacyComponent: FC = () => {
   return (
     <div className="flex flex-col md:flex-row justify-center items-center w-full p-6 md:p-12">
       {/* Image Section */}
@@ -11,7 +11,7 @@ const DataPrivacyComponent: React.FC = () => {
         <img
           alt="data privacy"
           className="object-cover w-4/5 h-auto rounded-lg shadow-lg hue-rotate-[260deg]"
-          src={privacyImage}
+          src={imageUrls.data_privacy}
         />
       </div>
 

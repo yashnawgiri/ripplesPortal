@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-import { Image } from "@nextui-org/image";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 import dashboardData from "@/data/shopperLanding.json";
 import CustomButton from "@/components/CustomElements/CustomButton";
 import { siteConfig } from "@/config/site";
-import bottomSectionImage from "@/assets/images/bottomSectionImage.png";
+// import bottomSectionImage from "@/assets/images/bottomSectionImage.png";
+import { imageUrls } from "@/utils/imageUrl";
 
 // Preload LCP image
 const preloadImage = () => {
@@ -15,7 +15,7 @@ const preloadImage = () => {
 
   link.rel = "preload";
   link.as = "image";
-  link.href = bottomSectionImage;
+  link.href = imageUrls.bottomSectionImage;
   document.head.appendChild(link);
 };
 
@@ -68,23 +68,41 @@ function BottomSection() {
   };
 
   return (
-    <div ref={ref} className="homeContainer" id="home">
+    <div ref={ref} className="homeContainer mb-8" id="home">
       <motion.div
         animate={controls}
-        className="home-div"
+        className="flex flex-col md:flex-row items-center justify-between gap-8"
         initial="hidden"
         variants={{
           hidden: { opacity: 0 },
           visible: { opacity: 1 },
         }}
       >
-        <motion.h1 className="home-h1 home-heading" variants={headingVariants}>
-          {dashboardData.bottomSection.heading}
-        </motion.h1>
+        <div className="flex flex-col items-center md:items-start md:w-1/3">
+          <motion.h1 className="home-h1 home-heading text-center md:text-left" variants={headingVariants}>
+            {dashboardData.bottomSection.heading}
+          </motion.h1>
+
+          <motion.div className="mt-6" variants={descriptionVariants}>
+            <motion.div
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+            >
+              <CustomButton
+                ariaLabel="Sign-In"
+                className="font-bold bg-custom-gradient md:text-2xl text-xl"
+                onClick={() => navigate(siteConfig.path.signIn)}
+              >
+                {dashboardData.bottomSection.button}
+              </CustomButton>
+            </motion.div>
+          </motion.div>
+        </div>
 
         <motion.div
           animate={controls}
-          className="home-img-mob md:hidden"
+          className="w-full md:w-2/3"
           initial="hidden"
           style={{
             overflow: "hidden",
@@ -93,75 +111,19 @@ function BottomSection() {
           }}
           variants={imageVariants}
         >
-          <div className="mt-8">
-            <Image
-              alt="GoRipples dashboard interface showcasing analytics and features - mobile view"
-              aria-label="GoRipples dashboard interface showcasing analytics and features - mobile view"
-              className="blur-load"
-              disableSkeleton={true}
-              height={300}
-              loading="lazy"
-              radius="lg"
-              src={bottomSectionImage}
-              srcSet={`${bottomSectionImage} 1x, ${bottomSectionImage.replace(".png", ".webp")} 2x`}
-              style={{
-                objectFit: "contain",
-                objectPosition: "center",
-                maxWidth: "100%",
-                height: "auto",
-              }}
-              width={300}
-            />
-          </div>
-        </motion.div>
-
-        <motion.div className="home-demo-div" variants={descriptionVariants}>
-          <motion.div
-            variants={buttonVariants}
-            whileHover="hover"
-            whileTap="tap"
-          >
-            <CustomButton
-              ariaLabel="Sign-In"
-              className="font-bold bg-custom-gradient md:text-2xl text-xl"
-              onClick={() => navigate(siteConfig.path.signIn)}
-            >
-              {dashboardData.bottomSection.button}
-            </CustomButton>
-          </motion.div>
-        </motion.div>
-      </motion.div>
-
-      <motion.div
-        animate={controls}
-        className="home-img hidden md:block"
-        initial="hidden"
-        style={{
-          overflow: "hidden",
-          borderRadius: "32px",
-          boxShadow: "0 25px 80px rgba(0, 0, 0, 0.35)",
-        }}
-        variants={imageVariants}
-      >
-        <div className="mt-8">
-          <Image
+          <img
             alt="GoRipples dashboard interface showcasing analytics and features"
             aria-label="GoRipples dashboard interface showcasing analytics and features"
-            className="my-4"
-            height={1200}
+            className="w-full h-auto"
             loading="lazy"
-            radius="lg"
-            src={bottomSectionImage}
+            src={imageUrls.bottomSectionImage}
             style={{
               objectFit: "contain",
               objectPosition: "center",
-              maxWidth: "100%",
-              height: "auto",
-              transform: "scale(1.15)",
+              transform: "scale(1.05)",
             }}
-            width={1200}
           />
-        </div>
+        </motion.div>
       </motion.div>
     </div>
   );

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
-import notFoundSvg from "@/assets/images/not-found.svg";
+// import notFoundSvg from "@/assets/images/not-found.svg";
+import { imageUrls } from "@/utils/imageUrl";
 
 export default function NotFound() {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ export default function NotFound() {
         alt="Not Found"
         className="my-"
         height="300px"
-        src={notFoundSvg}
+        src={imageUrls.notFound}
         width="500px"
       />
       <div className="space-y-2 text-center mb-6">

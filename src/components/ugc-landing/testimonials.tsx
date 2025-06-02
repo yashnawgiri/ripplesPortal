@@ -1,6 +1,6 @@
 import { Quote } from "lucide-react";
 
-import { Card, CardContent } from "@/components/ugc-landing/ui/card";
+import { Card, CardContent } from "@/components/ui/Card";
 
 const testimonials = [
   {

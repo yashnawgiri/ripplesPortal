@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import { Input } from "@/components/ugc-landing/ui/input";
-import { Label } from "@/components/ugc-landing/ui/label";
+import { Input } from "@/components/ui/Input";
+import { Label } from "@/components/ui/label";
 import { cn } from "@/utils/utils";
 
 interface EnhancedInputProps

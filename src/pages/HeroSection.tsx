@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-import { Image } from "@nextui-org/image";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef, Suspense, lazy } from "react";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +7,7 @@ import dashboardData from "./../data/landing.json";
 
 import CustomButton from "@/components/CustomElements/CustomButton";
 import { siteConfig } from "@/config/site";
-import flyer from "@/assets/images/flayer.webp";
+import { imageUrls } from "@/utils/imageUrl";
 import Typewriter from "@/components/Typewriter";
 
 // Lazy load non-critical components
@@ -20,7 +19,7 @@ const preloadImage = () => {
 
   link.rel = "preload";
   link.as = "image";
-  link.href = flyer;
+  link.href = imageUrls.flayer;
   document.head.appendChild(link);
 };
 
@@ -107,15 +106,12 @@ function HeroSection() {
           variants={imageVariants}
         >
           <div className="transition-transform duration-300 ease-in-out hover:scale-110 origin-center mt-8">
-            <Image
+            <img
               alt="GoRipples dashboard interface showcasing analytics and features - mobile view"
               className="blur-load"
-              disableSkeleton={true}
               height={300}
-              isBlurred={false}
               loading="eager"
-              radius="lg"
-              src={flyer}
+              src={imageUrls.flayer}
               style={{
                 objectFit: "contain",
                 objectPosition: "center",
@@ -167,14 +163,12 @@ function HeroSection() {
         variants={imageVariants}
       >
         <div className="transition-transform duration-300 ease-in-out hover:scale-125 origin-center mt-8">
-          <Image
+          <img
             alt="GoRipples dashboard interface showcasing analytics and features"
             className="my-4"
             height={1200}
-            isBlurred={false}
             loading="eager"
-            radius="lg"
-            src={flyer}
+            src={imageUrls.flayer}
             style={{
               objectFit: "contain",
               objectPosition: "center",

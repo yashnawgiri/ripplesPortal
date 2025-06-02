@@ -1,5 +1,4 @@
-import React from "react";
-import { Image } from "@nextui-org/react";
+import * as React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 const PromoSection: React.FC = () => {
@@ -64,10 +63,9 @@ const PromoSection: React.FC = () => {
           className="w-full max-w-[700px] md:max-w-[900px]"
           whileHover={hoverEffect.hover}
         >
-          <Image
-            disableSkeleton
+          <img
             alt="GoRipples promotional features and benefits showcase"
-            className="w-full scale-125 pr-16"
+            className="md:scale-125 md:pr-16"
             loading="lazy"
             src="https://ripples1static.blob.core.windows.net/images/cashbackHero.png"
           />

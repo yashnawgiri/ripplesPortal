@@ -1,11 +1,12 @@
 /* eslint-disable max-len */
 
-import pic1 from "@/assets/images/profilePics/profilepic1.jpg";
-import pic2 from "@/assets/images/profilePics/profilepic2.jpg";
-import pic3 from "@/assets/images/profilePics/profilepic3.jpg";
+// import pic1 from "@/assets/images/profilePics/profilepic1.jpg";
+// import pic2 from "@/assets/images/profilePics/profilepic2.jpg";
+// import pic3 from "@/assets/images/profilePics/profilepic3.jpg";
+import { imageUrls } from "@/utils/imageUrl";
 
 export default function ShoppersBanner() {
-  const pics = [pic1, pic2, pic3];
+  const pics = [imageUrls.profilePicture.profile1, imageUrls.profilePicture.profile2, imageUrls.profilePicture.profile3];
 
   return (
     <div className="py-4 px-6">
