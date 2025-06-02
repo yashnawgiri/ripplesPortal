@@ -3,11 +3,13 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 import data from "@/data/landing.json";
-import ruppes from "@/assets/images/rupees.webp";
-import rewardmanage from "@/assets/images/rewardmanage.svg";
-import cashbackImg from "@/assets/images/cashback.png";
-import wallet from "@/assets/images/wallet.svg";
-import milestone from "@/assets/images/milestone.png";
+// import ruppes from "@/assets/images/rupees.webp";
+// import rewardmanage from "@/assets/images/rewardmanage.svg";
+// import cashbackImg from "@/assets/images/cashback.png";
+// import wallet from "@/assets/images/wallet.svg";
+// import milestone from "@/assets/images/milestone.png";
+
+import { imageUrls } from "@/utils/imageUrl";
 
 function RewardManagement() {
   return (
@@ -60,7 +62,7 @@ const Reward: React.FC = () => {
         <motion.div className="flex justify-center" whileHover={{ scale: 1.1 }}>
           <img
             className="w-full max-w-[300px] md:max-w-[500px] object-contain"
-            src={rewardmanage}
+            src={imageUrls.rewardmanage}
           />
         </motion.div>
       </div>
@@ -71,7 +73,7 @@ const Reward: React.FC = () => {
         initial={{ scale: 0.8, opacity: 0 }}
         transition={{ duration: 1 }}
       >
-        <img className="w-full max-w-[200px] lg:max-w-[300px]" src={ruppes} />
+        <img className="w-full max-w-[200px] lg:max-w-[300px]" src={imageUrls.rupees} />
       </motion.div>
     </motion.div>
   );
@@ -116,11 +118,11 @@ const CashbackAndMileStone = () => {
         >
           <img
             className="w-[200px] max-w-[400px] md:max-w-[600px] mx-auto"
-            src={cashbackImg}
+            src={imageUrls.cashback}
           />
           <img
             className="w-[200px] max-w-[300px] md:max-w-[500px]"
-            src={wallet}
+            src={imageUrls.wallet}
           />
         </motion.div>
       </motion.div>
@@ -152,7 +154,7 @@ const CashbackAndMileStone = () => {
         >
           <img
             className="w-full max-w-[250px] md:max-w-[400px]"
-            src={milestone}
+            src={imageUrls.milestone}
           />
         </motion.div>
       </motion.div>

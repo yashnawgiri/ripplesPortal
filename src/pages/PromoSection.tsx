@@ -2,7 +2,7 @@ import type { FC } from "react";
 import { motion, useReducedMotion } from "framer-motion"; // Import useReducedMotion
 import { useNavigate } from "react-router-dom";
 
-import promoImg from "./../assets/images/promoImg.png";
+import { imageUrls } from "@/utils/imageUrl";
 
 import dashboardData from "@/data/landing.json";
 import promoData from "@/data/landing.json";
@@ -88,7 +88,7 @@ const PromoSection: FC = () => {
             alt="GoRipples promotional features showcase"
             height={300}
             loading="eager"
-            src={promoImg}
+            src={imageUrls.promoImg}
             style={{
               objectFit: "contain",
               maxWidth: "100%",
@@ -108,7 +108,7 @@ const PromoSection: FC = () => {
           <img
             alt="GoRipples promotional features and benefits showcase"
             loading="lazy"
-            src={promoImg}
+            src={imageUrls.promoImg}
             width={900}
           />
         </motion.div>

@@ -1,10 +1,9 @@
-import * as React from "react";
-
 import { IconSvgProps } from "@/types";
-import bicon1 from "@/assets/images/benefitSectionIcons/bicon1.png";
-import bicon2 from "@/assets/images/benefitSectionIcons/bicon2.png";
-import bicon3 from "@/assets/images/benefitSectionIcons/bicon3.png";
-import bicon4 from "@/assets/images/benefitSectionIcons/bicon4.png";
+// import bicon1 from "@/assets/images/benefitSectionIcons/bicon1.png";
+// import bicon2 from "@/assets/images/benefitSectionIcons/bicon2.png";
+// import bicon3 from "@/assets/images/benefitSectionIcons/bicon3.png";
+// import bicon4 from "@/assets/images/benefitSectionIcons/bicon4.png";
+import { imageUrls } from "@/utils/imageUrl";
 
 export const Logo: React.FC<IconSvgProps> = ({
   size = 36,
@@ -1388,7 +1387,12 @@ export function userStatsIcons(icon: number) {
 }
 
 export const BenefitSectionIcons: React.FC<{ icon: number }> = ({ icon }) => {
-  const icons = [bicon1, bicon2, bicon3, bicon4];
+  const icons = [
+    imageUrls.benefitSectionIcons.bicon1,
+    imageUrls.benefitSectionIcons.bicon2,
+    imageUrls.benefitSectionIcons.bicon3,
+    imageUrls.benefitSectionIcons.bicon4,
+  ];
 
   return (
     <img

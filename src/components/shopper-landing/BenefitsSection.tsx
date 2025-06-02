@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { BenefitSectionIcons } from "./../icons";
 
 import dashboardData from "@/data/shopperLanding.json";
-import dashboardImage from "@/assets/images/benefitsSectionImage.png";
+import { imageUrls } from "@/utils/imageUrl";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -71,7 +71,7 @@ const BenefitsSection = () => {
             className="my-4 rounded-lg shadow-lg hidden md:block"
             height="fit"
             loading="lazy"
-            src={dashboardImage}
+            src={imageUrls.benefitsSectionImage}
             width="w-1/2"
           />
         </motion.div>

@@ -15,13 +15,13 @@ import { loadingState } from "@/recoil/loadingState";
 import { authTokenState } from "@/recoil/authTokenState";
 import { userIdState } from "@/recoil/userIdState";
 import { validateEmail } from "@/utils/utils.ts";
-import gift1 from "@/assets/images/login/gift1.webp";
-import gift2 from "@/assets/images/login/gift2.webp";
-import gift3 from "@/assets/images/login/gift3.webp";
-import rupee from "@/assets/images/rupees.webp";
-import coins from "@/assets/images/coins.webp";
-import backgroundImg from "@/assets/images/login/login-bg.webp";
-
+// import gift1 from "@/assets/images/login/gift1.webp";
+// import gift2 from "@/assets/images/login/gift2.webp";
+// import gift3 from "@/assets/images/login/gift3.webp";
+// import rupee from "@/assets/images/rupees.webp";
+// import coins from "@/assets/images/coins.webp";
+// import backgroundImg from "@/assets/images/login/login-bg.webp";
+import { imageUrls } from "@/utils/imageUrl";
 const AuthPage: React.FC = () => {
   const [step, setStep] = useState<"signup" | "email-signup" | "otp">("signup");
   const [, setAuthToken] = useRecoilState(authTokenState);
@@ -145,14 +145,14 @@ const AuthPage: React.FC = () => {
         <img
           alt="Phone with gifts"
           className="z-10 w-48 md:w-[30rem]"
-          src={gift3}
+          src={imageUrls.login.gift3}
         />
       </div>
       <div className="absolute hidden md:block md:top-15 md:left-[20%] z-0">
         <img
           alt="Decorative floating coins animation"
           className="animate-float"
-          src={coins}
+          src={imageUrls.coins}
           width={350}
         />
       </div>
@@ -162,7 +162,7 @@ const AuthPage: React.FC = () => {
         <img
           alt="Mobile phone displaying shopping interface"
           className=" w-80 relative z-10 md:w-[800px] "
-          src={gift1}
+          src={imageUrls.login.gift1}
           width={700}
         />
       </div>
@@ -170,7 +170,7 @@ const AuthPage: React.FC = () => {
         <img
           alt="Decorative floating shopping bag animation"
           className="animate-float-delayed"
-          src={gift2}
+          src={imageUrls.login.gift2}
           width={600}
         />
       </div>
@@ -180,7 +180,7 @@ const AuthPage: React.FC = () => {
         <img
           alt="Decorative floating rupee symbol animation"
           className="animate-float"
-          src={rupee}
+          src={imageUrls.rupees}
           width={300}
         />
       </div>
@@ -189,7 +189,7 @@ const AuthPage: React.FC = () => {
         <img
           alt="Decorative background shadow effect"
           className="animate-float"
-          src={backgroundImg}
+          src={imageUrls.login.loginBg}
           width={"100%"}
         />
       </div>

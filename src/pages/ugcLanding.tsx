@@ -36,13 +36,15 @@ import { MobileCTA } from "@/components/ugc-landing/mobile-cta";
 import { Spinner } from "@/components/ui/Spinner";
 import { ScrollReveal } from "@/components/ugc-landing/scroll-reveal";
 import { StaggerReveal } from "@/components/ugc-landing/stagger-reveal";
-import flyer from "@/assets/images/flayer2.png";
-import promoImg from "@/assets/images/promoImg.png";
-import rupeeImg from "@/assets/images/rupees.webp";
-import goldCoinImg from "@/assets/images/benefitsSectionImage.png";
-import coinImg from "@/assets/images/coins.webp";
+// import flyer from "@/assets/images/flayer2.png";
+// import promoImg from "@/assets/images/promoImg.png";
+// import rupeeImg from "@/assets/images/rupees.webp";
+// import goldCoinImg from "@/assets/images/benefitsSectionImage.png";
+// import coinImg from "@/assets/images/coins.webp";
 import { siteConfig } from "@/config/site";
 import Navbar from "@/components/navbar";
+import { imageUrls } from "@/utils/imageUrl";
+
 
 const getImpactColor = (impact: string) => {
   switch (impact) {
@@ -132,7 +134,7 @@ export default function UGCLanding() {
                       alt="GoRipples dashboard interface showcasing analytics and features - mobile view"
                       className="transition-transform duration-300 ease-in-out transform rounded-2xl scale-110 object-contain"
                       loading="eager"
-                      src={flyer}
+                      src={imageUrls.flayer2}
                     />
                   </div>
                 </div>
@@ -247,13 +249,13 @@ export default function UGCLanding() {
             <img
               alt="Icon"
               className="w-24 h-24 md:w-40 md:h-40 fixed left-10 top- -translate-y-1/2"
-              src={rupeeImg}
+              src={imageUrls.rupees}
             />
             {/* Fixed Image (Bottom Right) */}
             <img
               alt="ROI Growth"
               className="w-24 h-24 md:w-40 md:h-40 absolute bottom-10 right-10 hidden md:block"
-              src={coinImg}
+              src={imageUrls.coins}
             />
             <div className="container px-4 md:px-6 relative flex flex-col items-center text-center">
               {/* Title & Subtitle */}
@@ -315,7 +317,7 @@ export default function UGCLanding() {
                 <img
                   alt="Rewards Simulation"
                   className="w-[600px] h-auto object-cover"
-                  src={goldCoinImg}
+                  src={imageUrls.benefitsSectionImage}
                 />
               </div>
             </div>
@@ -629,7 +631,7 @@ export default function UGCLanding() {
           <img
             alt="Promotional illustration showcasing UGC strategy benefits"
             className="hidden lg:block max-w-xl object-contain"
-            src={promoImg}
+            src={imageUrls.promoImg}
           />
         </div>
       </section>
