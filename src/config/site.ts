@@ -6,8 +6,9 @@ import {
   VideoIcon,
   WalletIcon,
 } from "@/components/icons";
-import UgcIcon from "@/assets/images/ugc-icon.svg";
-import referralIcon from "@/assets/images/referral-icon.svg";
+// import UgcIcon from "@/assets/images/ugc-icon.svg";
+// import referralIcon from "@/assets/images/referral-icon.svg";
+import { imageUrls } from "@/utils/imageUrl";
 
 export type SiteConfig = typeof siteConfig;
 
@@ -61,14 +62,14 @@ export const siteConfig = {
       resources: [
         {
           label: "Referrals",
-          icon: referralIcon,
+          icon: imageUrls.referral_icon,
           href: "/referrals",
           description:
             "Launch a powerful referral program in minutes with instant cashback rewards",
         },
         {
           label: "UGC from Shoppers & influencers",
-          icon: UgcIcon,
+          icon: imageUrls.ugc_icon,
           href: "/ugc-home",
           description:
             "Collect authentic user-generated content and reward creators with cashback",

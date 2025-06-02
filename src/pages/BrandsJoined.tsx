@@ -1,5 +1,6 @@
-import shopifyExpert from "@/assets/images/shopify.png";
-import shopifyPlus from "@/assets/images/shopify plus.png";
+// import shopifyExpert from "@/assets/images/shopify.png";
+// import shopifyPlus from "@/assets/images/shopify plus.png";
+import { imageUrls } from "@/utils/imageUrl";
 import { brandsJoinedLogos } from "@/utils/utils";
 import { Tooltip } from "@/components/ui/Tooltip";
 
@@ -24,14 +25,14 @@ export default function BrandsJoined() {
         <img
           alt="Shopify Expert"
           className="rounded-xl"
-          src={shopifyExpert}
+          src={imageUrls.shopify}
           width={100}
         />
         &
         <img
           alt="Shopify Plus"
           className="rounded-xl"
-          src={shopifyPlus}
+          src={imageUrls.shopify_plus}
           width={120}
         />
       </div>

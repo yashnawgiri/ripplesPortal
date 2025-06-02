@@ -5,9 +5,11 @@ import { BackwardArrowIcon, DoubleQuotesIcon, ForwardArrowIcon } from "./icons";
 import "./../styles/home/testimonial.css";
 
 import dashboardData from "@/data/landing.json";
-import avatar1 from "@/assets/images/avatars/avatar1.png";
-import avatar2 from "@/assets/images/avatars/avatar2.png";
-import avatar3 from "@/assets/images/avatars/avatar3.png";
+// import avatar1 from "@/assets/images/avatars/avatar1.png";
+// import avatar2 from "@/assets/images/avatars/avatar2.png";
+// import avatar3 from "@/assets/images/avatars/avatar3.png";
+
+import { imageUrls } from "@/utils/imageUrl";
 
 interface TestimonialCardProps {
   id: number;
@@ -15,7 +17,11 @@ interface TestimonialCardProps {
 
 function TestimonialCard({ id }: TestimonialCardProps) {
   const testimonial = dashboardData.testimonialsData[id];
-  const Avatars = [avatar1, avatar2, avatar3];
+  const Avatars = [
+    imageUrls.avatar.avatar1,
+    imageUrls.avatar.avatar2,
+    imageUrls.avatar.avatar3,
+  ];
 
   return (
     <motion.div
@@ -30,7 +36,6 @@ function TestimonialCard({ id }: TestimonialCardProps) {
         <div className="flex justify-between">
           <div className="flex items-center space-x-2">
             <img
-              
               alt={`${testimonial.name}'s profile picture`}
               height={40}
               src={Avatars[id]}
@@ -63,7 +68,7 @@ export default function Testimonials() {
 
   const handlePrevious = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? testimonialsLength - 1 : prevIndex - 1,
+      prevIndex === 0 ? testimonialsLength - 1 : prevIndex - 1
     );
   };
 

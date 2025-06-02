@@ -3,10 +3,12 @@ import type { FC } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-import referralScreenshot from "./../assets/images/referralApp.svg";
-import analyticsPerformanceCardSvg from "./../assets/images/analyticsPerformanceCard.png";
-import ugcPopupCard from "./../assets/images/ugcPopup.png";
-import ugcContentCardSvg from "./../assets/images/ugcContentManagementCard.png";
+// import referralScreenshot from "./../assets/images/referralApp.svg";
+// import analyticsPerformanceCardSvg from "./../assets/images/analyticsPerformanceCard.png";
+// import ugcPopupCard from "./../assets/images/ugcPopup.png";
+// import ugcContentCardSvg from "./../assets/images/ugcContentManagementCard.png";
+
+import { imageUrls } from "@/utils/imageUrl";
 
 import { siteConfig } from "@/config/site";
 
@@ -114,7 +116,7 @@ const MarketingSection: FC = () => {
                 alt="Referral program mobile app screenshot"
                 className="mx-auto"
                 loading="lazy"
-                src={referralScreenshot || "/placeholder.svg"}
+                src={imageUrls.referralApp}
                 width={1500}
               />
             </motion.div>
@@ -166,21 +168,21 @@ const MarketingSection: FC = () => {
                 alt="UGC content management dashboard"
                 className="mx-auto py-2"
                 loading="lazy"
-                src={ugcPopupCard}
+                src={imageUrls.ugcPopup}
                 width={500}
               />
               <img
                 alt="UGC content management dashboard"
                 className="mx-auto py-2"
                 loading="lazy"
-                src={ugcContentCardSvg}
+                src={imageUrls.ugcContentManagementCard}
                 width={500}
               />
               <img
                 alt="UGC content management dashboard"
                 className="mx-auto py-2"
                 loading="lazy"
-                src={analyticsPerformanceCardSvg}
+                src={imageUrls.analyticsPerformanceCard}
                 width={500}
               />
             </motion.div>

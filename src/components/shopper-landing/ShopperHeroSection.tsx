@@ -7,8 +7,10 @@ import { useNavigate } from "react-router-dom";
 import dashboardData from "@/data/shopperLanding.json";
 import CustomButton from "@/components/CustomElements/CustomButton";
 import { siteConfig } from "@/config/site";
-import flyer from "@/assets/images/shopperPageFlayer.png";
+
 import Typewriter from "@/components/Typewriter";
+
+import { imageUrls } from "@/utils/imageUrl";
 
 // Lazy load non-critical components
 // const BrandsJoined = lazy(() => import("./BrandsJoined"));
@@ -22,7 +24,7 @@ const preloadImage = () => {
 
   link.rel = "preload";
   link.as = "image";
-  link.href = flyer;
+  link.href = imageUrls.shopperPageFlayer;
   document.head.appendChild(link);
 };
 
@@ -111,7 +113,7 @@ function ShopperHeroSection() {
               className="blur-load"
               height={300}
               loading="eager"
-              src={flyer}
+              src={imageUrls.shopperPageFlayer}
               style={{
                 objectFit: "contain",
                 objectPosition: "center",
@@ -167,7 +169,7 @@ function ShopperHeroSection() {
             className="my-4"
             height={1200}
             loading="lazy"
-            src={flyer}
+            src={imageUrls.shopperPageFlayer}
             style={{
               objectFit: "contain",
               objectPosition: "center",

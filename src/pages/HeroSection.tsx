@@ -7,7 +7,7 @@ import dashboardData from "./../data/landing.json";
 
 import CustomButton from "@/components/CustomElements/CustomButton";
 import { siteConfig } from "@/config/site";
-import flyer from "@/assets/images/flayer.webp";
+import { imageUrls } from "@/utils/imageUrl";
 import Typewriter from "@/components/Typewriter";
 
 // Lazy load non-critical components
@@ -19,7 +19,7 @@ const preloadImage = () => {
 
   link.rel = "preload";
   link.as = "image";
-  link.href = flyer;
+  link.href = imageUrls.flayer;
   document.head.appendChild(link);
 };
 
@@ -111,7 +111,7 @@ function HeroSection() {
               className="blur-load"
               height={300}
               loading="eager"
-              src={flyer}
+              src={imageUrls.flayer}
               style={{
                 objectFit: "contain",
                 objectPosition: "center",
@@ -168,7 +168,7 @@ function HeroSection() {
             className="my-4"
             height={1200}
             loading="eager"
-            src={flyer}
+            src={imageUrls.flayer}
             style={{
               objectFit: "contain",
               objectPosition: "center",

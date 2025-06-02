@@ -1,8 +1,9 @@
 import { DashboardCardIcon } from "./icons";
 
 import "./../styles/home/dashboardCard.css";
-import dashboardImage from "@/assets/images/customerView.webp";
 import dashboardData from "@/data/landing.json";
+
+import { imageUrls } from "@/utils/imageUrl";
 
 import { motion } from "framer-motion";
 
@@ -67,7 +68,7 @@ export default function DashboardCard() {
             alt="Dashboard image"
             className="my-4 rounded-lg shadow-lg hidden md:block"
             loading="lazy"
-            src={dashboardImage}
+            src={imageUrls.customerView}
             width="w-1/2"
           />
         </motion.div>
