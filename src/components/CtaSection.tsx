@@ -1,13 +1,11 @@
-"use client";
-
-import type React from "react";
+import type { FC } from "react";
 
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 import { siteConfig } from "@/config/site";
 
-const CTASection: React.FC = () => {
+const CTASection: FC = () => {
   return (
     <div className="w-full text-white py-16">
       <div className="container mx-auto px-4">

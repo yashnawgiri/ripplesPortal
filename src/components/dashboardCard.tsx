@@ -4,7 +4,6 @@ import "./../styles/home/dashboardCard.css";
 import dashboardImage from "@/assets/images/customerView.webp";
 import dashboardData from "@/data/landing.json";
 
-import { Image } from "@nextui-org/image";
 import { motion } from "framer-motion";
 
 const cardVariants = {
@@ -64,10 +63,10 @@ export default function DashboardCard() {
           viewport={{ once: true, amount: 0.2 }}
           whileInView={{ opacity: 1, scale: 1 }}
         >
-          <Image
-            disableSkeleton
+          <img
+            alt="Dashboard image"
             className="my-4 rounded-lg shadow-lg hidden md:block"
-            height="550px"
+            loading="lazy"
             src={dashboardImage}
             width="w-1/2"
           />

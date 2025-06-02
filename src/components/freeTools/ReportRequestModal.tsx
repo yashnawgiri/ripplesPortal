@@ -5,7 +5,7 @@ import { X, CheckCircle } from "lucide-react";
 
 import { submitReportRequest } from "../action/report";
 
-import { Label } from "@/components/ugc-landing/ui/label";
+import { Label } from "@/components/ui/label";
 import {
   Dialog,
   DialogContent,
@@ -13,9 +13,9 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ugc-landing/ui/dialog";
-import { Input } from "@/components/ugc-landing/ui/input";
-import { Button } from "@/components/ugc-landing/ui/button";
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/Input";
+import { Button } from "@/components/ui/Button";
 
 interface ReportRequestModalProps {
   isOpen: boolean;
@@ -127,97 +127,107 @@ export function ReportRequestModal({
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="sm:max-w-md">
-        <DialogHeader>
-          <DialogTitle className="text-xl font-bold">
+    <Dialog 
+      isOpen={isOpen} 
+      onOpenChange={(open) => {
+        // Only allow closing if not submitting and explicitly clicking close
+        if (!open && !isSubmitting) {
+          handleClose();
+        }
+      }}
+    >
+      <DialogContent className="sm:max-w-md p-6 rounded-xl shadow-lg border-0 bg-white">
+        <DialogHeader className="space-y-3">
+          <DialogTitle className="text-2xl font-bold text-gray-900">
             Get Your Instagram Report
           </DialogTitle>
-          <DialogDescription>
-            Complete the form below and we'll email you a detailed report for @
-            {username}
+          <DialogDescription className="text-gray-600 text-base">
+            Complete the form below and we'll email you a detailed report for{" "}
+            <span className="font-semibold text-primary">@{username}</span>
           </DialogDescription>
         </DialogHeader>
 
         <button
-          className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
+          className="absolute right-4 top-4 rounded-full p-2 hover:bg-gray-100 transition-colors duration-200"
           onClick={handleClose}
         >
-          <X className="h-4 w-4" />
+          <X className="h-5 w-5 text-gray-500" />
           <span className="sr-only">Close</span>
         </button>
 
         {!isSubmitted ? (
-          <form className="space-y-4" onSubmit={handleSubmit}>
+          <form className="space-y-5 mt-6" onSubmit={handleSubmit}>
             {formErrors.general && (
-              <div className="p-3 bg-red-50 border border-red-200 rounded-md mb-4">
+              <div className="p-4 bg-red-50 border border-red-200 rounded-lg mb-4">
                 <p className="text-sm text-red-600">{formErrors.general}</p>
               </div>
             )}
-            <div className="grid w-full items-center gap-1.5">
-              <Label htmlFor="name">Full Name</Label>
-              <Input
-                className={formErrors.name ? "border-red-500" : ""}
-                id="name"
-                name="name"
-                placeholder="Your name"
-                value={formData.name}
-                onChange={handleChange}
-              />
-              {formErrors.name && (
-                <p className="text-sm text-red-500">{formErrors.name}</p>
-              )}
+            <div className="space-y-5">
+              <div className="grid w-full items-center gap-2">
+                <Label htmlFor="name" className="text-sm font-medium text-gray-700">Full Name</Label>
+                <Input
+                  className={`h-11 px-4 rounded-lg border ${formErrors.name ? "border-red-500 focus:ring-red-500" : "border-gray-200 focus:ring-primary"} focus:ring-2 focus:ring-offset-0 transition-all duration-200`}
+                  id="name"
+                  name="name"
+                  placeholder="Your name"
+                  value={formData.name}
+                  onChange={handleChange}
+                />
+                {formErrors.name && (
+                  <p className="text-sm text-red-500 mt-1">{formErrors.name}</p>
+                )}
+              </div>
+
+              <div className="grid w-full items-center gap-2">
+                <Label htmlFor="email" className="text-sm font-medium text-gray-700">Email</Label>
+                <Input
+                  className={`h-11 px-4 rounded-lg border ${formErrors.email ? "border-red-500 focus:ring-red-500" : "border-gray-200 focus:ring-primary"} focus:ring-2 focus:ring-offset-0 transition-all duration-200`}
+                  id="email"
+                  name="email"
+                  placeholder="your.email@example.com"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+                {formErrors.email && (
+                  <p className="text-sm text-red-500 mt-1">{formErrors.email}</p>
+                )}
+              </div>
+
+              <div className="grid w-full items-center gap-2">
+                <Label htmlFor="company" className="text-sm font-medium text-gray-700">Where do you work?</Label>
+                <Input
+                  className={`h-11 px-4 rounded-lg border ${formErrors.company ? "border-red-500 focus:ring-red-500" : "border-gray-200 focus:ring-primary"} focus:ring-2 focus:ring-offset-0 transition-all duration-200`}
+                  id="company"
+                  name="company"
+                  placeholder="Company or organization"
+                  value={formData.company}
+                  onChange={handleChange}
+                />
+                {formErrors.company && (
+                  <p className="text-sm text-red-500 mt-1">{formErrors.company}</p>
+                )}
+              </div>
+
+              <div className="grid w-full items-center gap-2">
+                <Label htmlFor="website" className="text-sm font-medium text-gray-700">Company Website</Label>
+                <Input
+                  className={`h-11 px-4 rounded-lg border ${formErrors.website ? "border-red-500 focus:ring-red-500" : "border-gray-200 focus:ring-primary"} focus:ring-2 focus:ring-offset-0 transition-all duration-200`}
+                  id="website"
+                  name="website"
+                  placeholder="https://www.example.com"
+                  value={formData.website}
+                  onChange={handleChange}
+                />
+                {formErrors.website && (
+                  <p className="text-sm text-red-500 mt-1">{formErrors.website}</p>
+                )}
+              </div>
             </div>
 
-            <div className="grid w-full items-center gap-1.5">
-              <Label htmlFor="email">Email</Label>
-              <Input
-                className={formErrors.email ? "border-red-500" : ""}
-                id="email"
-                name="email"
-                placeholder="your.email@example.com"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-              />
-              {formErrors.email && (
-                <p className="text-sm text-red-500">{formErrors.email}</p>
-              )}
-            </div>
-
-            <div className="grid w-full items-center gap-1.5">
-              <Label htmlFor="company">Where do you work?</Label>
-              <Input
-                className={formErrors.company ? "border-red-500" : ""}
-                id="company"
-                name="company"
-                placeholder="Company or organization"
-                value={formData.company}
-                onChange={handleChange}
-              />
-              {formErrors.company && (
-                <p className="text-sm text-red-500">{formErrors.company}</p>
-              )}
-            </div>
-
-            <div className="grid w-full items-center gap-1.5">
-              <Label htmlFor="website">Company Website</Label>
-              <Input
-                className={formErrors.website ? "border-red-500" : ""}
-                id="website"
-                name="website"
-                placeholder="https://www.example.com"
-                value={formData.website}
-                onChange={handleChange}
-              />
-              {formErrors.website && (
-                <p className="text-sm text-red-500">{formErrors.website}</p>
-              )}
-            </div>
-
-            <DialogFooter className="pt-4">
+            <DialogFooter className="pt-6">
               <Button
-                className="w-full bg-primary hover:bg-primary-dark text-white transition-all duration-300"
+                className="w-full h-12 bg-primary hover:bg-primary-dark text-white rounded-lg font-medium text-base transition-all duration-300 shadow-sm hover:shadow-md"
                 disabled={isSubmitting}
                 type="submit"
               >
@@ -253,19 +263,19 @@ export function ReportRequestModal({
           </form>
         ) : (
           <div className="py-8 text-center">
-            <div className="w-20 h-20 bg-green-100 rounded-full mx-auto flex items-center justify-center mb-6">
-              <CheckCircle className="h-10 w-10 text-green-500" />
+            <div className="w-24 h-24 bg-green-50 rounded-full mx-auto flex items-center justify-center mb-6 animate-scale-in">
+              <CheckCircle className="h-12 w-12 text-green-500" />
             </div>
-            <h3 className="text-2xl font-medium text-gray-900 mb-3">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-3">
               Thank You!
             </h3>
-            <p className="text-gray-600 mb-8 max-w-sm mx-auto">
+            <p className="text-gray-600 mb-8 max-w-sm mx-auto text-base">
               We've sent the detailed report for{" "}
               <span className="font-semibold text-primary">@{username}</span> to
               your email address. Please check your inbox!
             </p>
             <Button
-              className="w-full bg-primary hover:bg-primary-dark text-white"
+              className="w-full h-12 bg-primary hover:bg-primary-dark text-white rounded-lg font-medium text-base transition-all duration-300 shadow-sm hover:shadow-md"
               onClick={handleClose}
             >
               Close

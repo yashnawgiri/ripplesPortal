@@ -1,5 +1,3 @@
-import { nextui } from "@nextui-org/theme";
-
 /** @type {import("tailwindcss").Config} */
 module.exports = {
   content: [
@@ -7,7 +5,6 @@ module.exports = {
     "./src/layouts/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -26,30 +23,30 @@ module.exports = {
         secondary: "#7214FF",
       },
       animation: {
-        blink: 'blink 1s steps(2, start) infinite',
-        fadeIn: 'fadeIn 0.5s ease-in-out',
-        pulse: 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        float: 'float 3s ease-in-out infinite',
+        blink: "blink 1s steps(2, start) infinite",
+        fadeIn: "fadeIn 0.5s ease-in-out",
+        pulse: "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        float: "float 3s ease-in-out infinite",
       },
       keyframes: {
         blink: {
-          '0%, 100%': { opacity: 1 },
-          '50%': { opacity: 0 },
+          "0%, 100%": { opacity: 1 },
+          "50%": { opacity: 0 },
         },
         fadeIn: {
-          '0%': { opacity: 0, transform: 'translateY(10px)' },
-          '100%': { opacity: 1, transform: 'translateY(0)' },
+          "0%": { opacity: 0, transform: "translateY(10px)" },
+          "100%": { opacity: 1, transform: "translateY(0)" },
         },
         float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-10px)' },
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
         },
       },
       boxShadow: {
-        '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
+        "3xl": "0 35px 60px -15px rgba(0, 0, 0, 0.3)",
       },
     },
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [],
 };

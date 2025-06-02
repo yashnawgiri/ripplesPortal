@@ -1,4 +1,3 @@
-import { Image } from "@nextui-org/image";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -30,7 +29,8 @@ function TestimonialCard({ id }: TestimonialCardProps) {
       <div className="singleTestimonialInnerContainer">
         <div className="flex justify-between">
           <div className="flex items-center space-x-2">
-            <Image
+            <img
+              
               alt={`${testimonial.name}'s profile picture`}
               height={40}
               src={Avatars[id]}

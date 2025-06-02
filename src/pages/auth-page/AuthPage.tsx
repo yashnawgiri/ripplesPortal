@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import { Image } from "@nextui-org/image";
 
 import { emailLogin, otpVerify } from "../../services/authService.ts";
 
@@ -143,16 +142,14 @@ const AuthPage: React.FC = () => {
       {/* Decorative Elements */}
       {/* Left decorations */}
       <div className="absolute top-10 left-0 md:top-1/2 md:-translate-y-1/2 md:left-0 z-0">
-        <Image
-          disableSkeleton
+        <img
           alt="Phone with gifts"
           className="z-10 w-48 md:w-[30rem]"
           src={gift3}
         />
       </div>
       <div className="absolute hidden md:block md:top-15 md:left-[20%] z-0">
-        <Image
-          disableSkeleton
+        <img
           alt="Decorative floating coins animation"
           className="animate-float"
           src={coins}
@@ -162,8 +159,7 @@ const AuthPage: React.FC = () => {
 
       {/* Right decorations */}
       <div className="absolute top-0 right-0 md:right-0 md:top-0 z-0">
-        <Image
-          disableSkeleton
+        <img
           alt="Mobile phone displaying shopping interface"
           className=" w-80 relative z-10 md:w-[800px] "
           src={gift1}
@@ -171,8 +167,7 @@ const AuthPage: React.FC = () => {
         />
       </div>
       <div className="absolute bottom-8 right-1/2 translate-x-1/2 md:translate-x-0 md:bottom-0 md:right-10 z-0">
-        <Image
-          disableSkeleton
+        <img
           alt="Decorative floating shopping bag animation"
           className="animate-float-delayed"
           src={gift2}
@@ -182,8 +177,7 @@ const AuthPage: React.FC = () => {
 
       {/* Bottom decorations */}
       <div className="hidden md:block absolute md:bottom-2 md:left-80 z-0">
-        <Image
-          disableSkeleton
+        <img
           alt="Decorative floating rupee symbol animation"
           className="animate-float"
           src={rupee}
@@ -192,8 +186,7 @@ const AuthPage: React.FC = () => {
       </div>
 
       <div className="hidden  md:block md:absolute md:w-svw md:h-svh md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-0 ">
-        <Image
-          disableSkeleton
+        <img
           alt="Decorative background shadow effect"
           className="animate-float"
           src={backgroundImg}

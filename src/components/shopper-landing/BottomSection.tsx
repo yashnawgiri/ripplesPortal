@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-import { Image } from "@nextui-org/image";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
@@ -68,7 +67,7 @@ function BottomSection() {
   };
 
   return (
-    <div ref={ref} className="homeContainer" id="home">
+    <div ref={ref} className="homeContainer mb-8" id="home">
       <motion.div
         animate={controls}
         className="home-div"
@@ -84,31 +83,33 @@ function BottomSection() {
 
         <motion.div
           animate={controls}
-          className="home-img-mob md:hidden"
+          className="home-img-mob md:hidden w-full"
           initial="hidden"
           style={{
             overflow: "hidden",
             borderRadius: "24px",
             boxShadow: "0 20px 70px rgba(0, 0, 0, 0.2)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "1rem"
           }}
           variants={imageVariants}
         >
-          <div className="mt-8">
-            <Image
+          <div className="mt-8 w-full">
+            <img
               alt="GoRipples dashboard interface showcasing analytics and features - mobile view"
               aria-label="GoRipples dashboard interface showcasing analytics and features - mobile view"
-              className="blur-load"
-              disableSkeleton={true}
+              className="blur-load w-full"
               height={300}
               loading="lazy"
-              radius="lg"
               src={bottomSectionImage}
-              srcSet={`${bottomSectionImage} 1x, ${bottomSectionImage.replace(".png", ".webp")} 2x`}
               style={{
                 objectFit: "contain",
                 objectPosition: "center",
                 maxWidth: "100%",
                 height: "auto",
+                display: "block"
               }}
               width={300}
             />
@@ -144,13 +145,12 @@ function BottomSection() {
         variants={imageVariants}
       >
         <div className="mt-8">
-          <Image
+          <img
             alt="GoRipples dashboard interface showcasing analytics and features"
             aria-label="GoRipples dashboard interface showcasing analytics and features"
             className="my-4"
             height={1200}
             loading="lazy"
-            radius="lg"
             src={bottomSectionImage}
             style={{
               objectFit: "contain",

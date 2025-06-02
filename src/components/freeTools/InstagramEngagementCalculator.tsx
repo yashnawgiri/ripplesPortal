@@ -18,10 +18,10 @@ import { fetchInstagramProfile } from "../../components/action/instagram";
 
 import { ReportRequestModal } from "./ReportRequestModal";
 
-import { Input } from "@/components/ugc-landing/ui/input";
-import { Button } from "@/components/ugc-landing/ui/button";
-import { Card, CardContent } from "@/components/ugc-landing/ui/card";
-import { Alert, AlertDescription } from "@/components/ugc-landing/ui/alert";
+import { Input } from "@/components/ui/Input";
+import { Button } from "@/components/ui/Button";
+import { Card, CardContent } from "@/components/ui/Card";
+import { Alert, AlertDescription } from "@/components/ui/Alert";
 
 export function InstagramEngagementCalculator() {
   const [username, setUsername] = useState("");
@@ -152,19 +152,19 @@ Analyze your own profile at: https://free-tools.goripples.com/tools/instagram-en
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="relative mb-12 w-full max-w-xl mx-auto px-2 sm:px-0"
+          className="relative mb-12 w-full max-w-xl mx-auto px-4 sm:px-0"
         >
           <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex flex-col sm:flex-row shadow-3xl rounded-2xl overflow-hidden border border-white/10 bg-primary/80 backdrop-blur-xl"
+            className="flex flex-row shadow-3xl rounded-2xl overflow-hidden border border-white/10 bg-primary/80 backdrop-blur-xl"
           >
-            <div className="flex items-center justify-center px-4 py-3 sm:py-0" style={{ background: 'linear-gradient(91.78deg, #7214FF -10.05%, #CA00E8 150.35%)' }}>
-              <FaInstagram className="h-8 w-8 sm:h-8 sm:w-8 text-white drop-shadow-lg" />
+            <div className="flex items-center justify-center px-3 sm:px-4 py-2 sm:py-0" style={{ background: 'linear-gradient(91.78deg, #7214FF -10.05%, #CA00E8 150.35%)' }}>
+              <FaInstagram className="h-5 w-5 sm:h-6 sm:w-6 text-white drop-shadow-lg" />
             </div>
             <Input
-              className="flex-1 bg-transparent text-white py-4 px-4 h-14 sm:h-16 text-base sm:text-lg border-0 focus:ring-2 focus:ring-secondary focus:outline-none placeholder:text-gray-400 transition-all duration-300 rounded-none shadow-none min-w-0"
+              className="flex-1 bg-transparent text-white py-2 sm:py-3 px-3 sm:px-4 h-10 sm:h-12 text-sm sm:text-base border-0 focus:ring-2 focus:ring-secondary focus:outline-none placeholder:text-gray-400 transition-all duration-300 rounded-none shadow-none min-w-0"
               style={{ background: 'rgba(14, 19, 48, 0.85)', backdropFilter: 'blur(8px)' }}
               placeholder="Enter Instagram username"
               value={username}
@@ -181,15 +181,15 @@ Analyze your own profile at: https://free-tools.goripples.com/tools/instagram-en
               className="transition-all duration-300"
             >
               <Button
-                className="h-14 sm:h-16 w-full sm:w-auto px-6 sm:px-8 text-base sm:text-lg font-semibold rounded-none rounded-b-2xl sm:rounded-b-none sm:rounded-r-2xl border-0 shadow-lg text-white mt-2 sm:mt-0"
+                className="h-10 sm:h-12 px-3 sm:px-6 text-sm sm:text-base font-semibold rounded-none rounded-r-2xl border-0 shadow-lg text-white"
                 style={{ background: 'linear-gradient(91.78deg, #7214FF -10.05%, #CA00E8 150.35%)' }}
                 disabled={isLoading || !username}
                 onClick={handleSubmit}
               >
                 {isLoading ? (
-                  <div className="flex items-center">
+                  <div className="flex items-center justify-center">
                     <svg
-                      className="animate-spin -ml-1 mr-2 h-6 w-6 text-white"
+                      className="animate-spin -ml-1 mr-2 h-4 w-4 sm:h-5 sm:w-5 text-white"
                       fill="none"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
@@ -223,8 +223,8 @@ Analyze your own profile at: https://free-tools.goripples.com/tools/instagram-en
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <Alert className="mt-6 bg-destructive/20 border border-destructive/30 backdrop-blur-xl text-white">
-                <FaExclamationTriangle className="h-5 w-5 text-destructive" />
+              <Alert variant="destructive" className="mt-6 bg-destructive/20 border border-destructive/30 backdrop-blur-xl text-white">
+                <FaExclamationTriangle className="h-5 w-5" />
                 <AlertDescription className="font-medium">
                   {error}
                 </AlertDescription>

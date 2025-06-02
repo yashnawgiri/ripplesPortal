@@ -1,4 +1,3 @@
-import { Search, Users, Store, Target } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import { ToolCard } from "@/components/freeTools/ToolCard";
@@ -7,7 +6,6 @@ import {
   OrganizationStructuredData,
 } from "@/components/freeTools/StructuredData";
 import DefaultLayout from "@/layouts/default";
-import { InstagramIcon } from "@/components/icons";
 import { siteConfig } from "@/config/site";
 
 const tools = [
@@ -15,13 +13,8 @@ const tools = [
     title: "Instagram Engagement Calculator",
     description:
       "Calculate the engagement rate of any Instagram profile to benchmark performance",
-    icon: (
-      <div className="relative group">
-        <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-pink-500 to-purple-600 transform group-hover:rotate-6 transition-transform duration-300 shadow-lg">
-          <InstagramIcon />
-        </div>
-      </div>
-    ),
+    image:
+      "https://ripples1static.blob.core.windows.net/images/instagramEngagementTool.webp",
     href: siteConfig.path.instagramCalculator,
     featured: true,
   },
@@ -29,13 +22,8 @@ const tools = [
     title: "CRO Checklist & Funnel Audit",
     description:
       "Get a comprehensive 300-point conversion rate optimization checklist plus a free 1-on-1 funnel audit to identify and fix revenue leaks in your marketing funnel.",
-    icon: (
-      <div className="relative group">
-        <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 transform group-hover:rotate-6 transition-transform duration-300 shadow-lg">
-          <Target className="w-7 h-7 text-white" />
-        </div>
-      </div>
-    ),
+    image:
+      "https://ripples1static.blob.core.windows.net/images/CRO Checklist & Funnel Audit Tools.webp",
     href: siteConfig.path.leadMagnet,
     featured: true,
   },
@@ -43,13 +31,8 @@ const tools = [
     title: "Referral Calculator",
     description:
       "Calculate the optimal referral reward rate for your referral program based on your business metrics and referral reward offerings.",
-    icon: (
-      <div className="relative group">
-        <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 transform group-hover:rotate-6 transition-transform duration-300 shadow-lg">
-          <Users className="w-7 h-7 text-white" />
-        </div>
-      </div>
-    ),
+    image:
+      "https://ripples1static.blob.core.windows.net/images/Referral Calculator Tool.webp",
     href: siteConfig.path.referralCalculator,
     featured: true,
   },
@@ -57,13 +40,8 @@ const tools = [
     title: "Hashtag Analyzer",
     description:
       "Find the best hashtags for your content to maximize reach and engagement",
-    icon: (
-      <div className="relative group">
-        <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-amber-600 transform group-hover:rotate-6 transition-transform duration-300 shadow-lg">
-          <Search className="w-7 h-7 text-white" />
-        </div>
-      </div>
-    ),
+    image:
+      "https://ripples1static.blob.core.windows.net/images/HashtagAnalyzerTool.jpg",
     href: "#",
     comingSoon: true,
   },
@@ -71,13 +49,8 @@ const tools = [
     title: "Influencer Discovery",
     description:
       "Find the perfect influencers for your brand campaigns and partnerships",
-    icon: (
-      <div className="relative group">
-        <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 transform group-hover:rotate-6 transition-transform duration-300 shadow-lg">
-          <Users className="w-7 h-7 text-white" />
-        </div>
-      </div>
-    ),
+    image:
+      "https://ripples1static.blob.core.windows.net/images/InfluencerDiscoveryTool.png",
     href: "#",
     comingSoon: true,
   },
@@ -85,13 +58,8 @@ const tools = [
     title: "Shopify Store Analyser",
     description:
       "Analyze and optimize your Shopify store performance for better conversions",
-    icon: (
-      <div className="relative group">
-        <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-red-500 to-rose-600 transform group-hover:rotate-6 transition-transform duration-300 shadow-lg">
-          <Store className="w-7 h-7 text-white" />
-        </div>
-      </div>
-    ),
+    image:
+      "https://ripples1static.blob.core.windows.net/images/ShopifyStoreAnalyserTool.webp",
     href: "#",
     comingSoon: true,
   },
@@ -126,7 +94,7 @@ export default function FreeTools() {
               description={tool.description}
               featured={tool.featured}
               href={tool.href}
-              icon={tool.icon}
+              image={tool.image}
               title={tool.title}
             />
           ))}

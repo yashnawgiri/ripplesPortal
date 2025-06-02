@@ -1,10 +1,5 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
-
-import "swiper/css";
-import "swiper/css/pagination";
+import * as React from "react";
 import "./../styles/home/howDoesItWork.css";
-// import dashboardData from "@/data/landing.json";
 
 interface HowDoesItWorkData {
   title: string;
@@ -21,6 +16,24 @@ interface HowDoesItWorkProps {
 }
 
 const HowDoesItWork: React.FC<HowDoesItWorkProps> = ({ howDoesItWorkData }) => {
+  const [currentSlide, setCurrentSlide] = React.useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => 
+      prev === howDoesItWorkData.data.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => 
+      prev === 0 ? howDoesItWorkData.data.length - 1 : prev - 1
+    );
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
   return (
     <>
       <div className="outerContainer" id="features">
@@ -46,24 +59,25 @@ const HowDoesItWork: React.FC<HowDoesItWorkProps> = ({ howDoesItWorkData }) => {
           </div>
         </div>
       </div>
+
+      {/* Mobile Carousel */}
       <div className="sm:hidden w-full mt-8" id="features2">
         <div className="p-4 text-center w-full">
           <h2 className="title">{howDoesItWorkData.title}</h2>
           <p className="description">{howDoesItWorkData.description}</p>
         </div>
-        <Swiper
-          className="how-does-it-work"
-          modules={[Pagination]}
-          pagination={{
-            clickable: true,
-          }}
-          slidesPerView={"auto"}
-          spaceBetween={0}
-        >
-          <div className="">
+        
+        <div className="relative overflow-hidden">
+          <div 
+            className="flex transition-transform duration-300 ease-in-out"
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          >
             {howDoesItWorkData.data.map((step) => (
-              <SwiperSlide key={step.number}>
-                <div key={step.number} className="swiperContainer">
+              <div 
+                key={step.number} 
+                className="w-full flex-shrink-0 px-4"
+              >
+                <div className="swiperContainer">
                   <div className="cardNumber">
                     <span className="text-4xl font-bold text-white">
                       {step.number}
@@ -74,10 +88,44 @@ const HowDoesItWork: React.FC<HowDoesItWorkProps> = ({ howDoesItWorkData }) => {
                   </h3>
                   <p className="cardDescription">{step.description}</p>
                 </div>
-              </SwiperSlide>
+              </div>
             ))}
           </div>
-        </Swiper>
+
+          {/* Navigation Buttons */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 rounded-full p-2"
+            aria-label="Previous slide"
+          >
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 rounded-full p-2"
+            aria-label="Next slide"
+          >
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* Pagination Dots */}
+          <div className="flex justify-center gap-2 mt-4">
+            {howDoesItWorkData.data.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  currentSlide === index ? 'bg-white' : 'bg-white/30'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </>
   );

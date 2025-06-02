@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import { Button } from "@/components/ugc-landing/ui/button";
+import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/config/site";
 
 export function SiteHeader() {
@@ -71,7 +71,6 @@ export function SiteHeader() {
             </a>
             <Button
               className="bg-white text-black hover:bg-white/90"
-              variant="outline"
               onClick={() => (window.location.href = siteConfig.links.calendly)}
             >
               Book Demo
@@ -129,7 +128,6 @@ export function SiteHeader() {
 
             <Button
               className="w-full bg-white text-black hover:bg-white/90"
-              variant="outline"
               onClick={() => (window.location.href = siteConfig.links.calendly)}
             >
               Book Demo

@@ -4,9 +4,9 @@ import { useState } from "react";
 import { Download } from "lucide-react";
 import axios from "axios";
 
-import { Button } from "../ugc-landing/ui/button";
-import { Input } from "../ugc-landing/ui/input";
-import { Label } from "../ugc-landing/ui/label";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
+import { Label } from "@/components/ui/label";
 
 interface LeadFormProps {
   buttonText?: string;
@@ -35,7 +35,7 @@ export default function LeadForm({
         name,
         website,
         organisation,
-      },
+      }
     );
 
     setIsSubmitting(false);
@@ -56,7 +56,9 @@ export default function LeadForm({
       ) : (
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div className="space-y-2">
-            <Label htmlFor="name" className="text-white">Full Name</Label>
+            <Label htmlFor="name" className="text-white">
+              Full Name
+            </Label>
             <Input
               required
               id="name"
@@ -67,7 +69,9 @@ export default function LeadForm({
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="email" className="text-white">Email</Label>
+            <Label htmlFor="email" className="text-white">
+              Email
+            </Label>
             <Input
               required
               id="email"
@@ -79,7 +83,9 @@ export default function LeadForm({
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="organisation" className="text-white">Organisation</Label>
+            <Label htmlFor="organisation" className="text-white">
+              Organisation
+            </Label>
             <Input
               required
               id="organisation"
@@ -91,7 +97,9 @@ export default function LeadForm({
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="website" className="text-white">Website URL</Label>
+            <Label htmlFor="website" className="text-white">
+              Website URL
+            </Label>
             <Input
               required
               id="website"
@@ -103,7 +111,7 @@ export default function LeadForm({
             />
           </div>
           <Button
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm md:text-lg px-4 py-3 sm:px-8 sm:py-6 rounded-xl transition-all duration-200 shadow-lg transform truncate"
+            className="w-full bg-secondary text-white text-sm md:text-lg px-4 py-3 sm:px-8 sm:py-6 rounded-xl transition-all duration-200 shadow-lg transform truncate"
             disabled={isSubmitting}
             size="lg"
             type="submit"

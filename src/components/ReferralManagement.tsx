@@ -1,4 +1,3 @@
-import { Image } from "@nextui-org/image";
 import { motion, useReducedMotion } from "framer-motion";
 
 import { referral } from "@/data/landing.json";
@@ -73,8 +72,7 @@ function ReferralManagement() {
         viewport={{ once: true, amount: 0.3 }}
         whileInView="visible"
       >
-        <Image
-          disableSkeleton
+        <img
           alt="Referral Campaigns"
           className="max-w-full rounded-lg shadow-lg"
           loading={isMobile ? "eager" : "lazy"}

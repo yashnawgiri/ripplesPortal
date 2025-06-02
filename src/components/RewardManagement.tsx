@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Image } from "@nextui-org/image";
 
 import data from "@/data/landing.json";
 import ruppes from "@/assets/images/rupees.webp";
@@ -59,8 +58,7 @@ const Reward: React.FC = () => {
         </div>
 
         <motion.div className="flex justify-center" whileHover={{ scale: 1.1 }}>
-          <Image
-            disableSkeleton
+          <img
             className="w-full max-w-[300px] md:max-w-[500px] object-contain"
             src={rewardmanage}
           />
@@ -73,11 +71,7 @@ const Reward: React.FC = () => {
         initial={{ scale: 0.8, opacity: 0 }}
         transition={{ duration: 1 }}
       >
-        <Image
-          disableSkeleton
-          className="w-full max-w-[200px] lg:max-w-[300px]"
-          src={ruppes}
-        />
+        <img className="w-full max-w-[200px] lg:max-w-[300px]" src={ruppes} />
       </motion.div>
     </motion.div>
   );
@@ -120,13 +114,11 @@ const CashbackAndMileStone = () => {
           className="flex flex-col md:flex-row md:gap-4 gap-10 items-center justify-center md:justify-start"
           whileHover={{ rotate: 10 }}
         >
-          <Image
-            disableSkeleton
+          <img
             className="w-[200px] max-w-[400px] md:max-w-[600px] mx-auto"
             src={cashbackImg}
           />
-          <Image
-            disableSkeleton
+          <img
             className="w-[200px] max-w-[300px] md:max-w-[500px]"
             src={wallet}
           />
@@ -158,8 +150,7 @@ const CashbackAndMileStone = () => {
           className="flex items-center justify-center"
           whileHover={{ scale: 1.05 }}
         >
-          <Image
-            disableSkeleton
+          <img
             className="w-full max-w-[250px] md:max-w-[400px]"
             src={milestone}
           />
