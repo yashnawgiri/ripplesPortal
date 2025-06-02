@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Button } from "@nextui-org/button";
-import { Input } from "@nextui-org/input";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
 import { IoArrowForward } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { siteConfig } from "@/config/site";
@@ -8,13 +8,18 @@ import astronautSvg from "@/assets/images/astronaut.svg";
 import ghostSvg from "@/assets/images/ghost.svg";
 import axios from "axios";
 
+interface NewsletterResponse {
+  success: boolean;
+  message?: string;
+}
+
 export default function Newsletter() {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState("");
 
-  const validateEmail = (email: string) => {
+  const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
@@ -32,14 +37,20 @@ export default function Newsletter() {
 
     setError("");
     setIsLoading(true);
-    const source = `Ripples Home page (${window.location.href})`;
+
     try {
-      await axios.post(
-        "https://free-tools-function-app.azurewebsites.net/api/saveNewsletterEmail?",
+      const source = `Ripples Home page (${window.location.href})`;
+      const response = await axios.post<NewsletterResponse>(
+        "https://free-tools-function-app.azurewebsites.net/api/saveNewsletterEmail",
         { email, source }
       );
-      setIsSuccess(true);
-      setEmail("");
+
+      if (response.data.success) {
+        setIsSuccess(true);
+        setEmail("");
+      } else {
+        throw new Error(response.data.message || "Failed to subscribe");
+      }
     } catch (error) {
       console.error("Error subscribing:", error);
       setError("Failed to subscribe. Please try again.");
@@ -99,30 +110,23 @@ export default function Newsletter() {
                         setEmail(e.target.value);
                         setError("");
                       }}
-                      classNames={{
-                        base: "flex-1",
-                        input: "text-base",
-                        inputWrapper:
-                          "h-11 sm:h-12 border-gray-300 data-[hover=true]:border-purple-500 group-data-[focus=true]:border-purple-500",
-                      }}
-                      radius="md"
-                      size="lg"
-                      isInvalid={!!error}
-                      errorMessage={error}
+                      className="flex-1 text-base h-11 sm:h-12 border-gray-300 data-[hover=true]:border-purple-500 group-data-[focus=true]:border-purple-500"
+                      error={!!error}
                     />
                     <Button
-                      className="h-11 sm:h-12 px-4 sm:px-6 text-white font-medium w-full sm:w-auto bg-secondary hover:bg-secondary/80 transition-colors"
-                      radius="md"
+                      variant="secondary"
                       size="lg"
-                      isLoading={isLoading}
+                      className="h-11 sm:h-12 px-4 sm:px-6 text-white font-medium w-full sm:w-auto"
+                      disabled={isLoading}
                       onClick={handleSubscribe}
-                      endContent={
-                        !isLoading && <IoArrowForward className="w-4 h-4" />
-                      }
                     >
                       {isLoading ? "Subscribing..." : "Subscribe"}
+                      {!isLoading && <IoArrowForward className="w-4 h-4 ml-2" />}
                     </Button>
                   </div>
+                  {error && (
+                    <p className="text-sm text-red-500 mt-1">{error}</p>
+                  )}
                 </>
               )}
 
