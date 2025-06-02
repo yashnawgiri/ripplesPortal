@@ -30,7 +30,7 @@ const sizeClasses = {
 export const Switch: React.FC<SwitchProps> = ({
   checked,
   onCheckedChange,
-  size = 'sm',
+  size = "sm",
   ...props
 }) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,7 +49,7 @@ export const Switch: React.FC<SwitchProps> = ({
         className="peer sr-only"
         {...props}
       />
-      <div className="w-full h-full bg-gray-400 rounded-full transition-colors peer-checked:bg-primary" />
+      <div className="w-full h-full bg-gray-400 rounded-full transition-colors peer-checked:bg-secondary" />
       <span
         className={`absolute ${offset} ${knob} rounded-full bg-white transition-transform ${knobTranslate}`}
       />

@@ -171,10 +171,10 @@ export default function ReferralCommissionCalculator() {
   );
 
   return (
-    <Card className="bg-transparent text-white">
+    <Card className="bg-transparent border-none text-white">
       <CardHeader className="flex flex-col items-center gap-2">
         <div className="flex justify-between items-center w-full mb-4" />
-        <h2 className="text-3xl md:text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-secondary to-secondary-300">
+        <h2 className="text-3xl md:text-5xl font-bold text-center text-secondary">
           Referral Reward Calculator
         </h2>
         <p className="text-sm md:text-xl text-center text-white">

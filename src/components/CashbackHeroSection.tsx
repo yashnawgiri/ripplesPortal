@@ -65,7 +65,7 @@ const PromoSection: React.FC = () => {
         >
           <img
             alt="GoRipples promotional features and benefits showcase"
-            className="w-full scale-125 pr-16"
+            className="md:scale-125 md:pr-16"
             loading="lazy"
             src="https://ripples1static.blob.core.windows.net/images/cashbackHero.png"
           />

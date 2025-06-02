@@ -51,6 +51,10 @@ const CustomDialog: React.FC<DialogProps> = ({
     }
   };
 
+  const handleContentClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -59,7 +63,7 @@ const CustomDialog: React.FC<DialogProps> = ({
       onClick={handleBackdropClick}
       className={`fixed inset-0 z-50 m-auto max-h-[90vh] w-full max-w-lg rounded-lg border bg-white p-6 shadow-lg backdrop:bg-black/50 ${className}`}
     >
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4" onClick={handleContentClick}>
         {title && (
           <div className="flex items-center justify-between border-b pb-2">
             <h2 className="text-xl font-semibold">{title}</h2>

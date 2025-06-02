@@ -236,10 +236,10 @@ export default function TouchpointSection() {
 
                   {/* Content directly below the tab */}
                   {activeTab === channel.id && (
-                    <div className="bg-background rounded-lg p-4 shadow-sm text-black">
+                    <div className="bg-background rounded-lg p-4 shadow-sm text-white">
                       <div className="space-y-4">
                         <div>
-                          <h3 className="text-xl font-bold text-primary">
+                          <h3 className="text-xl font-bold text-white">
                             {channelContent[channel.id].title}
                           </h3>
                           <p className="text-muted-foreground mt-2 text-sm">
@@ -248,7 +248,7 @@ export default function TouchpointSection() {
                         </div>
 
                         <div>
-                          <h4 className="font-medium mb-2 text-primary">
+                          <h4 className="font-medium mb-2 text-white">
                             Key Features
                           </h4>
                           <ul className="space-y-2">
