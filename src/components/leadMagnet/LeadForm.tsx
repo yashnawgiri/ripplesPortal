@@ -4,9 +4,9 @@ import { useState } from "react";
 import { Download } from "lucide-react";
 import axios from "axios";
 
-import { Button } from "../ugc-landing/ui/button";
-import { Input } from "../ugc-landing/ui/input";
-import { Label } from "../ugc-landing/ui/label";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
+import { Label } from "@/components/ui/label";
 
 interface LeadFormProps {
   buttonText?: string;
@@ -35,7 +35,7 @@ export default function LeadForm({
         name,
         website,
         organisation,
-      },
+      }
     );
 
     setIsSubmitting(false);
@@ -45,65 +45,73 @@ export default function LeadForm({
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full px-4 sm:px-6">
       {isSubmitted ? (
-        <div className="rounded-lg bg-green-50 p-6 text-center">
-          <h3 className="text-lg font-medium text-green-800">Thank you!</h3>
-          <p className="mt-2 text-sm text-green-700">
+        <div className="rounded-lg bg-green-900 p-6 text-center">
+          <h3 className="text-lg font-medium text-white">Thank you!</h3>
+          <p className="mt-2 text-sm text-green-100">
             Check your email for your free CRO checklist and audit details.
           </p>
         </div>
       ) : (
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div className="space-y-2">
-            <Label htmlFor="name">Full Name</Label>
+            <Label htmlFor="name" className="text-white">
+              Full Name
+            </Label>
             <Input
               required
               id="name"
               placeholder="Your name"
-              style={{ color: "black" }}
+              className="bg-gray-800 text-white border-gray-700 placeholder-gray-400"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email" className="text-white">
+              Email
+            </Label>
             <Input
               required
               id="email"
               placeholder="you@company.com"
-              style={{ color: "black" }}
+              className="bg-gray-800 text-white border-gray-700 placeholder-gray-400"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="website">Organisation</Label>
+            <Label htmlFor="organisation" className="text-white">
+              Organisation
+            </Label>
             <Input
               required
-              id="website"
+              id="organisation"
               placeholder="Your organisation"
-              style={{ color: "black" }}
+              className="bg-gray-800 text-white border-gray-700 placeholder-gray-400"
               type="text"
               value={organisation}
               onChange={(e) => setOrganisation(e.target.value)}
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="website">Website URL</Label>
+            <Label htmlFor="website" className="text-white">
+              Website URL
+            </Label>
             <Input
               required
               id="website"
               placeholder="https://yourwebsite.com"
-              style={{ color: "black" }}
+              className="bg-gray-800 text-white border-gray-700 placeholder-gray-400"
               type="url"
               value={website}
               onChange={(e) => setWebsite(e.target.value)}
             />
           </div>
           <Button
-            className="w-full bg-secondary hover:bg-secondary-600 text-white text-lg px-8 py-6 rounded-xl transition-all duration-200 shadow-lg transform truncate"
+            className="w-full bg-secondary text-white text-sm md:text-lg px-4 py-3 sm:px-8 sm:py-6 rounded-xl transition-all duration-200 shadow-lg transform truncate"
             disabled={isSubmitting}
             size="lg"
             type="submit"
@@ -111,7 +119,7 @@ export default function LeadForm({
             {isSubmitting ? "Submitting..." : buttonText}
             <Download className="ml-2 h-4 w-4" />
           </Button>
-          <p className="text-center text-xs text-gray-500">
+          <p className="text-center text-sm text-gray-300">
             No credit card required. No spam.
           </p>
         </form>

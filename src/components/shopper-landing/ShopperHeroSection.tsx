@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-import { Image } from "@nextui-org/image";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef, Suspense, lazy } from "react";
 import { useNavigate } from "react-router-dom";
@@ -8,8 +7,10 @@ import { useNavigate } from "react-router-dom";
 import dashboardData from "@/data/shopperLanding.json";
 import CustomButton from "@/components/CustomElements/CustomButton";
 import { siteConfig } from "@/config/site";
-import flyer from "@/assets/images/shopperPageFlayer.png";
+
 import Typewriter from "@/components/Typewriter";
+
+import { imageUrls } from "@/utils/imageUrl";
 
 // Lazy load non-critical components
 // const BrandsJoined = lazy(() => import("./BrandsJoined"));
@@ -23,7 +24,7 @@ const preloadImage = () => {
 
   link.rel = "preload";
   link.as = "image";
-  link.href = flyer;
+  link.href = imageUrls.shopperPageFlayer;
   document.head.appendChild(link);
 };
 
@@ -107,15 +108,12 @@ function ShopperHeroSection() {
           variants={imageVariants}
         >
           <div className="transition-transform duration-300 ease-in-out hover:scale-110 origin-center mt-8">
-            <Image
-              isBlurred
+            <img
               alt="GoRipples dashboard interface showcasing analytics and features - mobile view"
               className="blur-load"
-              disableSkeleton={true}
               height={300}
               loading="eager"
-              radius="lg"
-              src={flyer}
+              src={imageUrls.shopperPageFlayer}
               style={{
                 objectFit: "contain",
                 objectPosition: "center",
@@ -166,14 +164,12 @@ function ShopperHeroSection() {
         variants={imageVariants}
       >
         <div className="transition-transform duration-300 ease-in-out hover:scale-125 origin-center mt-8">
-          <Image
-            isBlurred
+          <img
             alt="GoRipples dashboard interface showcasing analytics and features"
             className="my-4"
             height={1200}
             loading="lazy"
-            radius="lg"
-            src={flyer}
+            src={imageUrls.shopperPageFlayer}
             style={{
               objectFit: "contain",
               objectPosition: "center",

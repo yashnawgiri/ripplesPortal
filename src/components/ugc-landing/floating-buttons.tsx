@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 import { MessageCircle, ArrowUp } from "lucide-react";
 
-import { Button } from "@/components/ugc-landing/ui/button";
+import { Button } from "@/components/ui/Button";
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ugc-landing/ui/sheet";
-import { Input } from "@/components/ugc-landing/ui/input";
-import { Textarea } from "@/components/ugc-landing/ui/textarea";
-import { Label } from "@/components/ugc-landing/ui/label";
+} from "@/components/ui/Sheet";
+import { Input } from "@/components/ui/Input";
+import { Textarea } from "@/components/ui/Textarea";
+import { Label } from "@/components/ui/label";
 
 export function FloatingButtons() {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -39,7 +39,6 @@ export function FloatingButtons() {
           <Button
             aria-label="Contact Us"
             className="rounded-full w-12 h-12 bg-primary text-primary-foreground shadow-lg hover:shadow-xl transition-shadow"
-            size="icon"
           >
             <MessageCircle className="h-5 w-5" />
           </Button>
@@ -70,7 +69,6 @@ export function FloatingButtons() {
         <Button
           aria-label="Back to top"
           className="rounded-full w-12 h-12 bg-black/50 backdrop-blur-sm text-white shadow-lg hover:shadow-xl transition-all hover:bg-black/70"
-          size="icon"
           onClick={scrollToTop}
         >
           <ArrowUp className="h-5 w-5" />

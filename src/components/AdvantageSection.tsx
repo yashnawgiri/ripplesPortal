@@ -1,4 +1,4 @@
-import type React from "react";
+import type { FC } from "react";
 
 import { motion } from "framer-motion";
 import {
@@ -12,7 +12,7 @@ import {
   BarChart3,
 } from "lucide-react";
 
-const AdvantagesSection: React.FC = () => {
+const AdvantagesSection: FC = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

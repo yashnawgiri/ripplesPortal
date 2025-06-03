@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import type { FC } from "react";
+import { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 
 import "./../styles/home/faq.css";
@@ -10,7 +11,7 @@ type FAQItemProps = {
   answer: string;
 };
 
-const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
+const FAQItem: FC<FAQItemProps> = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

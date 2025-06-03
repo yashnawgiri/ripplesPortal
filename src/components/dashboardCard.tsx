@@ -1,10 +1,10 @@
 import { DashboardCardIcon } from "./icons";
 
 import "./../styles/home/dashboardCard.css";
-import dashboardImage from "@/assets/images/customerView.webp";
 import dashboardData from "@/data/landing.json";
 
-import { Image } from "@nextui-org/image";
+import { imageUrls } from "@/utils/imageUrl";
+
 import { motion } from "framer-motion";
 
 const cardVariants = {
@@ -64,11 +64,11 @@ export default function DashboardCard() {
           viewport={{ once: true, amount: 0.2 }}
           whileInView={{ opacity: 1, scale: 1 }}
         >
-          <Image
-            disableSkeleton
+          <img
+            alt="Dashboard image"
             className="my-4 rounded-lg shadow-lg hidden md:block"
-            height="550px"
-            src={dashboardImage}
+            loading="lazy"
+            src={imageUrls.customerView}
             width="w-1/2"
           />
         </motion.div>

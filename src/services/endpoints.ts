@@ -16,4 +16,4 @@ const endpoints = {
   GENERATE_AFFILIATE_LINK: `${BASE_URL}/identifier/:brand_id/program/:referral_program_id/affiliate/create`,
 } as const;
 
-export default endpoints;
+export default { ...endpoints };

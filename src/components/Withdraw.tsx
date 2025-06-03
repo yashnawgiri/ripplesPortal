@@ -1,15 +1,13 @@
 import React, { useState, FormEvent, ChangeEvent, useEffect } from "react";
-import {
-  Button,
-  Card,
-  CardBody,
-  CardHeader,
-  Input,
-  Select,
-  SelectItem,
-  Progress,
-  Chip,
-} from "@nextui-org/react";
+
+import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
+import { Input } from "@/components/ui/Input";
+import { Select } from "@/components/ui/Select";
+import { Progress } from "@/components/ui/Progress";
+import { Chip } from "@/components/ui/Chip";
+import { Label } from "@/components/ui/label";
+
 import toast from "react-hot-toast";
 import { useRecoilState, useRecoilValue } from "recoil";
 
@@ -33,6 +31,14 @@ interface FormErrors {
   accountHolderName: string;
   withdrawalMethod: string;
 }
+
+const CardHeader = ({ children, className }: { children: React.ReactNode; className?: string }) => (
+  <div className={`p-6 ${className}`}>{children}</div>
+);
+
+const CardBody = ({ children, className }: { children: React.ReactNode; className?: string }) => (
+  <div className={`p-6 ${className}`}>{children}</div>
+);
 
 const Withdraw: React.FC = () => {
   const [step, setStep] = useState<number>(1);
@@ -202,42 +208,32 @@ const Withdraw: React.FC = () => {
             </h3>
             <Progress
               className="max-w-md"
-              color="secondary"
-              size="sm"
               value={(step / 3) * 100}
             />
           </CardHeader>
           <CardBody className="gap-4">
             {step === 1 && (
               <div className="flex flex-col gap-4">
-                <Input
-                  classNames={{
-                    label: "text-zinc-200",
-                    input: "text-black",
-                    innerWrapper: "bg-default-100/50",
-                    errorMessage: "text-danger text-xs mt-1",
-                  }}
-                  color="primary"
-                  errorMessage={errors.amount}
-                  isInvalid={!!errors.amount}
-                  label="Amount"
-                  labelPlacement="outside"
-                  placeholder="Enter amount"
-                  startContent={
-                    <div className="pointer-events-none flex items-center">
-                      <span className="text-zinc-300 text-sm">₹</span>
-                    </div>
-                  }
-                  type="number"
-                  value={amount}
-                  onChange={(e) => {
-                    setAmount(e.target.value);
-                    setErrors((prev) => ({
-                      ...prev,
-                      amount: validateAmount(e.target.value),
-                    }));
-                  }}
-                />
+                <div className="flex flex-col gap-2">
+                  <Label>Amount</Label>
+                  <Input
+                    className="text-white"
+                    error={!!errors.amount}
+                    placeholder="Enter amount"
+                    type="number"
+                    value={amount}
+                    onChange={(e) => {
+                      setAmount(e.target.value);
+                      setErrors((prev) => ({
+                        ...prev,
+                        amount: validateAmount(e.target.value),
+                      }));
+                    }}
+                  />
+                  {errors.amount && (
+                    <span className="text-danger text-xs mt-1">{errors.amount}</span>
+                  )}
+                </div>
               </div>
             )}
 
@@ -247,38 +243,26 @@ const Withdraw: React.FC = () => {
                 className="flex flex-col gap-4"
                 role="region"
               >
-                <Select
-                  aria-describedby={
-                    errors.withdrawalMethod
-                      ? "withdrawal-method-error"
-                      : undefined
-                  }
-                  aria-invalid={!!errors.withdrawalMethod}
-                  aria-required="true"
-                  classNames={{
-                    label: "text-zinc-200",
-                    trigger: "bg-default-100/50 text-zinc-100",
-                    errorMessage: "text-danger text-xs mt-1",
-                  }}
-                  errorMessage={errors.withdrawalMethod}
-                  isInvalid={!!errors.withdrawalMethod}
-                  label="Select withdrawal method"
-                  placeholder="Select a method"
-                  selectedKeys={withdrawalMethod ? [withdrawalMethod] : []}
-                  onChange={(e) => {
-                    setWithdrawalMethod(e.target.value);
-                    setErrors((prev) => ({
-                      ...prev,
-                      withdrawalMethod: validateWithdrawalMethod(
-                        e.target.value,
-                      ),
-                    }));
-                  }}
-                >
-                  <SelectItem key="bank" className="text-zinc-800">
-                    Bank Transfer
-                  </SelectItem>
-                </Select>
+                <div className="flex flex-col gap-2">
+                  <Label>Select withdrawal method</Label>
+                  <Select
+                    options={[{ value: "bank", label: "Bank Transfer" }]}
+                    placeholder="Select a method"
+                    value={withdrawalMethod}
+                    onChange={(e) => {
+                      setWithdrawalMethod(e.target.value);
+                      setErrors((prev) => ({
+                        ...prev,
+                        withdrawalMethod: validateWithdrawalMethod(
+                          e.target.value,
+                        ),
+                      }));
+                    }}
+                  />
+                  {errors.withdrawalMethod && (
+                    <span className="text-danger text-xs mt-1">{errors.withdrawalMethod}</span>
+                  )}
+                </div>
               </div>
             )}
 
@@ -363,47 +347,36 @@ const Withdraw: React.FC = () => {
                     ariaLabel: "Phone number input",
                   },
                 ].map((field, index) => (
-                  <Input
-                    key={index}
-                    aria-describedby={
-                      field.error
-                        ? `${field.label.toLowerCase().replace(/\s+/g, "-")}-error`
-                        : undefined
-                    }
-                    aria-invalid={!!field.error}
-                    aria-label={field.ariaLabel}
-                    aria-required="true"
-                    classNames={{
-                      label: "text-white",
-                      input: "text-black",
-                      innerWrapper: "bg-default-100/50",
-                      errorMessage: "text-danger text-xs mt-1",
-                    }}
-                    color="primary"
-                    errorMessage={field.error}
-                    isInvalid={!!field.error}
-                    label={field.label}
-                    labelPlacement="outside"
-                    placeholder={field.placeholder}
-                    value={field.value}
-                    onChange={field.onChange}
-                  />
+                  <div className="flex flex-col gap-2">
+                    <Label>{field.label}</Label>
+                    <Input
+                      key={index}
+                      className="text-white"
+                      error={!!field.error}
+                      placeholder={field.placeholder}
+                      value={field.value}
+                      onChange={field.onChange}
+                    />
+                    {field.error && (
+                      <span className="text-danger text-xs mt-1">{field.error}</span>
+                    )}
+                  </div>
                 ))}
                 <div className="flex justify-between mt-4">
                   <Button
-                    aria-label="Go back to previous step"
-                    color="primary"
-                    variant="bordered"
-                    onPress={handleBack}
+                    className="bg-primary text-white hover:bg-primary/90"
+                    variant="default"
+                    onClick={handleBack}
                   >
                     Back
                   </Button>
                   <Button
-                    aria-label="Submit withdrawal request"
-                    color="secondary"
-                    type="submit"
+                    className="bg-secondary text-white hover:bg-secondary/90"
+                    variant="default"
+                    disabled={step === 3 && !withdrawalMethod}
+                    onClick={handleNext}
                   >
-                    Submit Withdrawal
+                    Next
                   </Button>
                 </div>
               </form>
@@ -416,11 +389,12 @@ const Withdraw: React.FC = () => {
                 role="region"
               >
                 <Chip
-                  aria-label="Success status"
                   color="success"
-                  role="status"
                   size="lg"
-                  variant="flat"
+                  variant="solid"
+                  className="text-white bg-green-500"
+                  role="status"
+                  aria-label="Success status"
                 >
                   Withdrawal Request Successful!
                 </Chip>
@@ -460,26 +434,6 @@ const Withdraw: React.FC = () => {
                   </span>
                   .
                 </p>
-              </div>
-            )}
-
-            {step < 3 && (
-              <div className="flex justify-between mt-4">
-                <Button
-                  color="secondary"
-                  isDisabled={step === 1}
-                  variant="flat"
-                  onPress={handleBack}
-                >
-                  Back
-                </Button>
-                <Button
-                  color="secondary"
-                  isDisabled={step === 2 && !withdrawalMethod}
-                  onPress={handleNext}
-                >
-                  Next
-                </Button>
               </div>
             )}
           </CardBody>

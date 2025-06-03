@@ -1,6 +1,6 @@
-import { Button } from "@nextui-org/button";
-import { Spinner } from "@nextui-org/spinner";
-import { InputOtp } from "@nextui-org/input-otp";
+import { Button } from "@/components/ui/Button";
+import { Spinner } from "@/components/ui/Spinner";
+import { OTPInput } from "@/components/ui/OTPInput";
 import { useState, useEffect } from "react";
 
 interface OTPProps {
@@ -51,21 +51,20 @@ export default function OTP({
 
         <div className="space-y-6">
           <div className="flex flex-col justify-center items-center gap-4">
-            <InputOtp
+            <OTPInput
               className="text-black text-lg"
               length={4}
               textAlign="center"
               value={otp}
-              variant="flat"
-              onComplete={() => onVerify(otp)}
-              onValueChange={setOtp}
+              onChange={setOtp}
+              onComplete={onVerify}
             />
           </div>
 
           <div className="space-y-1">
             <Button
               className="w-full font-semibold bg-secondary text-white hover:bg-secondary/90 transition-colors"
-              isDisabled={loading ?? false}
+              disabled={loading ?? false}
               size="lg"
               onClick={() => onVerify(otp)}
             >
@@ -77,7 +76,7 @@ export default function OTP({
             </Button>
             <Button
               className="w-full text-secondary !important z-100 border-none bg-transparent text-wrap"
-              isDisabled={isResendDisabled}
+              disabled={isResendDisabled}
               onClick={handleResendOtp}
             >
               {isResendDisabled

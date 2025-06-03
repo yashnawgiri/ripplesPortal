@@ -2,12 +2,21 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
+import { compression } from 'vite-plugin-compression2';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     tsconfigPaths(),
+    compression({
+      algorithm: 'gzip',
+      exclude: [/\.(br)$/, /\.(gz)$/],
+    }),
+    compression({
+      algorithm: 'brotliCompress',
+      exclude: [/\.(br)$/, /\.(gz)$/],
+    }),
     ViteImageOptimizer({
       test: /\.(jpe?g|png|gif|webp|svg)$/i,
       png: {
@@ -39,9 +48,15 @@ export default defineConfig({
       output: {
         manualChunks: {
           "react-vendor": ["react", "react-dom"],
-          "ui-vendor": ["@nextui-org/react"],
-          "motion-vendor": ["framer-motion"],
-          router: ["react-router-dom"],
+          "ui-vendor": ["framer-motion", "class-variance-authority", "clsx", "tailwind-merge"],
+          "chart-vendor": ["recharts"],
+          "form-vendor": ["react-hook-form", "@hookform/resolvers", "zod"],
+          "date-vendor": ["date-fns"],
+          "router-vendor": ["react-router-dom"],
+          "state-vendor": ["recoil"],
+          "toast-vendor": ["react-hot-toast", "sonner"],
+          "swiper-vendor": ["swiper"],
+          "icons-vendor": ["react-icons", "lucide-react"],
         },
       },
     },
@@ -66,8 +81,28 @@ export default defineConfig({
     target: ["es2020", "edge88", "firefox78", "chrome87", "safari14"],
   },
   optimizeDeps: {
-    include: ["react", "react-dom", "framer-motion", "@nextui-org/react"],
-    exclude: [],
+    include: [
+      "react",
+      "react-dom",
+      "framer-motion",
+      "class-variance-authority",
+      "clsx",
+      "tailwind-merge",
+      "react-icons",
+      "lucide-react",
+      "axios",
+      "react-router-dom",
+      "recoil",
+      "react-hook-form",
+      "@hookform/resolvers",
+      "zod",
+      "date-fns",
+      "recharts",
+      "swiper",
+      "react-hot-toast",
+      "sonner"
+    ],
+    exclude: ["@vitejs/plugin-react"],
   },
   server: {
     headers: {

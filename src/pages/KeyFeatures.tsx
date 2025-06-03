@@ -1,13 +1,10 @@
-import { Image } from "@nextui-org/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 import keyFeaturesData from "@/data/landing.json";
-import step1 from "@/assets/images/step1.png";
-import step2 from "@/assets/images/step2.png";
-import step3 from "@/assets/images/step3.png";
+import { imageUrls } from "@/utils/imageUrl";
 
-const steps = [step1, step2, step3];
+const steps = [imageUrls.step1, imageUrls.step2, imageUrls.step3];
 
 function KeyFeatures() {
   const shouldReduceMotion = useReducedMotion();
@@ -87,7 +84,7 @@ const Card = ({ title, index }: CardProps) => {
       key={index}
       ref={ref}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      className="text-white text-2xl font-bold flex flex-col cursor-pointer items-center md:items-start"
+      className="text-white text-2xl font-bold flex flex-col cursor-pointer items-center md:items-start rounded-lg"
       initial="hidden"
       variants={cardVariants}
       viewport={{ once: true, amount: 0.3 }}
@@ -97,10 +94,9 @@ const Card = ({ title, index }: CardProps) => {
       <h1 className="py-8 text-xl md:text-2xl flex gap-1">
         <p>{`${index + 1}. `}</p> <p>{title}</p>
       </h1>
-      <Image
-        disableSkeleton
+      <img
         alt={`Step ${index + 1}`}
-        className="transition-transform duration-300"
+        className="transition-transform duration-300 "
         loading={index === 0 ? "eager" : "lazy"}
         src={steps[index]}
         style={{

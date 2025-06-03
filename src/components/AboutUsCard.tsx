@@ -1,13 +1,12 @@
-import pranav from "@/assets/images/founders/pranav.png";
-import tazril from "@/assets/images/founders/tazril.jpeg";
-import aboutUsData from "@/data/about.json";
+import aboutUsData from "@/data/about.json"
+import {imageUrls} from "@/utils/imageUrl"
 
 interface AboutUsProps {
   id: number;
 }
 
 const AboutUsCard: React.FC<AboutUsProps> = ({ id }) => {
-  const AboutUsImage = [pranav, tazril];
+  const AboutUsImage = [imageUrls.founders.pranav, imageUrls.founders.tazril];
 
   return (
     <div className="max-w-sm space-y-2 mx-auto">

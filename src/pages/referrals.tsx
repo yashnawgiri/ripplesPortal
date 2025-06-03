@@ -22,6 +22,7 @@ function DemoButton() {
     <CustomButton
       className="my-14 font-bold bg-custom-gradient"
       onClick={() => navigate(siteConfig.path.getDemo)}
+      aria-label="Get started with Ripples referral program"
     >
       {dashboardData.home.demoButton}
     </CustomButton>
@@ -41,18 +42,10 @@ export default function Referrals() {
         <LinkCodeSection />
         <KeyFeatures />
         <DemoButton />
-        {/* <ReferralCommissionCalculator/> */}
         <HowDoesItWork
           howDoesItWorkData={dashboardData.ComponentsData.HowDoesItWorks}
         />
         <DashboardCard />
-        {/* <Testimonials /> */}
-        {/* <GradiantCards /> */}
-        {/* <DemoButton /> */}
-        {/* <FAQ /> */}
-        {/* <ResponsibilitySection /> */}
-        {/* <DemoButton /> */}
-        {/* <DataPrivacyComponent /> */}
       </section>
     </DefaultLayout>
   );

@@ -1,10 +1,8 @@
-"use client";
-
-import type React from "react";
+import type { FC } from "react";
 
 import { motion } from "framer-motion";
 
-const HowItWorksSection: React.FC = () => {
+const HowItWorksSection: FC = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

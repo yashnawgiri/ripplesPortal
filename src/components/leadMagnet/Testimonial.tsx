@@ -1,4 +1,4 @@
-import { Card, CardContent } from "../ugc-landing/ui/card";
+import { Card, CardContent } from "@/components/ui/Card";
 
 interface TestimonialProps {
   quote: string;
@@ -12,7 +12,7 @@ export default function Testimonial({
   rating,
 }: TestimonialProps) {
   return (
-    <Card className="overflow-hidden">
+    <Card className="overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl">
       <CardContent className="p-6">
         <div className="flex space-x-1 mb-4">
           {Array.from({ length: rating }).map((_, i) => (

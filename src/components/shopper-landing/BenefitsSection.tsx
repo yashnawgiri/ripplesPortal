@@ -2,13 +2,12 @@
 
 import "@/styles/home/dashboardCard.css";
 
-import { Image } from "@nextui-org/image";
 import { motion } from "framer-motion";
 
 import { BenefitSectionIcons } from "./../icons";
 
 import dashboardData from "@/data/shopperLanding.json";
-import dashboardImage from "@/assets/images/benefitsSectionImage.png";
+import { imageUrls } from "@/utils/imageUrl";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -67,13 +66,12 @@ const BenefitsSection = () => {
           viewport={{ once: true, amount: 0.2 }}
           whileInView={{ opacity: 1, scale: 1 }}
         >
-          <Image
-            disableSkeleton
+          <img
             alt="GoRipples dashboard interface showcasing analytics and features"
             className="my-4 rounded-lg shadow-lg hidden md:block"
             height="fit"
             loading="lazy"
-            src={dashboardImage}
+            src={imageUrls.benefitsSectionImage}
             width="w-1/2"
           />
         </motion.div>

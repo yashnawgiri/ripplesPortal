@@ -1,17 +1,11 @@
 import { useEffect, useState } from "react";
 import {
   Modal,
-  ModalContent,
   ModalHeader,
   ModalBody,
   ModalFooter,
-  Button,
-  Input,
-  Card,
-  CardBody,
-  Progress,
-  Tooltip,
-} from "@nextui-org/react";
+} from "@/components/ui/Modal"
+
 import { FaFacebook, FaGift, FaLink, FaLinkedin } from "react-icons/fa";
 
 import {
@@ -21,6 +15,7 @@ import {
 } from "@/services/apiService";
 import { copyToClipboard, organizeRewardData } from "@/utils/utils";
 import { CopyIcon, TwitterIcon } from "@/components/icons";
+import { Button } from "@/components/ui/Button";
 
 interface Props {
   rewardString: string;
@@ -99,155 +94,129 @@ export default function ReferralPopup({
 
   return (
     <Modal
-      backdrop="opaque"
-      classNames={{
-        base: "bg-primary",
-        header: "border-b border-zinc-700",
-        body: "py-6",
-      }}
       isOpen={isOpen}
-      size="2xl"
       onClose={onClose}
+      size="2xl"
+      className="bg-gray-900 text-white"
     >
-      <ModalContent>
-        {() => (
+      <ModalHeader className="flex flex-col items-center gap-1 border-gray-700">
+        <div className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600">
+          <FaGift color="white" size={20} />
+        </div>
+        <h2 className="text-xl font-bold text-center bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+          {rewardString}
+        </h2>
+        <p className="text-sm text-gray-400 text-center">
+          Share with friends and both of you will get rewards on your next
+          purchase!
+        </p>
+      </ModalHeader>
+      <ModalBody>
+        {error ? (
+          <div className="text-center text-red-500">{error}</div>
+        ) : loading ? (
+          <div className="space-y-4">
+            {[1, 2].map((i) => (
+              <div
+                key={i}
+                className="w-full h-32 animate-pulse bg-gray-800 rounded-lg"
+              />
+            ))}
+          </div>
+        ) : (
           <>
-            <ModalHeader className="flex flex-col items-center gap-1">
-              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-secondary">
-                <FaGift color="white" size={20} />
-              </div>
-              <h2 className="text-xl font-bold text-center bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                {rewardString}
-              </h2>
-              <p className="text-sm text-zinc-400 text-center">
-                Share with friends and both of you will get rewards on your next
-                purchase!
-              </p>
-            </ModalHeader>
-            <ModalBody>
-              {error ? (
-                <div className="text-center text-danger">{error}</div>
-              ) : loading ? (
-                <div className="space-y-4">
-                  {[1, 2].map((i) => (
-                    <Card
-                      key={i}
-                      className="w-full h-32 animate-pulse bg-zinc-800"
-                    />
-                  ))}
-                </div>
-              ) : (
-                <>
-                  <p className="text-center text-white font-semibold text-md">
-                    Unlock Amazing Rewards
-                  </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 max-h-80 md:max-h-64 overflow-y-auto">
-                    {rewards.map((item, index) => (
-                      <Card
-                        key={index}
-                        className={`border-2 ${
-                          referredUsers >= (item.milestone || 1)
-                            ? "border-primary"
-                            : "border-zinc-700"
-                        }`}
-                      >
-                        <CardBody className="gap-3 bg-primary border rounded-xl text-white">
-                          <div className="flex justify-between items-start">
-                            <h3 className="text-lg font-semibold">
-                              {item.milestone ? `${item.milestone}th` : "Every"}{" "}
-                              Referral
-                            </h3>
-                            <span className="text-2xl font-bold text-secondary">
-                              {item.type === "FIXED_INR"
-                                ? `₹${item.amount}`
-                                : `${item.amount}%`}
-                            </span>
-                          </div>
-                          <div className="space-y-2">
-                            <Progress
-                              classNames={{
-                                base: "h-3",
-                                indicator:
-                                  "bg-gradient-to-r from-blue-500 to-purple-500",
-                              }}
-                              value={
-                                (referredUsers / (item.milestone || 1)) * 100
-                              }
-                            />
-                            {index != 0 && (
-                              <p className="text-xs text-zinc-400">
-                                {`${referredUsers} of ${item.milestone} `}
-                                referrals completed
-                              </p>
-                            )}
-                          </div>
-                        </CardBody>
-                      </Card>
-                    ))}
+            <p className="text-center text-white font-semibold text-md">
+              Unlock Amazing Rewards
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 max-h-80 md:max-h-64 overflow-y-auto">
+              {rewards.map((item, index) => (
+                <div
+                  key={index}
+                  className={`border-2 rounded-lg p-4 ${
+                    referredUsers >= (item.milestone || 1)
+                      ? "border-blue-500"
+                      : "border-gray-700"
+                  }`}
+                >
+                  <div className="flex justify-between items-start">
+                    <h3 className="text-lg font-semibold">
+                      {item.milestone ? `${item.milestone}th` : "Every"}{" "}
+                      Referral
+                    </h3>
+                    <span className="text-2xl font-bold text-blue-500">
+                      {item.type === "FIXED_INR"
+                        ? `₹${item.amount}`
+                        : `${item.amount}%`}
+                    </span>
                   </div>
-                  <p className="text-white font-semibold flex gap-3 items-center justify-center">
-                    <FaLink /> Share your Referral Link
-                  </p>
-                  <div className="space-y-4">
-                    <div className="flex gap-2">
-                      <Input
-                        readOnly
-                        classNames={{
-                          input: "bg-white",
-                          inputWrapper: "bg-white",
+                  <div className="space-y-2 mt-3">
+                    <div className="w-full bg-gray-700 rounded-full h-3">
+                      <div
+                        className="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full"
+                        style={{
+                          width: `${(referredUsers / (item.milestone || 1)) * 100}%`,
                         }}
-                        value={link}
                       />
-                      <Tooltip content={copied ? "Copied!" : "Copy link"}>
-                        <Button
-                          isIconOnly
-                          aria-label="Copy referral link"
-                          color="secondary"
-                          variant="flat"
-                          onClick={handleCopy}
-                        >
-                          <CopyIcon />
-                        </Button>
-                      </Tooltip>
                     </div>
-
-                    <div className="flex justify-center gap-2">
-                      <Button
-                        isIconOnly
-                        aria-label="Share on Facebook"
-                        className="bg-blue-600 text-white"
-                        variant="flat"
-                        onClick={() => shareOnSocial("facebook")}
-                      >
-                        <FaFacebook size={20} />
-                      </Button>
-                      <Button
-                        isIconOnly
-                        aria-label="Share on Twitter"
-                        className="bg-sky-500 text-white"
-                        variant="flat"
-                        onClick={() => shareOnSocial("twitter")}
-                      >
-                        <TwitterIcon size={20} />
-                      </Button>
-                      <Button
-                        isIconOnly
-                        aria-label="Share on LinkedIn"
-                        className="bg-blue-700 text-white"
-                        variant="flat"
-                        onClick={() => shareOnSocial("linkedin")}
-                      >
-                        <FaLinkedin size={20} />
-                      </Button>
-                    </div>
+                    {index !== 0 && (
+                      <p className="text-xs text-gray-400">
+                        {`${referredUsers} of ${item.milestone} `}
+                        referrals completed
+                      </p>
+                    )}
                   </div>
-                </>
-              )}
-            </ModalBody>
-            <ModalFooter />
+                </div>
+              ))}
+            </div>
+            <p className="text-white font-semibold flex gap-3 items-center justify-center">
+              <FaLink /> Share your Referral Link
+            </p>
+            <div className="space-y-4">
+              <div className="flex gap-2">
+                <input
+                  readOnly
+                  className="flex-1 px-4 py-2 bg-white text-gray-900 rounded-lg"
+                  value={link}
+                />
+                <button
+                  className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  onClick={handleCopy}
+                  title={copied ? "Copied!" : "Copy link"}
+                >
+                  <CopyIcon />
+                </button>
+              </div>
+
+              <div className="flex justify-center gap-2">
+                <button
+                  className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  onClick={() => shareOnSocial("facebook")}
+                  title="Share on Facebook"
+                >
+                  <FaFacebook size={20} />
+                </button>
+                <button
+                  className="p-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-colors"
+                  onClick={() => shareOnSocial("twitter")}
+                  title="Share on Twitter"
+                >
+                  <TwitterIcon size={20} />
+                </button>
+                <button
+                  className="p-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors"
+                  onClick={() => shareOnSocial("linkedin")}
+                  title="Share on LinkedIn"
+                >
+                  <FaLinkedin size={20} />
+                </button>
+              </div>
+            </div>
           </>
         )}
-      </ModalContent>
+      </ModalBody>
+      <ModalFooter className="border-gray-700">
+        <Button>Close</Button>
+      </ModalFooter>
     </Modal>
   );
 }
