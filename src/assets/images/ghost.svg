@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60" height="80" viewBox="0 0 60 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Body -->
+  <path
+    d="M30 10 C40 10 48 18 48 30 L48 65 C48 70 45 72 42 70 L38 67 L34 70 C31 72 28 70 28 67 L22 70 C19 72 16 70 16 67 L12 70 C9 72 6 70 6 67 L12 65 L12 30 C12 18 20 10 30 10 Z"
+    fill="#D4A574"
+  />
+  <!-- Eyes -->
+  <circle cx="22" cy="28" r="3" fill="#0E1330" />
+  <circle cx="38" cy="28" r="3" fill="#0E1330" />
+  <!-- Mouth -->
+  <ellipse cx="30" cy="38" rx="4" ry="2" fill="#0E1330" />
+</svg> 
