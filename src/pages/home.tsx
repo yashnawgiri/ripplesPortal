@@ -24,7 +24,6 @@ import AdvantagesSection from "@/components/AdvantageSection";
 import HowItWorksSection from "@/components/UgcHowItWorks";
 import CTASection from "@/components/CtaSection";
 import TouchpointSection from "@/components/TouchpointSection";
-import Newsletter from "@/components/Newsletter";
 
 function DemoButton() {
   const navigate = useNavigate();
