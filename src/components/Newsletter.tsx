@@ -81,9 +81,11 @@ export default function Newsletter() {
             <div className="flex items-start gap-3 sm:gap-4">
               <IoArrowForward className="w-5 h-5 sm:w-6 sm:h-6 mt-1 text-gray-400 flex-shrink-0" />
               <p className="text-white text-base sm:text-lg leading-relaxed">
-                Get insider access to our company by subscribing to our
-                newsletter and stay informed about our products, services, and
-                initiatives.
+                Subscribe to The Ripple Effect — your backstage pass to how top
+                consumer brands are scaling, latest growth hacks & strategies.
+                Learn how to scale through referrals, influencer marketing, UGC,
+                and community. No fluff. Just tactical playbooks, product
+                updates, and growth stories worth stealing
               </p>
             </div>
 
@@ -121,7 +123,9 @@ export default function Newsletter() {
                       onClick={handleSubscribe}
                     >
                       {isLoading ? "Subscribing..." : "Subscribe"}
-                      {!isLoading && <IoArrowForward className="w-4 h-4 ml-2" />}
+                      {!isLoading && (
+                        <IoArrowForward className="w-4 h-4 ml-2" />
+                      )}
                     </Button>
                   </div>
                   {error && (

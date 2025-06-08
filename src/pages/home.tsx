@@ -55,7 +55,6 @@ export default function HomePage() {
         <IntegrationSlider />
         <AdvantagesSection />
         <DashboardCard />
-        <Newsletter />
         <Testimonials />
         <GradiantCards />
         <DemoButton />
