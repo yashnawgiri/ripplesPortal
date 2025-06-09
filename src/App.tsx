@@ -63,27 +63,17 @@ function App() {
   };
 
   const currentMetaTags = getMetaTagsForPath(location.pathname);
+  const fullTitle = `${currentMetaTags.title} | ${siteConfig.seo.defaultTitle}`;
 
   return (
     <HelmetProvider>
       <MetaTags
-        title={currentMetaTags.title}
-        description={currentMetaTags.description}
-        canonicalUrl={location.pathname}
+        title={fullTitle}
+        description={currentMetaTags.description || siteConfig.seo.defaultDescription}
+        canonicalUrl={`https://goripples.com${location.pathname}`}
         noindex={currentMetaTags.noindex}
-        type={
-          location.pathname.startsWith("/case-study/") ? "article" : "website"
-        }
-        keywords={[
-          "referral program",
-          "UGC rewards",
-          "loyalty software",
-          "D2C growth tools",
-          "customer loyalty",
-          "brand advocacy",
-          "user generated content",
-          "influencer marketing",
-        ]}
+        type={location.pathname.startsWith("/case-study/") ? "article" : "website"}
+        keywords={siteConfig.seo.defaultKeywords}
       />
       <Suspense fallback={<Fallback />}>
         <Routes>

@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 Allow: /referrals
 Allow: /ugc-home
-Allow: /free-tools
+Allow: /tools
 Allow: /tools/instagram-engagement
 Allow: /tools/lead-magnet
 Allow: /tools/referral-calculator
@@ -14,6 +14,7 @@ Allow: /terms-and-conditions
 # Disallow private routes
 Disallow: /my-ripples/
 Disallow: /sign-in
+Disallow: /logout
 Disallow: /affiliate-link/
 Disallow: /private/
 Disallow: /api/
