@@ -13,9 +13,32 @@ import { imageUrls } from "@/utils/imageUrl";
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Ripples ",
+  name: "Ripples",
   description:
     "Turn customers into influencers, advocates, and UGC creators - your RIPPLERS!",
+  // SEO Configuration
+  seo: {
+    defaultTitle: "Ripples - Turn Customers into Influencers & UGC Creators",
+    titleTemplate: "%s | Ripples",
+    defaultDescription: "Transform your customers into brand advocates with Ripples. Launch referral programs, collect UGC content, and reward your loyal customers.",
+    defaultKeywords: [
+      "referral program",
+      "UGC rewards",
+      "loyalty software",
+      "D2C growth tools",
+      "brand advocacy",
+      "user generated content",
+      "influencer marketing",
+      "customer rewards",
+      "brand ambassadors",
+      "customer engagement",
+      "brand community",
+      "content marketing",
+      "social media marketing",
+      "ecommerce growth",
+      "community building",
+    ],
+  },
   path: {
     home: "/",
     referrals: "/referrals",
