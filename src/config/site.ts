@@ -165,23 +165,15 @@ export const siteConfig = {
   footerItems: [
     {
       label: "Home",
-      href: "#",
+      href: "/",
     },
     {
       label: "About Us",
-      href: "#",
-    },
-    {
-      label: "How Does It Work",
-      href: "#",
+      href: "/about",
     },
     {
       label: "Contact",
-      href: "#",
-    },
-    {
-      label: "Blog",
-      href: "#",
+      href: "mailto:pranav.nahal@goripples.com",
     },
   ],
   footerLegal: [
