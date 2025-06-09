@@ -349,11 +349,7 @@ export const siteConfig = {
     {
       label: "Terms & Conditions",
       href: "/terms-and-conditions",
-    },
-    {
-      label: "Return Policy",
-      href: "#",
-    },
+    }
   ],
   formInput: {
     Name: "",
