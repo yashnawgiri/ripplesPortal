@@ -18,7 +18,7 @@ export const MetaTags = ({
   description,
   canonicalUrl,
   noindex = false,
-  ogImage = 'https://goripples.com/social-preview.jpg',
+  ogImage = 'https://ripples1static.blob.core.windows.net/images/ripples-site-metaimage.svg',
   keywords = ['referral program', 'UGC rewards', 'loyalty software', 'D2C growth tools'],
   type = 'website',
   publishedTime,
