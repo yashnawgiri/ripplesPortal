@@ -1,6 +1,7 @@
 import { InstagramIcon, LinkedInIcon } from "./icons";
 
 import { siteConfig } from "@/config/site";
+import Newsletter from "./Newsletter";
 
 export default function Footer() {
   return (
@@ -15,6 +16,7 @@ export default function Footer() {
                 <span className="text-4xl text-secondary">.</span>
               </h1>
             </a>
+            <Newsletter />
           </div>
           <div className="md:flex md:justify-around md:space-x-16 space-y-8 md:space-y-0">
             <div className="max-w-xs mx-auto md:mx-0">
