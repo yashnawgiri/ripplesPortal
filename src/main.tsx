@@ -8,14 +8,6 @@ import App from "./App.tsx";
 import "@/styles/globals.css";
 import { RecoilRoot } from "recoil";
 
-// Add Zendesk script to head
-const script = document.createElement("script");
-
-script.id = "ze-snippet";
-script.src =
-  "https://static.zdassets.com/ekr/snippet.js?key=ff935203-968c-4bb2-ba8c-325d7e5e644e";
-document.head.appendChild(script);
-
 // this is the entry point
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
