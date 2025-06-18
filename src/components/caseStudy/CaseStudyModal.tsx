@@ -1,6 +1,6 @@
 import type React from "react"
 import { X, Globe, MapPin, Calendar, Quote } from "lucide-react"
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/Avatar"
+import { Avatar, AvatarFallback } from "@/components/ui/Avatar"
 
 interface CaseStudy {
   id: string

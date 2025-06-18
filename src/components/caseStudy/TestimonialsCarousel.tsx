@@ -24,7 +24,6 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
   testimonials,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   // Simplified profile image handling - only use provided image or fallback to initials
@@ -36,7 +35,6 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
   };
 
   useEffect(() => {
-    setIsVisible(true);
     
     // Check if mobile
     const checkIsMobile = () => {
