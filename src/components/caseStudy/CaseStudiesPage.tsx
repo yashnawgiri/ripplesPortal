@@ -38,6 +38,7 @@ interface Testimonial {
   id: number;
   company: string;
   quote: string;
+  logo: string;
   description: string;
   conclusion: string;
   author: {
@@ -49,7 +50,7 @@ interface Testimonial {
 
 export default function CaseStudiesPage() {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(
-    null,
+    null
   );
 
   const openCaseStudy = (caseStudy: CaseStudy) => {
@@ -100,9 +101,7 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="relative z-10 mb-8 sm:mb-12 md:mb-16 lg:mb-24">
-        <TestimonialsCarousel testimonials={testimonials} />
-      </section>
+      <TestimonialsCarousel testimonials={testimonials} />
 
       {/* Brand Logos Section */}
       <section className="relative z-10 w-full mb-8 sm:mb-12 md:mb-16 lg:mb-24">
