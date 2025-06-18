@@ -8,6 +8,7 @@ import CTASection from "@/components/caseStudy/CTASection";
 import CaseStudyModal from "@/components/caseStudy/CaseStudyModal";
 import caseStudiesData from "@/data/caseStudy.json";
 import testimonialsData from "@/data/testimonials.json";
+import { useNavigate } from "react-router-dom";
 
 interface CaseStudy {
   id: string;
@@ -49,20 +50,23 @@ interface Testimonial {
 }
 
 export default function CaseStudiesPage() {
-  const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(
-    null
-  );
+  const navigate = useNavigate();
 
   const openCaseStudy = (caseStudy: CaseStudy) => {
-    setSelectedCaseStudy(caseStudy);
-  };
-
-  const closeCaseStudy = () => {
-    setSelectedCaseStudy(null);
+    navigate(`/case-study/${caseStudy.id}`);
   };
 
   // Extract the caseStudies array from the imported data
-  const caseStudies = caseStudiesData.caseStudies as CaseStudy[];
+  const caseStudies = caseStudiesData.caseStudies.map((study: any) => ({
+    ...study,
+    results: {
+      ...study.results,
+      roi: study.results.roi.value,
+      sales: study.results.sales.value,
+      referrals: study.results.referrals.value,
+      timeline: study.results.timeline,
+    },
+  })) as CaseStudy[];
   const testimonials = testimonialsData.testimonials as Testimonial[];
 
   return (
@@ -113,8 +117,6 @@ export default function CaseStudiesPage() {
         <CTASection />
       </section>
 
-      {/* Case Study Modal */}
-      <CaseStudyModal caseStudy={selectedCaseStudy} onClose={closeCaseStudy} />
     </div>
   );
 }
