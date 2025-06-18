@@ -208,7 +208,7 @@ export const siteConfig = {
     userSupport: "support",
     userAccount: "account",
     userTransaction: "transactions",
-    signIn: "/sign-in",
+    signIn: "https://shopper.goripples.com/",
     logout: "/logout",
     withdraw: "/my-ripples/withdraw",
     default: "*",
