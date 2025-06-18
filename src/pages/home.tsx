@@ -51,15 +51,13 @@ export default function HomePage() {
         <CashbackHeroSection />
         <MarketingSection />
         <HowItWorksSection />
+        <CaseStudiesPage />
         <TouchpointSection />
         <CTASection />
         <IntegrationSlider />
         <AdvantagesSection />
         <DashboardCard />
-        <CaseStudiesPage />
-        {/* <Testimonials /> */}
         <GradiantCards />
-        <DemoButton />
         <ResponsibilitySection />
         <DemoButton />
         <DataPrivacyComponent />
