@@ -11,7 +11,7 @@ import dashboardData from "@/data/landing.json";
 
 import StatsSection from "./StatsSection";
 
-import Testimonials from "@/components/Testimonials";
+// import Testimonials from "@/components/Testimonials";
 
 import ResponsibilitySection from "./ResponsibilitySection";
 import HeroSection from "./HeroSection";
