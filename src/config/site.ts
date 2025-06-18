@@ -184,6 +184,24 @@ export const siteConfig = {
           "Read the latest insights and updates from the Ripples team.",
         keywords: ["blog", "insights", "updates", "news"],
       },
+      caseStudies: {
+        title: "Case Studies - Ripples Success Stories",
+        description:
+          "Discover how brands like Kaftanize and Smartveda achieved incredible growth with Ripples referral and UGC programs.",
+        keywords: ["case studies", "success stories", "client results", "ROI", "growth"],
+      },
+      caseStudyKaftanize: {
+        title: "Kaftanize Case Study - 17x ROI with Ripples Referral Program",
+        description:
+          "See how Kaftanize achieved 17x ROI and 8% sales contribution in just 60 days using Ripples referral program.",
+        keywords: ["Kaftanize", "case study", "17x ROI", "fashion", "referral program"],
+      },
+      caseStudySmartveda: {
+        title: "Smartveda Case Study - 22x ROI with Ripples Referral Program",
+        description:
+          "Discover how Smartveda achieved 22x ROI and 9.3% sales contribution using Ripples referral and loyalty system.",
+        keywords: ["Smartveda", "case study", "22x ROI", "health wellness", "referral program"],
+      },
       myRipples: {
         title: "My Ripples Dashboard",
         description:
@@ -263,6 +281,9 @@ export const siteConfig = {
     referralCalculator: "/tools/referral-calculator",
     pricing: "/pricing",
     blog: "/blog",
+    caseStudy: "/case-study/:id",
+    caseStudyKaftanize: "/case-study/kaftanize",
+    caseStudySmartveda: "/case-study/smartveda",
     myRipples: "my-ripples",
     userHome: "home",
     userContent: "content",
