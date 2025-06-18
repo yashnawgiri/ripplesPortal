@@ -9,6 +9,7 @@ import {
 // import UgcIcon from "@/assets/images/ugc-icon.svg";
 // import referralIcon from "@/assets/images/referral-icon.svg";
 import { imageUrls } from "@/utils/imageUrl";
+import { HammerIcon, Newspaper, PaperclipIcon } from "lucide-react";
 
 export type SiteConfig = typeof siteConfig;
 
@@ -300,6 +301,7 @@ export const siteConfig = {
     pricing: "/pricing",
     blog: "/blog",
     caseStudy: "/case-study/:id",
+    caseStudies: "/case-study",
     caseStudyKaftanize: "/case-study/kaftanize",
     caseStudySmartveda: "/case-study/smartveda",
     myRipples: "my-ripples",
@@ -344,8 +346,23 @@ export const siteConfig = {
       ],
     },
     {
-      label: "Tools",
-      href: "/tools",
+      label: "Resources",
+      resources: [
+        {
+          label: "Case Studies",
+          href: "/case-study",
+          icon: Newspaper,
+          description:
+            "Discover how brands like Kaftanize and Smartveda achieved incredible growth with Ripples referral and UGC programs.",
+        },
+        {
+          label: "Tools",
+          href: "/tools",
+          icon: HammerIcon,
+          description:
+            "Access our collection of free tools for social media and marketing.",
+        },
+      ],
     },
     {
       label: "Shopper: Access Rewards",

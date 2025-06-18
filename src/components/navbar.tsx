@@ -35,6 +35,26 @@ export default function Navbar() {
     btn.href = siteConfig.path.signIn;
   }
 
+  // Helper function to render icon (either image URL or React component)
+  const renderIcon = (icon: any, label: string) => {
+    if (typeof icon === "string") {
+      // It's an image URL
+      return (
+        <img
+          alt={label}
+          className="w-5 h-5 "
+          src={icon}
+        />
+      );
+    } else if (typeof icon === "function" || (icon && icon.$$typeof)) {
+      // It's a React component (Lucide icon)
+      const IconComponent = icon;
+      return <IconComponent className="w-5 h-5 text-secondary" />;
+    }
+    // Fallback for any other type
+    return null;
+  };
+
   return (
     <nav
       className={`bg-primary w-full p-4 md:py-6 py-8 fixed top-0 left-0 z-50 transition-all duration-300 ${
@@ -62,7 +82,7 @@ export default function Navbar() {
               >
                 {item.label}
               </a>
-            ) : item.label === "Products" ? (
+            ) : item.label === "Products" || item.label === "Resources" ? (
               <div key={`nav-product-${index}`} className="relative group">
                 <button className="text-color cursor-pointer flex items-center gap-1 hover:text-white transition-colors">
                   {item.label}
@@ -87,11 +107,7 @@ export default function Navbar() {
                       className="flex items-center gap-2 px-4 py-2 text-sm text-white rounded-md hover:bg-secondary/20 transition-colors"
                       to={resource.href}
                     >
-                      <img
-                        alt={resource.label}
-                        className="w-5 h-5"
-                        src={resource.icon}
-                      />
+                      {renderIcon(resource.icon, resource.label)}
                       {resource.label}
                     </NavLink>
                   ))}
@@ -160,7 +176,7 @@ export default function Navbar() {
               >
                 {item.label}
               </a>
-            ) : item.label === "Products" ? (
+            ) : item.label === "Products" || item.label === "Resources" ? (
               <div key={`mobile-product-${index}`} className="relative">
                 <button
                   className="flex items-center justify-center gap-4 w-full px-4 py-3 text-white text-base md:text-lg hover:bg-secondary/20 rounded-lg transition-colors duration-200"
@@ -195,11 +211,7 @@ export default function Navbar() {
                           setIsOpen(false);
                         }}
                       >
-                        <img
-                          alt={resource.label}
-                          className="w-5 h-5 flex-shrink-0"
-                          src={resource.icon}
-                        />
+                        {renderIcon(resource.icon, resource.label)}
                         <span>{resource.label}</span>
                       </NavLink>
                     ))}
