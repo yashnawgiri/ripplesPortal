@@ -25,7 +25,6 @@ interface CaseStudyCardProps {
 const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
   name,
   industry,
-  website,
   logo,
   imageSrc,
   results,
@@ -104,12 +103,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
           </div>
 
           {/* Arrow Icon */}
-          <Link
-            to={`https://${website}`}
-            className="no-ripple"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
+          <Link to={`/case-study/${name.toLowerCase()}`} className="no-ripple">
             <ArrowUpRight
               className={`w-5 h-5 text-slate-400 group-hover:${color.text} group-hover:scale-110 transition-all duration-300 flex-shrink-0`}
             />
