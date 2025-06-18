@@ -2,7 +2,6 @@ import { DashboardCardIcon } from "./icons";
 
 import "./../styles/home/dashboardCard.css";
 import dashboardData from "@/data/landing.json";
-
 import { imageUrls } from "@/utils/imageUrl";
 
 import { motion } from "framer-motion";

@@ -24,6 +24,7 @@ import AdvantagesSection from "@/components/AdvantageSection";
 import HowItWorksSection from "@/components/UgcHowItWorks";
 import CTASection from "@/components/CtaSection";
 import TouchpointSection from "@/components/TouchpointSection";
+
 import CaseStudiesPage from "../components/caseStudy/CaseStudiesPage";
 
 function DemoButton() {

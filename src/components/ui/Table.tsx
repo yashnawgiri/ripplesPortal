@@ -1,10 +1,14 @@
-import React from 'react';
+import React from "react";
 
 interface TableProps extends React.HTMLAttributes<HTMLTableElement> {
   children: React.ReactNode;
 }
 
-export const Table: React.FC<TableProps> = ({ children, className = '', ...props }) => {
+export const Table: React.FC<TableProps> = ({
+  children,
+  className = "",
+  ...props
+}) => {
   return (
     <div className="relative w-full overflow-auto">
       <table className={`w-full border-collapse ${className}`} {...props}>
@@ -14,11 +18,16 @@ export const Table: React.FC<TableProps> = ({ children, className = '', ...props
   );
 };
 
-interface TableHeaderProps extends React.HTMLAttributes<HTMLTableSectionElement> {
+interface TableHeaderProps
+  extends React.HTMLAttributes<HTMLTableSectionElement> {
   children: React.ReactNode;
 }
 
-export const TableHeader: React.FC<TableHeaderProps> = ({ children, className = '', ...props }) => {
+export const TableHeader: React.FC<TableHeaderProps> = ({
+  children,
+  className = "",
+  ...props
+}) => {
   return (
     <thead className={`border-b ${className}`} {...props}>
       {children}
@@ -30,7 +39,11 @@ interface TableBodyProps extends React.HTMLAttributes<HTMLTableSectionElement> {
   children: React.ReactNode;
 }
 
-export const TableBody: React.FC<TableBodyProps> = ({ children, className = '', ...props }) => {
+export const TableBody: React.FC<TableBodyProps> = ({
+  children,
+  className = "",
+  ...props
+}) => {
   return (
     <tbody className={className} {...props}>
       {children}
@@ -42,9 +55,16 @@ interface TableRowProps extends React.HTMLAttributes<HTMLTableRowElement> {
   children: React.ReactNode;
 }
 
-export const TableRow: React.FC<TableRowProps> = ({ children, className = '', ...props }) => {
+export const TableRow: React.FC<TableRowProps> = ({
+  children,
+  className = "",
+  ...props
+}) => {
   return (
-    <tr className={`border-b hover:bg-gray-100/10 transition-colors ${className}`} {...props}>
+    <tr
+      className={`border-b hover:bg-gray-100/10 transition-colors ${className}`}
+      {...props}
+    >
       {children}
     </tr>
   );
@@ -54,9 +74,16 @@ interface TableHeadProps extends React.ThHTMLAttributes<HTMLTableCellElement> {
   children: React.ReactNode;
 }
 
-export const TableHead: React.FC<TableHeadProps> = ({ children, className = '', ...props }) => {
+export const TableHead: React.FC<TableHeadProps> = ({
+  children,
+  className = "",
+  ...props
+}) => {
   return (
-    <th className={`h-12 px-4 text-left align-middle font-medium ${className}`} {...props}>
+    <th
+      className={`h-12 px-4 text-left align-middle font-medium ${className}`}
+      {...props}
+    >
       {children}
     </th>
   );
@@ -66,7 +93,11 @@ interface TableCellProps extends React.TdHTMLAttributes<HTMLTableCellElement> {
   children: React.ReactNode;
 }
 
-export const TableCell: React.FC<TableCellProps> = ({ children, className = '', ...props }) => {
+export const TableCell: React.FC<TableCellProps> = ({
+  children,
+  className = "",
+  ...props
+}) => {
   return (
     <td className={`p-4 align-middle ${className}`} {...props}>
       {children}

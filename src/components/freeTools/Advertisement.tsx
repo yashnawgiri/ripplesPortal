@@ -1,5 +1,6 @@
-import { siteConfig } from "@/config/site";
 import { Link } from "react-router-dom";
+
+import { siteConfig } from "@/config/site";
 
 type Props = {};
 

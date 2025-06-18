@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 // import ugcContentCardSvg from "./../assets/images/ugcContentManagementCard.png";
 
 import { imageUrls } from "@/utils/imageUrl";
-
 import { siteConfig } from "@/config/site";
 
 const MarketingSection: FC = () => {

@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { Slider } from "@/components/ui/Slider";
-import { Spacer } from "@/components/ui/Spacer";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+
+import { Slider } from "@/components/ui/Slider";
+import { Spacer } from "@/components/ui/Spacer";
 
 const RevenueBoostCalculator = () => {
   const [spend, setSpend] = useState(500);
@@ -53,7 +54,11 @@ const RevenueBoostCalculator = () => {
 
   const calculateBoost = () => {
     const annualBoost =
-      spend * ordersPerWeek * 52 * (referralRate / 100) * (conversionRate / 100) || 0;
+      spend *
+        ordersPerWeek *
+        52 *
+        (referralRate / 100) *
+        (conversionRate / 100) || 0;
 
     return new Intl.NumberFormat("en-IN", {
       style: "currency",

@@ -89,22 +89,22 @@ export function RewardsSimulator() {
     const cashbackTier =
       CASHBACK_TIERS.find(
         (tier) =>
-          state.followerCount >= tier.min && state.followerCount <= tier.max
+          state.followerCount >= tier.min && state.followerCount <= tier.max,
       ) || CASHBACK_TIERS[0];
     const cashbackAmount =
       (state.purchaseAmount * cashbackTier.percentage) / 100;
 
     const followerMultiplier = Math.min(
       Math.max((state.followerCount - 5000) / 5000 + 1, 1),
-      8
+      8,
     );
     const engagementMultiplier = Math.min(
       Math.max(state.engagementRate / 2, 1),
-      3
+      3,
     );
     const totalMultiplier = Math.min(
       followerMultiplier * engagementMultiplier,
-      15
+      15,
     );
 
     const rewards = baseRewards[state.contentQuality];
@@ -208,24 +208,25 @@ export function RewardsSimulator() {
                     </Tooltip>
                   </div>
                   <Select
-                    value={state.contentQuality}
+                    className="bg-white/5 border-white/10 text-white w-full"
                     options={[
                       { value: "basic", label: "Basic Content" },
                       { value: "premium", label: "Premium Content" },
                       { value: "viral", label: "Viral Potential" },
                     ]}
                     placeholder="Select quality"
+                    value={state.contentQuality}
                     onChange={(e) => {
                       const value = e.target.value as
                         | "basic"
                         | "premium"
                         | "viral";
+
                       setState((prev) => ({
                         ...prev,
                         contentQuality: value,
                       }));
                     }}
-                    className="bg-white/5 border-white/10 text-white w-full"
                   />
                 </div>
 
@@ -336,8 +337,8 @@ export function RewardsSimulator() {
                     </div>
                     <div className="flex items-center gap-2">
                       <Switch
-                        checked={state.showStoreCredit}
                         key={`store-credit-${state.showStoreCredit}`}
+                        checked={state.showStoreCredit}
                         onCheckedChange={(checked: boolean) =>
                           setState((prev) => ({
                             ...prev,
@@ -354,8 +355,8 @@ export function RewardsSimulator() {
                     </div>
                     <div className="flex items-center gap-2">
                       <Switch
-                        checked={state.showProductRewards}
                         key={`product-rewards-${state.showProductRewards}`}
+                        checked={state.showProductRewards}
                         onCheckedChange={(checked: boolean) =>
                           setState((prev) => ({
                             ...prev,

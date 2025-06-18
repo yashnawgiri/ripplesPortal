@@ -1,7 +1,8 @@
+import { useState, useEffect } from "react";
+
 import { Button } from "@/components/ui/Button";
 import { Spinner } from "@/components/ui/Spinner";
 import { OTPInput } from "@/components/ui/OTPInput";
-import { useState, useEffect } from "react";
 
 interface OTPProps {
   onVerify: (num: string) => void;

@@ -1,6 +1,8 @@
 import type React from "react";
+
 import { useState, useEffect } from "react";
 import { Quote, Star, ChevronLeft, ChevronRight } from "lucide-react";
+
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/Avatar";
 
 interface Testimonial {
@@ -28,23 +30,27 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
 
   // Simplified profile image handling - only use provided image or fallback to initials
   const getProfileImage = (authorImage: string) => {
-    if (authorImage && authorImage !== "/placeholder.svg" && authorImage.startsWith('http')) {
+    if (
+      authorImage &&
+      authorImage !== "/placeholder.svg" &&
+      authorImage.startsWith("http")
+    ) {
       return authorImage;
     }
+
     return null; // Will fallback to AvatarFallback with initials
   };
 
   useEffect(() => {
-    
     // Check if mobile
     const checkIsMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkIsMobile();
-    window.addEventListener('resize', checkIsMobile);
-    
-    return () => window.removeEventListener('resize', checkIsMobile);
+    window.addEventListener("resize", checkIsMobile);
+
+    return () => window.removeEventListener("resize", checkIsMobile);
   }, []);
 
   const nextTestimonial = () => {
@@ -53,7 +59,8 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
 
   const prevTestimonial = () => {
     setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length
+      (prevIndex) =>
+        (prevIndex - 1 + testimonials.length) % testimonials.length,
     );
   };
 
@@ -89,7 +96,10 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
         {/* Header */}
         <div className="text-center mb-12 md:mb-20">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-purple-500/20 rounded-full px-4 md:px-6 py-2 mb-4 md:mb-6">
-            <Quote className="w-3 md:w-4 h-3 md:h-4 text-purple-400" size={16} />
+            <Quote
+              className="w-3 md:w-4 h-3 md:h-4 text-purple-400"
+              size={16}
+            />
             <span className="text-purple-300 text-xs md:text-sm font-medium">
               Founder Stories
             </span>
@@ -112,8 +122,8 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
           <div className="flex items-center justify-center min-h-[400px] md:min-h-[600px]">
             {/* Navigation - Left */}
             <button
-              onClick={prevTestimonial}
               className="absolute left-2 md:left-4 z-20 h-10 w-10 md:h-14 md:w-14 rounded-full bg-slate-800/80 hover:bg-slate-700/80 text-white border border-slate-600/50 transition-all duration-300 hover:scale-110 flex items-center justify-center backdrop-blur-sm shadow-xl"
+              onClick={prevTestimonial}
             >
               <ChevronLeft className="h-5 w-5 md:h-7 md:w-7" size={28} />
             </button>
@@ -383,8 +393,8 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
 
             {/* Navigation - Right */}
             <button
-              onClick={nextTestimonial}
               className="absolute right-2 md:right-4 z-20 h-10 w-10 md:h-14 md:w-14 rounded-full bg-slate-800/80 hover:bg-slate-700/80 text-white border border-slate-600/50 transition-all duration-300 hover:scale-110 flex items-center justify-center backdrop-blur-sm shadow-xl"
+              onClick={nextTestimonial}
             >
               <ChevronRight className="h-5 w-5 md:h-7 md:w-7" size={28} />
             </button>
@@ -395,12 +405,12 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
             {testimonials.map((_, index) => (
               <button
                 key={index}
-                onClick={() => goToTestimonial(index)}
                 className={`transition-all duration-300 ${
                   index === currentIndex
                     ? "w-6 h-2 md:w-8 md:h-3 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full shadow-lg shadow-purple-400/50"
                     : "w-2 h-2 md:w-3 md:h-3 bg-slate-600 hover:bg-slate-500 rounded-full hover:scale-125"
                 }`}
+                onClick={() => goToTestimonial(index)}
               />
             ))}
           </div>

@@ -16,11 +16,10 @@ import { motion } from "framer-motion";
 import { Link, LinkProps } from "react-router-dom";
 import { ReactNode } from "react";
 
-import { Card, CardContent } from "@/components/ui/Card";
-
 import LeadForm from "./LeadForm";
 import Testimonial from "./Testimonial";
 
+import { Card, CardContent } from "@/components/ui/Card";
 import DefaultLayout from "@/layouts/default";
 import { siteConfig } from "@/config/site";
 
@@ -36,7 +35,9 @@ interface IconWrapperProps {
 }
 
 const IconWrapper = ({ children, className = "" }: IconWrapperProps) => (
-  <div className={`rounded-2xl bg-secondary/20 p-3 transition-all duration-300 hover:scale-110 ${className}`}>
+  <div
+    className={`rounded-2xl bg-secondary/20 p-3 transition-all duration-300 hover:scale-110 ${className}`}
+  >
     {children}
   </div>
 );
@@ -118,7 +119,8 @@ export default function CROChecklistPage() {
                 </div>
                 <div className="space-y-2 mt-4">
                   <p className="text-white text-base md:text-lg">
-                    Download our proven 300-point optimization checklist instantly
+                    Download our proven 300-point optimization checklist
+                    instantly
                   </p>
                 </div>
                 <LeadForm buttonText="Download CRO Checklist" />
@@ -143,11 +145,11 @@ export default function CROChecklistPage() {
                 </IconWrapper>
                 <span>Only 10 Free Audits Available</span>
               </h2>
-              <p className="text-lg md:text-xl text-white">⏳ First come, first served.</p>
+              <p className="text-lg md:text-xl text-white">
+                ⏳ First come, first served.
+              </p>
             </div>
-            <Button to={siteConfig.links.calendly}>
-              Claim My Free Audit
-            </Button>
+            <Button to={siteConfig.links.calendly}>Claim My Free Audit</Button>
             <p className="text-white font-bold">
               No credit card required. No spam. Ever.
             </p>
@@ -173,13 +175,17 @@ export default function CROChecklistPage() {
           <div className="mx-auto grid max-w-5xl gap-6 md:gap-8 py-12 md:py-16 lg:grid-cols-2">
             {[
               {
-                icon: <FileCheck className="h-6 w-6 md:h-7 md:w-7 text-secondary" />,
+                icon: (
+                  <FileCheck className="h-6 w-6 md:h-7 md:w-7 text-secondary" />
+                ),
                 title: "Landing Page Optimization",
                 description:
                   "75 proven tactics to create high-converting landing pages",
               },
               {
-                icon: <Check className="h-6 w-6 md:h-7 md:w-7 text-secondary" />,
+                icon: (
+                  <Check className="h-6 w-6 md:h-7 md:w-7 text-secondary" />
+                ),
                 title: "Checkout & Conversion Flows",
                 description: "100 ways to optimize your checkout process",
               },
@@ -203,9 +209,7 @@ export default function CROChecklistPage() {
                 <Card className="group hover:shadow-xl transition-all duration-300 border-1 border-white/10 shadow-lg bg-white/5 backdrop-blur-md">
                   <CardContent className="p-6 md:p-8">
                     <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6">
-                      <IconWrapper>
-                        {item.icon}
-                      </IconWrapper>
+                      <IconWrapper>{item.icon}</IconWrapper>
                       <div className="text-center md:text-left">
                         <h3 className="text-lg md:text-xl font-bold text-white">
                           {item.title}
@@ -349,7 +353,9 @@ export default function CROChecklistPage() {
                 <ul className="grid gap-3">
                   <li className="flex items-center gap-2">
                     <Check className="h-5 w-5 text-secondary" />
-                    <span className="text-white text-base md:text-lg">Full access to Ripples</span>
+                    <span className="text-white text-base md:text-lg">
+                      Full access to Ripples
+                    </span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="h-5 w-5 text-secondary" />

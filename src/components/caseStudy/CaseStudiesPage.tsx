@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import HeroSection from "@/components/caseStudy/HeroSection";
 import CaseStudyCard from "@/components/caseStudy/CaseStudyCard";
 import TestimonialsCarousel from "@/components/caseStudy/TestimonialsCarousel";
@@ -48,7 +49,7 @@ interface Testimonial {
 
 export default function CaseStudiesPage() {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(
-    null
+    null,
   );
 
   const openCaseStudy = (caseStudy: CaseStudy) => {
@@ -65,7 +66,6 @@ export default function CaseStudiesPage() {
 
   return (
     <div className="">
-
       {/* Hero Section */}
       <HeroSection />
 
@@ -73,28 +73,28 @@ export default function CaseStudiesPage() {
       <section className="relative z-10 max-w-7xl mx-auto px-3 sm:px-4 md:px-6 mb-8 sm:mb-12 md:mb-16 lg:mb-24">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
           <CaseStudyCard
-            id={caseStudies[0].id}
-            website={caseStudies[0].website}
-            name={caseStudies[0].name}
-            industry={caseStudies[0].industry}
             badge="👚 Fashion & Apparel"
-            logo={caseStudies[0].logo}
-            imageSrc={caseStudies[0].image}
-            results={caseStudies[0].results}
-            onReadMore={() => openCaseStudy(caseStudies[0])}
             colorScheme="purple"
+            id={caseStudies[0].id}
+            imageSrc={caseStudies[0].image}
+            industry={caseStudies[0].industry}
+            logo={caseStudies[0].logo}
+            name={caseStudies[0].name}
+            results={caseStudies[0].results}
+            website={caseStudies[0].website}
+            onReadMore={() => openCaseStudy(caseStudies[0])}
           />
           <CaseStudyCard
-            id={caseStudies[1].id}
-            name={caseStudies[1].name}
-            website={caseStudies[1].website}
-            industry={caseStudies[1].industry}
             badge="🌿 Health & Wellness"
-            logo={caseStudies[1].logo}
-            imageSrc={caseStudies[1].image}
-            results={caseStudies[1].results}
-            onReadMore={() => openCaseStudy(caseStudies[1])}
             colorScheme="green"
+            id={caseStudies[1].id}
+            imageSrc={caseStudies[1].image}
+            industry={caseStudies[1].industry}
+            logo={caseStudies[1].logo}
+            name={caseStudies[1].name}
+            results={caseStudies[1].results}
+            website={caseStudies[1].website}
+            onReadMore={() => openCaseStudy(caseStudies[1])}
           />
         </div>
       </section>

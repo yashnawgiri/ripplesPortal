@@ -1,14 +1,18 @@
 import type React from "react";
+
 import { Sparkles } from "lucide-react";
-import CustomButton from "../CustomElements/CustomButton";
 import { useNavigate } from "react-router-dom";
+
+import CustomButton from "../CustomElements/CustomButton";
+
 import { siteConfig } from "@/config/site";
 
 const CTASection: React.FC = () => {
   const navigate = useNavigate();
+
   return (
     <section className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="absolute inset-0 bg-transparent rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-3xl blur-sm sm:blur-md md:blur-lg lg:blur-xl"></div>
+      <div className="absolute inset-0 bg-transparent rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-3xl blur-sm sm:blur-md md:blur-lg lg:blur-xl" />
       <div className="relative text-center py-6 sm:py-8 md:py-12 lg:py-16 xl:py-20 px-4 sm:px-6 md:px-8 lg:px-10 bg-transparent backdrop-blur-sm sm:backdrop-blur-md md:backdrop-blur-lg lg:backdrop-blur-xl rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-3xl border border-slate-700/30 sm:border-slate-700/40 md:border-slate-700/50">
         <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-transparent backdrop-blur-sm border border-purple-500/20 rounded-full px-3 sm:px-4 md:px-5 lg:px-6 py-1 sm:py-1.5 md:py-2 mb-3 sm:mb-4 md:mb-6 lg:mb-8">
           <Sparkles className="w-3 sm:w-3.5 md:w-4 lg:w-5 h-3 sm:h-3.5 md:h-4 lg:h-5 text-purple-400" />

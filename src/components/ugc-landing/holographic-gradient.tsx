@@ -37,17 +37,19 @@ export function HolographicGradient({
 
     const handleMouseMove = (e: MouseEvent) => {
       if (isMobile.current) return;
-      
+
       const rect = container.getBoundingClientRect();
+
       mouseX = (e.clientX - rect.left) / rect.width;
       mouseY = (e.clientY - rect.top) / rect.height;
     };
 
     const handleTouchMove = (e: TouchEvent) => {
       if (!isMobile.current) return;
-      
+
       const rect = container.getBoundingClientRect();
       const touch = e.touches[0];
+
       mouseX = (touch.clientX - rect.left) / rect.width;
       mouseY = (touch.clientY - rect.top) / rect.height;
     };
@@ -56,7 +58,10 @@ export function HolographicGradient({
       time += 0.005;
 
       // Smooth parallax movement with reduced intensity for mobile
-      const intensity = isMobile.current ? parallaxIntensity * 0.5 : parallaxIntensity;
+      const intensity = isMobile.current
+        ? parallaxIntensity * 0.5
+        : parallaxIntensity;
+
       targetX += (mouseX - targetX) * 0.1;
       targetY += (mouseY - targetY) * 0.1;
 
@@ -65,10 +70,10 @@ export function HolographicGradient({
       ctx.clearRect(0, 0, width, height);
 
       const gradient = ctx.createLinearGradient(
-        width * (0.5 + (targetX - 0.5) * intensity / 100),
-        height * (0.5 + (targetY - 0.5) * intensity / 100),
-        width * (0.5 - (targetX - 0.5) * intensity / 100),
-        height * (0.5 - (targetY - 0.5) * intensity / 100)
+        width * (0.5 + ((targetX - 0.5) * intensity) / 100),
+        height * (0.5 + ((targetY - 0.5) * intensity) / 100),
+        width * (0.5 - ((targetX - 0.5) * intensity) / 100),
+        height * (0.5 - ((targetY - 0.5) * intensity) / 100),
       );
 
       // Optimized color stops with reduced complexity for mobile
@@ -79,8 +84,12 @@ export function HolographicGradient({
         const stop = i / (colorStops - 1);
         const hue = (baseHue + i * 60) % 360;
         const saturation = 100;
-        const lightness = 50 + (i * 10);
-        gradient.addColorStop(stop, `hsl(${hue}, ${saturation}%, ${lightness}%)`);
+        const lightness = 50 + i * 10;
+
+        gradient.addColorStop(
+          stop,
+          `hsl(${hue}, ${saturation}%, ${lightness}%)`,
+        );
       }
 
       ctx.fillStyle = gradient;
@@ -92,14 +101,14 @@ export function HolographicGradient({
     const resizeCanvas = () => {
       const rect = container.getBoundingClientRect();
       const dpr = window.devicePixelRatio || 1;
-      
+
       canvas.width = rect.width * dpr;
       canvas.height = rect.height * dpr;
       canvas.style.width = `${rect.width}px`;
       canvas.style.height = `${rect.height}px`;
-      
+
       ctx.scale(dpr, dpr);
-      
+
       // Update mobile check on resize
       isMobile.current = window.innerWidth <= 768;
     };

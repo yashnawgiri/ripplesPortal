@@ -129,7 +129,7 @@ export default function Navbar() {
           <CustomButton
             ariaLabel={btn.label}
             className="bg-secondary hover:bg-secondary/80 transition-colors"
-            onClick={() => window.open(btn.href, '_blank')}
+            onClick={() => window.open(btn.href, "_blank")}
           >
             {btn.label}
           </CustomButton>

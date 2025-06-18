@@ -32,10 +32,10 @@ const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
       suffix = "",
       ...props
     },
-    ref
+    ref,
   ) => {
     const [currentValue, setCurrentValue] = React.useState<number>(
-      value ?? defaultValue ?? min
+      value ?? defaultValue ?? min,
     );
 
     React.useEffect(() => {
@@ -46,36 +46,26 @@ const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = Number(event.target.value);
+
       setCurrentValue(newValue);
       onChange?.(newValue);
     };
 
     const percentage = ((currentValue - min) / (max - min)) * 100;
 
-    const displayValue = valueFormatter 
+    const displayValue = valueFormatter
       ? valueFormatter(currentValue)
       : `${prefix}${currentValue}${suffix}`;
 
     return (
       <div className={`flex flex-col w-full gap-2 ${className}`}>
         <div className="flex justify-between items-center">
-          <span className="text-sm font-medium text-white">
-            {label}
-          </span>
-          <span className="text-sm font-medium text-white">
-            {displayValue}
-          </span>
+          <span className="text-sm font-medium text-white">{label}</span>
+          <span className="text-sm font-medium text-white">{displayValue}</span>
         </div>
         <div className="relative flex-1">
           <input
             ref={ref}
-            type="range"
-            min={min}
-            max={max}
-            step={step}
-            value={currentValue}
-            onChange={handleChange}
-            disabled={disabled}
             className={`
               w-full h-2 appearance-none rounded-lg
               bg-gray-200 dark:bg-gray-700
@@ -98,15 +88,22 @@ const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
               disabled:opacity-50
               disabled:cursor-not-allowed
             `}
+            disabled={disabled}
+            max={max}
+            min={min}
+            step={step}
             style={{
               background: `linear-gradient(to right, #2563eb ${percentage}%, #e5e7eb ${percentage}%)`,
             }}
+            type="range"
+            value={currentValue}
+            onChange={handleChange}
             {...props}
           />
         </div>
       </div>
     );
-  }
+  },
 );
 
 Slider.displayName = "Slider";

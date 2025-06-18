@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
-import { Switch } from "@/components/ui/Switch";
 import clsx from "clsx";
 
+import { Switch } from "@/components/ui/Switch";
 import { useTheme } from "@/hooks/use-theme";
 import { MoonFilledIcon, SunFilledIcon } from "@/components/icons";
 
@@ -9,9 +9,7 @@ export interface ThemeSwitchProps {
   className?: string;
 }
 
-export const ThemeSwitch: FC<ThemeSwitchProps> = ({
-  className,
-}) => {
+export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className }) => {
   const [isMounted, setIsMounted] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
@@ -26,13 +24,13 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
     <div className={clsx("flex items-center gap-2", className)}>
       <Switch
         checked={theme === "dark"}
-        onCheckedChange={toggleTheme}
         size="md"
+        onCheckedChange={toggleTheme}
       />
       {theme === "dark" ? (
-        <MoonFilledIcon size={22} className="text-white" />
+        <MoonFilledIcon className="text-white" size={22} />
       ) : (
-        <SunFilledIcon size={22} className="text-black" />
+        <SunFilledIcon className="text-black" size={22} />
       )}
     </div>
   );
