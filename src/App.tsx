@@ -23,6 +23,7 @@ import PrivacyPolicy from "@/pages/privacyPolicy";
 import TermsAndConditions from "@/pages/termsAndConditions";
 import NotFound from "@/pages/notFound";
 import AuthPage from "@/pages/auth-page/AuthPage";
+import CaseStudyPage from "@/pages/CaseStudyPage";
 
 // Define the type for meta tag entries
 type MetaTagEntry = {
@@ -108,6 +109,10 @@ function App() {
           <Route element={<UGCLanding />} path={siteConfig.path.ugcHome} />
           <Route element={<GetDemo />} path={siteConfig.path.getDemo} />
           <Route element={<AboutPage />} path={siteConfig.path.about} />
+          <Route
+            element={<CaseStudyPage />}
+            path={siteConfig.path.caseStudy}
+          />
           <Route
             element={<PrivacyPolicy />}
             path={siteConfig.path.privacyPolicy}
