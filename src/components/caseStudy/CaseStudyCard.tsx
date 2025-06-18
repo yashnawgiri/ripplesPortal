@@ -195,7 +195,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
             onClick={onReadMore}
           >
             <span className="flex items-center justify-center gap-2">
-              Read Full Case Study
+              Read More
               <ArrowUpRight className="w-4 h-4 group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5 transition-transform duration-300" />
             </span>
           </button>
