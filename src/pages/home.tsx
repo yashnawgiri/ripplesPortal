@@ -25,7 +25,9 @@ import HowItWorksSection from "@/components/UgcHowItWorks";
 import CTASection from "@/components/CtaSection";
 import TouchpointSection from "@/components/TouchpointSection";
 
-import CaseStudiesPage from "../components/caseStudy/CaseStudiesPage";
+import BrandLogos from "@/components/caseStudy/BrandLogos";
+import TestimonialsCarousel from "@/components/caseStudy/TestimonialsCarousel";
+import testimonialsData from "@/data/testimonials.json";
 
 function DemoButton() {
   const navigate = useNavigate();
@@ -40,8 +42,24 @@ function DemoButton() {
   );
 }
 
+interface Testimonial {
+  id: number;
+  company: string;
+  quote: string;
+  logo: string;
+  description: string;
+  conclusion: string;
+  author: {
+    name: string;
+    title: string;
+    image: string;
+  };
+}
+
 export default function HomePage() {
   // const navigate = useNavigate();
+
+  const testimonials = testimonialsData.testimonials as Testimonial[];
 
   return (
     <DefaultLayout>
@@ -51,7 +69,9 @@ export default function HomePage() {
         <CashbackHeroSection />
         <MarketingSection />
         <HowItWorksSection />
-        <CaseStudiesPage />
+        <TestimonialsCarousel testimonials={testimonials} />
+        <BrandLogos />
+        <CTASection />
         <TouchpointSection />
         <CTASection />
         <IntegrationSlider />

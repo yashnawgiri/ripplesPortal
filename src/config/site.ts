@@ -9,7 +9,7 @@ import {
 // import UgcIcon from "@/assets/images/ugc-icon.svg";
 // import referralIcon from "@/assets/images/referral-icon.svg";
 import { imageUrls } from "@/utils/imageUrl";
-import { HammerIcon, Newspaper, PaperclipIcon } from "lucide-react";
+import { HammerIcon, Newspaper } from "lucide-react";
 
 export type SiteConfig = typeof siteConfig;
 
