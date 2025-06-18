@@ -4,7 +4,6 @@ import HeroSection from "@/components/caseStudy/HeroSection";
 import CaseStudyCard from "@/components/caseStudy/CaseStudyCard";
 import CTASection from "@/components/caseStudy/CTASection";
 import caseStudiesData from "@/data/caseStudy.json";
-import DefaultLayout from "@/layouts/default";
 
 interface CaseStudy {
   id: string;
@@ -31,7 +30,7 @@ interface CaseStudy {
   keyTakeaways: string[];
 }
 
-export default function CaseStudiesPage() {
+function CaseStudy() {
   const navigate = useNavigate();
 
   const openCaseStudy = (caseStudy: CaseStudy) => {
@@ -51,7 +50,7 @@ export default function CaseStudiesPage() {
   })) as CaseStudy[];
 
   return (
-    <DefaultLayout>
+    <>
       {/* Hero Section */}
       <HeroSection />
 
@@ -89,6 +88,8 @@ export default function CaseStudiesPage() {
       <section className="relative z-10 px-3 sm:px-4 md:px-6 pb-8 sm:pb-12 md:pb-16 lg:pb-24">
         <CTASection />
       </section>
-    </DefaultLayout>
+    </>
   );
 }
+
+export default CaseStudy;

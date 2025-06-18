@@ -27,6 +27,7 @@ import TouchpointSection from "@/components/TouchpointSection";
 import BrandLogos from "@/components/caseStudy/BrandLogos";
 import TestimonialsCarousel from "@/components/caseStudy/TestimonialsCarousel";
 import testimonialsData from "@/data/testimonials.json";
+import CaseStudy from "@/components/caseStudy/CaseStudy";
 
 function DemoButton() {
   const navigate = useNavigate();
@@ -68,6 +69,7 @@ export default function HomePage() {
         <CashbackHeroSection />
         <MarketingSection />
         <HowItWorksSection />
+        <CaseStudy />
         <TestimonialsCarousel testimonials={testimonials} />
         <BrandLogos />
         <CTASection />
