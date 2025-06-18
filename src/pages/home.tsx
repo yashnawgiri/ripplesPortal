@@ -49,7 +49,6 @@ export default function HomePage() {
         <HeroSection />
         <StatsSection statsData={dashboardData.stats} />
         <CashbackHeroSection />
-        <CaseStudiesPage />
         <MarketingSection />
         <HowItWorksSection />
         <TouchpointSection />
@@ -57,7 +56,8 @@ export default function HomePage() {
         <IntegrationSlider />
         <AdvantagesSection />
         <DashboardCard />
-        <Testimonials />
+        <CaseStudiesPage />
+        {/* <Testimonials /> */}
         <GradiantCards />
         <DemoButton />
         <ResponsibilitySection />
