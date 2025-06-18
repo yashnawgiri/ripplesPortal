@@ -29,12 +29,12 @@ const CaseStudyPage = () => {
               Case Study Not Found
             </h1>
             <Link
-              to="/"
               className="text-blue-400 hover:text-blue-300 flex items-center gap-2 justify-center transition-colors group"
+              to="/"
             >
               <ArrowLeft
-                size={20}
                 className="group-hover:-translate-x-1 transition-transform"
+                size={20}
               />
               Back to Home
             </Link>
@@ -102,53 +102,53 @@ const CaseStudyPage = () => {
       <Helmet>
         <title>{`${caseStudy.name} Case Study - How They Achieved ${caseStudy.results.roi} with Ripples`}</title>
         <meta
-          name="description"
           content={`Discover how ${caseStudy.name} used Ripples to achieve ${caseStudy.results.roi} and ${caseStudy.results.sales} sales contribution. Read the complete case study.`}
+          name="description"
         />
         <meta
-          name="keywords"
           content={`${caseStudy.name}, case study, referral program, ${caseStudy.industry}, customer advocacy, ROI`}
+          name="keywords"
         />
         <link
-          rel="canonical"
           href={`https://goripples.com/case-study/${caseStudy.id}`}
+          rel="canonical"
         />
 
         {/* Open Graph */}
         <meta
-          property="og:title"
           content={`${caseStudy.name} Case Study - ${caseStudy.results.roi} ROI with Ripples`}
+          property="og:title"
         />
         <meta
-          property="og:description"
           content={`See how ${caseStudy.name} achieved ${caseStudy.results.roi} and ${caseStudy.results.sales} sales contribution using Ripples referral program.`}
+          property="og:description"
         />
-        <meta property="og:image" content={caseStudy.image} />
+        <meta content={caseStudy.image} property="og:image" />
         <meta
-          property="og:url"
           content={`https://goripples.com/case-study/${caseStudy.id}`}
+          property="og:url"
         />
-        <meta property="og:type" content="article" />
+        <meta content="article" property="og:type" />
 
         {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta content="summary_large_image" name="twitter:card" />
         <meta
-          name="twitter:title"
           content={`${caseStudy.name} Case Study - ${caseStudy.results.roi} ROI`}
+          name="twitter:title"
         />
         <meta
-          name="twitter:description"
           content={`See how ${caseStudy.name} achieved ${caseStudy.results.roi} with Ripples referral program.`}
+          name="twitter:description"
         />
-        <meta name="twitter:image" content={caseStudy.image} />
+        <meta content={caseStudy.image} name="twitter:image" />
       </Helmet>
 
       <DefaultLayout>
         <motion.div
-          className="min-h-screen bg-transparent relative"
-          variants={containerVariants}
-          initial="hidden"
           animate="visible"
+          className="min-h-screen bg-transparent relative"
+          initial="hidden"
+          variants={containerVariants}
         >
           {/* Background Image with Overlay */}
           <div className="fixed inset-0 z-0">
@@ -170,16 +170,16 @@ const CaseStudyPage = () => {
               variants={itemVariants}
             >
               <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32">
-                <motion.div variants={itemVariants} className="max-w-4xl">
+                <motion.div className="max-w-4xl" variants={itemVariants}>
                   {/* Company Info */}
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mb-8 sm:mb-12">
                     <div className="relative flex-shrink-0">
                       <img
-                        src={caseStudy.logo}
                         alt={`${caseStudy.name} logo`}
                         className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-xl sm:rounded-2xl object-cover border-2 border-white/30 shadow-2xl"
+                        src={caseStudy.logo}
                       />
-                      <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-blue-500/20 to-purple-500/20"></div>
+                      <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-blue-500/20 to-purple-500/20" />
                     </div>
                     <div className="min-w-0 flex-1">
                       <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-3 sm:mb-4 tracking-tight break-words">
@@ -211,15 +211,15 @@ const CaseStudyPage = () => {
                   {/* Website Link */}
                   <div className="mb-12 sm:mb-16">
                     <a
-                      href={`https://${caseStudy.website}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 sm:gap-3 bg-secondary/20 backdrop-blur-sm text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-semibold hover:bg-secondary/30 transition-all duration-300 border border-secondary/40 group text-base sm:text-lg"
+                      href={`https://${caseStudy.website}`}
+                      rel="noopener noreferrer"
+                      target="_blank"
                     >
                       <span className="break-all">{caseStudy.website}</span>
                       <ExternalLink
-                        size={18}
                         className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform flex-shrink-0"
+                        size={18}
                       />
                     </a>
                   </div>
@@ -248,15 +248,15 @@ const CaseStudyPage = () => {
                 </motion.div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-20 md:mb-24">
-                  {statsData.map((stat, index) => (
+                  {statsData.map((stat) => (
                     <motion.div
                       key={stat.label}
+                      className={`text-center p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-white/10 backdrop-blur-lg border ${stat.borderColor} shadow-2xl hover:shadow-3xl hover:bg-white/15 transition-all duration-300 group`}
                       variants={itemVariants}
                       whileHover={{
                         scale: 1.05,
                         transition: { duration: 0.2 },
                       }}
-                      className={`text-center p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-white/10 backdrop-blur-lg border ${stat.borderColor} shadow-2xl hover:shadow-3xl hover:bg-white/15 transition-all duration-300 group`}
                     >
                       <div
                         className={`inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full ${stat.bgColor} mb-6 sm:mb-8 group-hover:scale-110 transition-transform backdrop-blur-sm border ${stat.borderColor}`}
@@ -275,8 +275,8 @@ const CaseStudyPage = () => {
 
                 {/* Key Takeaways in Results Section */}
                 <motion.div
-                  variants={itemVariants}
                   className="text-center mb-12 sm:mb-16"
+                  variants={itemVariants}
                 >
                   <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 sm:mb-12 tracking-tight">
                     Key Takeaways
@@ -287,12 +287,12 @@ const CaseStudyPage = () => {
                   {caseStudy.keyTakeaways.map((takeaway, index) => (
                     <motion.div
                       key={index}
+                      className="flex items-start gap-4 sm:gap-6 p-6 sm:p-8 bg-white/10 backdrop-blur-lg rounded-xl sm:rounded-2xl border border-secondary/20 hover:bg-white/15 transition-all duration-300 group"
                       variants={itemVariants}
                       whileHover={{
                         scale: 1.02,
                         transition: { duration: 0.2 },
                       }}
-                      className="flex items-start gap-4 sm:gap-6 p-6 sm:p-8 bg-white/10 backdrop-blur-lg rounded-xl sm:rounded-2xl border border-secondary/20 hover:bg-white/15 transition-all duration-300 group"
                     >
                       <div className="bg-secondary/30 p-2 sm:p-3 rounded-full mt-1 border border-secondary/40 group-hover:scale-110 transition-transform backdrop-blur-sm flex-shrink-0">
                         <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
@@ -340,9 +340,12 @@ const CaseStudyPage = () => {
                       </div>
                       <ul className="space-y-4 sm:space-y-6">
                         {caseStudy.challenge.map((item, index) => (
-                          <li key={index} className="flex items-start gap-3 sm:gap-4">
+                          <li
+                            key={index}
+                            className="flex items-start gap-3 sm:gap-4"
+                          >
                             <div className="bg-red-500/30 p-1.5 sm:p-2 rounded-full mt-1.5 sm:mt-2 border border-red-500/40 backdrop-blur-sm flex-shrink-0">
-                              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-red-300 rounded-full"></div>
+                              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-red-300 rounded-full" />
                             </div>
                             <p className="text-white leading-relaxed text-base sm:text-lg">
                               {item}
@@ -366,7 +369,10 @@ const CaseStudyPage = () => {
                       </div>
                       <ul className="space-y-4 sm:space-y-6">
                         {caseStudy.solution.map((item, index) => (
-                          <li key={index} className="flex items-start gap-3 sm:gap-4">
+                          <li
+                            key={index}
+                            className="flex items-start gap-3 sm:gap-4"
+                          >
                             <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-white mt-0.5 sm:mt-1 flex-shrink-0" />
                             <p className="text-white leading-relaxed text-base sm:text-lg">
                               {item}
@@ -425,8 +431,8 @@ const CaseStudyPage = () => {
                     with Ripples
                   </p>
                   <Link
-                    to={siteConfig.path.getDemo}
                     className="inline-flex items-center gap-3 sm:gap-4 bg-secondary/20 backdrop-blur-sm text-white px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6 rounded-xl sm:rounded-2xl font-semibold text-lg sm:text-xl hover:bg-secondary/30 transition-all duration-300 shadow-2xl border border-secondary/40 group"
+                    to={siteConfig.path.getDemo}
                   >
                     Get Your Demo
                     <ArrowLeft

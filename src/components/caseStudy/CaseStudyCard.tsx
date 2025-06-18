@@ -1,9 +1,9 @@
 import type React from "react";
 
 import { ArrowUpRight, TrendingUp, Users, IndianRupeeIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import { Card, CardContent } from "@/components/ui/Card";
-import { Link } from "react-router-dom";
 
 interface CaseStudyCardProps {
   id: string;
@@ -103,7 +103,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
           </div>
 
           {/* Arrow Icon */}
-          <Link to={`/case-study/${name.toLowerCase()}`} className="no-ripple">
+          <Link className="no-ripple" to={`/case-study/${name.toLowerCase()}`}>
             <ArrowUpRight
               className={`w-5 h-5 text-slate-400 group-hover:${color.text} group-hover:scale-110 transition-all duration-300 flex-shrink-0`}
             />

@@ -109,10 +109,7 @@ function App() {
           <Route element={<UGCLanding />} path={siteConfig.path.ugcHome} />
           <Route element={<GetDemo />} path={siteConfig.path.getDemo} />
           <Route element={<AboutPage />} path={siteConfig.path.about} />
-          <Route
-            element={<CaseStudyPage />}
-            path={siteConfig.path.caseStudy}
-          />
+          <Route element={<CaseStudyPage />} path={siteConfig.path.caseStudy} />
           <Route
             element={<PrivacyPolicy />}
             path={siteConfig.path.privacyPolicy}

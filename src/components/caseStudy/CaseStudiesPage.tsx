@@ -1,14 +1,12 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import HeroSection from "@/components/caseStudy/HeroSection";
 import CaseStudyCard from "@/components/caseStudy/CaseStudyCard";
 import TestimonialsCarousel from "@/components/caseStudy/TestimonialsCarousel";
 import BrandLogos from "@/components/caseStudy/BrandLogos";
 import CTASection from "@/components/caseStudy/CTASection";
-import CaseStudyModal from "@/components/caseStudy/CaseStudyModal";
 import caseStudiesData from "@/data/caseStudy.json";
 import testimonialsData from "@/data/testimonials.json";
-import { useNavigate } from "react-router-dom";
 
 interface CaseStudy {
   id: string;
@@ -116,7 +114,6 @@ export default function CaseStudiesPage() {
       <section className="relative z-10 px-3 sm:px-4 md:px-6 pb-8 sm:pb-12 md:pb-16 lg:pb-24">
         <CTASection />
       </section>
-
     </div>
   );
 }

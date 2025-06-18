@@ -68,15 +68,17 @@ export const metaTags = {
   // Case Studies
   caseStudyKaftanize: {
     title: "Kaftanize Case Study - 17x ROI in 60 Days with Ripples",
-    description: "See how Kaftanize achieved 17x ROI and 8% sales contribution in just 60 days using Ripples referral program. Fashion brand success story.",
+    description:
+      "See how Kaftanize achieved 17x ROI and 8% sales contribution in just 60 days using Ripples referral program. Fashion brand success story.",
     path: "/case-study/kaftanize",
   },
   caseStudySmartveda: {
     title: "Smartveda Case Study - 22x ROI with Ripples Referral Program",
-    description: "Discover how Smartveda achieved 22x ROI and 9.3% sales contribution using Ripples referral and loyalty system. Health & wellness success story.",
+    description:
+      "Discover how Smartveda achieved 22x ROI and 9.3% sales contribution using Ripples referral and loyalty system. Health & wellness success story.",
     path: "/case-study/smartveda",
   },
-  
+
   // Noindex pages
   myRipples: {
     title: "My Ripples Dashboard",
