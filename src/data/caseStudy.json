@@ -1,0 +1,78 @@
+{
+  "caseStudies": [
+    {
+      "id": "kaftanize",
+      "name": "Kaftanize",
+      "industry": "Fashion & Apparel",
+      "website": "www.kaftanize.com",
+      "logo": "https://ripples1static.blob.core.windows.net/images/kaftanize.png",
+      "image": "https://ripples1static.blob.core.windows.net/images/Kaftanize_refer_a_friend_mobile_banner.jpg",
+      "region": "India",
+      "description": "Founded in 2020, Kaftanize brings modern elegance to traditional kaftans, with designs that merge heritage patterns with contemporary fashion. Known for their premium fabrics and versatile silhouettes, Kaftanize has become a go-to destination for women seeking both style and substance.",
+      "challenge": [
+        "Incentivize and track word-of-mouth referrals",
+        "Reward loyal customers who were already recommending the brand",
+        "Drive new customer acquisition without escalating CAC",
+        "Launch and test performance campaigns quickly without engineering help"
+      ],
+      "solution": [
+        "₹500 Referral Rewards: Dual-sided reward structure—₹500 for the referrer and 15% discount for the friend",
+        "Automated Workflows: Referral links and nudges delivered via WhatsApp and email at regular intervals",
+        "On-site CTAs: Plug-and-play referral widgets added to the purchase journey and thank-you pages",
+        "Analytics Dashboard: Real-time visibility into top referrers, conversion rates, and ROI"
+      ],
+      "results": {
+        "roi": "17x ROI from referrals in just 60 days",
+        "sales": "8% sales contribution to overall revenue",
+        "referrals": "20x increase in referrals",
+        "timeline": "Results achieved in first 60 days"
+      },
+      "testimonial": {
+        "quote": "Ripples gave us a plug-and-play referral system that just works. Our customers love sharing Kaftanize, and now they're getting rewarded for it. It's been a game-changer for our growth.",
+        "author": "Rahul Agarwal",
+        "position": "Co-founder, Kaftanize"
+      },
+      "keyTakeaways": [
+        "Kaftanize used Ripples to build a referral engine that delivers predictable, performance-based growth",
+        "Seamless integration with Shopify and WhatsApp helped trigger referral nudges at the right moments"
+      ]
+    },
+    {
+      "id": "smartveda",
+      "name": "Smartveda",
+      "industry": "Health & Wellness",
+      "logo": "https://ripples1static.blob.core.windows.net/images/Smartveda_Official_1.avif",
+      "image": "https://ripples1static.blob.core.windows.net/images/smartveda_heroimage.png",
+      "website": "www.smartveda.co",
+      "region": "India",
+      "description": "Founded with a mission to bring ancient Ayurvedic wisdom to modern lifestyles, Smartveda offers a range of health supplements and wellness products. Their flagship products, like Dybit Amrit and Kadwa Amrit, have garnered a loyal customer base seeking natural solutions for health management.",
+      "challenge": [
+        "Scaling customer acquisition without escalating marketing costs",
+        "Encouraging repeat purchases and fostering brand loyalty",
+        "Implementing a referral system that was both effective and easy to use",
+        "Reaching customers on WhatsApp where they are most active"
+      ],
+      "solution": [
+        "20% cashback to customers for each successful referral",
+        "Instant rewards credited to the customer's store wallet",
+        "Seamless integration with WhatsApp for effortless sharing",
+        "Transparent dashboard for tracking referrals and earnings with real-time WhatsApp updates"
+      ],
+      "results": {
+        "roi": "22x ROI from referrals in just 60 days",
+        "sales": "9.3% incremental monthly sales contribution",
+        "referrals": "23x increase in referrals",
+        "timeline": "Program launched & scaled by Ripples Team"
+      },
+      "testimonial": {
+        "quote": "Implementing Ripples' referral program was a game-changer for us. It not only rewarded our loyal customers but also brought in new ones through trusted recommendations. The simplicity and effectiveness of the system exceeded our expectations.",
+        "author": "Smartveda Team",
+        "position": "Leadership Team"
+      },
+      "keyTakeaways": [
+        "Smartveda leveraged Ripples to transform satisfied customers into brand advocates",
+        "The referral program's user-friendly design and instant rewards encouraged higher participation rates"
+      ]
+    }
+  ]
+}

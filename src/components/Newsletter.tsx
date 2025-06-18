@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
 import { IoArrowForward } from "react-icons/io5";
 import axios from "axios";
+
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
 
 interface NewsletterResponse {
   success: boolean;
@@ -17,17 +18,20 @@ export default function Newsletter() {
 
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     return emailRegex.test(email);
   };
 
   const handleSubscribe = async () => {
     if (!email) {
       setError("Please provide an email address");
+
       return;
     }
 
     if (!validateEmail(email)) {
       setError("Please provide a valid email address");
+
       return;
     }
 
@@ -38,7 +42,7 @@ export default function Newsletter() {
       const source = `Ripples Home page (${window.location.href})`;
       const response = await axios.post<NewsletterResponse>(
         "https://free-tools-function-app.azurewebsites.net/api/saveNewsletterEmail",
-        { email, source }
+        { email, source },
       );
 
       if (response.data.success) {
@@ -93,21 +97,21 @@ export default function Newsletter() {
                 <>
                   <div className="flex flex-col sm:flex-row items-stretch gap-3">
                     <Input
-                      type="email"
+                      className="flex-1 h-12 text-base border-gray-300 data-[hover=true]:border-purple-500 group-data-[focus=true]:border-purple-500 rounded-lg"
+                      error={!!error}
                       placeholder="pat@saturn.dev"
+                      type="email"
                       value={email}
                       onChange={(e) => {
                         setEmail(e.target.value);
                         setError("");
                       }}
-                      className="flex-1 h-12 text-base border-gray-300 data-[hover=true]:border-purple-500 group-data-[focus=true]:border-purple-500 rounded-lg"
-                      error={!!error}
                     />
                     <Button
-                      variant="secondary"
-                      size="lg"
                       className="h-12 text-white font-medium w-full sm:w-auto rounded-lg hover:bg-purple-600 transition-colors duration-200"
                       disabled={isLoading}
+                      size="lg"
+                      variant="secondary"
                       onClick={handleSubscribe}
                     >
                       {isLoading ? "Subscribing..." : "Subscribe"}

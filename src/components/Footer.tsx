@@ -1,7 +1,7 @@
 import { InstagramIcon, LinkedInIcon } from "./icons";
+import Newsletter from "./Newsletter";
 
 import { siteConfig } from "@/config/site";
-import Newsletter from "./Newsletter";
 
 export default function Footer() {
   return (

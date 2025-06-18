@@ -79,7 +79,10 @@ function BottomSection() {
         }}
       >
         <div className="flex flex-col items-center md:items-start md:w-1/3">
-          <motion.h1 className="home-h1 home-heading text-center md:text-left" variants={headingVariants}>
+          <motion.h1
+            className="home-h1 home-heading text-center md:text-left"
+            variants={headingVariants}
+          >
             {dashboardData.bottomSection.heading}
           </motion.h1>
 

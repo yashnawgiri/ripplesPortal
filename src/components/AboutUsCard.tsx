@@ -1,5 +1,5 @@
-import aboutUsData from "@/data/about.json"
-import {imageUrls} from "@/utils/imageUrl"
+import aboutUsData from "@/data/about.json";
+import { imageUrls } from "@/utils/imageUrl";
 
 interface AboutUsProps {
   id: number;

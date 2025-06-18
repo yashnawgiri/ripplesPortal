@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 import ReferralPopup from "./ReferralPopup";
+
 import { userStatsIcons, walletStatsIcons } from "@/components/icons";
 import { BrandCard } from "@/components/BrandCard";
 import { formatRewardString } from "@/utils/utils";
@@ -90,11 +91,13 @@ export function UserAnalytics({ wallet }: Props) {
       if (!token || !userId) {
         setError("Authentication required");
         setIsLoading(false);
+
         return;
       }
 
       try {
         const response = await getUserStatistics(token, userId);
+
         setStatistics(response.data);
       } catch (error) {
         setError("Failed to fetch statistics");
@@ -135,10 +138,10 @@ export function UserAnalytics({ wallet }: Props) {
   if (isLoading) {
     return (
       <div className="container mx-auto px-4 py-8 space-y-8">
-        <div className="h-8 w-64 bg-gray-200 animate-pulse rounded"></div>
+        <div className="h-8 w-64 bg-gray-200 animate-pulse rounded" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="h-32 bg-gray-200 animate-pulse rounded"></div>
+            <div key={i} className="h-32 bg-gray-200 animate-pulse rounded" />
           ))}
         </div>
       </div>
@@ -226,8 +229,8 @@ export function UserAnalytics({ wallet }: Props) {
             statistics.brandStats.map((brand) => (
               <div
                 key={brand.brand_name}
-                onClick={() => handleModalOpen(brand)}
                 className="cursor-pointer"
+                onClick={() => handleModalOpen(brand)}
               >
                 <BrandCard brand={brand} />
               </div>

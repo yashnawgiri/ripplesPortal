@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
+import { FaFacebook, FaGift, FaLink, FaLinkedin } from "react-icons/fa";
+
 import {
   Modal,
   ModalHeader,
   ModalBody,
   ModalFooter,
-} from "@/components/ui/Modal"
-
-import { FaFacebook, FaGift, FaLink, FaLinkedin } from "react-icons/fa";
-
+} from "@/components/ui/Modal";
 import {
   fetchRewardProgramDetailService,
   ReferralEligible,
@@ -94,10 +93,10 @@ export default function ReferralPopup({
 
   return (
     <Modal
-      isOpen={isOpen}
-      onClose={onClose}
-      size="2xl"
       className="bg-gray-900 text-white"
+      isOpen={isOpen}
+      size="2xl"
+      onClose={onClose}
     >
       <ModalHeader className="flex flex-col items-center gap-1 border-gray-700">
         <div className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600">
@@ -180,8 +179,8 @@ export default function ReferralPopup({
                 />
                 <button
                   className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                  onClick={handleCopy}
                   title={copied ? "Copied!" : "Copy link"}
+                  onClick={handleCopy}
                 >
                   <CopyIcon />
                 </button>
@@ -190,22 +189,22 @@ export default function ReferralPopup({
               <div className="flex justify-center gap-2">
                 <button
                   className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                  onClick={() => shareOnSocial("facebook")}
                   title="Share on Facebook"
+                  onClick={() => shareOnSocial("facebook")}
                 >
                   <FaFacebook size={20} />
                 </button>
                 <button
                   className="p-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-colors"
-                  onClick={() => shareOnSocial("twitter")}
                   title="Share on Twitter"
+                  onClick={() => shareOnSocial("twitter")}
                 >
                   <TwitterIcon size={20} />
                 </button>
                 <button
                   className="p-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors"
-                  onClick={() => shareOnSocial("linkedin")}
                   title="Share on LinkedIn"
+                  onClick={() => shareOnSocial("linkedin")}
                 >
                   <FaLinkedin size={20} />
                 </button>

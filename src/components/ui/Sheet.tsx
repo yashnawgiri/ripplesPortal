@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { cn } from "@/utils/utils";
 
 interface SheetProps {
@@ -47,11 +48,7 @@ export function Sheet({ children, className }: SheetProps) {
 export function SheetTrigger({ children }: SheetTriggerProps) {
   const { setIsOpen } = React.useContext(SheetContext);
 
-  return (
-    <div onClick={() => setIsOpen(true)}>
-      {children}
-    </div>
-  );
+  return <div onClick={() => setIsOpen(true)}>{children}</div>;
 }
 
 export function SheetContent({ children, className }: SheetContentProps) {
@@ -70,7 +67,7 @@ export function SheetContent({ children, className }: SheetContentProps) {
           "fixed right-0 top-0 h-full w-full sm:w-[400px] bg-white shadow-lg z-50 p-6 overflow-y-auto",
           "transform transition-transform duration-300 ease-in-out",
           isOpen ? "translate-x-0" : "translate-x-full",
-          className
+          className,
         )}
       >
         {children}
@@ -80,17 +77,11 @@ export function SheetContent({ children, className }: SheetContentProps) {
 }
 
 export function SheetHeader({ children, className }: SheetHeaderProps) {
-  return (
-    <div className={cn("mb-6", className)}>
-      {children}
-    </div>
-  );
+  return <div className={cn("mb-6", className)}>{children}</div>;
 }
 
 export function SheetTitle({ children, className }: SheetTitleProps) {
   return (
-    <h2 className={cn("text-2xl font-semibold", className)}>
-      {children}
-    </h2>
+    <h2 className={cn("text-2xl font-semibold", className)}>{children}</h2>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useRef, useState, KeyboardEvent, ChangeEvent } from 'react';
+import React, { useRef, useState, KeyboardEvent, ChangeEvent } from "react";
 
 interface OTPInputProps {
   length?: number;
@@ -6,7 +6,7 @@ interface OTPInputProps {
   onChange: (value: string) => void;
   onComplete?: (value: string) => void;
   className?: string;
-  textAlign?: 'left' | 'center' | 'right';
+  textAlign?: "left" | "center" | "right";
 }
 
 export const OTPInput: React.FC<OTPInputProps> = ({
@@ -14,8 +14,8 @@ export const OTPInput: React.FC<OTPInputProps> = ({
   value,
   onChange,
   onComplete,
-  className = '',
-  textAlign = 'center',
+  className = "",
+  textAlign = "center",
 }) => {
   const [focusedIndex, setFocusedIndex] = useState<number>(0);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
@@ -27,14 +27,16 @@ export const OTPInput: React.FC<OTPInputProps> = ({
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>, index: number) => {
     const newValue = e.target.value;
-    
+
     // Only allow numbers
     if (!/^\d*$/.test(newValue)) return;
 
     // Update the value
-    const newOtp = value.split('');
+    const newOtp = value.split("");
+
     newOtp[index] = newValue.slice(-1);
-    const updatedValue = newOtp.join('');
+    const updatedValue = newOtp.join("");
+
     onChange(updatedValue);
 
     // Move to next input if value is entered
@@ -50,7 +52,7 @@ export const OTPInput: React.FC<OTPInputProps> = ({
   };
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>, index: number) => {
-    if (e.key === 'Backspace' && !value[index] && index > 0) {
+    if (e.key === "Backspace" && !value[index] && index > 0) {
       // Move to previous input on backspace if current input is empty
       inputRefs.current[index - 1]?.focus();
       setFocusedIndex(index - 1);
@@ -59,7 +61,8 @@ export const OTPInput: React.FC<OTPInputProps> = ({
 
   const handlePaste = (e: React.ClipboardEvent) => {
     e.preventDefault();
-    const pastedData = e.clipboardData.getData('text').slice(0, length);
+    const pastedData = e.clipboardData.getData("text").slice(0, length);
+
     if (/^\d+$/.test(pastedData)) {
       onChange(pastedData);
       if (pastedData.length === length && onComplete) {
@@ -74,20 +77,20 @@ export const OTPInput: React.FC<OTPInputProps> = ({
         <input
           key={index}
           ref={(el) => (inputRefs.current[index] = el)}
-          type="text"
-          inputMode="numeric"
-          pattern="[0-9]*"
-          maxLength={1}
-          value={value[index] || ''}
-          onChange={(e) => handleChange(e, index)}
-          onKeyDown={(e) => handleKeyDown(e, index)}
-          onPaste={handlePaste}
-          onFocus={() => setFocusedIndex(index)}
           className={`w-12 h-12 rounded-md border-2 text-lg font-semibold
-            ${focusedIndex === index ? 'border-blue-500' : 'border-gray-300'}
+            ${focusedIndex === index ? "border-blue-500" : "border-gray-300"}
             focus:outline-none focus:border-blue-500
             text-${textAlign}
             transition-colors duration-200`}
+          inputMode="numeric"
+          maxLength={1}
+          pattern="[0-9]*"
+          type="text"
+          value={value[index] || ""}
+          onChange={(e) => handleChange(e, index)}
+          onFocus={() => setFocusedIndex(index)}
+          onKeyDown={(e) => handleKeyDown(e, index)}
+          onPaste={handlePaste}
         />
       ))}
     </div>

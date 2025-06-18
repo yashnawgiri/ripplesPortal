@@ -1,6 +1,7 @@
-import { siteConfig } from "@/config/site";
 import React from "react";
 import { Link } from "react-router-dom";
+
+import { siteConfig } from "@/config/site";
 
 const HeroSection: React.FC = () => {
   return (

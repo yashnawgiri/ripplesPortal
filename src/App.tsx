@@ -1,9 +1,9 @@
 import { Route, Routes, useLocation, useParams } from "react-router-dom";
 import { Suspense, useEffect } from "react";
 import { HelmetProvider } from "react-helmet-async";
+
 import { MetaTags } from "./components/SEO/MetaTags";
 import { metaTags } from "./config/metaTags";
-
 import Logout from "./pages/auth-page/Logout";
 import Fallback from "./components/Fallback";
 import ShopperHomePage from "./pages/ShopperHome";
@@ -48,6 +48,7 @@ function App() {
     if (pathWithoutQuery.startsWith("/case-study/")) {
       const brand = params.brand || "";
       const lift = params.lift || "8%";
+
       return metaTags.individualCaseStudy(brand, lift);
     }
 
@@ -56,7 +57,7 @@ function App() {
       (tag) =>
         typeof tag === "object" &&
         "path" in tag &&
-        tag.path === pathWithoutQuery
+        tag.path === pathWithoutQuery,
     ) as MetaTagEntry | undefined;
 
     return metaTag || metaTags.home;
@@ -68,12 +69,16 @@ function App() {
   return (
     <HelmetProvider>
       <MetaTags
-        title={fullTitle}
-        description={currentMetaTags.description || siteConfig.seo.defaultDescription}
         canonicalUrl={`https://goripples.com${location.pathname}`}
-        noindex={currentMetaTags.noindex}
-        type={location.pathname.startsWith("/case-study/") ? "article" : "website"}
+        description={
+          currentMetaTags.description || siteConfig.seo.defaultDescription
+        }
         keywords={siteConfig.seo.defaultKeywords}
+        noindex={currentMetaTags.noindex}
+        title={fullTitle}
+        type={
+          location.pathname.startsWith("/case-study/") ? "article" : "website"
+        }
       />
       <Suspense fallback={<Fallback />}>
         <Routes>

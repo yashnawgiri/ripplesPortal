@@ -35,7 +35,7 @@ export default function LeadForm({
         name,
         website,
         organisation,
-      }
+      },
     );
 
     setIsSubmitting(false);
@@ -56,55 +56,55 @@ export default function LeadForm({
       ) : (
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div className="space-y-2">
-            <Label htmlFor="name" className="text-white">
+            <Label className="text-white" htmlFor="name">
               Full Name
             </Label>
             <Input
               required
+              className="bg-gray-800 text-white border-gray-700 placeholder-gray-400"
               id="name"
               placeholder="Your name"
-              className="bg-gray-800 text-white border-gray-700 placeholder-gray-400"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="email" className="text-white">
+            <Label className="text-white" htmlFor="email">
               Email
             </Label>
             <Input
               required
+              className="bg-gray-800 text-white border-gray-700 placeholder-gray-400"
               id="email"
               placeholder="you@company.com"
-              className="bg-gray-800 text-white border-gray-700 placeholder-gray-400"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="organisation" className="text-white">
+            <Label className="text-white" htmlFor="organisation">
               Organisation
             </Label>
             <Input
               required
+              className="bg-gray-800 text-white border-gray-700 placeholder-gray-400"
               id="organisation"
               placeholder="Your organisation"
-              className="bg-gray-800 text-white border-gray-700 placeholder-gray-400"
               type="text"
               value={organisation}
               onChange={(e) => setOrganisation(e.target.value)}
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="website" className="text-white">
+            <Label className="text-white" htmlFor="website">
               Website URL
             </Label>
             <Input
               required
+              className="bg-gray-800 text-white border-gray-700 placeholder-gray-400"
               id="website"
               placeholder="https://yourwebsite.com"
-              className="bg-gray-800 text-white border-gray-700 placeholder-gray-400"
               type="url"
               value={website}
               onChange={(e) => setWebsite(e.target.value)}

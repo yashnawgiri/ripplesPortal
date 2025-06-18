@@ -1,5 +1,4 @@
 import React from "react";
-
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -49,9 +48,9 @@ export function ToolCard({
       <div className="relative w-full h-40 sm:h-48 md:h-56 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent z-10" />
         <img
-          src={imgSrc}
           alt={title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 rounded-md"
+          src={imgSrc}
           onError={handleImageError}
         />
       </div>
@@ -80,8 +79,8 @@ export function ToolCard({
         ) : (
           <Button asChild className="w-full">
             <Link
-              to={href}
               className="flex items-center justify-center w-full h-10 sm:h-12 bg-secondary hover:bg-secondary/90 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg text-sm sm:text-base"
+              to={href}
             >
               Try Now <ArrowRight className="ml-2 h-4 w-4" />
             </Link>

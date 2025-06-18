@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Spinner } from "@/components/ui/Spinner";
 
 import { checkValueByType, toCamelCase } from "../utils/utils";
 
 import CustomButton from "./CustomElements/CustomButton";
 
+import { Spinner } from "@/components/ui/Spinner";
 import { siteConfig } from "@/config/site";
 
 interface ValuesType {

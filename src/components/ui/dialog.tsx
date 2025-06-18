@@ -1,6 +1,8 @@
 import * as React from "react";
-import { cn } from "@/utils/utils";
+
 import CustomDialog from "./CustomDialog";
+
+import { cn } from "@/utils/utils";
 
 interface DialogProps {
   isOpen: boolean;
@@ -9,7 +11,12 @@ interface DialogProps {
   children: React.ReactNode;
 }
 
-const Dialog: React.FC<DialogProps> = ({ isOpen, onOpenChange, onClose, children }) => {
+const Dialog: React.FC<DialogProps> = ({
+  isOpen,
+  onOpenChange,
+  onClose,
+  children,
+}) => {
   const handleClose = () => {
     if (onOpenChange) {
       onOpenChange(false);
@@ -34,13 +41,14 @@ const DialogTrigger = React.forwardRef<
     ref={ref}
     className={cn(
       "inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-      className
+      className,
     )}
     {...props}
   >
     {children}
   </button>
 ));
+
 DialogTrigger.displayName = "DialogTrigger";
 
 const DialogContent = React.forwardRef<
@@ -51,13 +59,14 @@ const DialogContent = React.forwardRef<
     ref={ref}
     className={cn(
       "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 sm:rounded-lg",
-      className
+      className,
     )}
     {...props}
   >
     {children}
   </div>
 ));
+
 DialogContent.displayName = "DialogContent";
 
 const DialogHeader = ({
@@ -67,11 +76,12 @@ const DialogHeader = ({
   <div
     className={cn(
       "flex flex-col space-y-1.5 text-center sm:text-left",
-      className
+      className,
     )}
     {...props}
   />
 );
+
 DialogHeader.displayName = "DialogHeader";
 
 const DialogFooter = ({
@@ -81,11 +91,12 @@ const DialogFooter = ({
   <div
     className={cn(
       "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
-      className
+      className,
     )}
     {...props}
   />
 );
+
 DialogFooter.displayName = "DialogFooter";
 
 const DialogTitle = React.forwardRef<
@@ -96,11 +107,12 @@ const DialogTitle = React.forwardRef<
     ref={ref}
     className={cn(
       "text-lg font-semibold leading-none tracking-tight",
-      className
+      className,
     )}
     {...props}
   />
 ));
+
 DialogTitle.displayName = "DialogTitle";
 
 const DialogDescription = React.forwardRef<
@@ -113,6 +125,7 @@ const DialogDescription = React.forwardRef<
     {...props}
   />
 ));
+
 DialogDescription.displayName = "DialogDescription";
 
 export {

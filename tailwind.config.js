@@ -27,6 +27,7 @@ module.exports = {
         fadeIn: "fadeIn 0.5s ease-in-out",
         pulse: "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         float: "float 3s ease-in-out infinite",
+        scroll: "scroll 30s linear infinite",
       },
       keyframes: {
         blink: {
@@ -40,6 +41,10 @@ module.exports = {
         float: {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
+        },
+        scroll: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
       boxShadow: {

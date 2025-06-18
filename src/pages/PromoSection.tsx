@@ -1,9 +1,9 @@
 import type { FC } from "react";
+
 import { motion, useReducedMotion } from "framer-motion"; // Import useReducedMotion
 import { useNavigate } from "react-router-dom";
 
 import { imageUrls } from "@/utils/imageUrl";
-
 import dashboardData from "@/data/landing.json";
 import promoData from "@/data/landing.json";
 import CustomButton from "@/components/CustomElements/CustomButton";

@@ -11,7 +11,7 @@ import dashboardData from "@/data/landing.json";
 
 import StatsSection from "./StatsSection";
 
-import Testimonials from "@/components/Testimonials";
+// import Testimonials from "@/components/Testimonials";
 
 import ResponsibilitySection from "./ResponsibilitySection";
 import HeroSection from "./HeroSection";
@@ -24,6 +24,8 @@ import AdvantagesSection from "@/components/AdvantageSection";
 import HowItWorksSection from "@/components/UgcHowItWorks";
 import CTASection from "@/components/CtaSection";
 import TouchpointSection from "@/components/TouchpointSection";
+
+import CaseStudiesPage from "../components/caseStudy/CaseStudiesPage";
 
 function DemoButton() {
   const navigate = useNavigate();
@@ -43,7 +45,7 @@ export default function HomePage() {
 
   return (
     <DefaultLayout>
-      <section className="main-section">
+      <section className="main-section w-full">
         <HeroSection />
         <StatsSection statsData={dashboardData.stats} />
         <CashbackHeroSection />
@@ -54,7 +56,8 @@ export default function HomePage() {
         <IntegrationSlider />
         <AdvantagesSection />
         <DashboardCard />
-        <Testimonials />
+        <CaseStudiesPage />
+        {/* <Testimonials /> */}
         <GradiantCards />
         <DemoButton />
         <ResponsibilitySection />
