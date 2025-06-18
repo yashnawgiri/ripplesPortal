@@ -7,6 +7,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/Avatar";
 interface CaseStudy {
   id: string;
   name: string;
+  logo: string;
   industry: string;
   website: string;
   region: string;
@@ -45,11 +46,13 @@ const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
         <div className="sticky top-0 bg-gradient-to-r from-slate-800/95 to-slate-900/95 backdrop-blur-xl border-b border-slate-700/50 p-4 md:p-6 flex items-center justify-between rounded-t-2xl md:rounded-t-3xl">
           <div className="flex items-center gap-3 md:gap-4">
             <div
-              className={`w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br ${caseStudy.id === "kaftanize" ? "from-purple-500 to-pink-500" : "from-green-500 to-teal-500"} rounded-lg md:rounded-xl flex items-center justify-center`}
+              className={`w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl flex items-center justify-center`}
             >
-              <span className="text-white font-bold text-sm md:text-base">
-                {caseStudy.name.charAt(0)}
-              </span>
+              <img
+                alt={caseStudy.name}
+                className="object-contain"
+                src={caseStudy.logo}
+              />
             </div>
             <div>
               <h2 className="text-lg md:text-2xl font-bold text-white">

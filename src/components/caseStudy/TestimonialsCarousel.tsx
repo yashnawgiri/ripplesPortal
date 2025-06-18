@@ -8,6 +8,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/Avatar";
 interface Testimonial {
   id: number;
   company: string;
+  logo: string;
   quote: string;
   description: string;
   conclusion: string;
@@ -135,10 +136,12 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
                   {/* Company Header */}
                   <div className="text-center mb-4">
                     <div className="inline-flex items-center gap-2 mb-3">
-                      <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center shadow-lg">
-                        <span className="text-white font-bold text-sm">
-                          {current.company.charAt(0)}
-                        </span>
+                      <div className="w-10 h-10 rounded-lg flex items-center justify-center shadow-lg bg-white">
+                        <img
+                          alt={current.company}
+                          className="object-contain"
+                          src={current.logo}
+                        />
                       </div>
                       <h3 className="text-lg font-bold text-white tracking-wide">
                         {current.company}
@@ -208,10 +211,12 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
                     {/* Company Header */}
                     <div className="text-center mb-4">
                       <div className="inline-flex items-center gap-2 mb-3">
-                        <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-                          <span className="text-white font-bold text-sm">
-                            {prev.company.charAt(0)}
-                          </span>
+                        <div className="w-8 h-8 rounded-lg flex items-center justify-center shadow-lg bg-white">
+                          <img
+                            alt={prev.company}
+                            className="object-contain w-full h-full"
+                            src={prev.logo}
+                          />
                         </div>
                         <h4 className="text-lg font-bold text-slate-300">
                           {prev.company}
@@ -266,10 +271,12 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
                     {/* Company Header */}
                     <div className="text-center mb-6">
                       <div className="inline-flex items-center gap-3 mb-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg">
-                          <span className="text-white font-bold text-lg">
-                            {current.company.charAt(0)}
-                          </span>
+                        <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg bg-white">
+                          <img
+                            alt={current.company}
+                            className="object-contain w-full h-full"
+                            src={current.logo}
+                          />
                         </div>
                         <h3 className="text-2xl font-bold text-white tracking-wide">
                           {current.company}
@@ -337,10 +344,12 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
                     {/* Company Header */}
                     <div className="text-center mb-4">
                       <div className="inline-flex items-center gap-2 mb-3">
-                        <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-                          <span className="text-white font-bold text-sm">
-                            {next.company.charAt(0)}
-                          </span>
+                        <div className="w-8 h-8 rounded-lg flex items-center justify-center shadow-lg bg-white">
+                          <img
+                            alt={next.company}
+                            className="object-contain w-full h-full"
+                            src={next.logo}
+                          />
                         </div>
                         <h4 className="text-lg font-bold text-slate-300">
                           {next.company}
