@@ -1,4 +1,4 @@
-import type React from "react"
+import type React from "react";
 
 const BrandLogos: React.FC = () => {
   const brands = [
@@ -26,10 +26,10 @@ const BrandLogos: React.FC = () => {
       name: "ShopSoWhat",
       logo: "https://ripples1static.blob.core.windows.net/images/SO_WHAT_LOGO.avif",
     },
-  ]
+  ];
 
   // Triple the brands array for seamless animation
-  const marqueeBrands = [...brands, ...brands, ...brands]
+  const marqueeBrands = [...brands, ...brands, ...brands];
 
   return (
     <div className="w-screen md:w-full overflow-hidden bg-transparent">
@@ -40,8 +40,6 @@ const BrandLogos: React.FC = () => {
 
         {/* Header Section - Mobile First */}
         <div className="text-center mb-6 sm:mb-8 md:mb-12 px-3 sm:px-4 relative z-10">
-         
-
           <h3 className="text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight">
             Powering the most exciting
             <br />
@@ -72,16 +70,19 @@ const BrandLogos: React.FC = () => {
                     loading="lazy"
                     src={brand.logo || "/placeholder.svg"}
                     onError={(e) => {
-                      const target = e.target as HTMLImageElement
-                      target.src = "/placeholder.svg?height=40&width=80&text=" + encodeURIComponent(brand.name)
+                      const target = e.target as HTMLImageElement;
+
+                      target.src =
+                        "/placeholder.svg?height=40&width=80&text=" +
+                        encodeURIComponent(brand.name);
                     }}
                   />
                 </div>
-                
+
                 {/* Mobile-friendly tooltip */}
                 <div className="absolute -top-10 sm:-top-12 left-1/2 transform -translate-x-1/2 bg-slate-900/95 text-white px-3 py-2 rounded-lg text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none z-30 shadow-lg border border-slate-700/50">
                   {brand.name}
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-900/95"></div>
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-900/95" />
                 </div>
               </div>
             ))}
@@ -100,7 +101,9 @@ const BrandLogos: React.FC = () => {
                 />
               ))}
             </div>
-            <span className="text-base sm:text-sm font-medium">And many more amazing brands</span>
+            <span className="text-base sm:text-sm font-medium">
+              And many more amazing brands
+            </span>
           </div>
         </div>
 
@@ -149,7 +152,7 @@ const BrandLogos: React.FC = () => {
         `}</style>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default BrandLogos
+export default BrandLogos;

@@ -1,13 +1,10 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import HeroSection from "@/components/caseStudy/HeroSection";
 import CaseStudyCard from "@/components/caseStudy/CaseStudyCard";
-import TestimonialsCarousel from "@/components/caseStudy/TestimonialsCarousel";
-import BrandLogos from "@/components/caseStudy/BrandLogos";
 import CTASection from "@/components/caseStudy/CTASection";
-import CaseStudyModal from "@/components/caseStudy/CaseStudyModal";
 import caseStudiesData from "@/data/caseStudy.json";
-import testimonialsData from "@/data/testimonials.json";
+import DefaultLayout from "@/layouts/default";
 
 interface CaseStudy {
   id: string;
@@ -34,39 +31,27 @@ interface CaseStudy {
   keyTakeaways: string[];
 }
 
-interface Testimonial {
-  id: number;
-  company: string;
-  quote: string;
-  logo: string;
-  description: string;
-  conclusion: string;
-  author: {
-    name: string;
-    title: string;
-    image: string;
-  };
-}
-
 export default function CaseStudiesPage() {
-  const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(
-    null
-  );
+  const navigate = useNavigate();
 
   const openCaseStudy = (caseStudy: CaseStudy) => {
-    setSelectedCaseStudy(caseStudy);
-  };
-
-  const closeCaseStudy = () => {
-    setSelectedCaseStudy(null);
+    navigate(`/case-study/${caseStudy.id}`);
   };
 
   // Extract the caseStudies array from the imported data
-  const caseStudies = caseStudiesData.caseStudies as CaseStudy[];
-  const testimonials = testimonialsData.testimonials as Testimonial[];
+  const caseStudies = caseStudiesData.caseStudies.map((study: any) => ({
+    ...study,
+    results: {
+      ...study.results,
+      roi: study.results.roi.value,
+      sales: study.results.sales.value,
+      referrals: study.results.referrals.value,
+      timeline: study.results.timeline,
+    },
+  })) as CaseStudy[];
 
   return (
-    <div className="">
+    <DefaultLayout>
       {/* Hero Section */}
       <HeroSection />
 
@@ -100,21 +85,10 @@ export default function CaseStudiesPage() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <TestimonialsCarousel testimonials={testimonials} />
-
-      {/* Brand Logos Section */}
-      <section className="relative z-10 w-full mb-8 sm:mb-12 md:mb-16 lg:mb-24">
-        <BrandLogos />
-      </section>
-
       {/* CTA Section */}
       <section className="relative z-10 px-3 sm:px-4 md:px-6 pb-8 sm:pb-12 md:pb-16 lg:pb-24">
         <CTASection />
       </section>
-
-      {/* Case Study Modal */}
-      <CaseStudyModal caseStudy={selectedCaseStudy} onClose={closeCaseStudy} />
-    </div>
+    </DefaultLayout>
   );
 }

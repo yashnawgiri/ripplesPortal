@@ -1,3 +1,5 @@
+import { HammerIcon, Newspaper } from "lucide-react";
+
 import {
   CategoryIcon,
   ChatIcon,
@@ -184,6 +186,42 @@ export const siteConfig = {
           "Read the latest insights and updates from the Ripples team.",
         keywords: ["blog", "insights", "updates", "news"],
       },
+      caseStudies: {
+        title: "Case Studies - Ripples Success Stories",
+        description:
+          "Discover how brands like Kaftanize and Smartveda achieved incredible growth with Ripples referral and UGC programs.",
+        keywords: [
+          "case studies",
+          "success stories",
+          "client results",
+          "ROI",
+          "growth",
+        ],
+      },
+      caseStudyKaftanize: {
+        title: "Kaftanize Case Study - 17x ROI with Ripples Referral Program",
+        description:
+          "See how Kaftanize achieved 17x ROI and 8% sales contribution in just 60 days using Ripples referral program.",
+        keywords: [
+          "Kaftanize",
+          "case study",
+          "17x ROI",
+          "fashion",
+          "referral program",
+        ],
+      },
+      caseStudySmartveda: {
+        title: "Smartveda Case Study - 22x ROI with Ripples Referral Program",
+        description:
+          "Discover how Smartveda achieved 22x ROI and 9.3% sales contribution using Ripples referral and loyalty system.",
+        keywords: [
+          "Smartveda",
+          "case study",
+          "22x ROI",
+          "health wellness",
+          "referral program",
+        ],
+      },
       myRipples: {
         title: "My Ripples Dashboard",
         description:
@@ -263,6 +301,10 @@ export const siteConfig = {
     referralCalculator: "/tools/referral-calculator",
     pricing: "/pricing",
     blog: "/blog",
+    caseStudy: "/case-study/:id",
+    caseStudies: "/case-study",
+    caseStudyKaftanize: "/case-study/kaftanize",
+    caseStudySmartveda: "/case-study/smartveda",
     myRipples: "my-ripples",
     userHome: "home",
     userContent: "content",
@@ -305,8 +347,23 @@ export const siteConfig = {
       ],
     },
     {
-      label: "Tools",
-      href: "/tools",
+      label: "Resources",
+      resources: [
+        {
+          label: "Case Studies",
+          href: "/case-study",
+          icon: Newspaper,
+          description:
+            "Discover how brands like Kaftanize and Smartveda achieved incredible growth with Ripples referral and UGC programs.",
+        },
+        {
+          label: "Tools",
+          href: "/tools",
+          icon: HammerIcon,
+          description:
+            "Access our collection of free tools for social media and marketing.",
+        },
+      ],
     },
     {
       label: "Shopper: Access Rewards",
