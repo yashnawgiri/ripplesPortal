@@ -24,6 +24,7 @@ import TermsAndConditions from "@/pages/termsAndConditions";
 import NotFound from "@/pages/notFound";
 import AuthPage from "@/pages/auth-page/AuthPage";
 import CaseStudyPage from "@/pages/CaseStudyPage";
+import CaseStudiesPage from "./components/caseStudy/CaseStudiesPage";
 
 // Define the type for meta tag entries
 type MetaTagEntry = {
@@ -110,6 +111,7 @@ function App() {
           <Route element={<GetDemo />} path={siteConfig.path.getDemo} />
           <Route element={<AboutPage />} path={siteConfig.path.about} />
           <Route element={<CaseStudyPage />} path={siteConfig.path.caseStudy} />
+          <Route element={<CaseStudiesPage />} path={siteConfig.path.caseStudies} />
           <Route
             element={<PrivacyPolicy />}
             path={siteConfig.path.privacyPolicy}

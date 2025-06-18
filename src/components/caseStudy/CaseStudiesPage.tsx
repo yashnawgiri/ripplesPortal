@@ -2,11 +2,9 @@ import { useNavigate } from "react-router-dom";
 
 import HeroSection from "@/components/caseStudy/HeroSection";
 import CaseStudyCard from "@/components/caseStudy/CaseStudyCard";
-import TestimonialsCarousel from "@/components/caseStudy/TestimonialsCarousel";
-import BrandLogos from "@/components/caseStudy/BrandLogos";
 import CTASection from "@/components/caseStudy/CTASection";
 import caseStudiesData from "@/data/caseStudy.json";
-import testimonialsData from "@/data/testimonials.json";
+import DefaultLayout from "@/layouts/default";
 
 interface CaseStudy {
   id: string;
@@ -33,20 +31,6 @@ interface CaseStudy {
   keyTakeaways: string[];
 }
 
-interface Testimonial {
-  id: number;
-  company: string;
-  quote: string;
-  logo: string;
-  description: string;
-  conclusion: string;
-  author: {
-    name: string;
-    title: string;
-    image: string;
-  };
-}
-
 export default function CaseStudiesPage() {
   const navigate = useNavigate();
 
@@ -65,10 +49,9 @@ export default function CaseStudiesPage() {
       timeline: study.results.timeline,
     },
   })) as CaseStudy[];
-  const testimonials = testimonialsData.testimonials as Testimonial[];
 
   return (
-    <div className="">
+    <DefaultLayout>
       {/* Hero Section */}
       <HeroSection />
 
@@ -102,18 +85,10 @@ export default function CaseStudiesPage() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <TestimonialsCarousel testimonials={testimonials} />
-
-      {/* Brand Logos Section */}
-      <section className="relative z-10 w-full mb-8 sm:mb-12 md:mb-16 lg:mb-24">
-        <BrandLogos />
-      </section>
-
       {/* CTA Section */}
       <section className="relative z-10 px-3 sm:px-4 md:px-6 pb-8 sm:pb-12 md:pb-16 lg:pb-24">
         <CTASection />
       </section>
-    </div>
+    </DefaultLayout>
   );
 }

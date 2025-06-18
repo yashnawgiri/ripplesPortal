@@ -89,6 +89,13 @@
 
   <!-- Case Studies -->
   <url>
+    <loc>https://goripples.com/case-study</loc>
+    <lastmod>2024-12-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://goripples.com/case-study/kaftanize</loc>
     <lastmod>2024-12-08</lastmod>
     <changefreq>monthly</changefreq>
