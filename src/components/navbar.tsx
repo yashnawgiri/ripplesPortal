@@ -39,18 +39,14 @@ export default function Navbar() {
   const renderIcon = (icon: any, label: string) => {
     if (typeof icon === "string") {
       // It's an image URL
-      return (
-        <img
-          alt={label}
-          className="w-5 h-5 "
-          src={icon}
-        />
-      );
+      return <img alt={label} className="w-5 h-5 " src={icon} />;
     } else if (typeof icon === "function" || (icon && icon.$$typeof)) {
       // It's a React component (Lucide icon)
       const IconComponent = icon;
+
       return <IconComponent className="w-5 h-5 text-secondary" />;
     }
+
     // Fallback for any other type
     return null;
   };

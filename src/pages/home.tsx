@@ -24,7 +24,6 @@ import AdvantagesSection from "@/components/AdvantageSection";
 import HowItWorksSection from "@/components/UgcHowItWorks";
 import CTASection from "@/components/CtaSection";
 import TouchpointSection from "@/components/TouchpointSection";
-
 import BrandLogos from "@/components/caseStudy/BrandLogos";
 import TestimonialsCarousel from "@/components/caseStudy/TestimonialsCarousel";
 import testimonialsData from "@/data/testimonials.json";

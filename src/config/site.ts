@@ -1,3 +1,5 @@
+import { HammerIcon, Newspaper } from "lucide-react";
+
 import {
   CategoryIcon,
   ChatIcon,
@@ -9,7 +11,6 @@ import {
 // import UgcIcon from "@/assets/images/ugc-icon.svg";
 // import referralIcon from "@/assets/images/referral-icon.svg";
 import { imageUrls } from "@/utils/imageUrl";
-import { HammerIcon, Newspaper } from "lucide-react";
 
 export type SiteConfig = typeof siteConfig;
 

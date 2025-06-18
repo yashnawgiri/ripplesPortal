@@ -14,6 +14,7 @@ import { AffiliateGenerator } from "./pages/affiliateForm";
 import FreeTools from "./pages/freeTools";
 import InstagramEngagementPage from "./pages/instagramEngagementPage";
 import CROChecklistPage from "./components/leadMagnet/CROChecklistPage";
+import CaseStudiesPage from "./components/caseStudy/CaseStudiesPage";
 
 import { siteConfig } from "@/config/site";
 import HomePage from "@/pages/home";
@@ -24,7 +25,6 @@ import TermsAndConditions from "@/pages/termsAndConditions";
 import NotFound from "@/pages/notFound";
 import AuthPage from "@/pages/auth-page/AuthPage";
 import CaseStudyPage from "@/pages/CaseStudyPage";
-import CaseStudiesPage from "./components/caseStudy/CaseStudiesPage";
 
 // Define the type for meta tag entries
 type MetaTagEntry = {
@@ -111,7 +111,10 @@ function App() {
           <Route element={<GetDemo />} path={siteConfig.path.getDemo} />
           <Route element={<AboutPage />} path={siteConfig.path.about} />
           <Route element={<CaseStudyPage />} path={siteConfig.path.caseStudy} />
-          <Route element={<CaseStudiesPage />} path={siteConfig.path.caseStudies} />
+          <Route
+            element={<CaseStudiesPage />}
+            path={siteConfig.path.caseStudies}
+          />
           <Route
             element={<PrivacyPolicy />}
             path={siteConfig.path.privacyPolicy}
