@@ -16,7 +16,7 @@ const HeroSection: React.FC = () => {
           </span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold mb-4 sm:mb-6 md:mb-8 leading-tight px-1 sm:px-2">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-4 sm:mb-6 md:mb-8 leading-tight px-1 sm:px-2">
           <span className="bg-gradient-to-r from-white via-purple-100 to-white bg-clip-text text-transparent">
             Brands Growing with
           </span>
@@ -26,7 +26,7 @@ const HeroSection: React.FC = () => {
           </span>
         </h1>
 
-        <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-6 sm:mb-8 md:mb-12 px-2 sm:px-4">
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-6 sm:mb-8 md:mb-12 px-2 sm:px-4">
           🧠 See how leading consumer brands turned customers into their best
           influencers —
           <span className="text-purple-300 font-semibold">
