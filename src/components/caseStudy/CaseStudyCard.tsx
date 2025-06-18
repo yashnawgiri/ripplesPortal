@@ -3,6 +3,7 @@ import type React from "react";
 import { ArrowUpRight, TrendingUp, Users, IndianRupeeIcon } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/Card";
+import { Link } from "react-router-dom";
 
 interface CaseStudyCardProps {
   id: string;
@@ -75,7 +76,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
             {/* Logo */}
             <div className="relative flex-shrink-0">
               <div
-                className={`w-14 h-14 bg-gradient-to-br ${color.primary} rounded-sm shadow-lg flex items-center justify-center p-0.5`}
+                className={`w-14 h-14  rounded-sm shadow-lg flex items-center justify-center p-0.5`}
               >
                 <div className="w-full h-full bg-white rounded-lg flex items-center justify-center">
                   <img
@@ -103,23 +104,23 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
           </div>
 
           {/* Arrow Icon */}
-          <a
+          <Link
+            to={`https://${website}`}
             className="no-ripple"
-            href={website}
             rel="noopener noreferrer"
             target="_blank"
           >
             <ArrowUpRight
               className={`w-5 h-5 text-slate-400 group-hover:${color.text} group-hover:scale-110 transition-all duration-300 flex-shrink-0`}
             />
-          </a>
+          </Link>
         </div>
 
         {/* Store Image */}
         <div className="relative overflow-hidden rounded-xl">
           <img
             alt={`${name} store`}
-            className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-105"
+            className="w-full h-48 object-contain transition-transform duration-700 group-hover:scale-105"
             src={imageSrc || "/placeholder.svg"}
           />
           {/* Overlay gradient */}

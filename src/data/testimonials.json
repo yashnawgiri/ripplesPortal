@@ -3,6 +3,7 @@
     {
       "id": 1,
       "company": "Kaftanize",
+      "logo": "https://ripples1static.blob.core.windows.net/images/kaftanize_logo.jpg",
       "quote":
         "Ripples brought us 100+ new customers in a month—with zero ad spend",
       "description":
@@ -17,6 +18,7 @@
     {
       "id": 2,
       "company": "Smartveda",
+      "logo": "https://ripples1static.blob.core.windows.net/images/smartveda_logo.jpeg",
       "quote": "Implementing Ripples' referral program was a game-changer for us",
       "description":
         "It not only rewarded our loyal customers but also brought in new ones through trusted recommendations. The simplicity and effectiveness of the system exceeded our expectations.",
@@ -30,6 +32,7 @@
     {
       "id": 3,
       "company": "Sleek & Peek",
+      "logo": "https://ripples1static.blob.core.windows.net/images/sleekandpeek.png",
       "quote": "Our Gen Z audience LOVES the instant UPI cashbacks",
       "description":
         "No coupons, no points—just real cash straight to their bank. Ripples nailed what young customers want. It's the only platform that actually gets the modern shopper.",
@@ -43,6 +46,7 @@
     {
       "id": 4,
       "company": "YoDragon",
+      "logo": "https://ripples1static.blob.core.windows.net/images/Yo-Dragon-logo.avif",
       "quote": "We ditched our old referral plugin and never looked back",
       "description":
         "Our previous tool only offered points, which didn't excite customers. Ripples' cash payouts changed the game. Our referral participation jumped 5x.",
@@ -56,6 +60,7 @@
     {
       "id": 5,
       "company": "Maayin Clothing",
+      "logo": "https://ripples1static.blob.core.windows.net/images/mayin.png",
       "quote":
         "Most referral tools feel outdated. Ripples feels built for today's D2C playbook",
       "description":
