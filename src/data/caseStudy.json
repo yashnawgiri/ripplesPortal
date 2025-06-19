@@ -1,0 +1,119 @@
+{
+  "caseStudies": [
+    {
+      "id": "kaftanize",
+      "name": "Kaftanize",
+      "industry": "Fashion & Lifestyle (Luxury Kaftans)",
+      "website": "www.kaftanize.com",
+      "logo": "https://ripples1static.blob.core.windows.net/images/kaftanize_logo.jpg",
+      "logo_full": "https://ripples1static.blob.core.windows.net/images/kaftanize_logo_full.jpg",
+      "image": "https://ripples1static.blob.core.windows.net/images/kaftanize_case_study_banner.jpg",
+      "region": "India",
+      "foundedYear": "2020",
+      "description": "Founded in 2020, Kaftanize brings modern elegance to traditional kaftans, with designs that merge heritage patterns with contemporary fashion. Known for their premium fabrics and versatile silhouettes, Kaftanize has become a go-to destination for women seeking both style and substance. As their customer base expanded across the country, the team at Kaftanize wanted to leverage the organic love from their community and reduce dependence on performance marketing.",
+      "challenge": [
+        "Incentivize and track word-of-mouth referrals",
+        "Reward loyal customers who were already recommending the brand",
+        "Drive new customer acquisition without escalating CAC",
+        "Launch and test performance campaigns quickly without engineering help"
+      ],
+      "solution": [
+        "₹500 Referral Rewards: Dual-sided reward structure—₹500 for the referrer and 15% discount for the friend",
+        "Automated Workflows: Referral links and nudges delivered via WhatsApp and email at regular intervals days post-delivery, maximizing timing",
+        "On-site CTAs: Plug-and-play referral widgets added to the purchase journey, thank-you page, account dashboard, and post-checkout screen",
+        "Analytics Dashboard: Real-time visibility into top referrers, conversion rates, and ROI—no manual tracking needed"
+      ],
+      "results": {
+        "roi": {
+          "value": "17X",
+          "description": "ROI from referrals in the first 60 days"
+        },
+        "sales": {
+          "value": "8%",
+          "description": "Referral sales contribution to overall sales"
+        },
+        "referrals": {
+          "value": "20X",
+          "description": "Increased in Referrals"
+        },
+        "timeline": "Results achieved in first 60 days",
+        "additionalMetrics": {
+          "wordOfMouthShare": "Increased share of new customers acquired via word-of-mouth",
+          "engineeringDependency": "Zero engineering dependency to launch or scale program",
+          "campaignSpeed": "Quick launch and testing without engineering help"
+        }
+      },
+      "testimonial": {
+        "quote": "Ripples gave us a plug-and-play referral system that just works. Our customers love sharing Kaftanize, and now they're getting rewarded for it. It's been a game-changer for our growth.",
+        "author": "Rahul Agarwal",
+        "position": "Co-founder, Kaftanize"
+      },
+      "keyTakeaways": [
+        "Kaftanize used Ripples to build a referral engine that delivers predictable, performance-based growth, converting loyal customers into a powerful acquisition channel",
+        "Ripples' seamless integration with Shopify and WhatsApp helped Kaftanize trigger referral nudges at the right moments—driving more word-of-mouth conversions and reducing reliance on paid ads"
+      ],
+      "industryBenchmarks": {
+        "averageROI": "5-8x",
+        "conversionRate": "8-12%",
+        "salesContribution": "3-5%"
+      }
+    },
+    {
+      "id": "smartveda",
+      "name": "Smartveda",
+      "industry": "Ayurvedic Health & Wellness",
+      "logo": "https://ripples1static.blob.core.windows.net/images/smartveda_logo.jpeg",
+      "logo_full": "https://ripples1static.blob.core.windows.net/images/Smartveda_Official_1.avif",
+      "image": "https://ripples1static.blob.core.windows.net/images/smartveda_case_study_banner.png",
+      "website": "www.smartveda.co",
+      "region": "India",
+      "description": "Founded with a mission to bring ancient Ayurvedic wisdom to modern lifestyles, Smartveda offers a range of health supplements and wellness products. Their flagship products, like Dybit Amrit and Kadwa Amrit, have garnered a loyal customer base seeking natural solutions for health management. As the brand expanded, Smartveda recognized the potential of its satisfied customers to act as ambassadors, promoting the products within their communities.",
+      "challenge": [
+        "Scaling customer acquisition without escalating marketing costs",
+        "Encouraging repeat purchases and fostering brand loyalty",
+        "Implementing a referral system that was both effective and easy to use for their diverse customer base"
+      ],
+      "solution": [
+        "Offered 20% cashback to customers for each successful referral",
+        "Provided instant rewards credited to the customer's store wallet",
+        "Integrated seamlessly with popular platforms like WhatsApp where most of the target customers of Smartveda chat and are actively present in WhatsApp group communications, making sharing effortless",
+        "Ensured transparency and ease of use, with customers able to track their referrals and earnings through a dedicated dashboard and received real-time updates on Whatsapp itself"
+      ],
+      "results": {
+        "roi": {
+          "value": "22X",
+          "description": "ROI from referrals in the first 60 days"
+        },
+        "sales": {
+          "value": "9.3%",
+          "description": "Incremental sales contribution"
+        },
+        "referrals": {
+          "value": "23X",
+          "description": "Increased in Referrals"
+        },
+        "timeline": "Instant payouts via store wallet",
+        "additionalMetrics": {
+          "customerAcquisition": "Significant increase in new customer acquisition through referrals",
+          "customerEngagement": "Enhanced customer engagement and satisfaction due to instant rewards",
+          "whatsappImpact": "Got most of their customers talking about the brand and sharing on Whatsapp with over 5K impressions and new traffic to the website from whatsapp",
+          "costEffectiveness": "Cost-effective growth, reducing reliance on traditional advertising channels"
+        }
+      },
+      "testimonial": {
+        "quote": "Implementing Ripples' referral program was a game-changer for us. It not only rewarded our loyal customers but also brought in new ones through trusted recommendations. The simplicity and effectiveness of the system exceeded our expectations.",
+        "author": "Smartveda Team",
+        "position": "Leadership Team"
+      },
+      "keyTakeaways": [
+        "Smartveda leveraged Ripples to transform satisfied customers into brand advocates, enhancing trust and driving organic growth through word-of-mouth referrals",
+        "The referral program's user-friendly design and instant rewards encouraged higher participation rates, leading to increased customer acquisition and retention"
+      ],
+      "industryBenchmarks": {
+        "averageROI": "6-10x",
+        "conversionRate": "10-15%",
+        "salesContribution": "4-7%"
+      }
+    }
+  ]
+}

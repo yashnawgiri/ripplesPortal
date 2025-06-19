@@ -21,16 +21,12 @@ const StatCard: React.FC<StatCardProps> = ({ value, description, icon }) => {
   return (
     <motion.div
       ref={cardRef}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       className="flex flex-col items-center justify-center bg-primary/5 backdrop-blur-sm border border-[#282D45] rounded-xl p-4 sm:p-6 md:p-8 text-center w-full transition-all duration-300 hover:bg-primary/10 hover:scale-[1.02] hover:shadow-lg"
       initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      {icon && (
-        <div className="mb-3 sm:mb-4 text-primary">
-          {icon}
-        </div>
-      )}
+      {icon && <div className="mb-3 sm:mb-4 text-primary">{icon}</div>}
       <h3 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-300">
         {value}
       </h3>
@@ -41,23 +37,23 @@ const StatCard: React.FC<StatCardProps> = ({ value, description, icon }) => {
   );
 };
 
-const StatsSection: React.FC<StatsSectionProps> = ({ 
-  statsData, 
-  title = "Our Impact", 
-  subtitle = "Key metrics that showcase our growth and success" 
+const StatsSection: React.FC<StatsSectionProps> = ({
+  statsData,
+  title = "Our Impact",
+  subtitle = "Key metrics that showcase our growth and success",
 }) => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20"
     >
       <motion.div
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         className="text-center mb-8 sm:mb-12 md:mb-16"
         initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
@@ -69,9 +65,9 @@ const StatsSection: React.FC<StatsSectionProps> = ({
       </motion.div>
 
       <motion.div
+        animate={isInView ? "visible" : "hidden"}
         className="flex flex-wrap md:flex-nowrap h-full gap-8"
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
         variants={{
           hidden: { opacity: 0 },
           visible: {
@@ -87,8 +83,8 @@ const StatsSection: React.FC<StatsSectionProps> = ({
           <StatCard
             key={`stat-${index}`}
             description={stat.description}
-            value={stat.value}
             icon={stat.icon}
+            value={stat.value}
           />
         ))}
       </motion.div>

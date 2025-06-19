@@ -9,7 +9,6 @@ import {
   AlertCircle,
   RefreshCw,
 } from "lucide-react";
-import { Label } from "@/components/ui/label";
 import {
   FaEnvelope,
   FaFacebookF,
@@ -23,6 +22,7 @@ import {
 import { FaXTwitter } from "react-icons/fa6";
 import { useParams } from "react-router-dom";
 
+import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { CardContent } from "@/components/ui/Card";
 import { Input } from "@/components/ui/Input";
@@ -101,8 +101,8 @@ const MilestoneRewards = ({
                     <img
                       alt={product.images[0]?.altText || product.title}
                       className="w-full h-full object-cover rounded-lg"
-                      src={product.images[0]?.originalSrc}
                       loading="lazy"
+                      src={product.images[0]?.originalSrc}
                     />
                   </div>
                   <div className="flex-1">

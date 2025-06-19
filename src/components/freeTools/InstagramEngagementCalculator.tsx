@@ -2,13 +2,13 @@ import type { EngagementData } from "../../types";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { 
-  FaInstagram, 
-  FaWhatsapp, 
-  FaEnvelope, 
-  FaHeart, 
-  FaComment, 
-  FaImage, 
+import {
+  FaInstagram,
+  FaWhatsapp,
+  FaEnvelope,
+  FaHeart,
+  FaComment,
+  FaImage,
   FaLock,
   FaCheckCircle,
   FaExclamationTriangle,
@@ -132,41 +132,50 @@ Analyze your own profile at: https://free-tools.goripples.com/tools/instagram-en
         {/* Enhanced animated background gradients */}
         <div className="absolute inset-0 -z-10 overflow-hidden">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
             className="absolute top-0 right-0 w-[600px] h-[600px] bg-secondary/30 rounded-full blur-[150px] animate-pulse"
+            initial={{ opacity: 0, scale: 0.8 }}
             style={{ animationDelay: "0s" }}
+            transition={{ duration: 1 }}
           />
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
             className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/30 rounded-full blur-[150px] animate-pulse"
+            initial={{ opacity: 0, scale: 0.8 }}
             style={{ animationDelay: "1s" }}
+            transition={{ duration: 1, delay: 0.5 }}
           />
         </div>
 
         {/* Enhanced Search Section with better input design */}
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
+        <motion.div
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
           className="relative mb-12 w-full max-w-xl mx-auto px-4 sm:px-0"
+          initial={{ opacity: 0, y: 40 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
         >
           <motion.div
-            initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
             className="flex flex-row shadow-3xl rounded-2xl overflow-hidden border border-white/10 bg-primary/80 backdrop-blur-xl"
+            initial={{ scale: 0.95, opacity: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <div className="flex items-center justify-center px-3 sm:px-4 py-2 sm:py-0" style={{ background: 'linear-gradient(91.78deg, #7214FF -10.05%, #CA00E8 150.35%)' }}>
+            <div
+              className="flex items-center justify-center px-3 sm:px-4 py-2 sm:py-0"
+              style={{
+                background:
+                  "linear-gradient(91.78deg, #7214FF -10.05%, #CA00E8 150.35%)",
+              }}
+            >
               <FaInstagram className="h-5 w-5 sm:h-6 sm:w-6 text-white drop-shadow-lg" />
             </div>
             <Input
               className="flex-1 bg-transparent text-white py-2 sm:py-3 px-3 sm:px-4 h-10 sm:h-12 text-sm sm:text-base border-0 focus:ring-2 focus:ring-secondary focus:outline-none placeholder:text-gray-400 transition-all duration-300 rounded-none shadow-none min-w-0"
-              style={{ background: 'rgba(14, 19, 48, 0.85)', backdropFilter: 'blur(8px)' }}
               placeholder="Enter Instagram username"
+              style={{
+                background: "rgba(14, 19, 48, 0.85)",
+                backdropFilter: "blur(8px)",
+              }}
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               onKeyDown={(e) => {
@@ -176,14 +185,17 @@ Analyze your own profile at: https://free-tools.goripples.com/tools/instagram-en
               }}
             />
             <motion.div
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97, boxShadow: '0 0 0 8px #CA00E833' }}
               className="transition-all duration-300"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97, boxShadow: "0 0 0 8px #CA00E833" }}
             >
               <Button
                 className="h-10 sm:h-12 px-3 sm:px-6 text-sm sm:text-base font-semibold rounded-none rounded-r-2xl border-0 shadow-lg text-white"
-                style={{ background: 'linear-gradient(91.78deg, #7214FF -10.05%, #CA00E8 150.35%)' }}
                 disabled={isLoading || !username}
+                style={{
+                  background:
+                    "linear-gradient(91.78deg, #7214FF -10.05%, #CA00E8 150.35%)",
+                }}
                 onClick={handleSubmit}
               >
                 {isLoading ? (
@@ -219,11 +231,14 @@ Analyze your own profile at: https://free-tools.goripples.com/tools/instagram-en
 
           {error && (
             <motion.div
-              initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
             >
-              <Alert variant="destructive" className="mt-6 bg-destructive/20 border border-destructive/30 backdrop-blur-xl text-white">
+              <Alert
+                className="mt-6 bg-destructive/20 border border-destructive/30 backdrop-blur-xl text-white"
+                variant="destructive"
+              >
                 <FaExclamationTriangle className="h-5 w-5" />
                 <AlertDescription className="font-medium">
                   {error}
@@ -236,26 +251,26 @@ Analyze your own profile at: https://free-tools.goripples.com/tools/instagram-en
         {/* Enhanced Results Card with more animations */}
         {data && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 40 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
             className="flex justify-center px-2 sm:px-0"
+            initial={{ opacity: 0, scale: 0.95, y: 40 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <Card className="overflow-hidden w-full max-w-md bg-black/40 backdrop-blur-xl border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-[1.02] rounded-2xl">
               <CardContent className="p-0">
                 {/* Enhanced Profile Header with animations */}
-                <motion.div 
-                  initial={{ opacity: 0, y: -20 }}
+                <motion.div
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
                   className="bg-gradient-to-br from-primary/30 to-secondary/30 p-8 text-center relative overflow-hidden"
+                  initial={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
                 >
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" />
-                  <motion.div 
-                    initial={{ scale: 0.8, opacity: 0 }}
+                  <motion.div
                     animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
                     className="w-28 h-28 rounded-full overflow-hidden mx-auto mb-6 border-4 border-white/30 shadow-2xl transform hover:scale-105 transition-transform duration-300"
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
                   >
                     <img
                       alt={data.username}
@@ -263,11 +278,11 @@ Analyze your own profile at: https://free-tools.goripples.com/tools/instagram-en
                       src={data.profilePicUrl || "/placeholder.svg"}
                     />
                   </motion.div>
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
+                  <motion.div
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
                     className="flex flex-col items-center mb-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
                   >
                     <div className="flex items-center">
                       <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-secondary mr-3 flex items-center justify-center shadow-lg">
@@ -277,11 +292,11 @@ Analyze your own profile at: https://free-tools.goripples.com/tools/instagram-en
                         {data.username}
                       </span>
                       {data.isVerified && (
-                        <motion.div 
-                          initial={{ scale: 0 }}
+                        <motion.div
                           animate={{ scale: 1 }}
-                          transition={{ duration: 0.3, delay: 0.4 }}
                           className="ml-3 text-secondary"
+                          initial={{ scale: 0 }}
+                          transition={{ duration: 0.3, delay: 0.4 }}
                         >
                           <FaCheckCircle className="h-6 w-6" />
                         </motion.div>
@@ -294,11 +309,11 @@ Analyze your own profile at: https://free-tools.goripples.com/tools/instagram-en
                     )}
                   </motion.div>
                   {data.biography && (
-                    <motion.div 
-                      initial={{ opacity: 0 }}
+                    <motion.div
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 0.4 }}
                       className="text-gray-200 mt-4 max-h-24 overflow-y-auto"
+                      initial={{ opacity: 0 }}
+                      transition={{ duration: 0.5, delay: 0.4 }}
                     >
                       {data.biography}
                     </motion.div>
@@ -364,10 +379,10 @@ Analyze your own profile at: https://free-tools.goripples.com/tools/instagram-en
                     ].map((item, index) => (
                       <motion.div
                         key={index}
-                        initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: index * 0.1 }}
                         className="flex justify-between items-center p-4 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20 hover:bg-white/15 transition-colors duration-300"
+                        initial={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.3, delay: index * 0.1 }}
                       >
                         <div className="flex items-center">
                           <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#F77737] flex items-center justify-center mr-4 shadow-lg">

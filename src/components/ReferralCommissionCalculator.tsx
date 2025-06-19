@@ -1,20 +1,15 @@
 import type React from "react";
 
 import { useState, useCallback, useMemo } from "react";
-import {
-  Card,
-  CardHeader,
-  CardContent,
-} from "@/components/ui/Card";
+import { HelpCircle } from "lucide-react";
 
+import { Card, CardHeader, CardContent } from "@/components/ui/Card";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { Slider } from "@/components/ui/Slider";
 import { Switch } from "@/components/ui/Switch";
 import { Tabs } from "@/components/ui/tabs";
 import { Tooltip } from "@/components/ui/Tooltip";
-
-import { HelpCircle } from "lucide-react";
 
 interface CalculationResult {
   recommendedRate: number | null;
@@ -187,8 +182,8 @@ export default function ReferralCommissionCalculator() {
             <span className={currency === "USD" ? "font-bold" : ""}>USD</span>
             <Switch
               checked={currency === "INR"}
-              onCheckedChange={handleCurrencyToggle}
               size="sm"
+              onCheckedChange={handleCurrencyToggle}
             />
             <span className={currency === "INR" ? "font-bold" : ""}>INR</span>
           </div>
@@ -202,10 +197,10 @@ export default function ReferralCommissionCalculator() {
                 <span className="text-lg text-white">
                   Average Order Value (AOV)
                 </span>
-                <Tooltip 
+                <Tooltip
+                  className="bg-gray-800 text-white"
                   content="The average spend per order"
                   position="right"
-                  className="bg-gray-800 text-white"
                 >
                   <HelpCircle className="h-4 w-4 text-white cursor-help" />
                 </Tooltip>
@@ -232,10 +227,10 @@ export default function ReferralCommissionCalculator() {
                 <span className="text-lg text-white">
                   Customer Lifetime Value (LTV)
                 </span>
-                <Tooltip 
+                <Tooltip
+                  className="bg-gray-800 text-white"
                   content="The total expected revenue from a single customer"
                   position="right"
-                  className="bg-gray-800 text-white"
                 >
                   <HelpCircle className="h-4 w-4 text-white cursor-help" />
                 </Tooltip>
@@ -262,10 +257,10 @@ export default function ReferralCommissionCalculator() {
                 <span className="text-lg text-white">
                   Gross Profit Margin (%)
                 </span>
-                <Tooltip 
+                <Tooltip
+                  className="bg-gray-800 text-white"
                   content="Percentage of revenue left after deducting costs of goods sold"
                   position="right"
-                  className="bg-gray-800 text-white"
                 >
                   <HelpCircle className="h-4 w-4 text-white cursor-help" />
                 </Tooltip>
@@ -292,10 +287,10 @@ export default function ReferralCommissionCalculator() {
                 <span className="text-lg text-white">
                   Target Customer Acquisition Cost (CAC)
                 </span>
-                <Tooltip 
+                <Tooltip
+                  className="bg-gray-800 text-white"
                   content="Target amount willing to spend to acquire a new customer"
                   position="right"
-                  className="bg-gray-800 text-white"
                 >
                   <HelpCircle className="h-4 w-4 text-white cursor-help" />
                 </Tooltip>
@@ -320,10 +315,10 @@ export default function ReferralCommissionCalculator() {
             <div className="space-y-2">
               <div className="flex items-center gap-2">
                 <span className="text-lg text-white">Optimize for</span>
-                <Tooltip 
+                <Tooltip
+                  className="bg-gray-800 text-white"
                   content="Balance between profitability and scaling customer acquisition"
                   position="right"
-                  className="bg-gray-800 text-white"
                 >
                   <HelpCircle className="h-4 w-4 text-white cursor-help" />
                 </Tooltip>
@@ -333,8 +328,8 @@ export default function ReferralCommissionCalculator() {
                   aria-label="Optimize slider"
                   className="max-w-full"
                   defaultValue={50}
-                  min={0}
                   max={100}
+                  min={0}
                   step={1}
                   value={formData.optimizeValue}
                   onChange={(value: number | number[]) =>
@@ -350,10 +345,7 @@ export default function ReferralCommissionCalculator() {
 
             <div className="space-y-2">
               <span className="text-lg text-white mr-2">Referral Discount</span>
-              <Tabs
-                aria-label="Discount Type"
-                className="w-full"
-              >
+              <Tabs aria-label="Discount Type" className="w-full">
                 <div className="flex border-b border-gray-200">
                   <button
                     className={`px-4 py-2 ${

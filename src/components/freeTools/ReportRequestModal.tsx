@@ -127,8 +127,8 @@ export function ReportRequestModal({
   };
 
   return (
-    <Dialog 
-      isOpen={isOpen} 
+    <Dialog
+      isOpen={isOpen}
       onOpenChange={(open) => {
         // Only allow closing if not submitting and explicitly clicking close
         if (!open && !isSubmitting) {
@@ -164,7 +164,12 @@ export function ReportRequestModal({
             )}
             <div className="space-y-5">
               <div className="grid w-full items-center gap-2">
-                <Label htmlFor="name" className="text-sm font-medium text-gray-700">Full Name</Label>
+                <Label
+                  className="text-sm font-medium text-gray-700"
+                  htmlFor="name"
+                >
+                  Full Name
+                </Label>
                 <Input
                   className={`h-11 px-4 rounded-lg border ${formErrors.name ? "border-red-500 focus:ring-red-500" : "border-gray-200 focus:ring-primary"} focus:ring-2 focus:ring-offset-0 transition-all duration-200`}
                   id="name"
@@ -179,7 +184,12 @@ export function ReportRequestModal({
               </div>
 
               <div className="grid w-full items-center gap-2">
-                <Label htmlFor="email" className="text-sm font-medium text-gray-700">Email</Label>
+                <Label
+                  className="text-sm font-medium text-gray-700"
+                  htmlFor="email"
+                >
+                  Email
+                </Label>
                 <Input
                   className={`h-11 px-4 rounded-lg border ${formErrors.email ? "border-red-500 focus:ring-red-500" : "border-gray-200 focus:ring-primary"} focus:ring-2 focus:ring-offset-0 transition-all duration-200`}
                   id="email"
@@ -190,12 +200,19 @@ export function ReportRequestModal({
                   onChange={handleChange}
                 />
                 {formErrors.email && (
-                  <p className="text-sm text-red-500 mt-1">{formErrors.email}</p>
+                  <p className="text-sm text-red-500 mt-1">
+                    {formErrors.email}
+                  </p>
                 )}
               </div>
 
               <div className="grid w-full items-center gap-2">
-                <Label htmlFor="company" className="text-sm font-medium text-gray-700">Where do you work?</Label>
+                <Label
+                  className="text-sm font-medium text-gray-700"
+                  htmlFor="company"
+                >
+                  Where do you work?
+                </Label>
                 <Input
                   className={`h-11 px-4 rounded-lg border ${formErrors.company ? "border-red-500 focus:ring-red-500" : "border-gray-200 focus:ring-primary"} focus:ring-2 focus:ring-offset-0 transition-all duration-200`}
                   id="company"
@@ -205,12 +222,19 @@ export function ReportRequestModal({
                   onChange={handleChange}
                 />
                 {formErrors.company && (
-                  <p className="text-sm text-red-500 mt-1">{formErrors.company}</p>
+                  <p className="text-sm text-red-500 mt-1">
+                    {formErrors.company}
+                  </p>
                 )}
               </div>
 
               <div className="grid w-full items-center gap-2">
-                <Label htmlFor="website" className="text-sm font-medium text-gray-700">Company Website</Label>
+                <Label
+                  className="text-sm font-medium text-gray-700"
+                  htmlFor="website"
+                >
+                  Company Website
+                </Label>
                 <Input
                   className={`h-11 px-4 rounded-lg border ${formErrors.website ? "border-red-500 focus:ring-red-500" : "border-gray-200 focus:ring-primary"} focus:ring-2 focus:ring-offset-0 transition-all duration-200`}
                   id="website"
@@ -220,7 +244,9 @@ export function ReportRequestModal({
                   onChange={handleChange}
                 />
                 {formErrors.website && (
-                  <p className="text-sm text-red-500 mt-1">{formErrors.website}</p>
+                  <p className="text-sm text-red-500 mt-1">
+                    {formErrors.website}
+                  </p>
                 )}
               </div>
             </div>

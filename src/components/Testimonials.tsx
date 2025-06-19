@@ -68,7 +68,7 @@ export default function Testimonials() {
 
   const handlePrevious = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? testimonialsLength - 1 : prevIndex - 1
+      prevIndex === 0 ? testimonialsLength - 1 : prevIndex - 1,
     );
   };
 

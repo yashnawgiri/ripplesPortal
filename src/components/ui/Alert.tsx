@@ -1,5 +1,6 @@
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
+
 import { cn } from "@/lib/utils";
 
 const alertVariants = cva(
@@ -14,14 +15,13 @@ const alertVariants = cva(
           "border-success/50 text-success dark:border-success [&>svg]:text-success",
         warning:
           "border-warning/50 text-warning dark:border-warning [&>svg]:text-warning",
-        info:
-          "border-info/50 text-info dark:border-info [&>svg]:text-info",
+        info: "border-info/50 text-info dark:border-info [&>svg]:text-info",
       },
     },
     defaultVariants: {
       variant: "default",
     },
-  }
+  },
 );
 
 const Alert = React.forwardRef<
@@ -30,11 +30,12 @@ const Alert = React.forwardRef<
 >(({ className, variant, ...props }, ref) => (
   <div
     ref={ref}
-    role="alert"
     className={cn(alertVariants({ variant }), className)}
+    role="alert"
     {...props}
   />
 ));
+
 Alert.displayName = "Alert";
 
 const AlertTitle = React.forwardRef<
@@ -47,6 +48,7 @@ const AlertTitle = React.forwardRef<
     {...props}
   />
 ));
+
 AlertTitle.displayName = "AlertTitle";
 
 const AlertDescription = React.forwardRef<
@@ -59,6 +61,7 @@ const AlertDescription = React.forwardRef<
     {...props}
   />
 ));
+
 AlertDescription.displayName = "AlertDescription";
 
 export { Alert, AlertTitle, AlertDescription };

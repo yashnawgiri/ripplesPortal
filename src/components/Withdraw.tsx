@@ -1,4 +1,6 @@
 import React, { useState, FormEvent, ChangeEvent, useEffect } from "react";
+import toast from "react-hot-toast";
+import { useRecoilState, useRecoilValue } from "recoil";
 
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -7,10 +9,6 @@ import { Select } from "@/components/ui/Select";
 import { Progress } from "@/components/ui/Progress";
 import { Chip } from "@/components/ui/Chip";
 import { Label } from "@/components/ui/label";
-
-import toast from "react-hot-toast";
-import { useRecoilState, useRecoilValue } from "recoil";
-
 import UserDefaultLayout from "@/layouts/userDefault";
 import {
   accountDetails,
@@ -32,13 +30,21 @@ interface FormErrors {
   withdrawalMethod: string;
 }
 
-const CardHeader = ({ children, className }: { children: React.ReactNode; className?: string }) => (
-  <div className={`p-6 ${className}`}>{children}</div>
-);
+const CardHeader = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => <div className={`p-6 ${className}`}>{children}</div>;
 
-const CardBody = ({ children, className }: { children: React.ReactNode; className?: string }) => (
-  <div className={`p-6 ${className}`}>{children}</div>
-);
+const CardBody = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => <div className={`p-6 ${className}`}>{children}</div>;
 
 const Withdraw: React.FC = () => {
   const [step, setStep] = useState<number>(1);
@@ -206,10 +212,7 @@ const Withdraw: React.FC = () => {
             <h3 className="text-2xl font-bold text-center text-zinc-100">
               Withdraw Funds
             </h3>
-            <Progress
-              className="max-w-md"
-              value={(step / 3) * 100}
-            />
+            <Progress className="max-w-md" value={(step / 3) * 100} />
           </CardHeader>
           <CardBody className="gap-4">
             {step === 1 && (
@@ -231,7 +234,9 @@ const Withdraw: React.FC = () => {
                     }}
                   />
                   {errors.amount && (
-                    <span className="text-danger text-xs mt-1">{errors.amount}</span>
+                    <span className="text-danger text-xs mt-1">
+                      {errors.amount}
+                    </span>
                   )}
                 </div>
               </div>
@@ -260,7 +265,9 @@ const Withdraw: React.FC = () => {
                     }}
                   />
                   {errors.withdrawalMethod && (
-                    <span className="text-danger text-xs mt-1">{errors.withdrawalMethod}</span>
+                    <span className="text-danger text-xs mt-1">
+                      {errors.withdrawalMethod}
+                    </span>
                   )}
                 </div>
               </div>
@@ -358,7 +365,9 @@ const Withdraw: React.FC = () => {
                       onChange={field.onChange}
                     />
                     {field.error && (
-                      <span className="text-danger text-xs mt-1">{field.error}</span>
+                      <span className="text-danger text-xs mt-1">
+                        {field.error}
+                      </span>
                     )}
                   </div>
                 ))}
@@ -372,8 +381,8 @@ const Withdraw: React.FC = () => {
                   </Button>
                   <Button
                     className="bg-secondary text-white hover:bg-secondary/90"
-                    variant="default"
                     disabled={step === 3 && !withdrawalMethod}
+                    variant="default"
                     onClick={handleNext}
                   >
                     Next
@@ -389,12 +398,12 @@ const Withdraw: React.FC = () => {
                 role="region"
               >
                 <Chip
+                  aria-label="Success status"
+                  className="text-white bg-green-500"
                   color="success"
+                  role="status"
                   size="lg"
                   variant="solid"
-                  className="text-white bg-green-500"
-                  role="status"
-                  aria-label="Success status"
                 >
                   Withdrawal Request Successful!
                 </Chip>

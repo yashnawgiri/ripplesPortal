@@ -1,0 +1,77 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "company": "Kaftanize",
+      "logo": "https://ripples1static.blob.core.windows.net/images/kaftanize_logo.jpg",
+      "quote":
+        "Ripples brought us 100+ new customers in a month—with zero ad spend",
+      "description":
+        "We always knew word-of-mouth was powerful, but Ripples made it trackable, rewarding, and scalable. It's now a core part of our growth stack.",
+      "conclusion": "It's been a game-changer for our growth.",
+      "author": {
+        "name": "Rahul Agarwal",
+        "title": "Co-founder, Kaftanize",
+        "image": "/placeholder.svg?height=60&width=60"
+      }
+    },
+    {
+      "id": 2,
+      "company": "Smartveda",
+      "logo": "https://ripples1static.blob.core.windows.net/images/smartveda_logo.jpeg",
+      "quote": "Implementing Ripples' referral program was a game-changer for us",
+      "description":
+        "It not only rewarded our loyal customers but also brought in new ones through trusted recommendations. The simplicity and effectiveness of the system exceeded our expectations.",
+      "conclusion": "We saw incredible results within the first month!",
+      "author": {
+        "name": "Sachin Sukumar",
+        "title": "CBO, Smartveda",
+        "image": "/placeholder.svg?height=60&width=60"
+      }
+    },
+    {
+      "id": 3,
+      "company": "Sleek & Peek",
+      "logo": "https://ripples1static.blob.core.windows.net/images/sleekandpeek.png",
+      "quote": "Our Gen Z audience LOVES the instant UPI cashbacks",
+      "description":
+        "No coupons, no points—just real cash straight to their bank. Ripples nailed what young customers want. It's the only platform that actually gets the modern shopper.",
+      "conclusion": "Ripples feels built for today's D2C playbook!",
+      "author": {
+        "name": "Vineet Yadav",
+        "title": "Founder, Sleek and Peek",
+        "image": "/placeholder.svg?height=60&width=60"
+      }
+    },
+    {
+      "id": 4,
+      "company": "YoDragon",
+      "logo": "https://ripples1static.blob.core.windows.net/images/Yo-Dragon-logo.avif",
+      "quote": "We ditched our old referral plugin and never looked back",
+      "description":
+        "Our previous tool only offered points, which didn't excite customers. Ripples' cash payouts changed the game. Our referral participation jumped 5x.",
+      "conclusion": "Best decision we made for our referral strategy!",
+      "author": {
+        "name": "Sujith",
+        "title": "E-commerce Manager, YoDragon",
+        "image": "/placeholder.svg?height=60&width=60"
+      }
+    },
+    {
+      "id": 5,
+      "company": "Maayin Clothing",
+      "logo": "https://ripples1static.blob.core.windows.net/images/mayin.png",
+      "quote":
+        "Most referral tools feel outdated. Ripples feels built for today's D2C playbook",
+      "description":
+        "The UI is clean, the cash rewards make sense, and the timing & event automation is just smart. All customers get informed of all actions automatically through WhatsApp.",
+      "conclusion":
+        "It's everything you want in a referral engine—without the bloat.",
+      "author": {
+        "name": "Rahul Agarwal",
+        "title": "Founder, Maayin Clothing",
+      "image": "/placeholder.svg?height=60&width=60"
+      }
+    }
+  ]
+}

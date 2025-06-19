@@ -1,9 +1,9 @@
 import { Route, Routes, useLocation, useParams } from "react-router-dom";
 import { Suspense, useEffect } from "react";
 import { HelmetProvider } from "react-helmet-async";
+
 import { MetaTags } from "./components/SEO/MetaTags";
 import { metaTags } from "./config/metaTags";
-
 import Logout from "./pages/auth-page/Logout";
 import Fallback from "./components/Fallback";
 import ShopperHomePage from "./pages/ShopperHome";
@@ -14,6 +14,7 @@ import { AffiliateGenerator } from "./pages/affiliateForm";
 import FreeTools from "./pages/freeTools";
 import InstagramEngagementPage from "./pages/instagramEngagementPage";
 import CROChecklistPage from "./components/leadMagnet/CROChecklistPage";
+import CaseStudiesPage from "./pages/CaseStudiesPage";
 
 import { siteConfig } from "@/config/site";
 import HomePage from "@/pages/home";
@@ -23,6 +24,7 @@ import PrivacyPolicy from "@/pages/privacyPolicy";
 import TermsAndConditions from "@/pages/termsAndConditions";
 import NotFound from "@/pages/notFound";
 import AuthPage from "@/pages/auth-page/AuthPage";
+import CaseStudyPage from "@/pages/CaseStudyPage";
 
 // Define the type for meta tag entries
 type MetaTagEntry = {
@@ -48,6 +50,7 @@ function App() {
     if (pathWithoutQuery.startsWith("/case-study/")) {
       const brand = params.brand || "";
       const lift = params.lift || "8%";
+
       return metaTags.individualCaseStudy(brand, lift);
     }
 
@@ -56,7 +59,7 @@ function App() {
       (tag) =>
         typeof tag === "object" &&
         "path" in tag &&
-        tag.path === pathWithoutQuery
+        tag.path === pathWithoutQuery,
     ) as MetaTagEntry | undefined;
 
     return metaTag || metaTags.home;
@@ -68,12 +71,16 @@ function App() {
   return (
     <HelmetProvider>
       <MetaTags
-        title={fullTitle}
-        description={currentMetaTags.description || siteConfig.seo.defaultDescription}
         canonicalUrl={`https://goripples.com${location.pathname}`}
-        noindex={currentMetaTags.noindex}
-        type={location.pathname.startsWith("/case-study/") ? "article" : "website"}
+        description={
+          currentMetaTags.description || siteConfig.seo.defaultDescription
+        }
         keywords={siteConfig.seo.defaultKeywords}
+        noindex={currentMetaTags.noindex}
+        title={fullTitle}
+        type={
+          location.pathname.startsWith("/case-study/") ? "article" : "website"
+        }
       />
       <Suspense fallback={<Fallback />}>
         <Routes>
@@ -103,6 +110,11 @@ function App() {
           <Route element={<UGCLanding />} path={siteConfig.path.ugcHome} />
           <Route element={<GetDemo />} path={siteConfig.path.getDemo} />
           <Route element={<AboutPage />} path={siteConfig.path.about} />
+          <Route element={<CaseStudyPage />} path={siteConfig.path.caseStudy} />
+          <Route
+            element={<CaseStudiesPage />}
+            path={siteConfig.path.caseStudies}
+          />
           <Route
             element={<PrivacyPolicy />}
             path={siteConfig.path.privacyPolicy}

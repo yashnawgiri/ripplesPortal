@@ -1,8 +1,9 @@
 import React from "react";
+
 import "@/styles/auth/signUp.css";
-import { Button } from "@/components/ui/Button";
 import { Link } from "react-router-dom";
 
+import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/config/site";
 
 interface SignUpProps {

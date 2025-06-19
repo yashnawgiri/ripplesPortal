@@ -45,7 +45,6 @@ import { siteConfig } from "@/config/site";
 import Navbar from "@/components/navbar";
 import { imageUrls } from "@/utils/imageUrl";
 
-
 const getImpactColor = (impact: string) => {
   switch (impact) {
     case "High":

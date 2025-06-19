@@ -11,7 +11,7 @@ import dashboardData from "@/data/landing.json";
 
 import StatsSection from "./StatsSection";
 
-import Testimonials from "@/components/Testimonials";
+// import Testimonials from "@/components/Testimonials";
 
 import ResponsibilitySection from "./ResponsibilitySection";
 import HeroSection from "./HeroSection";
@@ -24,6 +24,10 @@ import AdvantagesSection from "@/components/AdvantageSection";
 import HowItWorksSection from "@/components/UgcHowItWorks";
 import CTASection from "@/components/CtaSection";
 import TouchpointSection from "@/components/TouchpointSection";
+import BrandLogos from "@/components/caseStudy/BrandLogos";
+import TestimonialsCarousel from "@/components/caseStudy/TestimonialsCarousel";
+import testimonialsData from "@/data/testimonials.json";
+import CaseStudy from "@/components/caseStudy/CaseStudy";
 
 function DemoButton() {
   const navigate = useNavigate();
@@ -38,25 +42,43 @@ function DemoButton() {
   );
 }
 
+interface Testimonial {
+  id: number;
+  company: string;
+  quote: string;
+  logo: string;
+  description: string;
+  conclusion: string;
+  author: {
+    name: string;
+    title: string;
+    image: string;
+  };
+}
+
 export default function HomePage() {
   // const navigate = useNavigate();
 
+  const testimonials = testimonialsData.testimonials as Testimonial[];
+
   return (
     <DefaultLayout>
-      <section className="main-section">
+      <section className="main-section w-full">
         <HeroSection />
         <StatsSection statsData={dashboardData.stats} />
         <CashbackHeroSection />
         <MarketingSection />
         <HowItWorksSection />
+        <CaseStudy />
+        <TestimonialsCarousel testimonials={testimonials} />
+        <BrandLogos />
+        <CTASection />
         <TouchpointSection />
         <CTASection />
         <IntegrationSlider />
         <AdvantagesSection />
         <DashboardCard />
-        <Testimonials />
         <GradiantCards />
-        <DemoButton />
         <ResponsibilitySection />
         <DemoButton />
         <DataPrivacyComponent />

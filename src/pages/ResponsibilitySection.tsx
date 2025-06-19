@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
 
 import { responsibility } from "@/data/landing.json";
-
 import { imageUrls } from "@/utils/imageUrl";
-
 
 function ResponsibilitySection() {
   return (
@@ -31,9 +29,9 @@ function ResponsibilitySection() {
         transition={{ duration: 0.8 }}
       >
         <img
-          loading="lazy"
           alt="Contact us section showing customer support and communication features"
           className="max-w-full h-auto"
+          loading="lazy"
           src={imageUrls.contactus}
           width={1300}
         />

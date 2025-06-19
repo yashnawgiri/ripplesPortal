@@ -19,14 +19,14 @@ const HowDoesItWork: React.FC<HowDoesItWorkProps> = ({ howDoesItWorkData }) => {
   const [currentSlide, setCurrentSlide] = React.useState(0);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => 
-      prev === howDoesItWorkData.data.length - 1 ? 0 : prev + 1
+    setCurrentSlide((prev) =>
+      prev === howDoesItWorkData.data.length - 1 ? 0 : prev + 1,
     );
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => 
-      prev === 0 ? howDoesItWorkData.data.length - 1 : prev - 1
+    setCurrentSlide((prev) =>
+      prev === 0 ? howDoesItWorkData.data.length - 1 : prev - 1,
     );
   };
 
@@ -66,17 +66,14 @@ const HowDoesItWork: React.FC<HowDoesItWorkProps> = ({ howDoesItWorkData }) => {
           <h2 className="title">{howDoesItWorkData.title}</h2>
           <p className="description">{howDoesItWorkData.description}</p>
         </div>
-        
+
         <div className="relative overflow-hidden">
-          <div 
+          <div
             className="flex transition-transform duration-300 ease-in-out"
             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
           >
             {howDoesItWorkData.data.map((step) => (
-              <div 
-                key={step.number} 
-                className="w-full flex-shrink-0 px-4"
-              >
+              <div key={step.number} className="w-full flex-shrink-0 px-4">
                 <div className="swiperContainer">
                   <div className="cardNumber">
                     <span className="text-4xl font-bold text-white">
@@ -94,21 +91,41 @@ const HowDoesItWork: React.FC<HowDoesItWorkProps> = ({ howDoesItWorkData }) => {
 
           {/* Navigation Buttons */}
           <button
-            onClick={prevSlide}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 rounded-full p-2"
             aria-label="Previous slide"
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 rounded-full p-2"
+            onClick={prevSlide}
           >
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <svg
+              className="w-6 h-6 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M15 19l-7-7 7-7"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+              />
             </svg>
           </button>
           <button
-            onClick={nextSlide}
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 rounded-full p-2"
             aria-label="Next slide"
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 rounded-full p-2"
+            onClick={nextSlide}
           >
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <svg
+              className="w-6 h-6 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M9 5l7 7-7 7"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+              />
             </svg>
           </button>
 
@@ -117,11 +134,11 @@ const HowDoesItWork: React.FC<HowDoesItWorkProps> = ({ howDoesItWorkData }) => {
             {howDoesItWorkData.data.map((_, index) => (
               <button
                 key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-2 h-2 rounded-full transition-colors ${
-                  currentSlide === index ? 'bg-white' : 'bg-white/30'
-                }`}
                 aria-label={`Go to slide ${index + 1}`}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  currentSlide === index ? "bg-white" : "bg-white/30"
+                }`}
+                onClick={() => goToSlide(index)}
               />
             ))}
           </div>

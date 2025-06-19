@@ -1,15 +1,32 @@
 User-agent: *
 Allow: /
+
+# Public pages
 Allow: /referrals
 Allow: /ugc-home
+Allow: /get-demo
+Allow: /about
+Allow: /features
+Allow: /referral-commission-calculator
+Allow: /privacy-policy
+Allow: /terms-and-conditions
+Allow: /docs
+Allow: /pricing
+Allow: /blog
+
+# Tools section
 Allow: /tools
 Allow: /tools/instagram-engagement
 Allow: /tools/lead-magnet
 Allow: /tools/referral-calculator
-Allow: /about
-Allow: /get-demo
-Allow: /privacy-policy
-Allow: /terms-and-conditions
+
+# Case studies
+Allow: /case-study
+Allow: /case-study/kaftanize
+Allow: /case-study/smartveda
+
+# Shopper access
+Allow: /shopper
 
 # Disallow private routes
 Disallow: /my-ripples/

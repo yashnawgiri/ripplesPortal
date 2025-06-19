@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
 
 interface SelectOption {
   value: string;
   label: string;
 }
 
-interface SelectProps extends Omit<React.SelectHTMLAttributes<HTMLSelectElement>, 'onChange'> {
+interface SelectProps
+  extends Omit<React.SelectHTMLAttributes<HTMLSelectElement>, "onChange"> {
   options: SelectOption[];
   placeholder?: string;
   onChange?: (e: { target: { value: string } }) => void;
@@ -15,7 +16,7 @@ export const Select: React.FC<SelectProps> = ({
   options,
   placeholder,
   onChange,
-  className = '',
+  className = "",
   ...props
 }) => {
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -27,7 +28,6 @@ export const Select: React.FC<SelectProps> = ({
   return (
     <div className="relative">
       <select
-        onChange={handleChange}
         className={`
           w-full 
           rounded-md 
@@ -47,26 +47,37 @@ export const Select: React.FC<SelectProps> = ({
           transition-colors
           ${className}
         `}
+        onChange={handleChange}
         {...props}
       >
         {placeholder && (
-          <option value="" disabled>
+          <option disabled value="">
             {placeholder}
           </option>
         )}
         {options.map((option) => (
-          <option 
-            key={option.value} 
-            value={option.value}
+          <option
+            key={option.value}
             className="bg-black text-white"
+            value={option.value}
           >
             {option.label}
           </option>
         ))}
       </select>
       <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white/60">
-        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        <svg
+          className="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 9l-7 7-7-7"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+          />
         </svg>
       </div>
     </div>

@@ -1,11 +1,11 @@
 import { InstagramIcon, LinkedInIcon } from "./icons";
+import Newsletter from "./Newsletter";
 
 import { siteConfig } from "@/config/site";
-import Newsletter from "./Newsletter";
 
 export default function Footer() {
   return (
-    <footer className="bg-custom-radial2 w-full">
+    <footer className="bg-custom-radial2 w-full z-40">
       <div className="max-w-7xl pt-24 pb-12 mx-auto ">
         <div className="text-center md:text-start md:flex md:justify-between">
           <div className="mb-6">

@@ -1,12 +1,7 @@
 import { useState, useEffect } from "react";
 import { Calculator } from "lucide-react";
 
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/Card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { Input } from "@/components/ui/Input";
 import { Label } from "@/components/ui/label";
 
@@ -91,9 +86,9 @@ export function ROICalculator() {
             <div className="grid gap-2">
               <Label htmlFor="monthlyOrders">Monthly Orders</Label>
               <Input
+                className="bg-white/5 border-white/10 text-white"
                 id="monthlyOrders"
                 type="number"
-                className="bg-white/5 border-white/10 text-white"
                 value={state.monthlyOrders}
                 onChange={(e) =>
                   handleInputChange("monthlyOrders", e.target.value)
@@ -103,9 +98,9 @@ export function ROICalculator() {
             <div className="grid gap-2">
               <Label htmlFor="avgOrderValue">Average Order Value ($)</Label>
               <Input
+                className="bg-white/5 border-white/10 text-white"
                 id="avgOrderValue"
                 type="number"
-                className="bg-white/5 border-white/10 text-white"
                 value={state.avgOrderValue}
                 onChange={(e) =>
                   handleInputChange("avgOrderValue", e.target.value)
@@ -115,9 +110,9 @@ export function ROICalculator() {
             <div className="grid gap-2">
               <Label htmlFor="cashbackPercent">Cashback Percentage (%)</Label>
               <Input
+                className="bg-white/5 border-white/10 text-white"
                 id="cashbackPercent"
                 type="number"
-                className="bg-white/5 border-white/10 text-white"
                 value={state.cashbackPercent}
                 onChange={(e) =>
                   handleInputChange("cashbackPercent", e.target.value)
@@ -148,7 +143,9 @@ export function ROICalculator() {
                 <div className="text-2xl font-bold text-white break-words">
                   ${metrics.additionalSales.toLocaleString()}
                 </div>
-                <p className="text-xs text-white/60">Additional Monthly Sales</p>
+                <p className="text-xs text-white/60">
+                  Additional Monthly Sales
+                </p>
               </CardContent>
             </Card>
             <Card className="bg-white/5 border-white/10 transform transition-all duration-300 hover:scale-105 hover:bg-white/10">

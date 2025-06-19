@@ -6,7 +6,11 @@
 import { imageUrls } from "@/utils/imageUrl";
 
 export default function ShoppersBanner() {
-  const pics = [imageUrls.profilePicture.profile1, imageUrls.profilePicture.profile2, imageUrls.profilePicture.profile3];
+  const pics = [
+    imageUrls.profilePicture.profile1,
+    imageUrls.profilePicture.profile2,
+    imageUrls.profilePicture.profile3,
+  ];
 
   return (
     <div className="py-4 px-6">

@@ -73,7 +73,10 @@ const Reward: React.FC = () => {
         initial={{ scale: 0.8, opacity: 0 }}
         transition={{ duration: 1 }}
       >
-        <img className="w-full max-w-[200px] lg:max-w-[300px]" src={imageUrls.rupees} />
+        <img
+          className="w-full max-w-[200px] lg:max-w-[300px]"
+          src={imageUrls.rupees}
+        />
       </motion.div>
     </motion.div>
   );

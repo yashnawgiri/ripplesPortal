@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from "react-helmet-async";
 
 interface MetaTagsProps {
   title: string;
@@ -7,7 +7,7 @@ interface MetaTagsProps {
   noindex?: boolean;
   ogImage?: string;
   keywords?: string[];
-  type?: 'website' | 'article';
+  type?: "website" | "article";
   publishedTime?: string;
   modifiedTime?: string;
   author?: string;
@@ -18,57 +18,62 @@ export const MetaTags = ({
   description,
   canonicalUrl,
   noindex = false,
-  ogImage = 'https://ripples1static.blob.core.windows.net/images/ripples-site-metaimage.svg',
-  keywords = ['referral program', 'UGC rewards', 'loyalty software', 'D2C growth tools'],
-  type = 'website',
+  ogImage = "https://ripples1static.blob.core.windows.net/images/ripples-site-metaimage.svg",
+  keywords = [
+    "referral program",
+    "UGC rewards",
+    "loyalty software",
+    "D2C growth tools",
+  ],
+  type = "website",
   publishedTime,
   modifiedTime,
-  author = 'Ripples'
+  author = "Ripples",
 }: MetaTagsProps) => {
-  const baseUrl = 'https://goripples.com';
+  const baseUrl = "https://goripples.com";
   const fullCanonicalUrl = canonicalUrl ? `${baseUrl}${canonicalUrl}` : baseUrl;
 
   return (
     <Helmet>
       {/* Primary Meta Tags */}
       <title>{title}</title>
-      <meta name="title" content={title} />
-      <meta name="description" content={description} />
-      <meta name="keywords" content={keywords.join(', ')} />
-      <meta name="author" content={author} />
-      
+      <meta content={title} name="title" />
+      <meta content={description} name="description" />
+      <meta content={keywords.join(", ")} name="keywords" />
+      <meta content={author} name="author" />
+
       {/* Canonical URL */}
-      <link rel="canonical" href={fullCanonicalUrl} />
-      
+      <link href={fullCanonicalUrl} rel="canonical" />
+
       {/* Noindex if specified */}
-      {noindex && <meta name="robots" content="noindex,follow" />}
-      
+      {noindex && <meta content="noindex,follow" name="robots" />}
+
       {/* Open Graph / Facebook */}
-      <meta property="og:type" content={type} />
-      <meta property="og:url" content={fullCanonicalUrl} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={ogImage} />
-      {type === 'article' && publishedTime && (
-        <meta property="article:published_time" content={publishedTime} />
+      <meta content={type} property="og:type" />
+      <meta content={fullCanonicalUrl} property="og:url" />
+      <meta content={title} property="og:title" />
+      <meta content={description} property="og:description" />
+      <meta content={ogImage} property="og:image" />
+      {type === "article" && publishedTime && (
+        <meta content={publishedTime} property="article:published_time" />
       )}
-      {type === 'article' && modifiedTime && (
-        <meta property="article:modified_time" content={modifiedTime} />
+      {type === "article" && modifiedTime && (
+        <meta content={modifiedTime} property="article:modified_time" />
       )}
-      {type === 'article' && (
-        <meta property="article:author" content={author} />
+      {type === "article" && (
+        <meta content={author} property="article:author" />
       )}
 
       {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={fullCanonicalUrl} />
-      <meta property="twitter:title" content={title} />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={ogImage} />
+      <meta content="summary_large_image" property="twitter:card" />
+      <meta content={fullCanonicalUrl} property="twitter:url" />
+      <meta content={title} property="twitter:title" />
+      <meta content={description} property="twitter:description" />
+      <meta content={ogImage} property="twitter:image" />
 
       {/* Additional Meta Tags */}
-      <meta name="language" content="English" />
-      <meta name="revisit-after" content="7 days" />
+      <meta content="English" name="language" />
+      <meta content="7 days" name="revisit-after" />
     </Helmet>
   );
-}; 
+};
