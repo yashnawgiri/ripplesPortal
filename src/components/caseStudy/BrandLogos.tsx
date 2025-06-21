@@ -44,7 +44,7 @@ const BrandLogos: React.FC = () => {
             Powering the most exciting
             <br />
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
-              Shopify brands
+              Brands
             </span>
           </h3>
 
