@@ -166,17 +166,17 @@ export default function ReferralCommissionCalculator() {
   );
 
   return (
-    <Card className="bg-transparent border-none text-white">
-      <CardHeader className="flex flex-col items-center gap-2">
+    <Card className="bg-transparent border-none text-white w-full max-w-full overflow-hidden">
+      <CardHeader className="flex flex-col items-center gap-2 px-4 sm:px-6">
         <div className="flex justify-between items-center w-full mb-4" />
-        <h2 className="text-3xl md:text-5xl font-bold text-center text-secondary">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-center text-secondary break-words">
           Referral Reward Calculator
         </h2>
-        <p className="text-sm md:text-xl text-center text-white">
+        <p className="text-sm md:text-xl text-center text-white px-2 break-words">
           Calculate the optimal referral reward rate for your referral program
           based on your business metrics and referral reward offerings.
         </p>
-        <div className="flex items-center gap-2 text-white">
+        <div className="flex items-center gap-2 text-white flex-wrap justify-center">
           <span className="text-sm md:text-xl">Currency:</span>
           <div className="flex items-center gap-2">
             <span className={currency === "USD" ? "font-bold" : ""}>USD</span>
@@ -189,12 +189,12 @@ export default function ReferralCommissionCalculator() {
           </div>
         </div>
       </CardHeader>
-      <CardContent>
-        <form className="space-y-6" onSubmit={handleSubmit}>
+      <CardContent className="px-4 sm:px-6">
+        <form className="space-y-6 w-full" onSubmit={handleSubmit}>
           <div className="space-y-4">
             <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <span className="text-lg text-white">
+              <div className="flex items-start gap-2 flex-wrap">
+                <span className="text-base sm:text-lg text-white break-words">
                   Average Order Value (AOV)
                 </span>
                 <Tooltip
@@ -202,13 +202,13 @@ export default function ReferralCommissionCalculator() {
                   content="The average spend per order"
                   position="right"
                 >
-                  <HelpCircle className="h-4 w-4 text-white cursor-help" />
+                  <HelpCircle className="h-4 w-4 text-white cursor-help flex-shrink-0 mt-0.5" />
                 </Tooltip>
               </div>
               <div className="relative">
                 <Input
                   required
-                  className="bg-white pl-8 text-black"
+                  className="bg-white pl-8 text-black w-full"
                   id="aov"
                   name="aov"
                   placeholder={`Enter average order value (${currency})`}
@@ -223,8 +223,8 @@ export default function ReferralCommissionCalculator() {
             </div>
 
             <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <span className="text-lg text-white">
+              <div className="flex items-start gap-2 flex-wrap">
+                <span className="text-base sm:text-lg text-white break-words">
                   Customer Lifetime Value (LTV)
                 </span>
                 <Tooltip
@@ -232,13 +232,13 @@ export default function ReferralCommissionCalculator() {
                   content="The total expected revenue from a single customer"
                   position="right"
                 >
-                  <HelpCircle className="h-4 w-4 text-white cursor-help" />
+                  <HelpCircle className="h-4 w-4 text-white cursor-help flex-shrink-0 mt-0.5" />
                 </Tooltip>
               </div>
               <div className="relative">
                 <Input
                   required
-                  className="bg-white pl-8 text-black"
+                  className="bg-white pl-8 text-black w-full"
                   id="ltv"
                   name="ltv"
                   placeholder={`Enter customer lifetime value (${currency})`}
@@ -253,8 +253,8 @@ export default function ReferralCommissionCalculator() {
             </div>
 
             <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <span className="text-lg text-white">
+              <div className="flex items-start gap-2 flex-wrap">
+                <span className="text-base sm:text-lg text-white break-words">
                   Gross Profit Margin (%)
                 </span>
                 <Tooltip
@@ -262,13 +262,13 @@ export default function ReferralCommissionCalculator() {
                   content="Percentage of revenue left after deducting costs of goods sold"
                   position="right"
                 >
-                  <HelpCircle className="h-4 w-4 text-white cursor-help" />
+                  <HelpCircle className="h-4 w-4 text-white cursor-help flex-shrink-0 mt-0.5" />
                 </Tooltip>
               </div>
               <div className="relative">
                 <Input
                   required
-                  className="bg-white pr-8 text-black"
+                  className="bg-white pr-8 text-black w-full"
                   id="profitMargin"
                   name="profitMargin"
                   placeholder="Enter gross profit margin (%)"
@@ -283,8 +283,8 @@ export default function ReferralCommissionCalculator() {
             </div>
 
             <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <span className="text-lg text-white">
+              <div className="flex items-start gap-2 flex-wrap">
+                <span className="text-base sm:text-lg text-white break-words">
                   Target Customer Acquisition Cost (CAC)
                 </span>
                 <Tooltip
@@ -292,13 +292,13 @@ export default function ReferralCommissionCalculator() {
                   content="Target amount willing to spend to acquire a new customer"
                   position="right"
                 >
-                  <HelpCircle className="h-4 w-4 text-white cursor-help" />
+                  <HelpCircle className="h-4 w-4 text-white cursor-help flex-shrink-0 mt-0.5" />
                 </Tooltip>
               </div>
               <div className="relative">
                 <Input
                   required
-                  className="bg-white pl-8 text-black"
+                  className="bg-white pl-8 text-black w-full"
                   id="cac"
                   name="cac"
                   placeholder={`Enter target customer acquisition cost (${currency})`}
@@ -313,20 +313,20 @@ export default function ReferralCommissionCalculator() {
             </div>
 
             <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <span className="text-lg text-white">Optimize for</span>
+              <div className="flex items-start gap-2 flex-wrap">
+                <span className="text-base sm:text-lg text-white break-words">Optimize for</span>
                 <Tooltip
                   className="bg-gray-800 text-white"
                   content="Balance between profitability and scaling customer acquisition"
                   position="right"
                 >
-                  <HelpCircle className="h-4 w-4 text-white cursor-help" />
+                  <HelpCircle className="h-4 w-4 text-white cursor-help flex-shrink-0 mt-0.5" />
                 </Tooltip>
               </div>
               <div className="space-y-4">
                 <Slider
                   aria-label="Optimize slider"
-                  className="max-w-full"
+                  className="w-full"
                   defaultValue={50}
                   max={100}
                   min={0}
@@ -344,11 +344,12 @@ export default function ReferralCommissionCalculator() {
             </div>
 
             <div className="space-y-2">
-              <span className="text-lg text-white mr-2">Referral Discount</span>
+              <span className="text-base sm:text-lg text-white mr-2 break-words">Referral Discount</span>
               <Tabs aria-label="Discount Type" className="w-full">
-                <div className="flex border-b border-gray-200">
+                <div className="flex border-b border-gray-200 w-full">
                   <button
-                    className={`px-4 py-2 ${
+                    type="button"
+                    className={`px-2 sm:px-4 py-2 text-sm sm:text-base flex-1 min-w-0 ${
                       formData.discountType === "percentage"
                         ? "border-b-2 border-primary"
                         : ""
@@ -360,10 +361,11 @@ export default function ReferralCommissionCalculator() {
                       }))
                     }
                   >
-                    Percentage (%)
+                    <span className="truncate">Percentage (%)</span>
                   </button>
                   <button
-                    className={`px-4 py-2 ${
+                    type="button"
+                    className={`px-2 sm:px-4 py-2 text-sm sm:text-base flex-1 min-w-0 ${
                       formData.discountType === "fixed"
                         ? "border-b-2 border-primary"
                         : ""
@@ -375,7 +377,7 @@ export default function ReferralCommissionCalculator() {
                       }))
                     }
                   >
-                    Fixed Amount
+                    <span className="truncate">Fixed Amount</span>
                   </button>
                 </div>
                 <div className="pt-2">
@@ -383,7 +385,7 @@ export default function ReferralCommissionCalculator() {
                     <div className="relative">
                       <Input
                         required
-                        className="bg-white pr-8 text-black"
+                        className="bg-white pr-8 text-black w-full"
                         name="discountValue"
                         placeholder="Enter referral discount percentage"
                         value={formData.discountValue}
@@ -397,7 +399,7 @@ export default function ReferralCommissionCalculator() {
                     <div className="relative">
                       <Input
                         required
-                        className="bg-white pl-8 text-black"
+                        className="bg-white pl-8 text-black w-full"
                         name="discountValue"
                         placeholder={`Enter fixed discount amount (${currency})`}
                         type="number"
@@ -423,19 +425,19 @@ export default function ReferralCommissionCalculator() {
           </Button>
 
           {calculationResult.recommendedRate !== null && (
-            <div className="p-6 bg-green-50 rounded-lg space-y-6">
+            <div className="p-4 sm:p-6 bg-green-50 rounded-lg space-y-6">
               <div className="space-y-2">
                 <h3 className="text-sm text-gray-600">Percentage Commission</h3>
                 <div className="space-y-1">
-                  <p className="text-4xl font-bold text-green-600">
+                  <p className="text-2xl sm:text-4xl font-bold text-green-600 break-words">
                     {calculationResult.recommendedRate}%
                   </p>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-gray-600 break-words">
                     Commission per sale:{" "}
                     {formatCurrency(calculationResult.commissionPerSale || 0)}
                   </p>
                 </div>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-600 break-words">
                   Effective profit margin after discount:{" "}
                   {calculationResult.effectiveProfitMargin?.toFixed(1)}%
                 </p>
@@ -444,36 +446,36 @@ export default function ReferralCommissionCalculator() {
               <div className="space-y-2">
                 <h3 className="text-sm text-gray-600">Fixed Commission</h3>
                 <div className="space-y-1">
-                  <p className="text-4xl font-bold text-green-600">
+                  <p className="text-2xl sm:text-4xl font-bold text-green-600 break-words">
                     {formatCurrencyWhole(
                       calculationResult.fixedCommission || 0,
                     )}
                   </p>
-                  <p className="text-sm text-gray-600">Fixed amount per sale</p>
+                  <p className="text-sm text-gray-600 break-words">Fixed amount per sale</p>
                 </div>
               </div>
             </div>
           )}
 
-          <div className="space-y-2 text-lg text-white">
-            <p className="font-semibold">How it works:</p>
+          <div className="space-y-2 text-base sm:text-lg text-white">
+            <p className="font-semibold break-words">How it works:</p>
             <ul className="list-disc pl-4 space-y-1">
-              <li>
+              <li className="break-words">
                 We analyze your AOV and profit margin to ensure sustainable
                 commissions
               </li>
-              <li>LTV is considered to account for long-term customer value</li>
-              <li>
+              <li className="break-words">LTV is considered to account for long-term customer value</li>
+              <li className="break-words">
                 Target CAC helps balance acquisition costs with commission rates
               </li>
-              <li>
+              <li className="break-words">
                 Referral discounts are factored into the effective profit margin
               </li>
-              <li>
+              <li className="break-words">
                 We calculate projected net profit per referred order accounting
                 for all factors
               </li>
-              <li>
+              <li className="break-words">
                 The suggested rate aims to motivate referrers while maintaining
                 profitability
               </li>
