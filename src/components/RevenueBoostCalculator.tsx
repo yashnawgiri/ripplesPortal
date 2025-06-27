@@ -6,8 +6,8 @@ import { Slider } from "@/components/ui/Slider";
 import { Spacer } from "@/components/ui/Spacer";
 
 const RevenueBoostCalculator = () => {
-  const [spend, setSpend] = useState(500);
-  const [ordersPerWeek, setOrdersPerWeek] = useState(100);
+  const [spend, setSpend] = useState(1500);
+  const [ordersPerWeek, setOrdersPerWeek] = useState(1000);
   const [referralRate, setReferralRate] = useState(20);
   const [conversionRate, setConversionRate] = useState(50);
   const [animationKey, setAnimationKey] = useState(0);
