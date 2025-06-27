@@ -26,6 +26,13 @@ const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
       value || defaultValue || "",
     );
 
+    // Update internal state when value prop changes (controlled mode)
+    React.useEffect(() => {
+      if (value !== undefined) {
+        setSelectedValue(value);
+      }
+    }, [value]);
+
     const handleValueChange = React.useCallback(
       (newValue: string) => {
         setSelectedValue(newValue);
@@ -86,6 +93,7 @@ const TabsTrigger = React.forwardRef<HTMLButtonElement, TabsTriggerProps>(
       <button
         ref={ref}
         aria-selected={isSelected}
+        data-state={isSelected ? "active" : "inactive"}
         className={cn(
           "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all duration-200 ease-in-out",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
