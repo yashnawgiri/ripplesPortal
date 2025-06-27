@@ -13,6 +13,7 @@ interface SliderProps {
   valueFormatter?: (value: number) => string;
   prefix?: string;
   suffix?: string;
+  "aria-label"?: string;
 }
 
 const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
@@ -30,6 +31,7 @@ const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
       valueFormatter,
       prefix = "",
       suffix = "",
+      "aria-label": ariaLabel,
       ...props
     },
     ref,
@@ -46,47 +48,67 @@ const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = Number(event.target.value);
-
       setCurrentValue(newValue);
       onChange?.(newValue);
     };
 
     const percentage = ((currentValue - min) / (max - min)) * 100;
-
     const displayValue = valueFormatter
       ? valueFormatter(currentValue)
       : `${prefix}${currentValue}${suffix}`;
 
     return (
-      <div className={`flex flex-col w-full gap-2 ${className}`}>
-        <div className="flex justify-between items-center">
-          <span className="text-sm font-medium text-white">{label}</span>
-          <span className="text-sm font-medium text-white">{displayValue}</span>
-        </div>
-        <div className="relative flex-1">
+      <div className={`flex flex-col w-full gap-2 min-w-0 ${className}`}>
+        {(label || displayValue) && (
+          <div className="flex justify-between items-center min-w-0">
+            {label && (
+              <span className="text-sm font-medium text-white truncate mr-2">
+                {label}
+              </span>
+            )}
+            {displayValue && (
+              <span className="text-sm font-medium text-white flex-shrink-0">
+                {displayValue}
+              </span>
+            )}
+          </div>
+        )}
+        <div className="relative w-full min-w-0">
           <input
             ref={ref}
+            aria-label={ariaLabel || label || "Slider"}
             className={`
               w-full h-2 appearance-none rounded-lg
               bg-gray-200 dark:bg-gray-700
+              cursor-pointer
+              touch-manipulation
               [&::-webkit-slider-thumb]:appearance-none
-              [&::-webkit-slider-thumb]:w-4
-              [&::-webkit-slider-thumb]:h-4
+              [&::-webkit-slider-thumb]:w-5
+              [&::-webkit-slider-thumb]:h-5
               [&::-webkit-slider-thumb]:rounded-full
               [&::-webkit-slider-thumb]:bg-blue-600
               [&::-webkit-slider-thumb]:cursor-pointer
               [&::-webkit-slider-thumb]:transition-colors
               [&::-webkit-slider-thumb]:hover:bg-blue-700
-              [&::-moz-range-thumb]:w-4
-              [&::-moz-range-thumb]:h-4
+              [&::-webkit-slider-thumb]:active:bg-blue-800
+              [&::-webkit-slider-thumb]:touch-manipulation
+              [&::-moz-range-thumb]:w-5
+              [&::-moz-range-thumb]:h-5
               [&::-moz-range-thumb]:rounded-full
               [&::-moz-range-thumb]:bg-blue-600
               [&::-moz-range-thumb]:cursor-pointer
               [&::-moz-range-thumb]:border-0
               [&::-moz-range-thumb]:transition-colors
               [&::-moz-range-thumb]:hover:bg-blue-700
+              [&::-moz-range-thumb]:active:bg-blue-800
+              [&::-moz-range-thumb]:touch-manipulation
               disabled:opacity-50
               disabled:cursor-not-allowed
+              focus:outline-none
+              focus:ring-2
+              focus:ring-blue-500
+              focus:ring-offset-2
+              focus:ring-offset-transparent
             `}
             disabled={disabled}
             max={max}

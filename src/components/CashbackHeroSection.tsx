@@ -63,9 +63,18 @@ const PromoSection: React.FC = () => {
           className="w-full max-w-[700px] md:max-w-[900px]"
           whileHover={hoverEffect.hover}
         >
+          {/* Mobile Image */}
           <img
             alt="GoRipples promotional features and benefits showcase"
-            className="scale-110 md:scale-100 w-full h-full object-cover"
+            className="block md:hidden scale-110 w-full h-full object-cover"
+            loading="lazy"
+            src="https://ripples1static.blob.core.windows.net/images/cashbackHeroMobile.webp"
+          />
+
+          {/* Tablet/Desktop Image */}
+          <img
+            alt="GoRipples promotional features and benefits showcase"
+            className="hidden md:block scale-100 w-full h-full object-cover"
             loading="lazy"
             src="https://ripples1static.blob.core.windows.net/images/cashbackHero_v1.png"
           />
