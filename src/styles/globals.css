@@ -6,6 +6,53 @@
   display: none;
 }
 
+/* Prevent horizontal scrolling and improve mobile responsiveness */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Ensure all elements respect container boundaries */
+* {
+  box-sizing: border-box;
+}
+
+/* Improve touch handling for interactive elements */
+input[type="range"], 
+.slider,
+[role="slider"] {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Better mobile form handling */
+@media (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  /* Ensure proper spacing on mobile */
+  .space-y-6 > * + * {
+    margin-top: 1.5rem;
+  }
+  
+  /* Better grid handling on mobile */
+  .grid {
+    gap: 1rem;
+  }
+}
+
+/* Prevent text overflow */
+.break-words {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Ensure proper container sizing */
+.min-w-0 {
+  min-width: 0;
+}
+
 .center-parent-container {
   width: 90%;
   max-width: 1280px;

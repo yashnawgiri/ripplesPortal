@@ -240,17 +240,17 @@ export default function ReferralCommissionCalculator() {
   );
 
   return (
-    <Card className="bg-transparent border-none text-white">
-      <CardHeader className="flex flex-col items-center gap-2">
+    <Card className="bg-transparent border-none text-white w-full max-w-full overflow-hidden">
+      <CardHeader className="flex flex-col items-center gap-2 px-4 sm:px-6">
         <div className="flex justify-between items-center w-full mb-4" />
-        <h2 className="text-3xl md:text-5xl font-bold text-center text-secondary">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-center text-secondary break-words">
           Referral Reward Calculator
         </h2>
-        <p className="text-sm md:text-xl text-center text-white">
+        <p className="text-sm md:text-xl text-center text-white max-w-full break-words">
           Calculate the optimal referral reward rate for your referral program
           based on your business metrics and referral reward offerings.
         </p>
-        <div className="flex items-center gap-2 text-white">
+        <div className="flex items-center gap-2 text-white flex-wrap justify-center">
           <span className="text-sm md:text-xl">Currency:</span>
           <div className="flex items-center gap-2">
             <span className={currency === "USD" ? "font-bold" : ""}>USD</span>
@@ -263,14 +263,14 @@ export default function ReferralCommissionCalculator() {
           </div>
         </div>
       </CardHeader>
-      <CardContent>
-        <form className="space-y-6" onSubmit={handleSubmit}>
-          <div className="space-y-6">
+      <CardContent className="px-4 sm:px-6">
+        <form className="space-y-6 w-full max-w-full" onSubmit={handleSubmit}>
+          <div className="space-y-6 w-full">
             {/* Business Metrics Section */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-lg text-white">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+              <div className="space-y-2 min-w-0">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-base sm:text-lg text-white break-words">
                     Average Order Value (AOV)
                   </span>
                   <Tooltip
@@ -278,13 +278,13 @@ export default function ReferralCommissionCalculator() {
                     content="The average spend per order"
                     position="right"
                   >
-                    <HelpCircle className="h-4 w-4 text-white cursor-help" />
+                    <HelpCircle className="h-4 w-4 text-white cursor-help flex-shrink-0" />
                   </Tooltip>
                 </div>
                 <div className="relative">
                   <Input
                     required
-                    className="bg-white pl-8 text-black"
+                    className="bg-white pl-8 text-black w-full"
                     id="aov"
                     name="aov"
                     placeholder={`Enter AOV (${currency})`}
@@ -298,9 +298,9 @@ export default function ReferralCommissionCalculator() {
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-lg text-white">
+              <div className="space-y-2 min-w-0">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-base sm:text-lg text-white break-words">
                     Customer Lifetime Value (LTV)
                   </span>
                   <Tooltip
@@ -308,13 +308,13 @@ export default function ReferralCommissionCalculator() {
                     content="The total expected revenue from a single customer"
                     position="right"
                   >
-                    <HelpCircle className="h-4 w-4 text-white cursor-help" />
+                    <HelpCircle className="h-4 w-4 text-white cursor-help flex-shrink-0" />
                   </Tooltip>
                 </div>
                 <div className="relative">
                   <Input
                     required
-                    className="bg-white pl-8 text-black"
+                    className="bg-white pl-8 text-black w-full"
                     id="ltv"
                     name="ltv"
                     placeholder={`Enter LTV (${currency})`}
@@ -328,9 +328,9 @@ export default function ReferralCommissionCalculator() {
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-lg text-white">
+              <div className="space-y-2 min-w-0">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-base sm:text-lg text-white break-words">
                     Gross Profit Margin (%)
                   </span>
                   <Tooltip
@@ -338,13 +338,13 @@ export default function ReferralCommissionCalculator() {
                     content="Percentage of revenue left after deducting costs of goods sold"
                     position="right"
                   >
-                    <HelpCircle className="h-4 w-4 text-white cursor-help" />
+                    <HelpCircle className="h-4 w-4 text-white cursor-help flex-shrink-0" />
                   </Tooltip>
                 </div>
                 <div className="relative">
                   <Input
                     required
-                    className={`bg-white pr-8 text-black ${
+                    className={`bg-white pr-8 text-black w-full ${
                       validationErrors.profitMargin ? "border-red-500 focus:border-red-500" : ""
                     }`}
                     id="profitMargin"
@@ -363,15 +363,15 @@ export default function ReferralCommissionCalculator() {
                 </div>
                 {validationErrors.profitMargin && (
                   <div className="flex items-center gap-2 text-red-400 text-sm mt-1">
-                    <AlertCircle className="h-4 w-4" />
-                    <span>{validationErrors.profitMargin}</span>
+                    <AlertCircle className="h-4 w-4 flex-shrink-0" />
+                    <span className="break-words">{validationErrors.profitMargin}</span>
                   </div>
                 )}
               </div>
 
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-lg text-white">
+              <div className="space-y-2 min-w-0">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-base sm:text-lg text-white break-words">
                     Target Customer Acquisition Cost (CAC)
                   </span>
                   <Tooltip
@@ -379,13 +379,13 @@ export default function ReferralCommissionCalculator() {
                     content="Target amount willing to spend to acquire a new customer"
                     position="right"
                   >
-                    <HelpCircle className="h-4 w-4 text-white cursor-help" />
+                    <HelpCircle className="h-4 w-4 text-white cursor-help flex-shrink-0" />
                   </Tooltip>
                 </div>
                 <div className="relative">
                   <Input
                     required
-                    className="bg-white pl-8 text-black"
+                    className="bg-white pl-8 text-black w-full"
                     id="cac"
                     name="cac"
                     placeholder={`Enter target CAC (${currency})`}
@@ -399,13 +399,13 @@ export default function ReferralCommissionCalculator() {
                 </div>
               </div>
             </div>
-            <div className="space-y-2">
+            <div className="space-y-2 w-full">
               <span className="text-lg text-white">Referral Discount</span>
               <Tabs aria-label="Discount Type" className="w-full">
-                <div className="flex border-b border-gray-600">
+                <div className="flex border-b border-gray-600 w-full overflow-x-auto">
                   <button
                     type="button"
-                    className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-t-lg ${
+                    className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-t-lg whitespace-nowrap flex-shrink-0 ${
                       formData.discountType === "percentage"
                         ? "bg-green-600 text-white shadow-md"
                         : "text-white hover:bg-gray-700 hover:text-white"
@@ -421,7 +421,7 @@ export default function ReferralCommissionCalculator() {
                   </button>
                   <button
                     type="button"
-                    className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-t-lg ${
+                    className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-t-lg whitespace-nowrap flex-shrink-0 ${
                       formData.discountType === "fixed"
                         ? "bg-green-600 text-white shadow-md"
                         : "text-white hover:bg-gray-700 hover:text-white"
@@ -436,12 +436,12 @@ export default function ReferralCommissionCalculator() {
                     Fixed Amount
                   </button>
                 </div>
-                <div className="pt-2">
+                <div className="pt-2 w-full">
                   {formData.discountType === "percentage" ? (
-                    <div className="relative">
+                    <div className="relative w-full">
                       <Input
                         required
-                        className="bg-white pr-8 text-black"
+                        className="bg-white pr-8 text-black w-full"
                         name="discountValue"
                         placeholder="Enter discount percentage"
                         type="number"
@@ -453,10 +453,10 @@ export default function ReferralCommissionCalculator() {
                       </span>
                     </div>
                   ) : (
-                    <div className="relative">
+                    <div className="relative w-full">
                       <Input
                         required
-                        className="bg-white pl-8 text-black"
+                        className="bg-white pl-8 text-black w-full"
                         name="discountValue"
                         placeholder={`Enter fixed discount (${currency})`}
                         type="number"
@@ -472,21 +472,21 @@ export default function ReferralCommissionCalculator() {
               </Tabs>
             </div>
 
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
+            <div className="space-y-2 w-full">
+              <div className="flex items-center gap-2 flex-wrap">
                 <span className="text-lg text-white">Optimize for</span>
                 <Tooltip
                   className="bg-gray-800 text-white"
                   content="Balance between profitability and scaling customer acquisition"
                   position="right"
                 >
-                  <HelpCircle className="h-4 w-4 text-white cursor-help" />
+                  <HelpCircle className="h-4 w-4 text-white cursor-help flex-shrink-0" />
                 </Tooltip>
               </div>
-              <div className="space-y-4">
+              <div className="space-y-4 w-full">
                 <Slider
                   aria-label="Optimize slider"
-                  className="max-w-full"
+                  className="w-full"
                   defaultValue={50}
                   max={100}
                   min={0}
@@ -498,12 +498,12 @@ export default function ReferralCommissionCalculator() {
                 />
                 <div className="flex justify-between text-sm text-gray-400 mt-1">
                   <span className="flex items-center gap-1">
-                    <TrendingUp className="h-3 w-3" />
-                    Profitability
+                    <TrendingUp className="h-3 w-3 flex-shrink-0" />
+                    <span className="break-words">Profitability</span>
                   </span>
                   <span className="flex items-center gap-1">
-                    <Users className="h-3 w-3" />
-                    Scaling
+                    <Users className="h-3 w-3 flex-shrink-0" />
+                    <span className="break-words">Scaling</span>
                   </span>
                 </div>
               </div>
@@ -520,38 +520,38 @@ export default function ReferralCommissionCalculator() {
             type="submit"
             disabled={!isFormValid}
           >
-            <Calculator className="h-5 w-5" />
-            Calculate Recommended Rate
-            <ArrowRight className="h-5 w-5" />
+            <Calculator className="h-5 w-5 flex-shrink-0" />
+            <span className="break-words">Calculate Rate</span>
+            <ArrowRight className="h-5 w-5 flex-shrink-0" />
           </Button>
 
           {/* Enhanced Results Display */}
           {calculationResult.recommendedRate !== null && (
-            <div className="p-8 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border-2 border-green-200 shadow-lg space-y-6">
+            <div className="p-4 sm:p-8 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border-2 border-green-200 shadow-lg space-y-6 w-full overflow-hidden">
               <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-green-800 mb-2">
+                <h3 className="text-xl sm:text-2xl font-bold text-green-800 mb-2 break-words">
                   Your Recommended Commission Rate
                 </h3>
-                <p className="text-green-600">
+                <p className="text-green-600 break-words">
                   Optimized for your business metrics
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white p-6 rounded-lg shadow-md border border-green-200">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 w-full">
+                <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md border border-green-200 min-w-0">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-green-100 rounded-full">
+                    <div className="p-2 bg-green-100 rounded-full flex-shrink-0">
                       <TrendingUp className="h-5 w-5 text-green-600" />
                     </div>
-                    <h4 className="text-lg font-semibold text-gray-800">
+                    <h4 className="text-lg font-semibold text-gray-800 break-words">
                       Percentage Commission
                     </h4>
                   </div>
                   <div className="space-y-2">
-                    <p className="text-4xl font-bold text-green-600">
+                    <p className="text-3xl sm:text-4xl font-bold text-green-600">
                       {calculationResult.recommendedRate}%
                     </p>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-gray-600 break-words">
                       Commission per sale:{" "}
                       <span className="font-semibold text-green-700">
                         {formatCurrency(
@@ -559,7 +559,7 @@ export default function ReferralCommissionCalculator() {
                         )}
                       </span>
                     </p>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-gray-600 break-words">
                       Effective profit margin:{" "}
                       <span className="font-semibold text-green-700">
                         {calculationResult.effectiveProfitMargin?.toFixed(1)}%
@@ -568,29 +568,29 @@ export default function ReferralCommissionCalculator() {
                   </div>
                 </div>
 
-                <div className="bg-white p-6 rounded-lg shadow-md border border-green-200">
+                <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md border border-green-200 min-w-0">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-blue-100 rounded-full">
+                    <div className="p-2 bg-blue-100 rounded-full flex-shrink-0">
                       {currencySymbol === "$" ? (
                         <DollarSign className="h-5 w-5 text-blue-600" />
                       ) : (
                         <FaRupeeSign className="h-5 w-5 text-blue-600" />
                       )}
                     </div>
-                    <h4 className="text-lg font-semibold text-gray-800">
+                    <h4 className="text-lg font-semibold text-gray-800 break-words">
                       Fixed Commission
                     </h4>
                   </div>
                   <div className="space-y-2">
-                    <p className="text-4xl font-bold text-blue-600">
+                    <p className="text-3xl sm:text-4xl font-bold text-blue-600">
                       {formatCurrencyWhole(
                         calculationResult.fixedCommission || 0
                       )}
                     </p>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-gray-600 break-words">
                       Fixed amount per sale
                     </p>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-gray-600 break-words">
                       Projected net profit:{" "}
                       <span className="font-semibold text-blue-700">
                         {formatCurrency(
@@ -605,87 +605,87 @@ export default function ReferralCommissionCalculator() {
           )}
 
           {/* Calculation Methodology */}
-          <div className="bg-gray-800 bg-opacity-50 p-6 rounded-lg border border-gray-700">
-            <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-              <Calculator className="h-5 w-5 text-secondary" />
-              How the Calculation Works
+          <div className="bg-gray-800 bg-opacity-50 p-4 sm:p-6 rounded-lg border border-gray-700 w-full overflow-hidden">
+            <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 flex items-center gap-2">
+              <Calculator className="h-5 w-5 text-secondary flex-shrink-0" />
+              <span className="break-words">How the Calculation Works</span>
             </h3>
-            <div className="space-y-4 text-gray-300">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <h4 className="font-semibold text-white">
+            <div className="space-y-4 text-gray-300 w-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                <div className="space-y-2 min-w-0">
+                  <h4 className="font-semibold text-white break-words">
                     Step 1: Calculate Gross Profit
                   </h4>
-                  <p className="text-sm">
+                  <p className="text-sm break-words">
                     Gross Profit = AOV × (Profit Margin ÷ 100)
                   </p>
-                  <p className="text-xs text-gray-400">
+                  <p className="text-xs text-gray-400 break-words">
                     This represents your profit before any referral costs
                   </p>
                 </div>
-                <div className="space-y-2">
-                  <h4 className="font-semibold text-white">
+                <div className="space-y-2 min-w-0">
+                  <h4 className="font-semibold text-white break-words">
                     Step 2: Apply Referral Discount
                   </h4>
-                  <p className="text-sm">
+                  <p className="text-sm break-words">
                     Discount Amount = AOV × (Discount % ÷ 100) or Fixed Amount
                   </p>
-                  <p className="text-xs text-gray-400">
+                  <p className="text-xs text-gray-400 break-words">
                     The cost of offering discounts to referred customers
                   </p>
                 </div>
-                <div className="space-y-2">
-                  <h4 className="font-semibold text-white">
+                <div className="space-y-2 min-w-0">
+                  <h4 className="font-semibold text-white break-words">
                     Step 3: Calculate Net Profit
                   </h4>
-                  <p className="text-sm">
+                  <p className="text-sm break-words">
                     Net Profit = Gross Profit - Discount - CAC
                   </p>
-                  <p className="text-xs text-gray-400">
+                  <p className="text-xs text-gray-400 break-words">
                     Your actual profit after all referral program costs
                   </p>
                 </div>
-                <div className="space-y-2">
-                  <h4 className="font-semibold text-white">
+                <div className="space-y-2 min-w-0">
+                  <h4 className="font-semibold text-white break-words">
                     Step 4: Determine Commission Rate
                   </h4>
-                  <p className="text-sm">
+                  <p className="text-sm break-words">
                     Commission Rate = min((Gross Profit × Scale Factor) ÷ AOV,
                     Profit Margin ÷ 2)
                   </p>
-                  <p className="text-xs text-gray-400">
+                  <p className="text-xs text-gray-400 break-words">
                     Balanced rate that motivates referrers while maintaining
                     profitability
                   </p>
                 </div>
               </div>
 
-              <div className="mt-4 p-4 bg-gray-700 rounded-lg">
-                <h4 className="font-semibold text-white mb-2">
+              <div className="mt-4 p-4 bg-gray-700 rounded-lg w-full overflow-hidden">
+                <h4 className="font-semibold text-white mb-2 break-words">
                   Key Factors Considered:
                 </h4>
                 <ul className="text-sm space-y-1">
-                  <li>
+                  <li className="break-words">
                     • <strong>AOV:</strong> Higher values allow for larger
                     commission rates
                   </li>
-                  <li>
+                  <li className="break-words">
                     • <strong>Profit Margin:</strong> Sets the upper limit for
                     sustainable commissions
                   </li>
-                  <li>
+                  <li className="break-words">
                     • <strong>LTV:</strong> Accounts for long-term customer
                     value
                   </li>
-                  <li>
+                  <li className="break-words">
                     • <strong>CAC:</strong> Helps balance acquisition costs with
                     commission rates
                   </li>
-                  <li>
+                  <li className="break-words">
                     • <strong>Optimization Slider:</strong> Balances
                     profitability vs. scaling priorities
                   </li>
-                  <li>
+                  <li className="break-words">
                     • <strong>Referral Discounts:</strong> Factored into
                     effective profit margin calculations
                   </li>
