@@ -8,6 +8,7 @@ import {
   Info,
   DollarSign,
   IndianRupee,
+  ArrowRight,
 } from "lucide-react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
@@ -171,16 +172,17 @@ export function RewardsSimulator() {
           <Tabs className="space-y-4" defaultValue="settings">
             <TabsList className="grid w-full grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 bg-transparent">
               <TabsTrigger
-                className="data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:border-white/20 transition-all px-2 py-2 sm:py-3 rounded-lg border border-white/10 hover:border-white/20 text-sm"
+                className="data-[state=active]:bg-green-600 data-[state=active]:text-white data-[state=active]:border-green-500 data-[state=inactive]:text-white data-[state=inactive]:border-white/10 transition-all duration-200 px-2 py-2 sm:py-3 rounded-lg border hover:border-white/20 hover:text-white text-sm cursor-pointer"
                 value="settings"
               >
-                Type of creators you wish to engage
+                Step 1: Configure Parameters
               </TabsTrigger>
               <TabsTrigger
-                className="data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:border-white/20 transition-all px-2 py-2 sm:py-3 rounded-lg border border-white/10 hover:border-white/20 text-sm"
+                className="data-[state=active]:bg-green-600 data-[state=active]:text-white data-[state=active]:border-green-500 data-[state=inactive]:text-white data-[state=inactive]:border-white/10 data-[state=inactive]:bg-green-500/10 transition-all duration-200 px-2 py-2 sm:py-3 rounded-lg border hover:bg-green-500 hover:border-green-400 hover:text-white text-sm flex items-center gap-2 justify-center font-medium cursor-pointer"
                 value="comparison"
               >
-                Rewards Strategy
+                Step 2: Check Rewards Strategy
+                <ArrowRight className="h-4 w-4" />
               </TabsTrigger>
             </TabsList>
             <br />
@@ -497,7 +499,7 @@ export function RewardsSimulator() {
                         Cashback Tier
                       </h3>
                       <p className="text-sm text-white/60">
-                        {rewards.cashbackPercentage}% cashback for{" "}
+                        {rewards.cashbackPercentage}% cashback for
                         {state.followerCount.toLocaleString()} followers
                       </p>
                     </CardContent>
