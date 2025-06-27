@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
-import { compression } from 'vite-plugin-compression2';
+import { compression } from "vite-plugin-compression2";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,11 +10,11 @@ export default defineConfig({
     react(),
     tsconfigPaths(),
     compression({
-      algorithm: 'gzip',
+      algorithm: "gzip",
       exclude: [/\.(br)$/, /\.(gz)$/],
     }),
     compression({
-      algorithm: 'brotliCompress',
+      algorithm: "brotliCompress",
       exclude: [/\.(br)$/, /\.(gz)$/],
     }),
     ViteImageOptimizer({
@@ -48,7 +48,12 @@ export default defineConfig({
       output: {
         manualChunks: {
           "react-vendor": ["react", "react-dom"],
-          "ui-vendor": ["framer-motion", "class-variance-authority", "clsx", "tailwind-merge"],
+          "ui-vendor": [
+            "framer-motion",
+            "class-variance-authority",
+            "clsx",
+            "tailwind-merge",
+          ],
           "chart-vendor": ["recharts"],
           "form-vendor": ["react-hook-form", "@hookform/resolvers", "zod"],
           "date-vendor": ["date-fns"],
@@ -100,7 +105,7 @@ export default defineConfig({
       "recharts",
       "swiper",
       "react-hot-toast",
-      "sonner"
+      "sonner",
     ],
     exclude: ["@vitejs/plugin-react"],
   },
@@ -110,5 +115,3 @@ export default defineConfig({
     },
   },
 });
-
-

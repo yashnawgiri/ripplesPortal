@@ -1,30 +1,38 @@
 import { Route, Routes, useLocation, useParams } from "react-router-dom";
-import { Suspense, useEffect } from "react";
+import { Suspense, useEffect, lazy } from "react";
 import { HelmetProvider } from "react-helmet-async";
 
 import { MetaTags } from "./components/SEO/MetaTags";
 import { metaTags } from "./config/metaTags";
-import Logout from "./pages/auth-page/Logout";
 import Fallback from "./components/Fallback";
-import ShopperHomePage from "./pages/ShopperHome";
-import UGCLanding from "./pages/ugcLanding";
-import ReferralCommissionCalculatorPage from "./pages/ReferralCommissionCalculatorPage";
-import Referrals from "./pages/referrals";
-import { AffiliateGenerator } from "./pages/affiliateForm";
-import FreeTools from "./pages/freeTools";
-import InstagramEngagementPage from "./pages/instagramEngagementPage";
-import CROChecklistPage from "./components/leadMagnet/CROChecklistPage";
-import CaseStudiesPage from "./pages/CaseStudiesPage";
+import {
+  preloadCriticalRoutes,
+  preloadSecondaryRoutes,
+  preloadTertiaryRoutes,
+  performanceOptimizer,
+} from "@/utils/performance.ts";
 
 import { siteConfig } from "@/config/site";
-import HomePage from "@/pages/home";
-import GetDemo from "@/pages/getDemo";
-import AboutPage from "@/pages/about";
-import PrivacyPolicy from "@/pages/privacyPolicy";
-import TermsAndConditions from "@/pages/termsAndConditions";
-import NotFound from "@/pages/notFound";
-import AuthPage from "@/pages/auth-page/AuthPage";
-import CaseStudyPage from "@/pages/CaseStudyPage";
+
+// Lazy load all page components for better performance
+const Logout = lazy(() => import("./pages/auth-page/Logout"));
+const ShopperHomePage = lazy(() => import("./pages/ShopperHome"));
+const UGCLanding = lazy(() => import("./pages/ugcLanding"));
+const ReferralCommissionCalculatorPage = lazy(() => import("./pages/ReferralCommissionCalculatorPage"));
+const Referrals = lazy(() => import("./pages/referrals"));
+const AffiliateGenerator = lazy(() => import("./pages/affiliateForm").then(module => ({ default: module.AffiliateGenerator })));
+const FreeTools = lazy(() => import("./pages/freeTools"));
+const InstagramEngagementPage = lazy(() => import("./pages/instagramEngagementPage"));
+const CROChecklistPage = lazy(() => import("./components/leadMagnet/CROChecklistPage"));
+const CaseStudiesPage = lazy(() => import("./pages/CaseStudiesPage"));
+const HomePage = lazy(() => import("@/pages/home"));
+const GetDemo = lazy(() => import("@/pages/getDemo"));
+const AboutPage = lazy(() => import("@/pages/about"));
+const PrivacyPolicy = lazy(() => import("@/pages/privacyPolicy"));
+const TermsAndConditions = lazy(() => import("@/pages/termsAndConditions"));
+const NotFound = lazy(() => import("@/pages/notFound"));
+const AuthPage = lazy(() => import("@/pages/auth-page/AuthPage"));
+const CaseStudyPage = lazy(() => import("@/pages/CaseStudyPage"));
 
 // Define the type for meta tag entries
 type MetaTagEntry = {
@@ -41,6 +49,30 @@ function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
+
+  // Enhanced route preloading with performance optimization
+  useEffect(() => {
+    // Preload critical routes immediately
+    preloadCriticalRoutes();
+
+    // Preload secondary routes after a delay
+    const secondaryTimer = setTimeout(() => {
+      preloadSecondaryRoutes();
+    }, 2000);
+
+    // Preload tertiary routes when idle
+    const tertiaryTimer = setTimeout(() => {
+      preloadTertiaryRoutes();
+    }, 5000);
+
+    // Optimize image loading
+    performanceOptimizer.optimizeImageLoading();
+
+    return () => {
+      clearTimeout(secondaryTimer);
+      clearTimeout(tertiaryTimer);
+    };
+  }, []);
 
   // Get meta tags based on current path
   const getMetaTagsForPath = (path: string): MetaTagEntry => {
