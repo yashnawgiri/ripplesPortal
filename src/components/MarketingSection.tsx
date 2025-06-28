@@ -115,7 +115,7 @@ const MarketingSection: FC = () => {
                 alt="Referral program mobile app screenshot"
                 className="mx-auto"
                 loading="lazy"
-                src={imageUrls.referralApp}
+                src="https://ripples1static.blob.core.windows.net/images/referralApp.webp"
                 width={1500}
               />
             </motion.div>

@@ -64,31 +64,8 @@ export default function ReferralCommissionCalculator() {
   const [currency, setCurrency] = useState<"USD" | "INR">("INR");
   const [formData, setFormData] = useState<FormData>(DEFAULT_FORM_DATA);
   const [calculationResult, setCalculationResult] = useState<CalculationResult>(
-    DEFAULT_CALCULATION_RESULT
+    DEFAULT_CALCULATION_RESULT,
   );
-  const [validationErrors, setValidationErrors] = useState<ValidationErrors>({});
-
-  const validateProfitMargin = useCallback((value: string): string | undefined => {
-    const numValue = Number.parseFloat(value);
-    
-    if (!value.trim()) {
-      return "Profit margin is required";
-    }
-    
-    if (isNaN(numValue)) {
-      return "Profit margin must be a valid number";
-    }
-    
-    if (numValue <= 0) {
-      return "Profit margin must be greater than 0";
-    }
-    
-    if (numValue > 100) {
-      return "Profit margin cannot exceed 100%";
-    }
-    
-    return undefined;
-  }, []);
 
   const handleInputChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -107,22 +84,7 @@ export default function ReferralCommissionCalculator() {
         }));
       }
     },
-    []
-  );
-
-  const handleBlur = useCallback(
-    (e: React.FocusEvent<HTMLInputElement>) => {
-      const { name, value } = e.target;
-      
-      if (name === "profitMargin" || name === "discountValue") {
-        const error = validateProfitMargin(value);
-        setValidationErrors((prev) => ({
-          ...prev,
-          profitMargin: error,
-        }));
-      }
-    },
-    [validateProfitMargin]
+    [],
   );
 
   const handleSliderChange = useCallback((value: number) => {
@@ -247,6 +209,7 @@ export default function ReferralCommissionCalculator() {
           Referral Reward Calculator
         </h2>
         <p className="text-sm md:text-xl text-center text-white max-w-full break-words">
+        <p className="text-sm md:text-xl text-center text-white px-2 break-words">
           Calculate the optimal referral reward rate for your referral program
           based on your business metrics and referral reward offerings.
         </p>
@@ -297,6 +260,38 @@ export default function ReferralCommissionCalculator() {
                   </span>
                 </div>
               </div>
+      <CardContent className="px-4 sm:px-6">
+        <form className="space-y-6 w-full" onSubmit={handleSubmit}>
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <div className="flex items-start gap-2 flex-wrap">
+                <span className="text-base sm:text-lg text-white break-words">
+                  Average Order Value (AOV)
+                </span>
+                <Tooltip
+                  className="bg-gray-800 text-white"
+                  content="The average spend per order"
+                  position="right"
+                >
+                  <HelpCircle className="h-4 w-4 text-white cursor-help flex-shrink-0 mt-0.5" />
+                </Tooltip>
+              </div>
+              <div className="relative">
+                <Input
+                  required
+                  className="bg-white pl-8 text-black w-full"
+                  id="aov"
+                  name="aov"
+                  placeholder={`Enter average order value (${currency})`}
+                  type="number"
+                  value={formData.aov}
+                  onChange={handleInputChange}
+                />
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary">
+                  {currencySymbol}
+                </span>
+              </div>
+            </div>
 
               <div className="space-y-2 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap">
@@ -327,47 +322,65 @@ export default function ReferralCommissionCalculator() {
                   </span>
                 </div>
               </div>
-
-              <div className="space-y-2 min-w-0">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span className="text-base sm:text-lg text-white break-words">
-                    Gross Profit Margin (%)
-                  </span>
-                  <Tooltip
-                    className="bg-gray-800 text-white"
-                    content="Percentage of revenue left after deducting costs of goods sold"
-                    position="right"
-                  >
-                    <HelpCircle className="h-4 w-4 text-white cursor-help flex-shrink-0" />
-                  </Tooltip>
-                </div>
-                <div className="relative">
-                  <Input
-                    required
-                    className={`bg-white pr-8 text-black w-full ${
-                      validationErrors.profitMargin ? "border-red-500 focus:border-red-500" : ""
-                    }`}
-                    id="profitMargin"
-                    name="profitMargin"
-                    placeholder="Enter profit margin (%)"
-                    type="number"
-                    min="1"
-                    max="100"
-                    value={formData.profitMargin}
-                    onChange={handleInputChange}
-                    onBlur={handleBlur}
-                  />
-                  <span className="absolute right-3 top-1/2 -translate-y-1/2 text-secondary">
-                    %
-                  </span>
-                </div>
-                {validationErrors.profitMargin && (
-                  <div className="flex items-center gap-2 text-red-400 text-sm mt-1">
-                    <AlertCircle className="h-4 w-4 flex-shrink-0" />
-                    <span className="break-words">{validationErrors.profitMargin}</span>
-                  </div>
-                )}
+            <div className="space-y-2">
+              <div className="flex items-start gap-2 flex-wrap">
+                <span className="text-base sm:text-lg text-white break-words">
+                  Customer Lifetime Value (LTV)
+                </span>
+                <Tooltip
+                  className="bg-gray-800 text-white"
+                  content="The total expected revenue from a single customer"
+                  position="right"
+                >
+                  <HelpCircle className="h-4 w-4 text-white cursor-help flex-shrink-0 mt-0.5" />
+                </Tooltip>
               </div>
+              <div className="relative">
+                <Input
+                  required
+                  className="bg-white pl-8 text-black w-full"
+                  id="ltv"
+                  name="ltv"
+                  placeholder={`Enter customer lifetime value (${currency})`}
+                  type="number"
+                  value={formData.ltv}
+                  onChange={handleInputChange}
+                />
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary">
+                  {currencySymbol}
+                </span>
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <div className="flex items-start gap-2 flex-wrap">
+                <span className="text-base sm:text-lg text-white break-words">
+                  Gross Profit Margin (%)
+                </span>
+                <Tooltip
+                  className="bg-gray-800 text-white"
+                  content="Percentage of revenue left after deducting costs of goods sold"
+                  position="right"
+                >
+                  <HelpCircle className="h-4 w-4 text-white cursor-help flex-shrink-0 mt-0.5" />
+                </Tooltip>
+              </div>
+              <div className="relative">
+                <Input
+                  required
+                  className="bg-white pr-8 text-black w-full"
+                  id="profitMargin"
+                  name="profitMargin"
+                  placeholder="Enter gross profit margin (%)"
+                  type="number"
+                  value={formData.profitMargin}
+                  onChange={handleInputChange}
+                />
+                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-secondary">
+                  %
+                </span>
+              </div>
+            </div>
 
               <div className="space-y-2 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap">
@@ -396,16 +409,79 @@ export default function ReferralCommissionCalculator() {
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary">
                     {currencySymbol}
                   </span>
+            <div className="space-y-2">
+              <div className="flex items-start gap-2 flex-wrap">
+                <span className="text-base sm:text-lg text-white break-words">
+                  Target Customer Acquisition Cost (CAC)
+                </span>
+                <Tooltip
+                  className="bg-gray-800 text-white"
+                  content="Target amount willing to spend to acquire a new customer"
+                  position="right"
+                >
+                  <HelpCircle className="h-4 w-4 text-white cursor-help flex-shrink-0 mt-0.5" />
+                </Tooltip>
+              </div>
+              <div className="relative">
+                <Input
+                  required
+                  className="bg-white pl-8 text-black w-full"
+                  id="cac"
+                  name="cac"
+                  placeholder={`Enter target customer acquisition cost (${currency})`}
+                  type="number"
+                  value={formData.cac}
+                  onChange={handleInputChange}
+                />
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary">
+                  {currencySymbol}
+                </span>
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <div className="flex items-start gap-2 flex-wrap">
+                <span className="text-base sm:text-lg text-white break-words">Optimize for</span>
+                <Tooltip
+                  className="bg-gray-800 text-white"
+                  content="Balance between profitability and scaling customer acquisition"
+                  position="right"
+                >
+                  <HelpCircle className="h-4 w-4 text-white cursor-help flex-shrink-0 mt-0.5" />
+                </Tooltip>
+              </div>
+              <div className="space-y-4">
+                <Slider
+                  aria-label="Optimize slider"
+                  className="w-full"
+                  defaultValue={50}
+                  max={100}
+                  min={0}
+                  step={1}
+                  value={formData.optimizeValue}
+                  onChange={(value: number | number[]) =>
+                    handleSliderChange(Array.isArray(value) ? value[0] : value)
+                  }
+                />
+                <div className="flex justify-between text-sm text-gray-500 mt-1">
+                  <span>0</span>
+                  <span>100</span>
                 </div>
               </div>
             </div>
             <div className="space-y-2 w-full">
               <span className="text-lg text-white">Referral Discount</span>
+
+            <div className="space-y-2">
+              <span className="text-base sm:text-lg text-white mr-2 break-words">Referral Discount</span>
               <Tabs aria-label="Discount Type" className="w-full">
                 <div className="flex border-b border-gray-600 w-full overflow-x-auto">
+                <div className="flex border-b border-gray-200 w-full">
                   <button
                     type="button"
                     className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-t-lg whitespace-nowrap flex-shrink-0 ${
+                    type="button"
+                    className={`px-2 sm:px-4 py-2 text-sm sm:text-base flex-1 min-w-0 ${
                       formData.discountType === "percentage"
                         ? "bg-green-600 text-white shadow-md"
                         : "text-white hover:bg-gray-700 hover:text-white"
@@ -417,11 +493,13 @@ export default function ReferralCommissionCalculator() {
                       }))
                     }
                   >
-                    Percentage (%)
+                    <span className="truncate">Percentage (%)</span>
                   </button>
                   <button
                     type="button"
                     className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-t-lg whitespace-nowrap flex-shrink-0 ${
+                    type="button"
+                    className={`px-2 sm:px-4 py-2 text-sm sm:text-base flex-1 min-w-0 ${
                       formData.discountType === "fixed"
                         ? "bg-green-600 text-white shadow-md"
                         : "text-white hover:bg-gray-700 hover:text-white"
@@ -433,7 +511,7 @@ export default function ReferralCommissionCalculator() {
                       }))
                     }
                   >
-                    Fixed Amount
+                    <span className="truncate">Fixed Amount</span>
                   </button>
                 </div>
                 <div className="pt-2 w-full">
@@ -534,6 +612,21 @@ export default function ReferralCommissionCalculator() {
                 </h3>
                 <p className="text-green-600 break-words">
                   Optimized for your business metrics
+            <div className="p-4 sm:p-6 bg-green-50 rounded-lg space-y-6">
+              <div className="space-y-2">
+                <h3 className="text-sm text-gray-600">Percentage Commission</h3>
+                <div className="space-y-1">
+                  <p className="text-2xl sm:text-4xl font-bold text-green-600 break-words">
+                    {calculationResult.recommendedRate}%
+                  </p>
+                  <p className="text-sm text-gray-600 break-words">
+                    Commission per sale:{" "}
+                    {formatCurrency(calculationResult.commissionPerSale || 0)}
+                  </p>
+                </div>
+                <p className="text-sm text-gray-600 break-words">
+                  Effective profit margin after discount:{" "}
+                  {calculationResult.effectiveProfitMargin?.toFixed(1)}%
                 </p>
               </div>
 
@@ -599,6 +692,15 @@ export default function ReferralCommissionCalculator() {
                       </span>
                     </p>
                   </div>
+              <div className="space-y-2">
+                <h3 className="text-sm text-gray-600">Fixed Commission</h3>
+                <div className="space-y-1">
+                  <p className="text-2xl sm:text-4xl font-bold text-green-600 break-words">
+                    {formatCurrencyWhole(
+                      calculationResult.fixedCommission || 0,
+                    )}
+                  </p>
+                  <p className="text-sm text-gray-600 break-words">Fixed amount per sale</p>
                 </div>
               </div>
             </div>
@@ -692,6 +794,29 @@ export default function ReferralCommissionCalculator() {
                 </ul>
               </div>
             </div>
+          <div className="space-y-2 text-base sm:text-lg text-white">
+            <p className="font-semibold break-words">How it works:</p>
+            <ul className="list-disc pl-4 space-y-1">
+              <li className="break-words">
+                We analyze your AOV and profit margin to ensure sustainable
+                commissions
+              </li>
+              <li className="break-words">LTV is considered to account for long-term customer value</li>
+              <li className="break-words">
+                Target CAC helps balance acquisition costs with commission rates
+              </li>
+              <li className="break-words">
+                Referral discounts are factored into the effective profit margin
+              </li>
+              <li className="break-words">
+                We calculate projected net profit per referred order accounting
+                for all factors
+              </li>
+              <li className="break-words">
+                The suggested rate aims to motivate referrers while maintaining
+                profitability
+              </li>
+            </ul>
           </div>
         </form>
       </CardContent>
