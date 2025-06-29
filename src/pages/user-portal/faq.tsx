@@ -40,7 +40,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
     </div>
   );
 };
-
+// test
 export default function FAQUserPortal() {
   const [searchTerm, setSearchTerm] = useState("");
 

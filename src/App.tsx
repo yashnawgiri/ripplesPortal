@@ -13,17 +13,28 @@ import {
 } from "@/utils/performance.ts";
 
 import { siteConfig } from "@/config/site";
+import InfluencerMarketplace from "./pages/influencerMarketplace-page/InfluencerMarketplace";
 
 // Lazy load all page components for better performance
 const Logout = lazy(() => import("./pages/auth-page/Logout"));
 const ShopperHomePage = lazy(() => import("./pages/ShopperHome"));
 const UGCLanding = lazy(() => import("./pages/ugcLanding"));
-const ReferralCommissionCalculatorPage = lazy(() => import("./pages/ReferralCommissionCalculatorPage"));
+const ReferralCommissionCalculatorPage = lazy(
+  () => import("./pages/ReferralCommissionCalculatorPage")
+);
 const Referrals = lazy(() => import("./pages/referrals"));
-const AffiliateGenerator = lazy(() => import("./pages/affiliateForm").then(module => ({ default: module.AffiliateGenerator })));
+const AffiliateGenerator = lazy(() =>
+  import("./pages/affiliateForm").then((module) => ({
+    default: module.AffiliateGenerator,
+  }))
+);
 const FreeTools = lazy(() => import("./pages/freeTools"));
-const InstagramEngagementPage = lazy(() => import("./pages/instagramEngagementPage"));
-const CROChecklistPage = lazy(() => import("./components/leadMagnet/CROChecklistPage"));
+const InstagramEngagementPage = lazy(
+  () => import("./pages/instagramEngagementPage")
+);
+const CROChecklistPage = lazy(
+  () => import("./components/leadMagnet/CROChecklistPage")
+);
 const CaseStudiesPage = lazy(() => import("./pages/CaseStudiesPage"));
 const HomePage = lazy(() => import("@/pages/home"));
 const GetDemo = lazy(() => import("@/pages/getDemo"));
@@ -91,7 +102,7 @@ function App() {
       (tag) =>
         typeof tag === "object" &&
         "path" in tag &&
-        tag.path === pathWithoutQuery,
+        tag.path === pathWithoutQuery
     ) as MetaTagEntry | undefined;
 
     return metaTag || metaTags.home;
@@ -154,6 +165,10 @@ function App() {
           <Route
             element={<TermsAndConditions />}
             path={siteConfig.path.terms}
+          />
+          <Route
+            element={<InfluencerMarketplace />}
+            path={"/influencer-marketplace"}
           />
           <Route element={<Logout />} path={siteConfig.path.logout} />
           <Route element={<AuthPage />} path={siteConfig.path.signIn} />
