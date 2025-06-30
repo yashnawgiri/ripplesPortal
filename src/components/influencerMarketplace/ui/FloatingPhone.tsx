@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 "use client";
 
 import { motion } from "framer-motion";
@@ -124,7 +125,6 @@ export default function FloatingPhone({
                 src={randomImage || "/placeholder.svg"}
                 alt="Creator content"
                 className="w-full h-full object-cover"
-                crossOrigin="anonymous"
                 loading="lazy"
               />
               {/* Overlay gradient for better text readability */}

@@ -15,6 +15,7 @@ const InfluencerMarketplace = () => {
       <div className="w-full mt-28">
         <main className="flex-grow items-center">
           <HeroSection />
+
           <AnimatedBreak />
           <SocialProof />
           <Explainer />
