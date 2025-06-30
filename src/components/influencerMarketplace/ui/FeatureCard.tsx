@@ -1,4 +1,5 @@
 import type { LucideIcon } from "lucide-react";
+// import { iconMap } from "@/lib/influencerMarketplace/constants";
 
 interface FeatureCardProps {
   icon: LucideIcon;

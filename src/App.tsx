@@ -168,7 +168,7 @@ function App() {
           />
           <Route
             element={<InfluencerMarketplace />}
-            path={"/influencer-marketplace"}
+            path={siteConfig.path.influencerMarketplace}
           />
           <Route element={<Logout />} path={siteConfig.path.logout} />
           <Route element={<AuthPage />} path={siteConfig.path.signIn} />

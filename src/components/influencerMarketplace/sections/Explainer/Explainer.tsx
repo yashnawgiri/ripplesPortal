@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/Button";
 import StepCard from "@/components/influencerMarketplace/ui/StepCard";
 import { ArrowRight } from "lucide-react";
-import { EXPLAINER_STEPS } from "@/lib/influencerMarketplace/constants";
+import {
+  EXPLAINER_STEPS,
+  iconMap,
+} from "@/lib/influencerMarketplace/constants";
 
 export default function Explainer() {
   const handleTryItLive = () => {
@@ -39,39 +42,45 @@ export default function Explainer() {
         <div className="relative">
           {/* Desktop: Horizontal Layout */}
           <div className="hidden lg:grid lg:grid-cols-3 gap-16 mb-16">
-            {EXPLAINER_STEPS.map((step, index) => (
-              <div key={index} className="relative">
-                <StepCard
-                  icon={step.icon}
-                  title={step.title}
-                  description={step.description}
-                  stepNumber={index + 1}
-                  isLast={index === EXPLAINER_STEPS.length - 1}
-                />
-              </div>
-            ))}
+            {EXPLAINER_STEPS.map((step, index) => {
+              const Icon = iconMap[step.icon as keyof typeof iconMap];
+              return (
+                <div key={index} className="relative">
+                  <StepCard
+                    icon={Icon}
+                    title={step.title}
+                    description={step.description}
+                    stepNumber={index + 1}
+                    isLast={index === EXPLAINER_STEPS.length - 1}
+                  />
+                </div>
+              );
+            })}
           </div>
 
           {/* Mobile: Vertical Layout */}
           <div className="lg:hidden space-y-8 mb-16">
-            {EXPLAINER_STEPS.map((step, index) => (
-              <div key={index} className="relative">
-                <StepCard
-                  icon={step.icon}
-                  title={step.title}
-                  description={step.description}
-                  stepNumber={index + 1}
-                  isLast={true} // No arrows on mobile
-                />
+            {EXPLAINER_STEPS.map((step, index) => {
+              const Icon = iconMap[step.icon as keyof typeof iconMap];
+              return (
+                <div key={index} className="relative">
+                  <StepCard
+                    icon={Icon}
+                    title={step.title}
+                    description={step.description}
+                    stepNumber={index + 1}
+                    isLast={true} // No arrows on mobile
+                  />
 
-                {/* Mobile Arrow */}
-                {index < EXPLAINER_STEPS.length - 1 && (
-                  <div className="flex justify-center my-6">
-                    <div className="w-0.5 h-8 bg-gradient-to-b from-[#EF3AF1] to-[#6244F5]"></div>
-                  </div>
-                )}
-              </div>
-            ))}
+                  {/* Mobile Arrow */}
+                  {index < EXPLAINER_STEPS.length - 1 && (
+                    <div className="flex justify-center my-6">
+                      <div className="w-0.5 h-8 bg-gradient-to-b from-[#EF3AF1] to-[#6244F5]"></div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
 

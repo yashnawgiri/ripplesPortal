@@ -1,5 +1,5 @@
 import FeatureCard from "@/components/influencerMarketplace/ui/FeatureCard";
-import { FEATURES_DATA } from "@/lib/influencerMarketplace/constants";
+import { FEATURES_DATA, iconMap } from "@/lib/influencerMarketplace/constants";
 import { useNavigate } from "react-router-dom";
 
 export default function FeaturesGrid() {
@@ -26,14 +26,17 @@ export default function FeaturesGrid() {
 
         {/* Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-          {FEATURES_DATA.map((feature, index) => (
-            <FeatureCard
-              key={index}
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-            />
-          ))}
+          {FEATURES_DATA.map((feature, index) => {
+            const Icon = iconMap[feature.icon as keyof typeof iconMap];
+            return (
+              <FeatureCard
+                key={index}
+                icon={Icon}
+                title={feature.title}
+                description={feature.description}
+              />
+            );
+          })}
         </div>
 
         {/* Bottom CTA Section */}

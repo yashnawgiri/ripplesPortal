@@ -33,13 +33,7 @@ export default function AnimatedBreak({ className = "" }: AnimatedBreakProps) {
       className={`relative py-16 md:py-24 overflow-hidden bg-[#0B011B] ${className}`}
       style={{ minHeight: "600px" }}
     >
-      {/* Removed gray/white gradient background */}
-      {/* <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-white/50" /> */}
-      {/* Optional: Add a subtle vignette or glow if desired */}
-      {/* <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, rgba(80,0,120,0.15) 0%, transparent 70%)" }} /> */}
-      {/* Container */}
       <div className="relative z-10 container mx-auto px-4">
-        {/* Content */}
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             See Your Content Come to Life
