@@ -1,5 +1,4 @@
-/* eslint-disable max-len */
-"use client";
+ 
 
 import { motion } from "framer-motion";
 import {
