@@ -280,6 +280,7 @@ export const siteConfig = {
         description: "Withdraw your earned rewards and cashback.",
         keywords: ["withdraw", "rewards", "cashback", "payout"],
       },
+      influencerMarketplace: "/influencer-marketplace",
     },
   },
   path: {
@@ -316,6 +317,7 @@ export const siteConfig = {
     signIn: "https://shopper.goripples.com/",
     logout: "/logout",
     withdraw: "/my-ripples/withdraw",
+    influencerMarketplace: "/influencer-marketplace",
     default: "*",
   },
   navItems: [

@@ -36,6 +36,12 @@ export default function BrandsJoined() {
           width={120}
         />
       </div>
+      {/* Custom Apps Text */}
+      <div className="flex items-center gap-2 text-gray-300 text-large lg:justify-start md:justify-center justify-center flex-wrap">
+        <span className="text-sm font-medium">
+          We also build custom apps for other platforms
+        </span>
+      </div>
     </div>
   );
 }

@@ -66,29 +66,34 @@ export default function ReferralCommissionCalculator() {
   const [calculationResult, setCalculationResult] = useState<CalculationResult>(
     DEFAULT_CALCULATION_RESULT
   );
-  const [validationErrors, setValidationErrors] = useState<ValidationErrors>({});
+  const [validationErrors, setValidationErrors] = useState<ValidationErrors>(
+    {}
+  );
 
-  const validateProfitMargin = useCallback((value: string): string | undefined => {
-    const numValue = Number.parseFloat(value);
-    
-    if (!value.trim()) {
-      return "Profit margin is required";
-    }
-    
-    if (isNaN(numValue)) {
-      return "Profit margin must be a valid number";
-    }
-    
-    if (numValue <= 0) {
-      return "Profit margin must be greater than 0";
-    }
-    
-    if (numValue > 100) {
-      return "Profit margin cannot exceed 100%";
-    }
-    
-    return undefined;
-  }, []);
+  const validateProfitMargin = useCallback(
+    (value: string): string | undefined => {
+      const numValue = Number.parseFloat(value);
+
+      if (!value.trim()) {
+        return "Profit margin is required";
+      }
+
+      if (isNaN(numValue)) {
+        return "Profit margin must be a valid number";
+      }
+
+      if (numValue <= 0) {
+        return "Profit margin must be greater than 0";
+      }
+
+      if (numValue > 100) {
+        return "Profit margin cannot exceed 100%";
+      }
+
+      return undefined;
+    },
+    []
+  );
 
   const handleInputChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -113,7 +118,7 @@ export default function ReferralCommissionCalculator() {
   const handleBlur = useCallback(
     (e: React.FocusEvent<HTMLInputElement>) => {
       const { name, value } = e.target;
-      
+
       if (name === "profitMargin" || name === "discountValue") {
         const error = validateProfitMargin(value);
         setValidationErrors((prev) => ({
@@ -345,7 +350,9 @@ export default function ReferralCommissionCalculator() {
                   <Input
                     required
                     className={`bg-white pr-8 text-black w-full ${
-                      validationErrors.profitMargin ? "border-red-500 focus:border-red-500" : ""
+                      validationErrors.profitMargin
+                        ? "border-red-500 focus:border-red-500"
+                        : ""
                     }`}
                     id="profitMargin"
                     name="profitMargin"
@@ -364,7 +371,9 @@ export default function ReferralCommissionCalculator() {
                 {validationErrors.profitMargin && (
                   <div className="flex items-center gap-2 text-red-400 text-sm mt-1">
                     <AlertCircle className="h-4 w-4 flex-shrink-0" />
-                    <span className="break-words">{validationErrors.profitMargin}</span>
+                    <span className="break-words">
+                      {validationErrors.profitMargin}
+                    </span>
                   </div>
                 )}
               </div>

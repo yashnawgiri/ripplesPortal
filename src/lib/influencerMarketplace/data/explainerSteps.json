@@ -1,0 +1,17 @@
+[
+  {
+    "icon": "ShoppingBag",
+    "title": "Shop",
+    "description": "Customer buys a product like usual. No extra steps, no complicated signup process."
+  },
+  {
+    "icon": "Camera",
+    "title": "Post",
+    "description": "They share content and tag the brand — tracked automatically through our smart detection system."
+  },
+  {
+    "icon": "DollarSign",
+    "title": "Earn",
+    "description": "They receive cashback via UPI or PayPal. The brand gets fresh UGC and authentic social proof."
+  }
+]

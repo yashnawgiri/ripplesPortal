@@ -1,0 +1,196 @@
+[
+  {
+    "username": "@sarah_styles",
+    "likes": "2.4K",
+    "caption": "Summer collection drop ✨",
+    "platform": "instagram",
+    "imageIndex": 0,
+    "isVideo": false
+  },
+  {
+    "username": "@mike_fashion",
+    "likes": "1.8K",
+    "caption": "OOTD vibes",
+    "platform": "reels",
+    "imageIndex": 1,
+    "isVideo": true
+  },
+  {
+    "username": "@style_queen",
+    "likes": "3.2K",
+    "caption": "New brand collab 💫",
+    "platform": "instagram",
+    "imageIndex": 2,
+    "isVideo": false
+  },
+  {
+    "username": "@trendy_tom",
+    "likes": "1.5K",
+    "caption": "Unboxing magic",
+    "platform": "tiktok",
+    "imageIndex": 3,
+    "isVideo": true
+  },
+  {
+    "username": "@fashion_forward",
+    "likes": "2.9K",
+    "caption": "Brand ambassador ❤️",
+    "platform": "reels",
+    "imageIndex": 4,
+    "isVideo": true
+  },
+  {
+    "username": "@creative_mind",
+    "likes": "2.1K",
+    "caption": "Behind the lens",
+    "platform": "instagram",
+    "imageIndex": 5,
+    "isVideo": false
+  },
+  {
+    "username": "@trend_hunter",
+    "likes": "3.7K",
+    "caption": "Style inspiration",
+    "platform": "reels",
+    "imageIndex": 6,
+    "isVideo": true
+  },
+  {
+    "username": "@fashion_insider",
+    "likes": "1.9K",
+    "caption": "Daily fashion tips",
+    "platform": "tiktok",
+    "imageIndex": 7,
+    "isVideo": true
+  },
+
+  {
+    "username": "@creator_life",
+    "likes": "4.1K",
+    "caption": "Behind the scenes",
+    "platform": "tiktok",
+    "imageIndex": 0,
+    "isVideo": true
+  },
+  {
+    "username": "@lifestyle_guru",
+    "likes": "2.7K",
+    "caption": "Product review 🔥",
+    "platform": "instagram",
+    "imageIndex": 1,
+    "isVideo": false
+  },
+  {
+    "username": "@content_king",
+    "likes": "3.5K",
+    "caption": "Viral moment!",
+    "platform": "reels",
+    "imageIndex": 2,
+    "isVideo": true
+  },
+  {
+    "username": "@brand_lover",
+    "likes": "1.9K",
+    "caption": "Shopping haul",
+    "platform": "tiktok",
+    "imageIndex": 3,
+    "isVideo": true
+  },
+  {
+    "username": "@style_inspo",
+    "likes": "2.1K",
+    "caption": "Outfit transition",
+    "platform": "reels",
+    "imageIndex": 4,
+    "isVideo": true
+  },
+  {
+    "username": "@fashion_curator",
+    "likes": "3.3K",
+    "caption": "Trend analysis",
+    "platform": "instagram",
+    "imageIndex": 5,
+    "isVideo": false
+  },
+  {
+    "username": "@style_master",
+    "likes": "2.8K",
+    "caption": "Fashion education",
+    "platform": "reels",
+    "imageIndex": 6,
+    "isVideo": true
+  },
+  {
+    "username": "@brand_ambassador",
+    "likes": "4.5K",
+    "caption": "Exclusive content",
+    "platform": "tiktok",
+    "imageIndex": 7,
+    "isVideo": true
+  },
+
+  {
+    "username": "@fashion_diary",
+    "likes": "1.7K",
+    "caption": "Daily look",
+    "platform": "instagram",
+    "imageIndex": 0,
+    "isVideo": false
+  },
+  {
+    "username": "@trend_setter",
+    "likes": "3.8K",
+    "caption": "Fashion week ready",
+    "platform": "reels",
+    "imageIndex": 1,
+    "isVideo": true
+  },
+  {
+    "username": "@style_maven",
+    "likes": "2.3K",
+    "caption": "Brand partnership",
+    "platform": "tiktok",
+    "imageIndex": 2,
+    "isVideo": true
+  },
+  {
+    "username": "@creator_hub",
+    "likes": "1.6K",
+    "caption": "Content creation",
+    "platform": "instagram",
+    "imageIndex": 3,
+    "isVideo": false
+  },
+  {
+    "username": "@fashion_fix",
+    "likes": "2.8K",
+    "caption": "Style tips",
+    "platform": "reels",
+    "imageIndex": 4,
+    "isVideo": true
+  },
+  {
+    "username": "@trend_spotter",
+    "likes": "3.1K",
+    "caption": "Emerging trends",
+    "platform": "tiktok",
+    "imageIndex": 5,
+    "isVideo": true
+  },
+  {
+    "username": "@style_guide",
+    "likes": "2.4K",
+    "caption": "Fashion advice",
+    "platform": "instagram",
+    "imageIndex": 6,
+    "isVideo": false
+  },
+  {
+    "username": "@creative_force",
+    "likes": "3.9K",
+    "caption": "Artistic expression",
+    "platform": "reels",
+    "imageIndex": 7,
+    "isVideo": true
+  }
+]
