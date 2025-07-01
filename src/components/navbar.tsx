@@ -35,7 +35,7 @@ export default function Navbar() {
     btn.href = siteConfig.path.signIn;
   }
 
-  // Helper function to render icon (either image URL or React component)
+  // Helper function to render icon (either image URL or React component) 
   const renderIcon = (icon: any, label: string) => {
     if (typeof icon === "string") {
       // It's an image URL
