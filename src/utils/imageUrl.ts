@@ -17,6 +17,7 @@ export const imageUrls = {
   flayer2: imageUrl + "flayer2.png",
   link: imageUrl + "link.webp",
   linkModal: imageUrl + "linkModal.png",
+  
   milestone: imageUrl + "milestone.png",
   notFound: imageUrl + "not-found.svg",
   promoImg: imageUrl + "promoImg.png",

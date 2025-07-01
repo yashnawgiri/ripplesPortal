@@ -346,6 +346,13 @@ export const siteConfig = {
           description:
             "Collect authentic user-generated content and reward creators with cashback",
         },
+        {
+          label: "Influencer Marketplace",
+          icon: "https://ripples1static.blob.core.windows.net/images/Influencer/marketPlace.svg",
+          href: "/influencer-marketplace",
+          description:
+            "Connect with a diverse range of influencers to amplify your brand's reach and engagement",
+        },
       ],
     },
     {
