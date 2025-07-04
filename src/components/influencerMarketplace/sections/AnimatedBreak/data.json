@@ -27,7 +27,7 @@
     "username": "@trendy_tom",
     "likes": "1.5K",
     "caption": "Unboxing magic",
-    "platform": "tiktok",
+    "platform": "facebook",
     "imageIndex": 3,
     "isVideo": true
   },
@@ -59,7 +59,7 @@
     "username": "@fashion_insider",
     "likes": "1.9K",
     "caption": "Daily fashion tips",
-    "platform": "tiktok",
+    "platform": "facebook",
     "imageIndex": 7,
     "isVideo": true
   },
@@ -68,7 +68,7 @@
     "username": "@creator_life",
     "likes": "4.1K",
     "caption": "Behind the scenes",
-    "platform": "tiktok",
+    "platform": "facebook",
     "imageIndex": 0,
     "isVideo": true
   },
@@ -92,7 +92,7 @@
     "username": "@brand_lover",
     "likes": "1.9K",
     "caption": "Shopping haul",
-    "platform": "tiktok",
+    "platform": "facebook",
     "imageIndex": 3,
     "isVideo": true
   },
@@ -124,7 +124,7 @@
     "username": "@brand_ambassador",
     "likes": "4.5K",
     "caption": "Exclusive content",
-    "platform": "tiktok",
+    "platform": "facebook",
     "imageIndex": 7,
     "isVideo": true
   },
@@ -149,7 +149,7 @@
     "username": "@style_maven",
     "likes": "2.3K",
     "caption": "Brand partnership",
-    "platform": "tiktok",
+    "platform": "facebook",
     "imageIndex": 2,
     "isVideo": true
   },
@@ -173,7 +173,7 @@
     "username": "@trend_spotter",
     "likes": "3.1K",
     "caption": "Emerging trends",
-    "platform": "tiktok",
+    "platform": "facebook",
     "imageIndex": 5,
     "isVideo": true
   },
