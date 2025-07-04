@@ -1,4 +1,4 @@
-// Remote creator images hosted on Azure Blob Storage
+/* eslint-disable max-len */
 
 export const LOCAL_CREATOR_IMAGES = [
   "https://ripples1static.blob.core.windows.net/images/Influencer/creator1.jpg",
@@ -24,11 +24,13 @@ export const LOCAL_CREATOR_IMAGES = [
 
 // Function to get a random remote image
 export function getRandomLocalCreatorImage(): string {
-  return LOCAL_CREATOR_IMAGES[Math.floor(Math.random() * LOCAL_CREATOR_IMAGES.length)];
+  return LOCAL_CREATOR_IMAGES[
+    Math.floor(Math.random() * LOCAL_CREATOR_IMAGES.length)
+  ];
 }
 
 // Function to get multiple random remote images
 export function getRandomLocalCreatorImages(count: number): string[] {
   const shuffled = [...LOCAL_CREATOR_IMAGES].sort(() => 0.5 - Math.random());
   return shuffled.slice(0, count);
-} 
+}

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import AnimatedBreak from "@/components/influencerMarketplace/sections/AnimatedBreak/AnimatedBreak";
 import DemoBlock from "@/components/influencerMarketplace/sections/DemoBlock/DemoBlock";
 import Explainer from "@/components/influencerMarketplace/sections/Explainer/Explainer";
@@ -15,7 +16,6 @@ const InfluencerMarketplace = () => {
       <div className="w-full mt-28">
         <main className="flex-grow items-center">
           <HeroSection />
-
           <AnimatedBreak />
           <SocialProof />
           <Explainer />
