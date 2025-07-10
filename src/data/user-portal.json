@@ -1,0 +1,93 @@
+{
+    "myRipples": {
+        "noRipples": {
+            "title1": "We don't see any Ripples links associated with your account",
+            "card1": {
+                "title": "Have you shared a link before?",
+                "description": "Contact us and we can help you track down the missing link",
+                "icon": "CartIcon"
+            },
+            "title2": "New to being a Rippler? Here's how to get started",
+            "cards": [
+                {
+                    "title": "Find a Ripples Merchant",
+                    "description": "You can find your favorite merchants here",
+                    "icon": "ShopIcon"
+                },
+                {
+                    "title": "Buy Something",
+                    "description": "You'll find your referral link after you've purchased.",
+                    "icon": "BagIcon"
+                },
+                {
+                    "title": "Share Your Link",
+                    "description": "Your friends get exclusive discounts when they use your link.",
+                    "icon": "MessageIcon"
+                },
+                {
+                    "title": "Get Paid",
+                    "description": "Every purchase with your link gets you cash back.",
+                    "icon": "MoneyRecieveIcon"
+                }
+            ]
+        } 
+    },
+    "faqDataUserPortal": [
+    {
+      "question": "1. How can I start earning cash rewards?",
+      "answer": "To start earning with Ripples, click on the \"Get Started\" button on the Ripples homepage and create an account using your email ID. Once logged in, access our partner brands' deals, generate referral links, and share them with your friends. You can also create social media content for additional rewards."
+    },
+    {
+      "question": "2. Do I need a bank account to start?",
+      "answer": "Yes, having a bank account is essential. Your earned profit is securely stored in your Ripples account until you transfer it to your bank account."
+    },
+    {
+      "question": "3. When and how do I get paid?",
+      "answer": "You earn a profit for each sale made through your link. \n After a sale, the profit is initially added to your account in a \"Pending\" status within 5 minutes to 72 hours. Depending on the retailer, it takes 14 to 30 days for the reward to move to \"Confirmed\" status. Once confirmed, you can transfer the profit to your bank account via the \"Wallet\" section."
+    },
+    {
+      "question": "4. Where should I share the deals?",
+      "answer": "Identify products that suit your audience's preferences and share the Profit Links on platforms like WhatsApp, Facebook, or Instagram."
+    },
+    {
+      "question": "5. How do I contact customer support?",
+      "answer": "You can chat with customer care or email support@ripples.com. Customer Support is available Monday to Friday, 10 AM to 6 PM IST. We guarantee a response within 48 hours."
+    },
+    {
+      "question": "6. What does Pending Cash mean?",
+      "answer": "Pending Cash refers to the Referral Cash Reward earned from a sale where the product is still within the return or cancellation period. Once the retailer confirms the sale, the cash reward is moved to your \"Confirmed Cash Balance.\" If the order is canceled, returned, or exchanged, the reward is canceled."
+    },
+    {
+      "question": "7. What does Confirmed Cash Reward mean?",
+      "answer": "Confirmed Cash Balance is the real money you can transfer to your bank account via NEFT."
+    },
+    {
+      "question": "8. How long does it take to receive my cash reward?",
+      "answer": "After a transaction, you’ll receive an email within 5 minutes to 48 hours showing the Pending Cash Reward. Once the return period ends and the retailer confirms the sale, the reward moves to Confirmed status. This process can take 48 hours to 30 days, depending on the retailer."
+    },
+    {
+      "question": "9. Where can I see my earnings?",
+      "answer": "Log in to your Ripples account and click on the \"Wallet\" icon in the top-right corner to view your earnings."
+    },
+    {
+      "question": "10. What is your payment policy? Are there any charges or restrictions?",
+      "answer": "Only Confirmed Cash Rewards can be transferred to your bank account. Pending Cash cannot be transferred until confirmed. Payments to Indian bank accounts are processed via NEFT without any charges and typically take 4-5 business days to reflect."
+    },
+    {
+      "question": "11. How do I request payment of my profit?",
+      "answer": "Go to the \"My Payments\" section in the \"Profile\" menu and click \"Request Payment.\" Ensure you have sufficient Confirmed Profit to make a request."
+    },
+    {
+      "question": "12. How long does it take to receive payments via NEFT?",
+      "answer": "NEFT payments are processed two times a week. Depending on your bank, the payment will reach your account within 4-5 business days from the request date."
+    },
+    {
+      "question": "13. How do I create Referral Links on Ripples?",
+      "answer": "Log in to your Ripples account, discover our partner merchants, visit their site, and create your referral link."
+    },
+    {
+      "question": "14. How do I earn cash rewards from Ripples referral links?",
+      "answer": "Share your Referral Links with potential buyers. The more purchases made through your links, the more cash rewards you earn. The profit is credited to your Ripples account once the retailer confirms the sale."
+    }
+  ]
+}

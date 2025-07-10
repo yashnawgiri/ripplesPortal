@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.gradiantCardContainer {
+    @apply flex sm:flex-row flex-col gap-4 gap-y-4 lg:justify-center lg:space-y-0;
+}
+
+.gradiantCard {
+    @apply lg:mx-4 mx-auto px-7 py-8 flex flex-col border border-[#0e1536] rounded-xl bg-gradient-to-tr from-[#0e194e] to-[#081d2d];
+}
+
+.cardTitle {
+    @apply pb-4 text-xl xl:text-3xl font-bold text-white;
+}
+
+.cardDescription {
+    @apply pb-2 xl:text-base text-gray-400;
+}

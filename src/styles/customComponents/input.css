@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.inputTitle {
+    @apply font-semibold mb-1 font-poppins;
+}
+
+.inputClass {
+    @apply w-full bg-primary font-poppins rounded-md border border-gray-700 focus:outline-none;
+}
+
+.inputFileLabel {
+    @apply flex justify-center underline items-center w-full h-12 px-4 py-2 bg-primary text-center font-poppins rounded-md border border-gray-700 focus:outline-none cursor-pointer hover:bg-gray-800;
+}

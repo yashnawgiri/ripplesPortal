@@ -1,0 +1,32 @@
+[
+  {
+    "icon": "Package",
+    "title": "Auto Product Seeding",
+    "description": "Send products to creators at scale with zero spreadsheet gymnastics. Smart matching ensures the right products reach the right creators."
+  },
+  {
+    "icon": "MessageSquare",
+    "title": "One-Click DMs",
+    "description": "Reach out to the right creators using smart, prebuilt automations. Personalized outreach that actually converts."
+  },
+  {
+    "icon": "Search",
+    "title": "Social Listening Suite",
+    "description": "Discover fans already talking about you and invite them to collaborate. Turn existing brand love into UGC campaigns."
+  },
+  {
+    "icon": "BarChart3",
+    "title": "Analytics & Reporting",
+    "description": "Track earned media value, engagement, and conversion — not just likes. Real ROI metrics that matter to your business."
+  },
+  {
+    "icon": "CreditCard",
+    "title": "Commission & Payouts",
+    "description": "Set flat or percentage payouts. We handle the rest — taxes included. Automated payments via UPI, PayPal, and bank transfers."
+  },
+  {
+    "icon": "Shield",
+    "title": "Content Moderation",
+    "description": "UGC posts are auto-checked to match brand guidelines before approval. Maintain brand consistency at scale."
+  }
+]

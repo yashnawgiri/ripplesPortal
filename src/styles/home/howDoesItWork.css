@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.outerContainer {
+    @apply hidden sm:flex max-w-7xl flex-col border border-[#282D45] md:rounded-xl bg-gradient-to-br from-[#0e194e] to-[#0c3345] p-10 mt-14;
+}
+
+.title {
+    @apply font-bold w-full text-4xl lg:text-5xl bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400;
+}
+
+.description {
+    @apply w-full mt-6 mb-6 md:mb-16 text-base text-gray-400;
+}
+
+.innerContainer {
+    @apply flex flex-wrap md:justify-between justify-center gap-8 pb-2 relative;
+}
+
+.secondContainer {
+    @apply flex flex-col items-center mx-auto text-center relative;
+}
+
+.cardNumber {
+    @apply flex items-center justify-center w-20 h-20 rounded-full bg-[#292D43] mb-4;
+}
+
+.cardDescription {
+    @apply text-base text-gray-400 max-w-64 leading-relaxed;
+}
+
+.swiperContainer {
+    @apply flex flex-col items-center mx-auto text-center w-72 rounded ;
+}

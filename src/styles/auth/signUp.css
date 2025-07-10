@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.signUpHeader {
+    @apply text-xl lg:text-2xl font-extrabold font-poppins text-center leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400;
+}
+
+.signUpSubtext {
+    @apply font-poppins text-sm pt-2;
+}
+
+.signUpButton {
+    @apply bg-secondary mx-auto w-full mt-4 py-4;
+}
+
+.signUpGoogleButton {
+    @apply flex justify-center bg-white mx-auto w-full mt-4 space-x-3 py-4;
+}
+
+.signUpGoogleText {
+    @apply flex justify-center font-poppins text-black space-x-2;
+}

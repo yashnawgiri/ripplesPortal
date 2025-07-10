@@ -1,0 +1,112 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and deploy Node.js app to Azure Web App - ripples-portal-stg
+
+on:
+  push:
+    branches:
+      - develop
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: 'Stage'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js version
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+
+      - name: Create env file
+        run: |
+          touch .env
+          echo 'VITE_API_BASE_URL=${{ vars.VITE_API_BASE_URL }}' >> .env
+
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npm run build --if-present
+          npm run test --if-present
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v4
+        with:
+          name: node-app
+          path: dist
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'Stage'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    permissions:
+      id-token: write #This is required for requesting the JWT
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: node-app
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_0919E9744C27487AB8CBFE782EDA87F3 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_40142D67E6634772AB1E56B8D2C1C5B5 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_7BEA3C90F90B4930A364A6C5A3E40FBE }}
+
+      - name: 'Deploy to Azure Web App'
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'ripples-portal-stg'
+          slot-name: 'Production'
+          package: .
+
+      - name: Send Slack Notification
+        if: always() # Runs regardless of success or failure
+        uses: slackapi/slack-github-action@v2.0.0
+        with:
+          webhook: ${{ secrets.SLACK_RELEASE_WEBHOOK_URL }}
+          webhook-type: incoming-webhook
+          payload: |
+            {
+              "text": "Deployment Status for ${{ github.repository }}",
+              "attachments": [
+                {
+                  "color": "${{ job.status == 'success' && '#36a64f' || '#ff0000' }}",
+                  "title": "🚀 Deployment Status: *${{ job.status }}*",
+                  "fields": [
+                    {
+                      "title": "🔗 Repository",
+                      "value": "<https://github.com/${{ github.repository }}|${{ github.repository }}>",
+                      "short": true
+                    },
+                    {
+                      "title": "🌿 Branch",
+                      "value": "${{ github.ref_name }}",
+                      "short": true
+                    },
+                    {
+                      "title": "🔀 Commit",
+                      "value": "<https://github.com/${{ github.repository }}/commit/${{ github.sha }}|${{ github.sha }}>",
+                      "short": true
+                    },
+                    {
+                      "title": "🌐 Deployed URL",
+                      "value": "<${{ steps.deploy-to-webapp.outputs.webapp-url }}|Visit Deployment>",
+                      "short": false
+                    }
+                  ],
+                  "footer": "GitHub Actions | Azure Deployment",
+                  "ts": "${{ github.event.repository.pushed_at }}"
+                }
+              ]
+            }
