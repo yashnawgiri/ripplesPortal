@@ -63,13 +63,12 @@
     "imageIndex": 7,
     "isVideo": true
   },
-
   {
     "username": "@creator_life",
     "likes": "4.1K",
     "caption": "Behind the scenes",
     "platform": "facebook",
-    "imageIndex": 0,
+    "imageIndex": 8,
     "isVideo": true
   },
   {
@@ -77,7 +76,7 @@
     "likes": "2.7K",
     "caption": "Product review 🔥",
     "platform": "instagram",
-    "imageIndex": 1,
+    "imageIndex": 9,
     "isVideo": false
   },
   {
@@ -85,7 +84,7 @@
     "likes": "3.5K",
     "caption": "Viral moment!",
     "platform": "reels",
-    "imageIndex": 2,
+    "imageIndex": 10,
     "isVideo": true
   },
   {
@@ -93,7 +92,7 @@
     "likes": "1.9K",
     "caption": "Shopping haul",
     "platform": "facebook",
-    "imageIndex": 3,
+    "imageIndex": 11,
     "isVideo": true
   },
   {
@@ -101,7 +100,7 @@
     "likes": "2.1K",
     "caption": "Outfit transition",
     "platform": "reels",
-    "imageIndex": 4,
+    "imageIndex": 12,
     "isVideo": true
   },
   {
@@ -109,7 +108,7 @@
     "likes": "3.3K",
     "caption": "Trend analysis",
     "platform": "instagram",
-    "imageIndex": 5,
+    "imageIndex": 13,
     "isVideo": false
   },
   {
@@ -117,7 +116,7 @@
     "likes": "2.8K",
     "caption": "Fashion education",
     "platform": "reels",
-    "imageIndex": 6,
+    "imageIndex": 14,
     "isVideo": true
   },
   {
@@ -125,16 +124,15 @@
     "likes": "4.5K",
     "caption": "Exclusive content",
     "platform": "facebook",
-    "imageIndex": 7,
+    "imageIndex": 15,
     "isVideo": true
   },
-
   {
     "username": "@fashion_diary",
     "likes": "1.7K",
     "caption": "Daily look",
     "platform": "instagram",
-    "imageIndex": 0,
+    "imageIndex": 16,
     "isVideo": false
   },
   {
@@ -142,7 +140,7 @@
     "likes": "3.8K",
     "caption": "Fashion week ready",
     "platform": "reels",
-    "imageIndex": 1,
+    "imageIndex": 17,
     "isVideo": true
   },
   {
@@ -150,7 +148,7 @@
     "likes": "2.3K",
     "caption": "Brand partnership",
     "platform": "facebook",
-    "imageIndex": 2,
+    "imageIndex": 18,
     "isVideo": true
   },
   {
@@ -158,7 +156,7 @@
     "likes": "1.6K",
     "caption": "Content creation",
     "platform": "instagram",
-    "imageIndex": 3,
+    "imageIndex": 19,
     "isVideo": false
   },
   {
@@ -166,7 +164,7 @@
     "likes": "2.8K",
     "caption": "Style tips",
     "platform": "reels",
-    "imageIndex": 4,
+    "imageIndex": 20,
     "isVideo": true
   },
   {
@@ -174,7 +172,7 @@
     "likes": "3.1K",
     "caption": "Emerging trends",
     "platform": "facebook",
-    "imageIndex": 5,
+    "imageIndex": 21,
     "isVideo": true
   },
   {
@@ -182,7 +180,7 @@
     "likes": "2.4K",
     "caption": "Fashion advice",
     "platform": "instagram",
-    "imageIndex": 6,
+    "imageIndex": 22,
     "isVideo": false
   },
   {
@@ -190,7 +188,79 @@
     "likes": "3.9K",
     "caption": "Artistic expression",
     "platform": "reels",
-    "imageIndex": 7,
+    "imageIndex": 23,
+    "isVideo": true
+  },
+  {
+    "username": "@fashion_icon",
+    "likes": "2.6K",
+    "caption": "Iconic moments",
+    "platform": "instagram",
+    "imageIndex": 24,
+    "isVideo": false
+  },
+  {
+    "username": "@trend_maker",
+    "likes": "3.4K",
+    "caption": "Setting trends",
+    "platform": "reels",
+    "imageIndex": 25,
+    "isVideo": true
+  },
+  {
+    "username": "@style_innovator",
+    "likes": "2.0K",
+    "caption": "Innovative style",
+    "platform": "facebook",
+    "imageIndex": 26,
+    "isVideo": true
+  },
+  {
+    "username": "@creator_star",
+    "likes": "4.2K",
+    "caption": "Star creator",
+    "platform": "instagram",
+    "imageIndex": 27,
+    "isVideo": false
+  },
+  {
+    "username": "@fashion_pioneer",
+    "likes": "2.9K",
+    "caption": "Pioneering fashion",
+    "platform": "reels",
+    "imageIndex": 28,
+    "isVideo": true
+  },
+  {
+    "username": "@style_visionary",
+    "likes": "3.6K",
+    "caption": "Visionary style",
+    "platform": "facebook",
+    "imageIndex": 29,
+    "isVideo": true
+  },
+  {
+    "username": "@brand_creator",
+    "likes": "2.2K",
+    "caption": "Brand love",
+    "platform": "instagram",
+    "imageIndex": 30,
+    "isVideo": false
+  },
+  {
+    "username": "@content_creator",
+    "likes": "3.8K",
+    "caption": "Amazing content",
+    "platform": "reels",
+    "imageIndex": 31,
+    "isVideo": true
+  },
+  {
+    "username": "@fashion_enthusiast",
+    "likes": "2.5K",
+    "caption": "Fashion passion",
+    "platform": "facebook",
+    "imageIndex": 32,
     "isVideo": true
   }
 ]

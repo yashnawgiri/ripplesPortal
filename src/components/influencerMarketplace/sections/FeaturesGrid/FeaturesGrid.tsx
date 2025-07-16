@@ -10,10 +10,10 @@ export default function FeaturesGrid() {
   };
 
   return (
-    <section className="py-16 lg:py-24 bg-[#0B011B]">
+    <section className="py-8 lg:py-24 bg-[#0B011B]">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 lg:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             Built for Hands-Free Growth
           </h2>
@@ -25,7 +25,7 @@ export default function FeaturesGrid() {
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 text-center lg:text-left">
           {FEATURES_DATA.map((feature, index) => {
             const Icon = iconMap[feature.icon as keyof typeof iconMap];
             return (
@@ -40,7 +40,7 @@ export default function FeaturesGrid() {
         </div>
 
         {/* Bottom CTA Section */}
-        <div className="mt-16 text-center">
+        <div className="mt-8 lg:mt-16 text-center">
           <div className="bg-[#18082A] rounded-3xl p-8 md:p-12 border border-[#2E1A47]">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
               Ready to Automate Your Growth?

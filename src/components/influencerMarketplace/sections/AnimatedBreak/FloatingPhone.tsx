@@ -1,28 +1,21 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import {
-  Heart,
-  MessageCircle,
-  Share2,
-  Bookmark,
-  Play,
-  MoreHorizontal,
-} from "lucide-react";
+import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
+import { Play } from "lucide-react"
 
 interface FloatingPhoneProps {
-  delay: number;
+  delay: number
   content: {
-    image: string;
-    username: string;
-    likes: string;
-    caption: string;
-    platform: "instagram" | "facebook" | "reels";
-    isVideo?: boolean;
-    profileImage?: string;
-  };
-  className?: string;
-  size?: "small" | "medium" | "large";
-  animationDuration?: number;
+    image: string
+    username: string
+    likes: string
+    caption: string
+    platform: "instagram" | "facebook" | "reels"
+    isVideo?: boolean
+    profileImage?: string
+  }
+  className?: string
+  size?: "small" | "medium" | "large"
+  animationDuration?: number
 }
 
 export default function FloatingPhone({
@@ -36,20 +29,20 @@ export default function FloatingPhone({
     small: "w-32 h-64",
     medium: "w-40 h-80",
     large: "w-44 h-88",
-  };
+  }
 
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768)
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
 
   // Dynamically adjust animation parameters for mobile
-  const scrollDistance = isMobile ? -1000 : -2000;
-  const scrollSpeed = isMobile ? 30 : animationDuration;
+  const scrollDistance = isMobile ? -1000 : -2000
+  const scrollSpeed = isMobile ? 30 : animationDuration
 
   return (
     <motion.div
@@ -70,15 +63,12 @@ export default function FloatingPhone({
           ease: "linear",
           delay: delay * 0.5,
         }}
-        className={`relative ${sizeClasses[size]} bg-black rounded-[1.75rem] p-1 shadow-2xl`}
+        className={`relative ${sizeClasses[size]} overflow-hidden rounded-lg shadow-2xl`}
         style={{
-          background: "linear-gradient(145deg, #2a2a2a, #1a1a1a)",
-          boxShadow:
-            "0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.1)",
+          boxShadow: "0 20px 40px rgba(0,0,0,0.4)",
         }}
       >
-        <div className="w-full h-full bg-black rounded-[1.5rem] overflow-hidden relative">
-          <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-16 h-6 bg-black rounded-full z-30"></div>
+        <div className="w-full h-full overflow-hidden relative">
 
           <div className="h-full relative">
             {/* Background Image */}
@@ -89,9 +79,9 @@ export default function FloatingPhone({
                 className="w-full h-full object-cover"
                 loading="lazy"
                 onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.onerror = null;
-                  target.src = "/placeholder.svg";
+                  const target = e.target as HTMLImageElement
+                  target.onerror = null
+                  target.src = "/placeholder.svg"
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
@@ -105,29 +95,25 @@ export default function FloatingPhone({
               )}
             </div>
 
-            {/* Top Bar */}
-            <div className="absolute top-0 left-0 right-0 z-20 pt-8">
-              {(content.platform === "reels" ||
-                content.platform === "facebook") && (
+            {/* Top Bar - Commented out */}
+            {/* <div className="absolute top-0 left-0 right-0 z-20 pt-8">
+              {(content.platform === "reels" || content.platform === "facebook") && (
                 <div className="flex items-center justify-between px-4 py-2">
-                  <div className="flex items-center">
-                    <span className="text-white text-sm font-medium">
-                      {content.username}
-                    </span>
+                  <div className="flex items-center"> 
+                    <span className="text-white text-sm font-medium">{content.username}</span>
                   </div>
                   <MoreHorizontal className="w-5 h-5 text-white" />
                 </div>
               )}
-            </div>
+            </div> */}
 
-            {/* Bottom UI */}
-            <div className="absolute bottom-0 left-0 right-0 z-20">
+            {/* Bottom UI - Commented out */}
+            {/* <div className="absolute bottom-0 left-0 right-0 z-20">
               {content.platform === "instagram" && (
                 <div className="bg-gradient-to-t from-black/80 to-transparent p-4">
                   <div className="flex items-center mb-3">
-                    <span className="text-white text-sm font-medium">
-                      {content.username}
-                    </span>
+                   
+                    <span className="text-white text-sm font-medium">{content.username}</span>
                   </div>
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center space-x-4">
@@ -137,21 +123,16 @@ export default function FloatingPhone({
                     </div>
                     <Bookmark className="w-6 h-6 text-white" />
                   </div>
-                  <div className="text-white text-sm font-medium mb-1">
-                    {content.likes} likes
-                  </div>
+                  <div className="text-white text-sm font-medium mb-1">{content.likes} likes</div>
                 </div>
               )}
 
-              {(content.platform === "reels" ||
-                content.platform === "facebook") && (
+              {(content.platform === "reels" || content.platform === "facebook") && (
                 <>
                   <div className="absolute right-4 bottom-20 flex flex-col items-center space-y-4">
                     <div className="flex flex-col items-center">
                       <Heart className="w-7 h-7 text-white mb-1" />
-                      <span className="text-white text-xs">
-                        {content.likes}
-                      </span>
+                      <span className="text-white text-xs">{content.likes}</span>
                     </div>
                     <div className="flex flex-col items-center">
                       <MessageCircle className="w-7 h-7 text-white mb-1" />
@@ -166,31 +147,28 @@ export default function FloatingPhone({
                   <div className="bg-gradient-to-t from-black/80 to-transparent p-4">
                     <div className="flex items-center">
                       <div className="w-6 h-6 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full mr-2"></div>
-                      <span className="text-white text-sm">
-                        {content.username}
-                      </span>
+                      <span className="text-white text-sm">{content.username}</span>
                     </div>
-                    <p className="text-white text-sm mt-1 opacity-90">
-                      {content.caption}
-                    </p>
+                    <p className="text-white text-sm mt-1 opacity-90">{content.caption}</p>
                   </div>
                 </>
               )}
-            </div>
+            </div> */}
 
-            {content.platform === "facebook" && (
+            {/* Facebook logo - Commented out */}
+            {/* {content.platform === "facebook" && (
               <div className="absolute top-12 right-4 z-20">
                 <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
                   <span className="text-white text-sm font-bold">f</span>
                 </div>
               </div>
-            )}
+            )} */}
           </div>
         </div>
 
-        {/* Phone reflection */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-[1.75rem] pointer-events-none"></div>
+        {/* Phone reflection - Commented out */}
+        {/* <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-[1.75rem] pointer-events-none"></div> */}
       </motion.div>
     </motion.div>
-  );
+  )
 }

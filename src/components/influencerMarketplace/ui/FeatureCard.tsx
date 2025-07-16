@@ -18,9 +18,9 @@ export default function FeatureCard({
       <div className="absolute inset-0 bg-gradient-to-r from-[#EF3AF1]/5 to-[#6244F5]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
 
       {/* Content */}
-      <div className="relative z-10">
+      <div className="relative z-10 text-center lg:text-left">
         {/* Icon */}
-        <div className="w-12 h-12 bg-gradient-to-r from-[#EF3AF1]/20 to-[#6244F5]/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-[#2E1A47]">
+        <div className="w-12 h-12 bg-gradient-to-r from-[#EF3AF1]/20 to-[#6244F5]/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-[#2E1A47] mx-auto lg:mx-0">
           <Icon className="h-6 w-6 text-[#EF3AF1]" />
         </div>
 

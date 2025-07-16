@@ -14,7 +14,7 @@ export default function FinalCTA() {
   return (
     <section
       id="cta"
-      className="relative py-20 lg:py-32 overflow-hidden bg-custom-radial"
+      className="relative py-12 lg:py-24 overflow-hidden bg-custom-radial"
     >
       {/* Animated Background */}
       <div className="absolute inset-0 bg-custom-radial2"></div>
@@ -34,31 +34,31 @@ export default function FinalCTA() {
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-8 animate-fadeIn">
+      <div className="container mx-auto px-6 lg:px-4 relative z-10">
+        <div className="max-w-4xl mx-auto text-center space-y-6 lg:space-y-8 animate-fadeIn">
           {/* Headline */}
-          <div className="space-y-6">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight font-poppins">
+          <div className="space-y-4 lg:space-y-6">
+            <h2 className="text-3xl mb-2 md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight font-poppins">
               Ready to turn every{" "}
               <span className="relative">
-                <span className="text-custom-gradient">shopper</span>
-                <div className="absolute -bottom-2 left-0 right-0 h-1 bg-custom-gradient rounded-full opacity-60"></div>
-              </span>{" "}
+                <span className="text-custom-gradient mb-2 z-10">shopper</span>
+                <div className="absolute -bottom-1 z-0 left-0 right-0 h-1 bg-custom-gradient rounded-full opacity-60"></div>
+              </span>{" "} {" "}
               into a{" "}
               <span className="relative">
-                <span className="text-custom-gradient">creator?</span>
-                <div className="absolute -bottom-2 left-0 right-0 h-1 bg-custom-gradient rounded-full opacity-60"></div>
+                <span className="text-custom-gradient mt-2">creator?</span>
+                <div className="absolute -bottom-1 left-0 right-0 h-1 bg-custom-gradient rounded-full opacity-60"></div>
               </span>
             </h2>
 
-            <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed font-medium">
+            <p className="text-lg md:text-2xl text-white max-w-3xl mx-auto leading-relaxed font-medium">
               Plug into Ripples. Let your community do the marketing — we'll
               handle the automation, tracking, and payouts.
             </p>
           </div>
 
           {/* CTA Button */}
-          <div className="space-y-6">
+          <div className="space-y-4 lg:space-y-6">
             <Button
               size="lg"
               onClick={handleBookDemo}
@@ -66,7 +66,7 @@ export default function FinalCTA() {
               onMouseLeave={() => setIsHovered(false)}
               className={`
                 relative overflow-hidden bg-custom-gradient hover:glow-custom
-                text-white px-12 py-6 text-xl font-bold shadow-3xl transition-all duration-300 transform hover:scale-110 border-0 font-poppins
+                text-white px-6 md:px-12 py-4 md:py-6 text-lg md:text-xl font-bold shadow-3xl transition-all duration-300 transform hover:scale-110 border-0 font-poppins w-full max-w-sm md:max-w-none mx-auto
                 ${isHovered ? "glow-custom" : ""}
               `}
             >
@@ -86,15 +86,15 @@ export default function FinalCTA() {
             </Button>
 
             {/* Caption */}
-            <p className="text-white text-lg font-medium">
+            <p className="text-white text-base md:text-lg font-medium">
               Takes 2 minutes. No credit card required. See results in your
               first campaign.
             </p>
           </div>
 
           {/* Social Proof Elements */}
-          <div className="pt-8 border-t border-[#2E1A47]">
-            <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 text-[#CFCFCF]">
+          <div className="pt-6 lg:pt-8 border-t border-[#2E1A47] text-white">
+            <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 text-white">
               <div className="flex items-center space-x-2 animate-fadeIn">
                 <div className="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
                 <span className="text-sm">500+ brands already growing</span>
