@@ -1,24 +1,25 @@
-import { useEffect, useState } from "react"
-import { motion } from "framer-motion"
-import { Play } from "lucide-react"
+import { useEffect, useState, memo } from "react";
+import { motion } from "framer-motion";
+import { Play } from "lucide-react";
+import MemoizedImage from "@/components/ui/MemoizedImages";
 
 interface FloatingPhoneProps {
-  delay: number
+  delay: number;
   content: {
-    image: string
-    username: string
-    likes: string
-    caption: string
-    platform: "instagram" | "facebook" | "reels"
-    isVideo?: boolean
-    profileImage?: string
-  }
-  className?: string
-  size?: "small" | "medium" | "large"
-  animationDuration?: number
+    image: string;
+    username: string;
+    likes: string;
+    caption: string;
+    platform: "instagram" | "facebook" | "reels";
+    isVideo?: boolean;
+    profileImage?: string;
+  };
+  className?: string;
+  size?: "small" | "medium" | "large";
+  animationDuration?: number;
 }
 
-export default function FloatingPhone({
+const FloatingPhone = memo(function FloatingPhone({
   delay,
   content,
   className = "",
@@ -29,20 +30,20 @@ export default function FloatingPhone({
     small: "w-32 h-64",
     medium: "w-40 h-80",
     large: "w-44 h-88",
-  }
+  };
 
-  const [isMobile, setIsMobile] = useState(false)
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 768)
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
-    return () => window.removeEventListener("resize", checkMobile)
-  }, [])
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   // Dynamically adjust animation parameters for mobile
-  const scrollDistance = isMobile ? -1000 : -2000
-  const scrollSpeed = isMobile ? 30 : animationDuration
+  const scrollDistance = isMobile ? -1000 : -2000;
+  const scrollSpeed = isMobile ? 30 : animationDuration;
 
   return (
     <motion.div
@@ -69,20 +70,14 @@ export default function FloatingPhone({
         }}
       >
         <div className="w-full h-full overflow-hidden relative">
-
           <div className="h-full relative">
             {/* Background Image */}
-            <div className="absolute inset-0">
-              <img
+            <div className="absolute inset-0 flex items-center justify-center">
+              <MemoizedImage
                 src={content.image}
                 alt="Creator content"
-                className="w-full h-full object-cover"
+                className="max-w-full max-h-full object-contain rounded-lg"
                 loading="lazy"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement
-                  target.onerror = null
-                  target.src = "/placeholder.svg"
-                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
 
@@ -170,5 +165,7 @@ export default function FloatingPhone({
         {/* <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-[1.75rem] pointer-events-none"></div> */}
       </motion.div>
     </motion.div>
-  )
-}
+  );
+});
+
+export default FloatingPhone;
