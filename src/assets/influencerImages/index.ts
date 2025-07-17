@@ -30,6 +30,11 @@ export const LOCAL_CREATOR_IMAGES = [
   "https://res.cloudinary.com/dcgrzxf9v/image/upload/v1752660983/Mockup_bnlkgr.png",
   "https://res.cloudinary.com/dcgrzxf9v/image/upload/v1752660983/Mockup_1_fqoeka.png",
   "https://res.cloudinary.com/dcgrzxf9v/image/upload/v1752660982/Feed_Post_-_Sponsored_wlhjvw.png",
+  "https://res.cloudinary.com/dcgrzxf9v/image/upload/v1752729912/WhatsApp_Image_2025-07-17_at_10.28.12_ff16ac01_ytbel7.jpg",
+  "https://res.cloudinary.com/dcgrzxf9v/image/upload/v1752729912/WhatsApp_Image_2025-07-17_at_10.28.11_a8c979e4_qd8kpx.jpg",
+  "https://res.cloudinary.com/dcgrzxf9v/image/upload/v1752729912/WhatsApp_Image_2025-07-17_at_10.28.11_1e003766_r4pdnl.jpg",
+  "https://res.cloudinary.com/dcgrzxf9v/image/upload/v1752729912/WhatsApp_Image_2025-07-17_at_10.28.12_4c1a50d6_weldja.jpg",
+  "https://res.cloudinary.com/dcgrzxf9v/image/upload/v1752729912/WhatsApp_Image_2025-07-17_at_10.28.11_6fa857f9_v9nzsb.jpg",
 ];
 
 // Function to get a random remote image (keeping for future use)

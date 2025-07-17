@@ -3,12 +3,15 @@ import { useEffect, useRef, useState, useMemo } from "react"
 import { motion, useReducedMotion } from "framer-motion"
 import FloatingPhone from "./FloatingPhone"
 import { LOCAL_CREATOR_IMAGES } from "@/assets/influencerImages"
-import phoneData from "./data.json"
 
-const PHONE_CONTENT = phoneData.map(item => ({
-  ...item,
-  image: LOCAL_CREATOR_IMAGES[item.imageIndex % LOCAL_CREATOR_IMAGES.length],
-  platform: item.platform as "instagram" | "facebook" | "reels"
+// Generate phone content directly from images
+const PHONE_CONTENT = LOCAL_CREATOR_IMAGES.map((image, index) => ({
+  image,
+  username: `@creator_${index + 1}`,
+  likes: `${Math.floor(Math.random() * 5) + 1}.${Math.floor(Math.random() * 9)}K`,
+  caption: `Amazing content ${index + 1} ✨`,
+  platform: ["instagram", "facebook", "reels"][index % 3] as "instagram" | "facebook" | "reels",
+  isVideo: index % 2 === 0
 }))
 
 const MOBILE_CONFIG = {
@@ -21,7 +24,7 @@ const MOBILE_CONFIG = {
 
 const DESKTOP_CONFIG = {
   phoneCount: 6,
-  animationDuration: 40,
+  animationDuration: 60,
   verticalSpacing: 100,
   horizontalSpacing: 80,
   delay: 0,
@@ -62,13 +65,14 @@ export default function AnimatedBreak() {
   const desktopPhones = useMemo(() => {
     const phones = []
     const totalPhones = PHONE_CONTENT.length
-    const repetitions = 3 // Number of times to repeat the content for smooth looping
+    const repetitions = 6 // Increased repetitions for more continuous flow
 
     for (let r = 0; r < repetitions; r++) {
       for (let i = 0; i < totalPhones; i++) {
         phones.push({
           ...PHONE_CONTENT[i],
-          delay: (i % DESKTOP_CONFIG.phoneCount) * 0.2 // Stagger the animations
+          delay: (i % DESKTOP_CONFIG.phoneCount) * 0.3 + (r * 0.1), // Stagger the animations with row variation
+          row: r // Add row info for positioning
         })
       }
     }
@@ -206,7 +210,19 @@ export default function AnimatedBreak() {
               {/* Top blur gradient */}
               <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#0B011B] to-transparent z-10" />
               
-              <div className="absolute inset-0 flex flex-wrap justify-center items-center gap-8">
+              <motion.div 
+                className="absolute inset-0 flex flex-wrap justify-center items-center gap-8"
+                animate={{ 
+                  y: [0, -100, 0],
+                  x: [0, 20, 0]
+                }}
+                transition={{
+                  duration: DESKTOP_CONFIG.animationDuration,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }}
+              >
                 {desktopPhones.map((content, index) => (
                   <FloatingPhone
                     key={`desktop-${index}`}
@@ -217,7 +233,7 @@ export default function AnimatedBreak() {
                     className="transform-gpu will-change-transform"
                   />
                 ))}
-              </div>
+              </motion.div>
 
               {/* Bottom blur gradient */}
               <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0B011B] to-transparent z-10" />
